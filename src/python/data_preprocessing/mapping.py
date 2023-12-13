@@ -41,4 +41,5 @@ for df in dfs.keys():
     if mapped.isna().sum().sum() != 0:
         mapped['absent_' + df] = (mapped.isna().sum(axis=1) > 0 ).astype(int)
         mapped.replace(np.nan, 0, inplace=True)
+    print(df, mapped.shape)
     mapped.to_csv(output_path + '/' + 'mapped_' + df)
