@@ -39,15 +39,13 @@ combined_df.reset_index(inplace=True)
 
 combined_df.columns = combined_df.columns.get_level_values(1)
 
-combined_df = combined_df.iloc[:, 2:]
-
 # Drop duplicate columns
 combined_df = combined_df.loc[:,~combined_df.columns.duplicated()]
 
-# Reset the index if needed
-combined_df.reset_index(inplace=True)
 
-combined_df.drop(columns=['index', 'isin', 'Unnamed: 0'], inplace=True)
+combined_df.drop(columns=['Unnamed: 0'], inplace=True)
+
+combined_df.rename(columns={'': 'id'}, inplace=True)
 
 # output to path
-combined_df.to_csv(output_path + '/' + 'combined.csv')
+combined_df.to_csv(output_path + '/' + 'cdp_combined.csv', index=False)

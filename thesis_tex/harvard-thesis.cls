@@ -14,7 +14,6 @@
 \LoadClass[12pt, oneside, letterpaper]{book}
 
 
-
 % Required packages
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
@@ -69,11 +68,13 @@
 \RequirePackage[width=5in, letterpaper]{geometry}
 
 \RequirePackage{fancyhdr} 
+\RequirePackage{tikz}
 \pagestyle{plain} % options: empty , plain , fancy
 \RequirePackage[palatino]{quotchap}
 \definecolor{chaptergrey}{rgb}{0.6,0,0}
 \RequirePackage{titling}
 \RequirePackage{setspace} 
+\RequirePackage{forest}
 \RequirePackage{booktabs} % for much better looking tables
 \RequirePackage[labelfont={sf,bf,small},textfont={sf,small},justification=RaggedRight,margin=0pt, figurewithin=section, tablewithin=section]{caption}
 \onehalfspacing

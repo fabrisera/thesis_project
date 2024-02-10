@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Andrew2011Accounting}
 J.~Andrew and C.~Cortese.
@@ -6,17 +6,93 @@ J.~Andrew and C.~Cortese.
   disclosures.
 \newblock {\em Accounting Forum}, 35:130 -- 138, 2011.
 
-\bibitem{Fleiter}
-T.~Fleiter, Matthias Rehfeldt, A.~Herbst, Rainer Elsland, Anna-Lena Klingler,
-  P.~Manz, and S.~Eidelloth.
-\newblock A methodology for bottom-up modelling of energy transitions in the
-  industry sector: The forecast model.
-\newblock {\em Energy Strategy Reviews}, 2018.
+\bibitem{Bernoville2022Scopes}
+Tara Bernoville.
+\newblock What are scopes 1, 2 and 3 of carbon emissions?
+\newblock \url{https://plana.earth/academy/what-are-scope-1-2-3-emissions},
+  June 2022.
+\newblock Accessed: 2024-01-30.
 
-\bibitem{Lloyd}
-Charlotte Lloyd.
-\newblock {LITERATURE REVIEWS FOR SOCIOLOGY SENIOR THESES}.
-\newblock Technical report.
+\bibitem{BHATT2023100095}
+Harsh Bhatt, Manan Davawala, Tanmay Joshi, Manan Shah, and Ashish Unnarkat.
+\newblock Forecasting and mitigation of global environmental carbon dioxide
+  emission using machine learning techniques.
+\newblock {\em Cleaner Chemical Engineering}, 5:100095, 2023.
+
+\bibitem{CDP2022ScoringPDF}
+{Carbon Disclosure Project}.
+\newblock {CDP Scoring 2022: Short Explainer}.
+\newblock
+  \url{https://cdn.cdp.net/cdp-production/comfy/cms/files/files/000/006/703/original/Scoring_2022_-_short_explainer.pdf},
+  2022.
+\newblock Accessed: 2024-01-30.
+
+\bibitem{CDPMain2024}
+{CDP}.
+\newblock Cdp - environmental reporting for companies, cities, states, and
+  regions.
+\newblock \url{https://www.cdp.net/en}, 2024.
+\newblock [Online; accessed 30-January-2024].
+
+\bibitem{CDP2024}
+{CDP}.
+\newblock Guidance for companies.
+\newblock \url{https://www.cdp.net/en/guidance/guidance-for-companies}, 2024.
+\newblock [Online; accessed 30-January-2024].
+
+\bibitem{GeneralMotorsWikipedia}
+Wikipedia contributors.
+\newblock General motors --- wikipedia{,} the free encyclopedia, 2024.
+\newblock [Online; accessed 1-February-2024].
+
+\bibitem{Cotter2012Institutional}
+Julie Cotter and Muftah~M. Najah.
+\newblock Institutional investor influence on global climate change disclosure
+  practices.
+\newblock {\em Australian Journal of Management}, 37:169 -- 187, 2012.
+
+\bibitem{HarvardD3Lab2024}
+{Digital Data Design Institute at Harvard}.
+\newblock Climate and sustainability impact lab.
+\newblock
+  \url{https://d3.harvard.edu/labs/climate-and-sustainability-impact-lab/},
+  2024.
+\newblock [Online; accessed 30-January-2024].
+
+\bibitem{Hsu2022Planning}
+David Hsu, C.~Andrews, Albert~T. Han, Carolyn~G. Loh, Anna~C. Osland, and
+  Christopher~P. Zegras.
+\newblock Planning the built environment and land use towards deep
+  decarbonization of the united states.
+\newblock {\em Journal of Planning Literature}, 2022.
+
+\bibitem{Korkmaz2020A}
+P.~Korkmaz, F.~Gardumi, G.~Avgerinopoulos, Markus Blesl, and U.~Fahl.
+\newblock A comparison of three transformation pathways towards a sustainable
+  european society - an integrated analysis from an energy system perspective.
+\newblock {\em Energy Strategy Reviews}, 28:100461, 2020.
+
+\bibitem{purpose+profit}
+Douglas~J Lamdin.
+\newblock George serafeim: Purpose + profit: how business can lift up the
+  world.
+\newblock {\em Bus. Econ.}, October 2023.
+
+\bibitem{OTT201714}
+Christian Ott, Frank Schiemann, and Thomas G{\"u}nther.
+\newblock Disentangling the determinants of the response and the publication
+  decisions: The case of the carbon disclosure project.
+\newblock {\em Journal of Accounting and Public Policy}, 36(1):14--33, 2017.
+
+\bibitem{Papadis2020Challenges}
+Elisa Papadis and G.~Tsatsaronis.
+\newblock Challenges in the decarbonization of the energy sector.
+\newblock {\em Energy}, 205:118025, 2020.
+
+\bibitem{Sanderson2016What}
+B.~Sanderson, B.~O’Neill, and C.~Tebaldi.
+\newblock What would it take to achieve the paris temperature targets?
+\newblock {\em Geophysical Research Letters}, 43:7133 -- 7142, 2016.
 
 \bibitem{Upadhyay2022Improving}
 Dr.~Aditya Upadhyay.
@@ -24,9 +100,12 @@ Dr.~Aditya Upadhyay.
 \newblock {\em International Journal for Research in Applied Science and
   Engineering Technology}, 2022.
 
-\bibitem{Wang2020}
-Yixin Wang and John~Patrick Cunningham.
-\newblock {Posterior Collapse and Latent Variable Non-identifiability}.
-\newblock In {\em AABI Symp.}, nov 2020.
+\bibitem{Zhou2020Decarbonization}
+Wenji Zhou, D.~McCollum, Oliver Fricko, S.~Fujimori, M.~Gidden, Fei Guo,
+  T.~Hasegawa, Han Huang, D.~Huppmann, V.~Krey, Chang-Yi Liu, S.~Parkinson,
+  K.~Riahi, P.~Rafaj, W.~Schoepp, Fang Yang, and Yuanbing Zhou.
+\newblock Decarbonization pathways and energy investment needs for developing
+  asia in line with ‘well below’ 2°c.
+\newblock {\em Climate Policy}, 20:234 -- 245, 2020.
 
 \end{thebibliography}
