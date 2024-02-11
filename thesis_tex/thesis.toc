@@ -10,15 +10,21 @@
 \contentsline {subsubsection}{Motivations Behind Corporate Disclosure to the CDP}{9}{figure.caption.5}%
 \contentsline {subsection}{\numberline {1.2.1}Current Metrics and Limitations}{9}{subsection.1.2.1}%
 \contentsline {section}{\numberline {1.3}Research Questions}{11}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Exploratory Data Analysis}{13}{chapter.2}%
+\contentsline {chapter}{\numberline {2}Data}{13}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Data Formats}{13}{section.2.1}%
 \contentsline {section}{\numberline {2.2}CDP Report Structure}{14}{section.2.2}%
 \contentsline {section}{\numberline {2.3}A Case Study on Two CDP Reports}{17}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}General Motors 2022 CDP Report}{18}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}JetBlue Airways Corporation 2022 CDP Report}{20}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Data Description}{23}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Response Variable Analysis}{24}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Predictor Variable Analysis}{24}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Building the training set}{24}{section.2.7}%
-\contentsline {chapter}{\numberline {A}Some extra stuff}{26}{appendix.A}%
-\contentsline {chapter}{References}{29}{appendix*.9}%
+\contentsline {section}{\numberline {2.4}Data Sources}{23}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Data: Climate Change Response Questionnaire}{23}{subsection.2.4.1}%
+\contentsline {subsubsection}{Important Considerations on the CDP Data}{23}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Data: Worldscope Fundamental Core Items}{24}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}GICS Data}{25}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Data Cleaning Process Flowchart:}{26}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Response Variable}{28}{subsection.2.4.5}%
+\contentsline {section}{\numberline {2.5}Response Variable Analysis}{30}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Predictor Variable Analysis}{30}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Building the training set}{30}{section.2.7}%
+\contentsline {chapter}{\numberline {A}Some extra stuff}{32}{appendix.A}%
+\contentsline {chapter}{References}{35}{appendix*.10}%

@@ -75,7 +75,9 @@
 \RequirePackage{titling}
 \RequirePackage{setspace} 
 \RequirePackage{forest}
+\RequirePackage{svg}
 \RequirePackage{booktabs} % for much better looking tables
+\RequirePackage{longtable} % for better arrays (eg matrices) in maths
 \RequirePackage[labelfont={sf,bf,small},textfont={sf,small},justification=RaggedRight,margin=0pt, figurewithin=section, tablewithin=section]{caption}
 \onehalfspacing
 %\raggedright

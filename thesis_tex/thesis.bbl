@@ -1,5 +1,24 @@
 \begin{thebibliography}{10}
 
+\bibitem{GICS_Wikipedia}
+Global industry classification standard.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard},
+  2024.
+\newblock Accessed: February 9, 2024.
+
+\bibitem{GICS_MSCI}
+Global industry classification standard (gics).
+\newblock \url{https://www.msci.com/our-solutions/indexes/gics}, 2024.
+\newblock Accessed: February 9, 2024.
+
+\bibitem{Worldscope_2}
+Worldscope fundamentals.
+\newblock
+  \url{https://www.lseg.com/en/data-analytics/financial-data/company-data/fundamentals-data/worldscope-fundamentals\#feature-and-benefits},
+  2024.
+\newblock Accessed: February 9, 2024.
+
 \bibitem{Andrew2011Accounting}
 J.~Andrew and C.~Cortese.
 \newblock Accounting for climate change and the self-regulation of carbon
@@ -99,6 +118,12 @@ Dr.~Aditya Upadhyay.
 \newblock Improving band ratings in carbon disclosure project reports.
 \newblock {\em International Journal for Research in Applied Science and
   Engineering Technology}, 2022.
+
+\bibitem{WRDS}
+{Wharton Research Data Services}.
+\newblock Wharton research data services.
+\newblock \url{https://wrds-www.wharton.upenn.edu/.}
+\newblock Accessed: 2024-2-10.
 
 \bibitem{Zhou2020Decarbonization}
 Wenji Zhou, D.~McCollum, Oliver Fricko, S.~Fujimori, M.~Gidden, Fei Guo,

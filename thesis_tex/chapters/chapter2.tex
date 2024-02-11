@@ -1,4 +1,4 @@
-\chapter{Exploratory Data Analysis}
+\chapter{Data}
 
 \section{Data Formats}
 
@@ -93,18 +93,47 @@ JetBlue's Scope 3 emissions are a crucial component of its sustainability strate
 
 
 \newpage
-\section{Data Description}
+\section{Data Sources}
+\subsection{Data: Climate Change Response Questionnaire}
+The main data source comes from the CDP Climate Survey, it contains the response surveys from all companies from 2011 to 2022. The data was partially cleaned and processed by the Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} before being shared with me. This comprehensive dataset was provided a repository that includes both raw and processed data in the form of Stata files. Organized by firm-years, each observation in the dataset corresponds to a specific firm in a given year, and is structured in a panel format, having a unique id year pair to uniquely identify each entry. The original dataset contained $34,588$ firm-years across $11$ years. Since the analysis controls for financial and industry-specific predictors, I decided to focus on public companies, which represent $71\%$ of the firm-years in the dataset. Therefore, $9,785$ firm-years were dropped from the analysis because they did not have an ISIN code, which is a unique identifier for public companies. 
+
+\subsubsection{Important Considerations on the CDP Data}
+\begin{itemize}
+    \item \textbf{Reporting year lag:} The data from a given year corresponds to the financial and operational data from the previous year.This was an important consideration when merging the CDP data with other data sources, such as the Worldscope financial data.
+    \item \textbf{Data processing:} The original data processing entailed the extraction of multiple sections from the survey, which were then systematically aligned across different years, ensuring consistency across times and adjusting the format when the questions on the CDP surveyed changed or were slightly modified. It is important to note that the fact that some questions were not asked in some years, and that the questions were not always the same across years, is a significant challenge for the analysis which is specifically focused on forecasting emissions.
+
+\end{itemize}
+
+
+\subsection{Data: Worldscope Fundamental Core Items}
+In addition to the CDP Climate Survey data, financial predictors were obtained using the Worldscope database \cite{Worldscope_2} accessed through Wharton Research Data Services (WRDS) \cite{WRDS}. Worldscope offers detailed standardized financials, allowing for comparisons of financial information across companies from various industries worldwide. This database boasts a long history, with over 35 years of data for key developed markets dating back to 1980 and more than 25 years for emerging markets. With its extensive coverage of over 100,000 companies in more than 120 countries, including full standardized coverage of over 30 developed and emerging markets and accounting for 99\% of global market capitalization, Worldscope is a comprehensive source for firm-level data. Specifically, I queried the fundamental annuals through Worldscope via WRDS, which provided key global information such as \textit{revenue}, \textit{total assets}, \textit{number of employees}, and \textit{net income}, which I then used as predictors for my analysis \cite{Worldscope_2}. Data was retrieved based on the ISIN code, and resulted in $96\%$ of the firm-years having matching financial data. Of those, $17\%$ had missing values for \textit{at least one} of the selected financial variables, thus the corresponding firm-years were dropped from the data-set. This choice has been made as firms with missing financial data are likely to have total assets less than $1$ million, thus I removed them following a similar criteria enstablished by Serafeim et Al. \cite{Serafeim2019}.
+
+ \subsection{GICS Data}
+ Accessed through WRDS using Capital IQ, the Global Industry Classification Standard (GICS) provides the framework for this study's industry analysis. GICS, a collaborative creation by MSCI and S\&P Dow Jones Indices, offers a hierarchical, four-tiered classification system, encompassing Sectors, Industry Groups, Industries, and Sub-Industries. This standard ensures a consistent approach to defining company activities worldwide, crucial for comparative financial analysis. The classification of a company within GICS hinges on its principal business activity, with revenue being a primary determinant. The system also considers earnings and market perception, elements that contribute to the annual refinement of the classifications to mirror evolving market conditions. This research utilizes the 25 industry groups defined within GICS, facilitating a detailed examination of firm-level data against a backdrop of global industry standards \cite{GICS_MSCI, GICS_Wikipedia}. I queried the GICS data only for the firm-years that had matching financial data, resulting in $19,200$ firm-years with complete financial and GICS data. GICS data was avaialble for $99\%$ of the firm-years that had matching financial data.
+ 
+ % insert a figure here
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=5in]{figures/gics.png}
+\caption{Global Industry Classification Standard (GICS) Structure \cite{GICS_MSCI}.}
+\label{fig:label1}
+\end{center}
+\end{figure}
+
+
+\newpage 
+ \subsection{Data Cleaning Process Flowchart:}
+\noindent This is a visual representation of the data cleaning process with a specification of the number of firm-years dropped at each step:
 
 \begin{forest}
     for tree={
         draw,
         rounded corners,
-        align=center,
+        align=left,
         edge={->},
         parent anchor=south,
         child anchor=north,
-        s sep+=1.6cm, % Increased vertical spacing
-        l sep+=1.1cm, % Increase the level distance
+        l sep+=0.5cm, % Increase the level distance
     },
     [CDP Climate Response Survey Data\\\textbf{34,588 firm-years}, fill=blue!20
         [Frim has an ISIN code?, edge, fill=yellow!20
@@ -119,19 +148,76 @@ JetBlue's Scope 3 emissions are a crucial component of its sustainability strate
                     [\text{5,603} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
                 ]
             ]
-            [\text{9,785} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
+            [\text{9,785} (28.3 \%) firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
         ]
     ]
 \end{forest}
 
 
+\begin{itemize}
+    \item The data Sources and overall stats (such as number of observations, how the data was retrieved)
+    \item The data cleaning process
+    \item The predictor organization with all the EDA done (core, financial, CDP specific data)
+    \item First let's do a variable definition table
+\end{itemize}
+
+\subsection{Response Variable}
+\begin{longtable}{lp{2cm}p{6cm}p{2cm}}
+    \caption{Variable Dictionary}\\
+    \toprule
+    \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
+    \midrule
+    \endfirsthead % Everything above goes at the top of the first page of the table
+    \multicolumn{4}{c}%
+    {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+    \toprule
+    \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
+    \midrule
+    \endhead % Header to be repeated on every page
+    \bottomrule
+    \multicolumn{4}{r}{\textit{Continued on next page}} \\
+    \endfoot % Footer to be repeated on every page except the last
+    \endlastfoot % Footer for the last page of the table
+    
+    % Core Information Section
+    \multicolumn{4}{l}{\textbf{Core Information}} \\
+    \midrule
+    ID & categorical & unique firm identifier & CDP \\
+    Year & numerical & reporting year & CDP \\
+    Country & categorical & headquarters country  & CDP \\
+    Continent & categorical & headquarters continent derived from country & CDP \\
+    Industry & categorical & GICS 25 idustry sectors & GICS \\
+    
+    \midrule
+    % Financial Predictors Section
+    \multicolumn{4}{l}{\textbf{Financial Predictors}} \\
+    \midrule
+    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
+    log(Assets) & numerical & natural logarithm of total assets & Worldscope \\
+    log(Assets 1yr gr.) & numerical & natural logarithm of total assets growth & Worldscope \\
+    log(Employees) & numerical & natural logarithm of total employees & Worldscope \\
+    log(Empl. 1y gr.) & numerical & natural logarithm of total employees growth & Worldscope \\
+    log(Net Income) & numerical & natural logarithm of net income & Worldscope \\
+    log(Market Cap) & numerical & market capitalization & Worldscope \\
+    log(Return on Equity) & numerical & natural logarithm of return on equity & Worldscope \\
+    % Add more variables as needed
+    \midrule
+    % CDP Predictors Section
+    \multicolumn{4}{l}{\textbf{CDP Predictors}} \\
+    \midrule
+    Variable5 & Type5 & Description5 & Source5 \\
+    Variable6 & Type6 & Description6 & Source6 \\
+    % Add more variables as needed
+    
+    \bottomrule
+\end{longtable}
 
 
 
 
 
 
-
+\newpage
 
 \begin{itemize}
     \item Number of firms and unique isins
