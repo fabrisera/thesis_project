@@ -23,8 +23,12 @@
 \contentsline {subsection}{\numberline {2.4.3}GICS Data}{25}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}Data Cleaning Process Flowchart:}{26}{subsection.2.4.4}%
 \contentsline {subsection}{\numberline {2.4.5}Response Variable}{28}{subsection.2.4.5}%
-\contentsline {section}{\numberline {2.5}Response Variable Analysis}{30}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Predictor Variable Analysis}{30}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Building the training set}{30}{section.2.7}%
-\contentsline {chapter}{\numberline {A}Some extra stuff}{32}{appendix.A}%
-\contentsline {chapter}{References}{35}{appendix*.10}%
+\contentsline {subsection}{\numberline {2.4.6}Emissions Breakdown by Continent}{29}{subsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.4.7}Emissions Breakdown by Sector}{29}{subsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.4.8}Emissions Breakdown by Country}{30}{subsection.2.4.8}%
+\contentsline {subsection}{\numberline {2.4.9}Emissions Breakdown by Year}{33}{subsection.2.4.9}%
+\contentsline {section}{\numberline {2.5}Response Variable Analysis}{35}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Predictor Variable Analysis}{35}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Building the training set}{35}{section.2.7}%
+\contentsline {chapter}{\numberline {A}Some extra stuff}{37}{appendix.A}%
+\contentsline {chapter}{References}{40}{appendix*.10}%

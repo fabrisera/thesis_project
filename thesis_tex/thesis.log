@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  10 FEB 2024 18:55
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  12 FEB 2024 21:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1196,28 +1196,33 @@ Overfull \hbox (80.48376pt too wide) in paragraph at lines 154--155
  []
 
 [26]
-Overfull \hbox (86.08957pt too wide) in alignment at lines 165--170
+Overfull \hbox (66.03755pt too wide) in alignment at lines 165--170
  [] [] [] [] 
  []
 
 
-Overfull \hbox (86.08957pt too wide) in alignment at lines 170--176
+Overfull \hbox (66.03755pt too wide) in alignment at lines 170--176
  [] [] [] [] 
  []
 
 
-Overfull \hbox (86.08957pt too wide) in alignment at lines 176--179
+Overfull \hbox (66.03755pt too wide) in alignment at lines 176--179
  [] [] [] [] 
  []
 
 
-Overfull \hbox (86.08957pt too wide) in alignment at lines 179--180
+Overfull \hbox (66.03755pt too wide) in alignment at lines 179--180
  [] [] [] [] 
  []
 
 
 Underfull \hbox (badness 2653) in paragraph at lines 188--188
 [][][]|\TU/lmr/m/n/12 headquarters continent derived
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
+[][][]|\TU/lmr/m/n/12 Global Industry Classification
  []
 
 
@@ -1261,19 +1266,44 @@ Overfull \hbox (2.2305pt too wide) in paragraph at lines 202--204
  []
 
 
-Overfull \hbox (86.08957pt too wide) in alignment at lines 180--213
+Overfull \hbox (66.03755pt too wide) in alignment at lines 180--213
  [] [] [] [] 
  []
 
-[27] [28] [29]
+[27] [28] (./tables/emission_breakdown.tex) (./tables/emission_breakdown_sector.tex
+Overfull \hbox (85.74611pt too wide) in alignment at lines 1--6
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (85.74611pt too wide) in alignment at lines 6--11
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (85.74611pt too wide) in alignment at lines 11--15
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (85.74611pt too wide) in alignment at lines 15--17
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (85.74611pt too wide) in alignment at lines 17--43
+ [] [] [] [] [] 
+ []
+
+[29]) (./tables/emission_breakdown_country.tex [30] [31] [32]) (./tables/emission_breakdown_year.tex [33]) [34]
 File: figures/fig1.pdf Graphic file (type pdf)
 <use figures/fig1.pdf>
-) [30] [31]
+) [35] [36]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
 Appendix A.
-) [32
+) [37
 
 
 
@@ -1291,7 +1321,7 @@ Package xcolor Warning: Incompatible color definition on input line 18.
 
 Package xcolor Warning: Incompatible color definition on input line 31.
 
-[33
+[38
 
 
 
@@ -1309,7 +1339,7 @@ Package xcolor Warning: Incompatible color definition on input line 59.
 
 Package xcolor Warning: Incompatible color definition on input line 77.
 
-[34]
+[39]
 
 Package xcolor Warning: Incompatible color definition on input line 125.
 
@@ -1317,7 +1347,7 @@ Package xcolor Warning: Incompatible color definition on input line 125.
 
 Package natbib Warning: There were undefined citations.
 
-[35] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/appendixA.aux))
+[40] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/appendixA.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1333,12 +1363,12 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 ### semi simple group (level 1) entered at line 10 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 39713 strings out of 476179
- 886200 string characters out of 5809544
- 1252836 words of memory out of 5000000
- 59826 multiletter control sequences out of 15000+600000
+ 39738 strings out of 476179
+ 886919 string characters out of 5809544
+ 1263166 words of memory out of 5000000
+ 59838 multiletter control sequences out of 15000+600000
  474408 words of font info for 65 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  170i,32n,161p,3434b,2063s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (44 pages, 517104 bytes).
+Output written on thesis.xdv (49 pages, 564512 bytes).

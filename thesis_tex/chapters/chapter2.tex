@@ -186,7 +186,7 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
     Year & numerical & reporting year & CDP \\
     Country & categorical & headquarters country  & CDP \\
     Continent & categorical & headquarters continent derived from country & CDP \\
-    Industry & categorical & GICS 25 idustry sectors & GICS \\
+    Industry & categorical & Global Industry Classification Standard 25 industry sectors & GICS \\
     
     \midrule
     % Financial Predictors Section
@@ -199,7 +199,7 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
     log(Empl. 1y gr.) & numerical & natural logarithm of total employees growth & Worldscope \\
     log(Net Income) & numerical & natural logarithm of net income & Worldscope \\
     log(Market Cap) & numerical & market capitalization & Worldscope \\
-    log(Return on Equity) & numerical & natural logarithm of return on equity & Worldscope \\
+    log(Roe) & numerical & natural logarithm of return on equity & Worldscope \\
     % Add more variables as needed
     \midrule
     % CDP Predictors Section
@@ -212,10 +212,21 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
     \bottomrule
 \end{longtable}
 
+\subsection{Emissions Breakdown by Continent}
 
+\input{tables/emission_breakdown.tex}
 
+\subsection{Emissions Breakdown by Sector}
 
+\input{tables/emission_breakdown_sector.tex}
 
+\subsection{Emissions Breakdown by Country}
+
+\input{tables/emission_breakdown_country.tex}
+
+\subsection{Emissions Breakdown by Year}
+
+\input{tables/emission_breakdown_year.tex}
 
 \newpage
 
