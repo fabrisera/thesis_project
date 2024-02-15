@@ -15,7 +15,7 @@
 
 
 % Required packages
-\RequirePackage{graphicx}
+\RequirePackage{subcaption}
 \RequirePackage{hyperref}
 \hypersetup{
 	linktocpage,
@@ -44,6 +44,7 @@
 
 \renewcommand\bibname{References}
 \renewcommand\listfigurename{Listing of figures}
+\renewcommand\listtablename{Listing of tables}
 \raggedright
 
 \RequirePackage{pdfsync} %do pdf synchronization [andy]
@@ -65,7 +66,7 @@
 \nobibliography*        
 
 \RequirePackage{lettrine} % big letter at start of chapter
-\RequirePackage[width=5in, letterpaper]{geometry}
+\RequirePackage[letterpaper]{geometry}
 
 \RequirePackage{fancyhdr} 
 \RequirePackage{tikz}
@@ -76,6 +77,8 @@
 \RequirePackage{setspace} 
 \RequirePackage{forest}
 \RequirePackage{svg}
+\RequirePackage{float}
+\RequirePackage{multicol}
 \RequirePackage{booktabs} % for much better looking tables
 \RequirePackage{longtable} % for better arrays (eg matrices) in maths
 \RequirePackage[labelfont={sf,bf,small},textfont={sf,small},justification=RaggedRight,margin=0pt, figurewithin=section, tablewithin=section]{caption}
@@ -84,6 +87,7 @@
 
 \parindent 12pt
 \RequirePackage{mathspec}
+\usepackage{graphicx}
 
 % use Arno Pro instead of standard LaTeX fonts
 %\setmathsfont(Digits,Latin,Greek)[

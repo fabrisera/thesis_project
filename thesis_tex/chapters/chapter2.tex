@@ -123,8 +123,12 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
 
 \newpage 
  \subsection{Data Cleaning Process Flowchart:}
-\noindent This is a visual representation of the data cleaning process with a specification of the number of firm-years dropped at each step:
+\noindent This is a visual representation of the data cleaning process described in the data sources with a specification of the number of firm-years dropped at each step: 
 
+\bigskip
+
+\begin{figure}[H]
+\centering
 \begin{forest}
     for tree={
         draw,
@@ -134,36 +138,43 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
         parent anchor=south,
         child anchor=north,
         l sep+=0.5cm, % Increase the level distance
+        scale=0.8,
     },
-    [CDP Climate Response Survey Data\\\textbf{34,588 firm-years}, fill=blue!20
-        [Frim has an ISIN code?, edge, fill=yellow!20
-            [\textbf{24,803 firm-years}, edge label={node[midway, above left] {YES}}, fill=green!20
-                [Is Worldscope and GICS data available?, edge, fill=yellow!20
-                    [\textbf{19,200 firm-years}, edge label={node[midway, above left] {YES}}, fill=green!20
+    [CDP Climate Response Survey Data\\\textbf{34,588 firm-years \& 11,289 firms}, fill=blue!20
+        [Firm has an ISIN code?, edge, fill=yellow!20
+            [\textbf{24,803 firm-years \& 4,330 firms}, edge label={node[midway, above left] {YES}}, fill=green!20
+                [Is Worldscope + GICS data available?, edge, fill=yellow!20
+                    [\textbf{19,200 firm-years \& 3,616 firms}, edge label={node[midway, above left] {YES}}, fill=green!20
                         [Is CDP control data available?, edge, fill=yellow!20
-                            [\underline{\textbf{18,491 firm-years}}, edge label={node[midway, above right] {YES}}, fill=green!20]
+                            [\underline{\textbf{18,476 firm-years \& 3,574 firms}}, edge label={node[midway, above left] {YES}}, fill=green!20]
                             [\text{709} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
                         ]
                     ]
                     [\text{5,603} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
                 ]
             ]
-            [\text{9,785} (28.3 \%) firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
+            [\text{9,785} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
         ]
     ]
 \end{forest}
+\captionof{table}{Data Cleaning Process Flowchart}
+\label{fig:cdp-climate-response-survey-data}
+\end{figure}
+
+\noindent The final dataset contains \textbf{$\bf{18,476}$ firm-years across $\bf{3,574}$ firms, with complete CDP, Worldscope, and GICS data}. 
+\newpage
 
 
-\begin{itemize}
-    \item The data Sources and overall stats (such as number of observations, how the data was retrieved)
-    \item The data cleaning process
-    \item The predictor organization with all the EDA done (core, financial, CDP specific data)
-    \item First let's do a variable definition table
+
+
+\subsection{Variable Dictionary}
+
+\noindent Table~\ref{tab:variable-dictionary} provides an overivew of the predictors used in the analysis, including their type, description, and source. Predictors are divided into three primary categories: \begin{itemize}
+    \item \textbf{Firm Information:} Variables that describe the firm's characteristics, such as its unique identifier, reporting year, headquarters country, headquarters continent, and industry sector.
+    \item \textbf{Financial Predictors:} Variables that capture the firm's financial performance, including total revenue, total assets, total employees, net income, and market capitalization.
+    \item \textbf{CDP Predictors:} Variables derived from the CDP Climate Survey, such as the firm's emissions, energy consumption, and climate-related targets and initiatives.
 \end{itemize}
-
-\subsection{Response Variable}
-\begin{longtable}{lp{2cm}p{6cm}p{2cm}}
-    \caption{Variable Dictionary}\\
+\begin{longtable}{lp{2cm}p{6cm}p{2cm}} \\
     \toprule
     \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
     \midrule
@@ -180,7 +191,7 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
     \endlastfoot % Footer for the last page of the table
     
     % Core Information Section
-    \multicolumn{4}{l}{\textbf{Core Information}} \\
+    \multicolumn{4}{l}{\textbf{Firm Information}} \\
     \midrule
     ID & categorical & unique firm identifier & CDP \\
     Year & numerical & reporting year & CDP \\
@@ -200,6 +211,7 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
     log(Net Income) & numerical & natural logarithm of net income & Worldscope \\
     log(Market Cap) & numerical & market capitalization & Worldscope \\
     log(Roe) & numerical & natural logarithm of return on equity & Worldscope \\
+    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
     % Add more variables as needed
     \midrule
     % CDP Predictors Section
@@ -210,24 +222,137 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
     % Add more variables as needed
     
     \bottomrule
+\caption{Variable Dictionary}
+\label{tab:variable-dictionary}
 \end{longtable}
 
-\subsection{Emissions Breakdown by Continent}
+\subsection{The Response Variable: Real Decarbonization Rate}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/ghg_change_real_dist.png}
+    \caption{Real Decarbonization Rate}
+    \label{fig:real-decarbonization-rate}
+    \end{center}
+\end{figure}
+
+\subsection{Real Decarbonization Rate Breakdown by Continent}
+Figure \ref{fig:emission-breakdown-by-continent} and the relative table show the mean real decarbonization rate by continent across all CDP reporting years from 2011 to 2022. As expected, there is significant class imbalance between continents, with Europe having the most number of firms, followed by North America and Asia. There is a significant difference in the mean decarbonization rate across continents, with Europe having the best mean decarbonoization rate with an average yearly decrease of $-4.94 \%$ and Africa having the worst mean decarbonization rate with an average yearly decrease of $-2.81 \%$. Overall, the data suggests that operating in an environment with more incentives to report and reduce emissions, such as Europe, is associated with a higher mean decarbonization rate. This is consistent with the findings of Downar et al.  \cite{Downar2020The} which shows in a UK-based study that firms with a carbon disclosure mandate reduced emissions by $8\%$ without negatively impacting their financial operating performance. The hypothesis will be further tested in the following sections.
+\noindent 
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_by_continent.png}
+    \caption{Mean \textit{real decarbonization rate} by continent from 2011 to 2022}
+    \label{fig:emission-breakdown-by-continent}
+    \end{center}
+\end{figure}
+  
 
 \input{tables/emission_breakdown.tex}
 
-\subsection{Emissions Breakdown by Sector}
 
-\input{tables/emission_breakdown_sector.tex}
+\subsection{Real Decarbonization Rate Breakdown by Sector}
 
-\subsection{Emissions Breakdown by Country}
+\noindent Figure \ref{fig:mean-decarbonization-rate-by-sector} and the relative table show the mean real decarbonization rate by sector across all CDP reporting years from 2011 to 2022. The data shows that the mean decarbonization rate varies significantly across sectors, with the best mean decarbonization rate in the Software and Services sector, with an average yearly decrease of $-6.67 \%$, and the worst mean decarbonization rate in the Materials sector, with an average yearly decrease of $-2.46\%$. Additionally, there are significant differences in the number of firms across sectors, with the Capital Goods sector having the most number of firms, $475$ and the Household and Personal Products sector having the least number of firms, $43$. Differences in sectors are important to consider, as they can be indicative of the difficulty of decarbonizing a given industry. For example, our data suggests that Transportation and Materials are the sectors with the worst mean decarbonization rates, which is consistent with the findings of Davis et al. \cite{Davis2018Net-zero} which suggest that difficult-to-decarbonize energy services include aviation, long-distance transport, steel and cement production.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_by_sector.png}
+    \caption{Mean Real Decarbonization Rate by Sector}
+    \label{fig:mean-decarbonization-rate-by-sector}
+    \end{center}
+\end{figure}
+
+
+\input{tables/emission_breakdown_sector.tex} 
+
+\subsection{Real Decarbonization Rate Breakdown by Country}
+
+Figure \ref{fig:mean-decarbonization-rate-by-country} shows the mean real decarbonization rate by country across all CDP reporting years from 2011 to 2022. There are significant differences both in the number of firms and in the mean decarbonization rate across countries. Table~\ref{tab:emission_breakdown_country} shows summary statistics for the worst $10$ performing countries with nonzero mean real decarbonization rates. For a complete list of countries, see appendix table.
+
+
+% include graph of mean decarbonization rates by country
+\begin{figure}[htbp]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_country.png}
+    \caption{Mean Decarbonization Rate by Country}
+    \label{fig:mean-decarbonization-rate-by-country}
+    \end{center}
+\end{figure}
+
 
 \input{tables/emission_breakdown_country.tex}
 
-\subsection{Emissions Breakdown by Year}
+\subsection{Real Decarbonization Rate Breakdown by Year}
+
+Figure \ref{fig:mean-decarbonization-rate-by-year} shows the mean and median real decarbonization rate by year across all CDP reporting years from 2011 to 2022. The data shows that the mean and median decarbonization rates have been (assuringly) decreasing over time.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_year.png}
+    \caption{Mean and Median Real Decarbonization Rate by Year}
+    \label{fig:mean-decarbonization-rate-by-year}
+    \end{center}
+\end{figure}
 
 \input{tables/emission_breakdown_year.tex}
 
+
+\subsection{Feature Engineering: Financial Predictors}
+Figure \ref{fig:grid} shows the distribution of the financial predictors used in the analysis. This is a list of each predictor along with a brief description of how it was derived:
+\begin{itemize}
+    \item \textbf{Total Assets \ref{fig:total-assets}}: The total assets of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Total Assets})$.
+    \item \textbf{Market Capitalization \ref{fig:market-capitalization}}: The market capitalization of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Market Cap})$.
+    \item \textbf{Return on Equity \ref{fig:roe}}: The return on equity of the firm, which is a measure of the firm's profitability. Since the return on equity is a percentage which can be negative, the following transformation was used: $log(1 + \frac{\text{ROE}}{100})$.
+    \item \textbf{Revenue \ref{fig:revenue}}: The total revenue of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Revenue})$.
+    \item \textbf{Net Income \ref{fig:net-income}}: The net income of the firm, which is a measure of the firm's profitability. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Net Income})$.
+    \item \textbf{Employees \ref{fig:employees}}: The total number of employees of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Employees})$.
+    \item \textbf{Total Assets 1yr Growth \ref{fig:total-assets-1yr-growth}}: The one year growth of the total assets of the firm, which is a measure of the firm's growth. Directly obtained from the Worldscope database and since the growth can be negative, the following transformation was used: $log(1 + \frac{\text{Total Assets 1yr Growth}}{100})$.
+    \item \textbf{Employees 1yr Growth \ref{fig:employees-1yr-growth}}: The one year growth of the total number of employees of the firm, which is a measure of the firm's growth. Directly obtained from the Worldscope database and since the growth can be negative, the following transformation was used: $log(1 + \frac{\text{Employees 1yr Growth}}{100})$.
+    \item \textbf{Net Income over Assets \ref{fig:net-income}}: The net income of the firm over its total assets, which is a measure of the firm's profitability. The feature was calculated with the following formula $log(1 + \frac{\text{Net Income}}{\text{Total Assets}})$.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+
+% Row 1
+\subcaptionbox{Total Assets\label{fig:total-assets}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/tot_assets_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Market Capitalization\label{fig:market-capitalization}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/mkt_cap_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Return on Equity\label{fig:roe}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/roe_dist.png}}%
+
+% Row 2
+\subcaptionbox{Revenue\label{fig:revenue}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/revenue_dist.png}}%
+\hfill
+\subcaptionbox{Net Income\label{fig:net-income}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/net_income_dist.png}}%
+\hfill
+\subcaptionbox{Employees\label{fig:employees}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/employees_dist.png}}%
+
+% Row 3
+\subcaptionbox{Tot. Assets 1yr Growth\label{fig:total-assets-1yr-growth}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/assets_1yr_growth_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Employees 1yr Growth\label{fig:employees-1yr-growth}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/employees_1yr_growth_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Net Income Over Assets\label{fig:net-income-over-assets}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/net_income_over_assets_dist.png}}%
+
+
+
+\caption{Financial Predictors}
+\label{fig:grid}
+\end{figure}
+
+\noindent \textit{Note: for full-size images, see appendix.}
 \newpage
 
 \begin{itemize}
@@ -249,13 +374,3 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
 
     
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. 
-
-Some nice graphs are shown in Figure~\ref{fig:label2}.
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=4in]{figures/fig1.pdf}
-\caption{Some nice graphs.}
-\label{fig:label2}
-\end{center}
-\end{figure}

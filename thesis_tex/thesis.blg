@@ -10,45 +10,45 @@ Warning--I didn't find a database entry for "Serafeim2019"
 Warning--to sort, need author or key in GICS_MSCI
 Warning--to sort, need author or key in Worldscope_2
 Warning--to sort, need author or key in GICS_Wikipedia
-You've used 21 entries,
+You've used 23 entries,
             2118 wiz_defined-function locations,
-            636 strings with 8260 characters,
-and the built_in function-call counts, 6118 in all, are:
-= -- 579
-> -- 318
+            650 strings with 9074 characters,
+and the built_in function-call counts, 7741 in all, are:
+= -- 705
+> -- 509
 < -- 0
-+ -- 130
-- -- 108
-* -- 391
-:= -- 1048
-add.period$ -- 69
-call.type$ -- 21
-change.case$ -- 117
++ -- 207
+- -- 182
+* -- 564
+:= -- 1350
+add.period$ -- 75
+call.type$ -- 23
+change.case$ -- 160
 chr.to.int$ -- 0
-cite$ -- 24
-duplicate$ -- 188
-empty$ -- 489
-format.name$ -- 108
-if$ -- 1268
+cite$ -- 26
+duplicate$ -- 209
+empty$ -- 536
+format.name$ -- 182
+if$ -- 1557
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 11
-newline$ -- 114
-num.names$ -- 36
-pop$ -- 147
+int.to.str$ -- 23
+missing$ -- 13
+newline$ -- 124
+num.names$ -- 40
+pop$ -- 186
 preamble$ -- 1
-purify$ -- 96
+purify$ -- 137
 quote$ -- 0
-skip$ -- 139
+skip$ -- 154
 stack$ -- 0
-substring$ -- 289
-swap$ -- 21
+substring$ -- 333
+swap$ -- 23
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
+type$ -- 92
 warning$ -- 3
-while$ -- 44
-width$ -- 23
-write$ -- 231
+while$ -- 49
+width$ -- 25
+write$ -- 253
 (There were 4 warnings)
