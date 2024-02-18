@@ -1,0 +1,931 @@
+This is TeX, Version 3.141592653 (TeX Live 2022) (preloaded format=tex 2023.1.11)  15 FEB 2024 00:29
+**bookmark.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/bookmark/bookmark.sty
+! Undefined control sequence.
+l.43 \NeedsTeXFormat
+                    {LaTeX2e}
+? 
+! Undefined control sequence.
+l.44 \ProvidesPackage
+                     {bookmark}%
+? 
+! Undefined control sequence.
+l.85 \RequirePackage
+                    {hyperref}[2010/06/18]
+? s
+OK, entering \scrollmode...
+! Undefined control sequence.
+l.86 \SetupKeyvalOptions
+                        {family=BKM,prefix=BKM@}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.87 \DeclareLocalOptions
+                         {%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.112 \newcommand
+                 *{\bookmarksetup}{\kvsetkeys{BKM}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.112 \newcommand*{\bookmarksetup
+                                 }{\kvsetkeys{BKM}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.112 \newcommand*{\bookmarksetup}{\kvsetkeys
+                                             {BKM}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.126 \newcommand
+                 *{\bookmarksetupnext}[1]{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.126 \newcommand*{\bookmarksetupnext
+                                     }[1]{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.127   \ltx
+            @GlobalAppendToMacro\BKM@HookNext{,#1}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.127   \ltx@GlobalAppendToMacro\BKM@H
+                                      ookNext{,#1}%
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.127   \ltx@GlobalAppendToMacro\BKM@HookNext{,#
+                                                1}%
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Undefined control sequence.
+\BKM ...extClear->\global \let \BKM @HookNext\ltx 
+                                                  @empty 
+l.132 \BKM@HookNextClear
+                        
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.133 \DeclareBoolOption
+                        {draft}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.134 \DeclareComplementaryOption
+                                 {final}{draft}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.141 \DeclareBoolOption
+                        [\ifHy@bookmarksopen true\else false\fi]{open}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.141 \DeclareBoolOption[\ifHy
+                              @bookmarksopen true\else false\fi]{open}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Extra \else.
+l.141 ...eBoolOption[\ifHy@bookmarksopen true\else
+                                                   false\fi]{open}
+I'm ignoring this; it doesn't match any \if.
+
+! Extra \fi.
+l.141 ...on[\ifHy@bookmarksopen true\else false\fi
+                                                  ]{open}
+I'm ignoring this; it doesn't match any \if.
+
+! Undefined control sequence.
+l.145 \DeclareStringOption
+                          [\maxdimen]{openlevel}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.145 \DeclareStringOption[\maxdimen]
+                                     {openlevel}
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.145 \DeclareStringOption[\maxdimen]
+                                     {openlevel}
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+! Undefined control sequence.
+l.146 \edef\BKM@openlevel{\number\@
+                                   bookmarksopenlevel}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   b
+l.146 \edef\BKM@openlevel{\number\@b
+                                    ookmarksopenlevel}
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+l.147 \ltx
+          @IfUndefined{Hy@bookmarksdepth}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.150   \let\BKM@depth\Hy
+                         @bookmarksdepth
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.152 \define
+             @key{BKM}{depth}[]{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Illegal parameter number in definition of \BKM.
+<to be read again> 
+                   1
+l.153   \edef\BKM@param{#1
+                          }%
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+! Undefined control sequence.
+l.157     \ltx
+              @IfUndefined{toclevel@\BKM@param}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `macro parameter character #' in horizontal mode.
+\BKM @param->##
+               1
+l.157     \ltx@IfUndefined{toclevel@\BKM@param
+                                              }{%
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Undefined control sequence.
+l.158       \@
+              onelevel@sanitize\BKM@param
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `macro parameter character #' in horizontal mode.
+\BKM @param->##
+               1
+l.158       \@onelevel@sanitize\BKM@param
+                                         
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Undefined control sequence.
+<recently read> \@
+                  
+<to be read again> 
+                   c
+l.159       \edef\BKM@temp{\expandafter\@c
+                                          ar\BKM@param\@nil}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Illegal parameter number in definition of \BKM.
+<to be read again> 
+                   1
+l.159 ...edef\BKM@temp{\expandafter\@car\BKM@param
+                                                  \@nil}%
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+! Undefined control sequence.
+l.159 ...ef\BKM@temp{\expandafter\@car\BKM@param\@
+                                                  nil}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing = inserted for \ifnum.
+<to be read again> 
+                   a
+\BKM @temp->ca
+              r##1nil
+l.161 ... \expandafter\ifnum\expandafter`\BKM@temp
+                                                  >47 %
+I was expecting to see `<', `=', or `>'. Didn't.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   a
+\BKM @temp->ca
+              r##1nil
+l.161 ... \expandafter\ifnum\expandafter`\BKM@temp
+                                                  >47 %
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+l.167         \PackageWarning
+                             {bookmark}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.168 ...   Unknown document division name (\BKM@p
+                                                  aram)\MessageBreak
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+l.168 ...t division name (\BKM@param)\MessageBreak
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.175       \BKM@S
+                  etDepthOrLevel\BKM@depth{%
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Use of \BKM doesn't match its definition.
+l.175       \BKM@SetDepthOrLevel\BKM@d
+                                      epth{%
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+l.191 \DeclareStringOption
+                          [\BKM@currentlevel]{level}[\BKM@currentlevel]
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.191 \DeclareStringOption[\BKM@c
+                                 urrentlevel]{level}[\BKM@currentlevel]
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Use of \BKM doesn't match its definition.
+l.191 ...ngOption[\BKM@currentlevel]{level}[\BKM@c
+                                                  urrentlevel]
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+l.192 \define
+             @key{BKM}{level}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Illegal parameter number in definition of \BKM.
+<to be read again> 
+                   1
+l.193   \edef\BKM@param{#1
+                          }%
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+! Undefined control sequence.
+l.197     \ltx
+              @IfUndefined{toclevel@\BKM@param}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `macro parameter character #' in horizontal mode.
+\BKM @param->##
+               1
+l.197     \ltx@IfUndefined{toclevel@\BKM@param
+                                              }{%
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Undefined control sequence.
+l.198       \@
+              onelevel@sanitize\BKM@param
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `macro parameter character #' in horizontal mode.
+\BKM @param->##
+               1
+l.198       \@onelevel@sanitize\BKM@param
+                                         
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Undefined control sequence.
+<recently read> \@
+                  
+<to be read again> 
+                   c
+l.199       \edef\BKM@temp{\expandafter\@c
+                                          ar\BKM@param\@nil}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Illegal parameter number in definition of \BKM.
+<to be read again> 
+                   1
+l.199 ...edef\BKM@temp{\expandafter\@car\BKM@param
+                                                  \@nil}%
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+! Undefined control sequence.
+l.199 ...ef\BKM@temp{\expandafter\@car\BKM@param\@
+                                                  nil}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing = inserted for \ifnum.
+<to be read again> 
+                   a
+\BKM @temp->ca
+              r##1nil
+l.201 ... \expandafter\ifnum\expandafter`\BKM@temp
+                                                  >47 %
+I was expecting to see `<', `=', or `>'. Didn't.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   a
+\BKM @temp->ca
+              r##1nil
+l.201 ... \expandafter\ifnum\expandafter`\BKM@temp
+                                                  >47 %
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+l.207         \PackageWarning
+                             {bookmark}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.208 ...   Unknown document division name (\BKM@p
+                                                  aram)\MessageBreak
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+l.208 ...t division name (\BKM@param)\MessageBreak
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.215       \BKM@S
+                  etDepthOrLevel\BKM@level{%
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Use of \BKM doesn't match its definition.
+l.215       \BKM@SetDepthOrLevel\BKM@l
+                                      evel{%
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+l.222 \DeclareBoolOption
+                        {keeplevel}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.223 \DeclareBoolOption
+                        {startatroot}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.230 \define
+             @key{BKM}{rellevel}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.231   \BKM@C
+              alcExpr\BKM@level{#1}+\BKM@currentlevel
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Use of \BKM doesn't match its definition.
+l.231   \BKM@CalcExpr\BKM@l
+                           evel{#1}+\BKM@currentlevel
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.231   \BKM@CalcExpr\BKM@level{#
+                                 1}+\BKM@currentlevel
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Use of \BKM doesn't match its definition.
+l.231   \BKM@CalcExpr\BKM@level{#1}+\BKM@c
+                                          urrentlevel
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+l.235 \DeclareBoolOption
+                        [%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.236   \ifHy
+             @bookmarksnumbered true\else false\fi
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Extra \else.
+l.236   \ifHy@bookmarksnumbered true\else
+                                          false\fi
+I'm ignoring this; it doesn't match any \if.
+
+! Extra \fi.
+l.236   \ifHy@bookmarksnumbered true\else false\fi
+                                                  
+I'm ignoring this; it doesn't match any \if.
+
+! Undefined control sequence.
+l.238 \g
+        @addto@macro\BKM@numberedtrue{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.238 \g@addto@macro\BKM@n
+                          umberedtrue{%
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+l.241 \g
+        @addto@macro\BKM@numberedfalse{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+l.241 \g@addto@macro\BKM@n
+                          umberedfalse{%
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Incomplete \iffalse; all text was ignored after line 242.
+<inserted text> 
+                \fi 
+<to be read again> 
+                   \newif 
+l.501 \newif
+            \ifBKM@ok
+A forbidden control sequence occurred in skipped text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
+
+! Incomplete \iffalse; all text was ignored after line 242.
+<inserted text> 
+                \fi 
+<to be read again> 
+                   \newif 
+l.501 \newif
+            \ifBKM@ok
+A forbidden control sequence occurred in skipped text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
+
+! Incomplete \iffalse; all text was ignored after line 242.
+<inserted text> 
+                \fi 
+<to be read again> 
+                   \newif 
+l.501 \newif
+            \ifBKM@ok
+A forbidden control sequence occurred in skipped text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
+
+! Incomplete \iffalse; all text was ignored after line 242.
+<inserted text> 
+                \fi 
+<to be read again> 
+                   \newif 
+l.501 \newif
+            \ifBKM@ok
+A forbidden control sequence occurred in skipped text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
+
+! Undefined control sequence.
+l.548 \DeclareStringOption
+                          {srcline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.549 \DeclareStringOption
+                          {srcfile}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.551 \define
+             @key{BKM}{addtohook}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.552   \ltx
+            @LocalAppendToMacro\BKM@hook{#1}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.552   \ltx@LocalAppendToMacro\BKM@hook{#
+                                          1}%
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Undefined control sequence.
+l.554 \newcommand
+                 *{\bookmarkget}[1]{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.554 \newcommand*{\bookmarkget
+                               }[1]{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.556   \ltx
+            @ifundefined{bookmark@#1}{%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! You can't use `macro parameter character #' in horizontal mode.
+l.556   \ltx@ifundefined{bookmark@#
+                                   1}{%
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Undefined control sequence.
+l.557     \ltx
+              @space
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \ltx 
+                     
+<to be read again> 
+                   @
+l.559 ...\expandafter\expandafter\expandafter\ltx@
+                                                  space
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\BKM @DefineDriverKey#1->\define 
+                                 @key{BKM}{#1}[]{\def \BKM @driver{#1}}\g @a...
+l.572 \BKM@DefineDriverKey{pdftex}
+                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\BKM ... @key{BKM}{#1}[]{\def \BKM @driver{#1}}\g 
+                                                  @addto@macro\BKM @DisableO...
+l.572 \BKM@DefineDriverKey{pdftex}
+                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+\BKM ...f \BKM @driver{#1}}\g @addto@macro\BKM @Di
+                                                  sableOptions{\DisableKeyva...
+l.572 \BKM@DefineDriverKey{pdftex}
+                                  
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+\BKM ...\BKM @DisableOptions{\DisableKeyvalOption 
+                                                  [action=warning,package=bo...
+l.572 \BKM@DefineDriverKey{pdftex}
+                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\BKM @DefineDriverKey#1->\define 
+                                 @key{BKM}{#1}[]{\def \BKM @driver{#1}}\g @a...
+l.573 \BKM@DefineDriverKey{dvips}
+                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\BKM ... @key{BKM}{#1}[]{\def \BKM @driver{#1}}\g 
+                                                  @addto@macro\BKM @DisableO...
+l.573 \BKM@DefineDriverKey{dvips}
+                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+\BKM ...f \BKM @driver{#1}}\g @addto@macro\BKM @Di
+                                                  sableOptions{\DisableKeyva...
+l.573 \BKM@DefineDriverKey{dvips}
+                                 
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+! Undefined control sequence.
+\BKM ...\BKM @DisableOptions{\DisableKeyvalOption 
+                                                  [action=warning,package=bo...
+l.573 \BKM@DefineDriverKey{dvips}
+                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\BKM @DefineDriverKey#1->\define 
+                                 @key{BKM}{#1}[]{\def \BKM @driver{#1}}\g @a...
+l.574 \BKM@DefineDriverKey{dvipdfm}
+                                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\BKM ... @key{BKM}{#1}[]{\def \BKM @driver{#1}}\g 
+                                                  @addto@macro\BKM @DisableO...
+l.574 \BKM@DefineDriverKey{dvipdfm}
+                                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Use of \BKM doesn't match its definition.
+\BKM ...f \BKM @driver{#1}}\g @addto@macro\BKM @Di
+                                                  sableOptions{\DisableKeyva...
+l.574 \BKM@DefineDriverKey{dvipdfm}
+                                   
+(That makes 100 errors; please try again.)
+No pages of output.

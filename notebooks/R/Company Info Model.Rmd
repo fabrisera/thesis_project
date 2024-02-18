@@ -1,0 +1,53 @@
+```{r}
+library(lme4)
+library(lmerTest)
+library(performance)
+library(xtable)
+library(stargazer)
+library(modelsummary)
+library(sjPlot)
+library(html2latex)
+library(nlme)
+```
+
+
+```{r}
+print(3)
+data = read.csv("/Users/fabrizioserafini/Desktop/senior_year/SeniorThesis/thesis_project/data/processed/cdp_summary_processed_v2.csv")
+
+data
+```
+
+
+
+
+```{r}
+# summary statistics
+data = na.omit(data)
+```
+
+```{r}
+
+model1 <- lmer(Ghg.Change.Real.Next ~ Year + (1|Id) + (1|Continent), data = data)
+
+class(model1) <- "lmerMod"
+
+summary(model1)
+
+
+stargazer(model1)
+```
+
+```{r}
+tab_model(model1,  file = "temp.html", show.aic = TRUE, show.re.var = TRUE, show.ngroups = TRUE, show.ci = FALSE, show.obs = TRUE, p.style = "scientific_stars")
+
+
+
+html2pdf(filename = "temp.html", name_table = "table1", silent = TRUE, build_pdf = TRUE)
+
+``````
+
+```{r}
+
+```
+

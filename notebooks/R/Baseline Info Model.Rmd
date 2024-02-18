@@ -1,0 +1,170 @@
+```{r}
+library(lme4)
+library(lmerTest)
+library(stargazer)
+library(performance)
+```
+
+
+```{r}
+data = read.csv("/Users/fabrizioserafini/Desktop/senior_year/SeniorThesis/thesis_project/data/processed/cdp_summary_processed_v2.csv")
+
+data <- na.omit(data)
+
+data
+
+numeric_data <- data[, sapply(data, is.numeric)]
+cor(numeric_data)
+```
+
+
+
+
+First question: does real decarbonization affect next year?
+
+Second question: does year affect real decarbonization?
+
+
+
+Evaluating the effect of year and real_decarbonization on real_decarbonization_next, with mixed effects on continent and id
+
+```{r}
+model1 = lm(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real, data = data)
+
+summary(model1)
+model_performance(model1)
+model_performance(model1)$AIC
+```
+
+```{r}
+model2 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + (1|Id), data = data)
+
+summary(model2)
+model_performance(model2)
+model_performance(model2)$AIC
+
+```
+
+```{r}
+# model3: adding industry and showing it's significant
+model3 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Industry + (1|Id), data = data)
+
+summary(model3)
+model_performance(model3)
+model_performance(model3)$AIC
+```
+
+
+
+```{r}
+# model 4: adding industry as a random effect
+model4 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + (1|Industry) + (1|Id), data = data)
+
+summary(model4)
+model_performance(model4)
+model_performance(model4)$AIC
+```
+
+```{r}
+# model 6: adding continent as a predictor
+model6 = lmer(Ghg.Change.Real.Next ~ Year + Continent + Ghg.Change.Real + (1|Industry/Id), data = data)
+
+summary(model6)
+model_performance(model6)
+model_performance(model6)$AIC
+```
+
+```{r}
+# model 7: adding country as a random effect: marginal improvement (might as well leave it out)
+model7 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Continent + (1|Industry/Id) + (1 |Country), data = data)
+
+summary(model7)
+model_performance(model7)
+model_performance(model7)$AIC
+```
+
+```{r}
+# model 8: adding financial predictors Employees
+
+model8 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Continent + Employees + Market.Cap + Tot.Assets + Revenue + Net.Income.Over.Assets + Roe + Assets.1Y.Gr + Employees.1Y.Gr + (1|Industry/Id) + (1 |Country), data = data)
+
+summary(model8)
+model_performance(model8)
+model_performance(model8)$AIC
+
+
+
+```
+
+
+```{r}
+# keep only market cap and total assets
+model9 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Continent + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Country), data = data)
+
+summary(model9)
+model_performance(model9)
+model_performance(model9)$AIC
+```
+```{r}
+# keep only market cap and total assets - no need to add the growht
+model10 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Continent + Market.Cap + Net.Income.Over.Assets + Assets.1Y.Gr + (1|Industry/Id) + (1 |Country), data = data)
+
+summary(model10)
+model_performance(model10)
+model_performance(model10)$AIC
+```
+```{r}
+# try to include continent as random effect - still better to leave all the continents I think 
+model11 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + Assets.1Y.Gr + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model11)
+model_performance(model11)
+model_performance(model11)$AIC
+
+```
+
+```{r}
+# now let's add ghg change nonzero count
+
+
+
+hist(data$Ghg.Change.Nonzero.Count)
+```
+
+
+```{r}
+model = lmer(Ghg.Change.Real.Next ~ Year + (1|Id) + (1/Industry), data = data)
+
+model_performance(model)
+```
+
+```{r}
+model = lmer(Ghg.Change.Real.Next ~ Year + (1|Industry/Id) + (1|Continent/Country), data = data)
+
+model_performance(model)$AIC
+```
+
+```{r}
+model_slope = lmer(Ghg.Change.Real.Next ~ Ghg.Change.Real + Year + Year * Industry (1 | Industry/Id) + (1 | Continent/Country), data = data)
+
+model_performance(model_slope)
+summary(model_slope)
+```
+```{r}
+
+# Industry is important
+data$Industry = as.factor(data$Industry)
+data$Industry = relevel(data$Industry, ref = "Software, Services")
+
+data$Continent = as.factor(data$Continent)
+data$Continent = relevel(data$Continent, ref = "Europe")
+
+
+model_industry = lmer(Ghg.Change.Real.Next ~ Ghg.Change.Real +  Year + Continent + Industry + Market.Cap + Employees + Tot.Assets + Revenue + (1 | Id), data = data)
+
+model_performance(model_industry)
+summary(model_industry)
+```
+```{r}
+
+```
