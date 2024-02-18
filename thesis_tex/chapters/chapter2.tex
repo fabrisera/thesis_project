@@ -1,0 +1,376 @@
+\chapter{Data}
+
+\section{Data Formats}
+
+\noindent The reports can be requested from the CDP website \cite{CDPMain2024}, they available both in PDF and a structured CSV format. The CSV files encompass the responses submitted to the CDP questionnaire, which form the foundation of the predictor and response variables for this thesis. My work is a continuation of the initial data processing that was executed by Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} and kindly shared with me in the form of various stata files and a repository containg both the raw and processed data, where the multiple sections had been extracted from the survey and aligned across different years. I then imported all the data and further processed it to create the training and tests sets for the following models. 
+
+\section{CDP Report Structure}
+The CDP survey has $X$ primary sections, with each section containign a list of subsecitons with relevant questions. This is a list of the primary sections as well as a brief introduction to the types of questions present in the section:
+\begin{itemize}
+    \item \textbf{C0 - Introduction:} General description of the organization, along with information on where the company operates geographically, the currency used to report financial information, and the reporting boundary (whether it is financial or operational control), and the ISIN if the company is public
+    \item \textbf{C1 - Governance:} Governance structures and processes related to climate change within the organization. It includes questions about board-level oversight of climate-related issues, the roles and responsibilities of management in addressing climate change, and how climate-related risks and opportunities are integrated into the company's overall governance framework. This section provides insight into the company's commitment to addressing climate change at the highest level of its organizational structure.
+    \item \textbf{C2 - Risks and Opportunities:} Identification of processes that the organization uses to identify, assess, and respond to climate-related risks and opportunities. It includes questions regarding the definition of time horizons (short, medium, and long-term) for these risks and opportunities, and specific related details. This section aims to understand how the company perceives and manages potential impacts of climate change on its business, highlighting its approach to mitigating risks and capitalizing on new opportunities arising from the changing climate landscape.
+    \item \textbf{C3 - Business Strategy:} This section examines the company's business strategy in relation to climate change. It explores whether the organization's strategy includes a transition plan that aligns with a 1.5°C world scenario, detailing the nature and publicly available aspects of this plan. The focus is on understanding how the company's strategy is designed to adapt to and mitigate climate-related issues, and how it plans to transition towards a lower-carbon, more sustainable business model. This section also looks at how feedback is collected from shareholders on the transition plan, emphasizing the integration of climate considerations into the core business strategy.
+    \item \textbf{C4 - Targets and Performance:} This section presents an in-depth analysis of the company's specific emissions targets, including which emissions scopes are covered, targeted reduction percentages, and the current progress towards these goals. It also examines the emissions reduction initiatives that the company had active during the reporting year, detailing associated investments and the expected payback period. This part of the report effectively illustrates both the targets set by the company for reducing emissions and the concrete initiatives underway to achieve these objectives.
+    \item \textbf{C5 - Emissions Methodology:} Insights into the company's emissions methodology, including any structural changes that may have occurred. It outlines the base year emissions against which progress is measured and explains the methodology employed to collect and report emission data. Additionally, it highlights the protocols and standards adhered to, ensuring the accuracy, consistency, and comparability of emissions data over time.
+    \item \textbf{C6 - Emissions Data}: This section covers both Scope 1 and Scope 2 emissions. It includes relevant details, such as the categorization of Scope 2 emissions as either location-based or market-based. Additionally, the section provides insights into emission intensity per product, allowing for a detailed examination of emissions in relation to the company's products and operations. 
+    \item \textbf{C7 - Emissions Breakdowns:} This is the section where company emissions (scope 1 and 2) are broken down into various sub-categories based on country/region, business division, and sector production activity. Most importantly, this section also provides a \underline{breakdown of changes in gross global emissions} (Scope 1 and 2 combined), and for each of them a specification of how your emissions compare to the previous year. \textbf{Emissions breakdowns will be further analyzed in the response variable discussion and linked to this section.}
+    \item \textbf{C8 - Energy:} A comprehensive description of energy purchases and consumption, with a specification of renewable and non-renewable sources as well as consumption breakdowns by location. This section is useful in understanding whether the company is actively purchasing renewable energy and whether the firm's activity are energy intensive. 
+    \item \textbf{C9 - Additional metrics:} Description of other sustainability related metrics such as investments in low carbon research and developement, transport technologies, and product/services
+    \item \textbf{C10 - Verification:} This section provides a comprehensive description of the verification methodologies that the firm implements to verify and audit its emissions scopes. The report includes the proportion of verified emissions by scopes, verification standards and status.
+    \item \textbf{C11 - Carbon Pricing:} Assesment of whether the company is subjected to a carbon tax and, if so, in which geographies and under which regimes along with a description of the percentage of emission scopes covered by the policy and the strategies that the company is implementing to comply with the regulations. Additionally, the section asks whether the company has an internal price of carbon and its related objectives.
+    \item \textbf{C12 - Engagement:} Analysis of the company's effort to engage with its value chain to reduce carbon emissions. In particular, the company discloses which agents does the company collaborate with, whether the company requires suppliers to meet certain sustainability criteria, and whether the company engages with customers to drive awareness on climate related issues. Additionally, the company discloses whether it engages with policy makers in a way that could influence climate related policy, law, or regulation
+    \item \textbf{Other Sections:} Sections beyond C$12$ are not relevant for the purpose of the thesis. They include details on biodiversity and signoff details among other metrics.
+\end{itemize}
+
+\section{A Case Study on Two CDP Reports}
+
+\noindent To begin the discussion on exploratory data analysis, I must first address the complexities of emission accounting and reporting within the framework of CDP data, highlighting its distinct nature compared to the more standardized field of financial reporting. That is, despite ongoing improvements, emission reporting still falls short of the robust standards established in financial accounting. I will highlight this by analyzing the 2022 CDP reports from two markedly different companies: General Motors (GM) in the automotive sector and Jet Blue in the airline industry. These reports underscore the highly company-specific nature of emission data, with significant variances stemming from diverse operational practices, especially across different industries. This results in a substantial reliance on text-based and free-form answers within the CDP reports, presenting unique challenges for data analysis. To navigate this complexity, a critical starting point is to analyze the inherent differences in these reports, which will inform and refine our modeling approach. By understanding and accommodating these industry-specific nuances, we aim to develop a more accurate and representative model of emission reporting and reduction strategies as well as identifying potential areas of improvement. 
+
+\subsection{General Motors 2022 CDP Report}
+General Motors Company (GM), a global leader in the automotive industry, is headquartered in Detroit, Michigan, USA. Renowned for its ownership and production of the Chevrolet, GMC, Cadillac, and Buick brands, GM was the largest automaker in the United States by sales in 2022. GM's commitment to sustainability is evident in its strategic approach to reducing Scope 1, Scope 2, and Scope 3 greenhouse gas (GHG) emissions, with comprehensive governance and ambitious environmental targets.
+
+\subsection*{Scope 1 and Scope 2 Emissions}
+GM has set forth aggressive targets to reduce its Scope 1 and Scope 2 emissions by 71.4\% by 2035, relative to its 2018 baseline. In 2018, GM reported Scope 1 emissions of 1,763,555 metric tons CO2e and Scope 2 emissions of 3,924,338 metric tons CO2e. By the reporting year 2022, GM achieved a reduction to 1,252,906 metric tons CO2e for Scope 1 and 2,150,694 metric tons CO2e for Scope 2, marking significant progress towards its goal. This reduction aligns with the 1.5 degrees Celsius strategy set by the Paris Agreement, underscoring GM's commitment to global climate initiatives \cite{GeneralMotorsWikipedia, Zhou2020Decarbonization}.
+
+GM's strategy includes enhancing energy efficiency across its manufacturing operations and increasing the use of renewable energy. In 2021, GM implemented over 300 energy efficiency improvements, such as upgrading to more efficient equipment and increasing renewable electricity use from 23\% to 25\%, contributing to GHG reductions in Scope 2 emissions.
+
+\subsection*{Scope 3 Emissions}
+Addressing Scope 3 emissions, GM has set a target to achieve a 50.4\% reduction in its vehicle use emissions, from a baseline of 0.0002466 metric tons of CO2 per kilometer to 0.0001223136. GM's strategy to meet this target includes transitioning to an all-electric vehicle (EV) future, with plans to introduce 30 new EV models by 2025 and aspirations to be fully electric by 2035. Partnerships to increase renewable energy generation and deploy EV chargers, in collaboration with EvGo, further exemplify GM's holistic approach to reducing its carbon footprint across the value chain.
+
+\subsection*{Key Takeaways}
+\begin{itemize}
+    \item \textbf{Strategic Emissions Reduction:} GM's targeted reductions in Scope 1 and Scope 2 emissions demonstrate a strong commitment to environmental stewardship, leveraging technological advancements and renewable energy.
+    \item \textbf{Leadership in Electric Vehicles:} GM's aggressive transition to an all-EV lineup by 2035 highlights its leadership role in transforming the automotive industry towards sustainability.
+    \item \textbf{Comprehensive Approach to Sustainability:} Through its Scope 3 emissions reduction target, GM addresses the broader environmental impact of its products, emphasizing the importance of a comprehensive strategy that extends beyond direct emissions.
+\end{itemize}
+
+GM's sustainability efforts showcase a deep commitment to reducing its environmental impact and leading the automotive industry towards a more sustainable future. By strategically targeting Scope 1, Scope 2, and Scope 3 emissions, GM is not only adhering to global climate agreements but also setting a precedent for corporate responsibility in addressing climate change.
+
+
+% \subsection{General Motors' Report Analysis}
+
+% \noindent General Motors Company (GM), an American multinational automotive manufacturing giant, is headquartered in Detroit, Michigan, USA. Esteemed for its ownership and production of four prominent automobile brands—Chevrolet, GMC, Cadillac, and Buick—it stood as the largest automaker in the United States by sales in 2022 \cite{GeneralMotorsWikipedia}. At the core of GM's corporate strategy lies a robust sustainability framework, spearheaded at the enterprise level. This framework encompasses oversight by the Board, the Chief Executive Officer, and the Chief Sustainability Officer, alongside a dedicated Board-level committee tasked with addressing climate-related challenges. Furthermore, the company has instituted a monetary incentive for its corporate executive team, primarily tethered to the deployment and success of its electric vehicle (EV) fleet.
+
+% \noindent In pursuit of environmental sustainability, GM has set ambitious targets to reduce its Scope 1 and Scope 2 emissions by 71.4\% by 2035, relative to its 2018 baseline, where emissions were recorded at 1,763,555 and 3,924,338 metric tons CO2e for Scope 1 and Scope 2, respectively. As of 2022, the company has realized 56.24\% of this target, with reported emissions of 1,252,906 for Scope 1 and 2,150,694 for Scope 2, aligning with the 1.5 degrees Celsius strategy of the Paris Agreement \cite{Zhou2020Decarbonization}. GM's progress is attributed to enhanced energy efficiency in its manufacturing processes and a strategic shift towards renewable energy procurement.
+
+% \noindent The company's sustainability report highlights the implementation of over 300 energy efficiency improvements in 2021 across its buildings and processes. These include the adoption of more efficient equipment, such as variable speed drives on motors, process controls, LED lighting, among other conservation measures. Additionally, GM increased its renewable electricity usage from 23\% to 25\%, further contributing to reductions in Scope 2 market-based emissions. This approach exemplifies how the automotive industry can effectively reduce emissions through renewable energy adoption and manufacturing efficiencies, a stark contrast to sectors like cement production, which accounts for 7\% of global anthropogenic greenhouse gas emissions and faces significant decarbonization challenges due to the inherent CO2 generation during limestone calcination \cite{Ostovari2021}.
+
+% \noindent However, the most daunting challenge for GM lies within Scope 3 emissions, predominantly stemming from vehicle use and fossil fuel combustion. While the company has not provided an estimate for its Scope 3 emissions, it aims to reduce these emissions by 50.4\% from a baseline of 0.0002466 metric tons of CO2 per kilometer to 0.0001223136. Achieving this reduction is contingent upon GM's strategic pivot to an all-EV future, underscored by its commitment to launch 30 new EV models by 2025, transition entirely to EVs by 2035, and bolster renewable energy generation and EV charger deployment in collaboration with EvGo, a leading charging network, with an aim to power these chargers entirely by renewable energy. This strategy underscores the critical insights for the automotive industry:
+% \begin{itemize}
+%     \item Scope 3 emissions, primarily from vehicle use, constitute the most significant share of emissions, presenting the greatest reduction challenge.
+%     \item GM is actively enhancing its production processes and renewable energy initiatives, demonstrating tangible success in emission reduction efforts.
+%     \item The reduction of Scope 3 emissions hinges on a more complex strategy, currently in its nascent stages, with GM having achieved only 0.225\% progress toward its target, underscoring the enormity of the challenge ahead.
+% \end{itemize}
+
+\subsection{JetBlue Airways Corporation 2022 CDP Report}
+JetBlue Airways Corporation has been steadfast in its commitment to environmental stewardship, focusing on reducing Scope 1, Scope 2, and Scope 3 greenhouse gas (GHG) emissions across its operations. The airline's governance structure emphasizes sustainability, with strategic initiatives overseen by its board and executive team, underscoring a comprehensive approach to addressing climate change.
+
+\subsection*{Scope 1 and Scope 2 Emissions}
+In the reporting year 2022, JetBlue's Scope 1 emissions totaled 6,853,927 metric tons CO2e, predominantly from jet fuel combustion, a primary challenge within the airline industry. Scope 2 emissions amounted to 25,945 metric tons CO2e, reflecting the emissions from electricity consumption. These figures demonstrate JetBlue's significant environmental footprint, necessitating aggressive measures for reduction.
+
+\noindent JetBlue's strategies to mitigate these emissions include modernizing its fleet with more fuel-efficient aircraft, such as the Airbus A220 and A321neo, and investing in sustainable aviation fuel (SAF) to reduce lifecycle GHG emissions associated with jet fuel. Additionally, the airline is transitioning its ground service equipment to electric power, aligning with its commitment to lower Scope 1 and Scope 2 emissions.
+
+\subsection*{Scope 3 Emissions}
+JetBlue's Scope 3 emissions are a crucial component of its sustainability strategy, addressing emissions from purchased goods and services, capital goods, and fuel-and-energy-related activities not included in Scope 1 or 2. In 2022, the emissions reported were as follows:
+
+\begin{itemize}
+    \item Purchased Goods and Services: 44,922 metric tons CO2e, estimated for catered food and onboard product.
+    \item Capital Goods: 485,629 metric tons CO2e, associated with aircraft ground equipment and spare parts.
+    \item Fuel-and-Energy-Related Activities: 1,391,126 metric tons CO2e, highlighting the broader impact of JetBlue's operational energy use.
+\end{itemize}
+
+\noindent These figures were calculated using the Quantis Scope 3 tool, demonstrating JetBlue's reliance on standardized methodologies to quantify and manage its indirect emissions. The airline's commitment to understanding and reducing its Scope 3 emissions is evident through its detailed reporting and targeted reduction strategies, including investments in SAF and efficiency improvements across its value chain.
+
+\subsection*{Key Takeaways}
+\begin{itemize}
+    \item \textbf{Comprehensive Climate Strategy:} JetBlue's efforts to reduce Scope 1, Scope 2, and Scope 3 emissions underscore a holistic approach to sustainability, addressing both direct and indirect sources of GHG emissions.
+    \item \textbf{Innovation and Efficiency:} Through fleet modernization, SAF investments, and operational efficiencies, JetBlue is actively working towards reducing its environmental impact, despite the inherent challenges of the airline industry.
+    \item \textbf{Scope 3 Emissions Challenge:} JetBlue's detailed reporting on Scope 3 emissions highlights the complexity of addressing indirect emissions. The airline's engagement with its supply chain and investment in sustainable practices exemplify a forward-thinking approach to environmental responsibility.
+\end{itemize}
+
+\noindent JetBlue's sustainability efforts reflect a deep commitment to reducing its carbon footprint and contributing to the global fight against climate change. By addressing Scope 1, Scope 2, and Scope 3 emissions with targeted strategies and investments, JetBlue is paving the way for a more sustainable future in aviation.
+
+
+\newpage
+\section{Data Sources}
+\subsection{Data: Climate Change Response Questionnaire}
+The main data source comes from the CDP Climate Survey, it contains the response surveys from all companies from 2011 to 2022. The data was partially cleaned and processed by the Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} before being shared with me. This comprehensive dataset was provided a repository that includes both raw and processed data in the form of Stata files. Organized by firm-years, each observation in the dataset corresponds to a specific firm in a given year, and is structured in a panel format, having a unique id year pair to uniquely identify each entry. The original dataset contained $34,588$ firm-years across $11$ years. Since the analysis controls for financial and industry-specific predictors, I decided to focus on public companies, which represent $71\%$ of the firm-years in the dataset. Therefore, $9,785$ firm-years were dropped from the analysis because they did not have an ISIN code, which is a unique identifier for public companies. 
+
+\subsubsection{Important Considerations on the CDP Data}
+\begin{itemize}
+    \item \textbf{Reporting year lag:} The data from a given year corresponds to the financial and operational data from the previous year.This was an important consideration when merging the CDP data with other data sources, such as the Worldscope financial data.
+    \item \textbf{Data processing:} The original data processing entailed the extraction of multiple sections from the survey, which were then systematically aligned across different years, ensuring consistency across times and adjusting the format when the questions on the CDP surveyed changed or were slightly modified. It is important to note that the fact that some questions were not asked in some years, and that the questions were not always the same across years, is a significant challenge for the analysis which is specifically focused on forecasting emissions.
+
+\end{itemize}
+
+
+\subsection{Data: Worldscope Fundamental Core Items}
+In addition to the CDP Climate Survey data, financial predictors were obtained using the Worldscope database \cite{Worldscope_2} accessed through Wharton Research Data Services (WRDS) \cite{WRDS}. Worldscope offers detailed standardized financials, allowing for comparisons of financial information across companies from various industries worldwide. This database boasts a long history, with over 35 years of data for key developed markets dating back to 1980 and more than 25 years for emerging markets. With its extensive coverage of over 100,000 companies in more than 120 countries, including full standardized coverage of over 30 developed and emerging markets and accounting for 99\% of global market capitalization, Worldscope is a comprehensive source for firm-level data. Specifically, I queried the fundamental annuals through Worldscope via WRDS, which provided key global information such as \textit{revenue}, \textit{total assets}, \textit{number of employees}, and \textit{net income}, which I then used as predictors for my analysis \cite{Worldscope_2}. Data was retrieved based on the ISIN code, and resulted in $96\%$ of the firm-years having matching financial data. Of those, $17\%$ had missing values for \textit{at least one} of the selected financial variables, thus the corresponding firm-years were dropped from the data-set. This choice has been made as firms with missing financial data are likely to have total assets less than $1$ million, thus I removed them following a similar criteria enstablished by Serafeim et Al. \cite{Serafeim2019}.
+
+ \subsection{GICS Data}
+ Accessed through WRDS using Capital IQ, the Global Industry Classification Standard (GICS) provides the framework for this study's industry analysis. GICS, a collaborative creation by MSCI and S\&P Dow Jones Indices, offers a hierarchical, four-tiered classification system, encompassing Sectors, Industry Groups, Industries, and Sub-Industries. This standard ensures a consistent approach to defining company activities worldwide, crucial for comparative financial analysis. The classification of a company within GICS hinges on its principal business activity, with revenue being a primary determinant. The system also considers earnings and market perception, elements that contribute to the annual refinement of the classifications to mirror evolving market conditions. This research utilizes the 25 industry groups defined within GICS, facilitating a detailed examination of firm-level data against a backdrop of global industry standards \cite{GICS_MSCI, GICS_Wikipedia}. I queried the GICS data only for the firm-years that had matching financial data, resulting in $19,200$ firm-years with complete financial and GICS data. GICS data was avaialble for $99\%$ of the firm-years that had matching financial data.
+ 
+ % insert a figure here
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=5in]{figures/gics.png}
+\caption{Global Industry Classification Standard (GICS) Structure \cite{GICS_MSCI}.}
+\label{fig:label1}
+\end{center}
+\end{figure}
+
+
+\newpage 
+ \subsection{Data Cleaning Process Flowchart:}
+\noindent This is a visual representation of the data cleaning process described in the data sources with a specification of the number of firm-years dropped at each step: 
+
+\bigskip
+
+\begin{figure}[H]
+\centering
+\begin{forest}
+    for tree={
+        draw,
+        rounded corners,
+        align=left,
+        edge={->},
+        parent anchor=south,
+        child anchor=north,
+        l sep+=0.5cm, % Increase the level distance
+        scale=0.8,
+    },
+    [CDP Climate Response Survey Data\\\textbf{34,588 firm-years \& 11,289 firms}, fill=blue!20
+        [Firm has an ISIN code?, edge, fill=yellow!20
+            [\textbf{24,803 firm-years \& 4,330 firms}, edge label={node[midway, above left] {YES}}, fill=green!20
+                [Is Worldscope + GICS data available?, edge, fill=yellow!20
+                    [\textbf{19,200 firm-years \& 3,616 firms}, edge label={node[midway, above left] {YES}}, fill=green!20
+                        [Is CDP control data available?, edge, fill=yellow!20
+                            [\underline{\textbf{18,476 firm-years \& 3,574 firms}}, edge label={node[midway, above left] {YES}}, fill=green!20]
+                            [\text{709} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
+                        ]
+                    ]
+                    [\text{5,603} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
+                ]
+            ]
+            [\text{9,785} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
+        ]
+    ]
+\end{forest}
+\captionof{table}{Data Cleaning Process Flowchart}
+\label{fig:cdp-climate-response-survey-data}
+\end{figure}
+
+\noindent The final dataset contains \textbf{$\bf{18,476}$ firm-years across $\bf{3,574}$ firms, with complete CDP, Worldscope, and GICS data}. 
+\newpage
+
+
+
+
+\subsection{Variable Dictionary}
+
+\noindent Table~\ref{tab:variable-dictionary} provides an overivew of the predictors used in the analysis, including their type, description, and source. Predictors are divided into three primary categories: \begin{itemize}
+    \item \textbf{Firm Information:} Variables that describe the firm's characteristics, such as its unique identifier, reporting year, headquarters country, headquarters continent, and industry sector.
+    \item \textbf{Financial Predictors:} Variables that capture the firm's financial performance, including total revenue, total assets, total employees, net income, and market capitalization.
+    \item \textbf{CDP Predictors:} Variables derived from the CDP Climate Survey, such as the firm's emissions, energy consumption, and climate-related targets and initiatives.
+\end{itemize}
+\begin{longtable}{lp{2cm}p{6cm}p{2cm}} \\
+    \toprule
+    \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
+    \midrule
+    \endfirsthead % Everything above goes at the top of the first page of the table
+    \multicolumn{4}{c}%
+    {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+    \toprule
+    \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
+    \midrule
+    \endhead % Header to be repeated on every page
+    \bottomrule
+    \multicolumn{4}{r}{\textit{Continued on next page}} \\
+    \endfoot % Footer to be repeated on every page except the last
+    \endlastfoot % Footer for the last page of the table
+    
+    % Core Information Section
+    \multicolumn{4}{l}{\textbf{Firm Information}} \\
+    \midrule
+    ID & categorical & unique firm identifier & CDP \\
+    Year & numerical & reporting year & CDP \\
+    Country & categorical & headquarters country  & CDP \\
+    Continent & categorical & headquarters continent derived from country & CDP \\
+    Industry & categorical & Global Industry Classification Standard 25 industry sectors & GICS \\
+    
+    \midrule
+    % Financial Predictors Section
+    \multicolumn{4}{l}{\textbf{Financial Predictors}} \\
+    \midrule
+    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
+    log(Assets) & numerical & natural logarithm of total assets & Worldscope \\
+    log(Assets 1yr gr.) & numerical & natural logarithm of total assets growth & Worldscope \\
+    log(Employees) & numerical & natural logarithm of total employees & Worldscope \\
+    log(Empl. 1y gr.) & numerical & natural logarithm of total employees growth & Worldscope \\
+    log(Net Income) & numerical & natural logarithm of net income & Worldscope \\
+    log(Market Cap) & numerical & market capitalization & Worldscope \\
+    log(Roe) & numerical & natural logarithm of return on equity & Worldscope \\
+    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
+    % Add more variables as needed
+    \midrule
+    % CDP Predictors Section
+    \multicolumn{4}{l}{\textbf{CDP Predictors}} \\
+    \midrule
+    Variable5 & Type5 & Description5 & Source5 \\
+    Variable6 & Type6 & Description6 & Source6 \\
+    % Add more variables as needed
+    
+    \bottomrule
+\caption{Variable Dictionary}
+\label{tab:variable-dictionary}
+\end{longtable}
+
+\subsection{The Response Variable: Real Decarbonization Rate}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/ghg_change_real_dist.png}
+    \caption{Real Decarbonization Rate}
+    \label{fig:real-decarbonization-rate}
+    \end{center}
+\end{figure}
+
+\subsection{Real Decarbonization Rate Breakdown by Continent}
+Figure \ref{fig:emission-breakdown-by-continent} and the relative table show the mean real decarbonization rate by continent across all CDP reporting years from 2011 to 2022. As expected, there is significant class imbalance between continents, with Europe having the most number of firms, followed by North America and Asia. There is a significant difference in the mean decarbonization rate across continents, with Europe having the best mean decarbonoization rate with an average yearly decrease of $-4.94 \%$ and Africa having the worst mean decarbonization rate with an average yearly decrease of $-2.81 \%$. Overall, the data suggests that operating in an environment with more incentives to report and reduce emissions, such as Europe, is associated with a higher mean decarbonization rate. This is consistent with the findings of Downar et al.  \cite{Downar2020The} which shows in a UK-based study that firms with a carbon disclosure mandate reduced emissions by $8\%$ without negatively impacting their financial operating performance. The hypothesis will be further tested in the following sections.
+\noindent 
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_by_continent.png}
+    \caption{Mean \textit{real decarbonization rate} by continent from 2011 to 2022}
+    \label{fig:emission-breakdown-by-continent}
+    \end{center}
+\end{figure}
+  
+
+\input{tables/emission_breakdown.tex}
+
+
+\subsection{Real Decarbonization Rate Breakdown by Sector}
+
+\noindent Figure \ref{fig:mean-decarbonization-rate-by-sector} and the relative table show the mean real decarbonization rate by sector across all CDP reporting years from 2011 to 2022. The data shows that the mean decarbonization rate varies significantly across sectors, with the best mean decarbonization rate in the Software and Services sector, with an average yearly decrease of $-6.67 \%$, and the worst mean decarbonization rate in the Materials sector, with an average yearly decrease of $-2.46\%$. Additionally, there are significant differences in the number of firms across sectors, with the Capital Goods sector having the most number of firms, $475$ and the Household and Personal Products sector having the least number of firms, $43$. Differences in sectors are important to consider, as they can be indicative of the difficulty of decarbonizing a given industry. For example, our data suggests that Transportation and Materials are the sectors with the worst mean decarbonization rates, which is consistent with the findings of Davis et al. \cite{Davis2018Net-zero} which suggest that difficult-to-decarbonize energy services include aviation, long-distance transport, steel and cement production.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_by_sector.png}
+    \caption{Mean Real Decarbonization Rate by Sector}
+    \label{fig:mean-decarbonization-rate-by-sector}
+    \end{center}
+\end{figure}
+
+
+\input{tables/emission_breakdown_sector.tex} 
+
+\subsection{Real Decarbonization Rate Breakdown by Country}
+
+Figure \ref{fig:mean-decarbonization-rate-by-country} shows the mean real decarbonization rate by country across all CDP reporting years from 2011 to 2022. There are significant differences both in the number of firms and in the mean decarbonization rate across countries. Table~\ref{tab:emission_breakdown_country} shows summary statistics for the worst $10$ performing countries with nonzero mean real decarbonization rates. For a complete list of countries, see appendix table.
+
+
+% include graph of mean decarbonization rates by country
+\begin{figure}[htbp]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_country.png}
+    \caption{Mean Decarbonization Rate by Country}
+    \label{fig:mean-decarbonization-rate-by-country}
+    \end{center}
+\end{figure}
+
+
+\input{tables/emission_breakdown_country.tex}
+
+\subsection{Real Decarbonization Rate Breakdown by Year}
+
+Figure \ref{fig:mean-decarbonization-rate-by-year} shows the mean and median real decarbonization rate by year across all CDP reporting years from 2011 to 2022. The data shows that the mean and median decarbonization rates have been (assuringly) decreasing over time.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_year.png}
+    \caption{Mean and Median Real Decarbonization Rate by Year}
+    \label{fig:mean-decarbonization-rate-by-year}
+    \end{center}
+\end{figure}
+
+\input{tables/emission_breakdown_year.tex}
+
+
+\subsection{Feature Engineering: Financial Predictors}
+Figure \ref{fig:grid} shows the distribution of the financial predictors used in the analysis. This is a list of each predictor along with a brief description of how it was derived:
+\begin{itemize}
+    \item \textbf{Total Assets \ref{fig:total-assets}}: The total assets of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Total Assets})$.
+    \item \textbf{Market Capitalization \ref{fig:market-capitalization}}: The market capitalization of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Market Cap})$.
+    \item \textbf{Return on Equity \ref{fig:roe}}: The return on equity of the firm, which is a measure of the firm's profitability. Since the return on equity is a percentage which can be negative, the following transformation was used: $log(1 + \frac{\text{ROE}}{100})$.
+    \item \textbf{Revenue \ref{fig:revenue}}: The total revenue of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Revenue})$.
+    \item \textbf{Net Income \ref{fig:net-income}}: The net income of the firm, which is a measure of the firm's profitability. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Net Income})$.
+    \item \textbf{Employees \ref{fig:employees}}: The total number of employees of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Employees})$.
+    \item \textbf{Total Assets 1yr Growth \ref{fig:total-assets-1yr-growth}}: The one year growth of the total assets of the firm, which is a measure of the firm's growth. Directly obtained from the Worldscope database and since the growth can be negative, the following transformation was used: $log(1 + \frac{\text{Total Assets 1yr Growth}}{100})$.
+    \item \textbf{Employees 1yr Growth \ref{fig:employees-1yr-growth}}: The one year growth of the total number of employees of the firm, which is a measure of the firm's growth. Directly obtained from the Worldscope database and since the growth can be negative, the following transformation was used: $log(1 + \frac{\text{Employees 1yr Growth}}{100})$.
+    \item \textbf{Net Income over Assets \ref{fig:net-income}}: The net income of the firm over its total assets, which is a measure of the firm's profitability. The feature was calculated with the following formula $log(1 + \frac{\text{Net Income}}{\text{Total Assets}})$.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+
+% Row 1
+\subcaptionbox{Total Assets\label{fig:total-assets}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/tot_assets_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Market Capitalization\label{fig:market-capitalization}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/mkt_cap_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Return on Equity\label{fig:roe}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/roe_dist.png}}%
+
+% Row 2
+\subcaptionbox{Revenue\label{fig:revenue}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/revenue_dist.png}}%
+\hfill
+\subcaptionbox{Net Income\label{fig:net-income}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/net_income_dist.png}}%
+\hfill
+\subcaptionbox{Employees\label{fig:employees}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/employees_dist.png}}%
+
+% Row 3
+\subcaptionbox{Tot. Assets 1yr Growth\label{fig:total-assets-1yr-growth}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/assets_1yr_growth_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Employees 1yr Growth\label{fig:employees-1yr-growth}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/employees_1yr_growth_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Net Income Over Assets\label{fig:net-income-over-assets}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/net_income_over_assets_dist.png}}%
+
+
+
+\caption{Financial Predictors}
+\label{fig:grid}
+\end{figure}
+
+\noindent \textit{Note: for full-size images, see appendix.}
+\newpage 
+
+\begin{itemize}
+    \item Number of firms and unique isins
+    \item Number of variables
+    \item Number of firms per sector
+\end{itemize}
+
+\section{Response Variable Analysis}
+
+\section{Predictor Variable Analysis}
+\begin{itemize}
+    \item Here I can put cool visualizations
+    \item Here I can start explainig the data
+    \item Here I can take inspiration from Kaggle
+    \item Here is can do some clustering?
+\end{itemize}
+\section{Building the training set}
+
+    
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. 

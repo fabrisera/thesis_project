@@ -1,0 +1,37 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
+\contentsline {subsubsection}{Questions}{1}{section.1.1}%
+\contentsline {subsubsection}{Why is this important? and the interesection of academic and business interest}{2}{section.1.1}%
+\contentsline {subsubsection}{The key stakeholders}{2}{section.1.1}%
+\contentsline {subsubsection}{Connection between computer science and decarbonization}{3}{Item.3}%
+\contentsline {subsection}{\numberline {1.1.1}Emission Scopes}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}A business oriented framework to justify decarbonization}{5}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Carbon Disclosure Project Data}{7}{section.1.2}%
+\contentsline {subsubsection}{Motivations Behind Corporate Disclosure to the CDP}{8}{figure.caption.6}%
+\contentsline {subsection}{\numberline {1.2.1}Current Metrics and Limitations}{9}{subsection.1.2.1}%
+\contentsline {chapter}{\numberline {2}Data}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Data Formats}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}CDP Report Structure}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}A Case Study on Two CDP Reports}{15}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}General Motors 2022 CDP Report}{15}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}JetBlue Airways Corporation 2022 CDP Report}{17}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Data Sources}{20}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Data: Climate Change Response Questionnaire}{20}{subsection.2.4.1}%
+\contentsline {subsubsection}{Important Considerations on the CDP Data}{20}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Data: Worldscope Fundamental Core Items}{21}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}GICS Data}{21}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Data Cleaning Process Flowchart:}{23}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Variable Dictionary}{24}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}The Response Variable: Real Decarbonization Rate}{26}{subsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.4.7}Real Decarbonization Rate Breakdown by Continent}{26}{subsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.4.8}Real Decarbonization Rate Breakdown by Sector}{27}{subsection.2.4.8}%
+\contentsline {subsection}{\numberline {2.4.9}Real Decarbonization Rate Breakdown by Country}{30}{subsection.2.4.9}%
+\contentsline {subsection}{\numberline {2.4.10}Real Decarbonization Rate Breakdown by Year}{31}{subsection.2.4.10}%
+\contentsline {subsection}{\numberline {2.4.11}Feature Engineering: Financial Predictors}{32}{subsection.2.4.11}%
+\contentsline {section}{\numberline {2.5}Response Variable Analysis}{35}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Predictor Variable Analysis}{35}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Building the training set}{35}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Chapter 3}{36}{chapter.3}%
+\contentsline {chapter}{\numberline {A}Some extra stuff}{39}{appendix.A}%
+\contentsline {chapter}{References}{43}{appendix*.16}%

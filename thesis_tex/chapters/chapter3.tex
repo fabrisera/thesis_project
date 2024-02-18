@@ -1,0 +1,66 @@
+\chapter{Chapter 3}
+
+Think about the questions you want to answer first:
+\begin{itemize}
+    \item First model: the impact of previous year decarbonization rate on next-year decarbonization rate and year. Then add id as a random effect and show it improves the model.
+    \item Second model: adding sector and showing it's significnat: key finding: sector is significant. Then using sector as a random effect.
+    \item Third model: adding continent and showing it's significant: key finding: continent is significant. Then using continent as a random effect.
+    \item This is our baseline framework: from here we will be able to determine what drives decarbonization rates the most and which CDP metric should we use to score firms.
+    \item Do sector play an important role in driving next-year decarbonziation rates? All else being equal, does knowing the sector of a country help us predict the next-year decarbonization rate? This is going to justify why we are going to use sector as a random effect. 
+    \item Do continents play an important role in driving next-year decarbonziation rates? Using them as a ranodm effect as well
+    \item Then throw in Continent/Country as a random effect to see if it improves the model and if it is justified.
+    \item Then move to the interesting part: the interaction between year and sector: 
+\end{itemize}
+
+Recall that 
+\begin{align*} 
+   E(E(Y|X)) &= E(Y), \\
+    \textrm{Var}(Y) &= E(\textrm{Var}(Y|X)) + \textrm{Var}(E(Y|X)). \\
+\end{align*}
+
+% scale the table to fit the page
+
+
+\begin{longtable}{@{\extracolsep{5pt}}lc}
+\caption{} \\
+\label{} \\
+\hline
+\hline \\[-1.8ex]
+& \multicolumn{1}{c}{\textit{Dependent variable:}} \\
+\cline{2-2}
+\\[-1.8ex] & Ghg.Change.Real.Next \\
+\hline \\[-1.8ex]
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline
+\hline \\[-1.8ex]
+& \multicolumn{1}{c}{\textit{Dependent variable:}} \\
+\cline{2-2}
+\\[-1.8ex] & Ghg.Change.Real.Next \\
+\hline \\[-1.8ex]
+\endhead
+
+\hline
+\multicolumn{2}{r}{{Continued on next page}} \\
+\hline
+\endfoot
+
+\hline
+\hline\\[-1.8ex]
+\textit{Note:} & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+\endlastfoot
+
+Year & $-$0.295$^{***}$ \\
+& (0.019) \\
+& \\
+Constant & $-$2.287$^{***}$ \\
+& (0.374) \\
+& \\
+\hline \\[-1.8ex]
+Observations & 15,326 \\
+Log Likelihood & $-$52,871.310 \\
+Akaike Inf. Crit. & 105,752.600 \\
+Bayesian Inf. Crit. & 105,790.800 \\
+\end{longtable}
