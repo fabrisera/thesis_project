@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  17 FEB 2024 21:28
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  19 FEB 2024 22:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1036,7 +1036,36 @@ Package: supertabular 2020/02/02 v4.1g the supertabular environment
 \ST@pbox=\box158
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/hhline.sty
 Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
-)) (./thesis.aux (./chapters/chapter1.aux
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box159
+)
+\tc@llx=\dimen363
+\tc@lly=\dimen364
+\tc@urx=\dimen365
+\tc@ury=\dimen366
+Package trimclip Info: Using driver 'tc-xetex.def'.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/adjustbox/tc-xetex.def
+File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+))
+\adjbox@Width=\dimen367
+\adjbox@Height=\dimen368
+\adjbox@Depth=\dimen369
+\adjbox@Totalheight=\dimen370
+\adjbox@pwidth=\dimen371
+\adjbox@pheight=\dimen372
+\adjbox@pdepth=\dimen373
+\adjbox@ptotalheight=\dimen374
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count406
+))) (./thesis.aux (./chapters/chapter1.aux
 
 LaTeX Warning: Label `fig:my_label' multiply defined.
 
@@ -1108,7 +1137,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count406
+\c@section@level=\count407
 )
 LaTeX Info: Redefining \ref on input line 4.
 LaTeX Info: Redefining \pageref on input line 4.
@@ -1121,8 +1150,8 @@ Configuring pdfsync
 \PDFSYNC@ut=\write6
 \openout6 = `thesis.pdfsync'.
 
-\PDFSYNCf@li@=\count407
-\PDFSYNC@rder=\count408
+\PDFSYNCf@li@=\count408
+\PDFSYNC@rder=\count409
 **** pdfsync.sty: Synchronizing at \everypar
 \PDFSYNCeveryp@r=\toks68
 **** pdfsync.sty: Synchronizing at \everymath
@@ -1540,12 +1569,18 @@ Chapter 3.
 
 
 
-] [37]) [38]
+] (./tables/R1.tex) [37]
+Overfull \vbox (0.53477pt too high) has occurred while \output is active []
+
+ [38] [39] (./tables/R2.tex) [40]
+Overfull \vbox (46.31615pt too high) has occurred while \output is active []
+
+ [41] (./tables/R3.tex) [42] [43] (./tables/R4.tex)) [44] [45]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
 Appendix A.
-) [39
+) [46
 
 
 
@@ -1566,7 +1601,7 @@ Package xcolor Warning: Incompatible color definition on input line 31.
 
 Package xcolor Warning: Incompatible color definition on input line 45.
 
-[40
+[47
 
 
 
@@ -1581,15 +1616,15 @@ Package xcolor Warning: Incompatible color definition on input line 59.
 
 Package xcolor Warning: Incompatible color definition on input line 87.
 
-[41]
+[48]
 
 Package xcolor Warning: Incompatible color definition on input line 142.
 
-[42])
+[49])
 
 Package natbib Warning: There were undefined citations.
 
-[43] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/appendixA.aux))
+[50] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/appendixA.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1597,7 +1632,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 91D35F44C0A664220B05BF6C58025C4A;1999.
+(rerunfilecheck)             Checksum: 1F71F71D34265F8BCEF4750DDC7C4F99;2670.
  )
 (\end occurred inside a group at level 2)
 
@@ -1605,12 +1640,12 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 ### semi simple group (level 1) entered at line 10 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 42714 strings out of 476179
- 942324 string characters out of 5809544
- 1318952 words of memory out of 5000000
- 62702 multiletter control sequences out of 15000+600000
- 475474 words of font info for 73 fonts, out of 8000000 for 9000
+ 43593 strings out of 476179
+ 958666 string characters out of 5809544
+ 1334226 words of memory out of 5000000
+ 63544 multiletter control sequences out of 15000+600000
+ 477346 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  170i,35n,161p,3431b,2219s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (53 pages, 647792 bytes).
+Output written on thesis.xdv (60 pages, 764712 bytes).

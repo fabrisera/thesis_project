@@ -115,6 +115,8 @@
 \RequirePackage{longtable}
 \RequirePackage{hhline}
 \RequirePackage{hyperref}
+\RequirePackage[export]{adjustbox}
+\RequirePackage{graphics}
 
 
 % use Arno Pro instead of standard LaTeX fonts

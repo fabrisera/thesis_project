@@ -1,66 +1,56 @@
 \chapter{Chapter 3}
 
-Think about the questions you want to answer first:
+\section{Introduction to Modeling}
+Key Results
+
+\section{Impact of Year and Current Decarbonization Rate on Next-Year Decarbonization Rate}
 \begin{itemize}
-    \item First model: the impact of previous year decarbonization rate on next-year decarbonization rate and year. Then add id as a random effect and show it improves the model.
-    \item Second model: adding sector and showing it's significnat: key finding: sector is significant. Then using sector as a random effect.
-    \item Third model: adding continent and showing it's significant: key finding: continent is significant. Then using continent as a random effect.
-    \item This is our baseline framework: from here we will be able to determine what drives decarbonization rates the most and which CDP metric should we use to score firms.
-    \item Do sector play an important role in driving next-year decarbonziation rates? All else being equal, does knowing the sector of a country help us predict the next-year decarbonization rate? This is going to justify why we are going to use sector as a random effect. 
-    \item Do continents play an important role in driving next-year decarbonziation rates? Using them as a ranodm effect as well
-    \item Then throw in Continent/Country as a random effect to see if it improves the model and if it is justified.
-    \item Then move to the interesting part: the interaction between year and sector: 
+    \item In model (1) from Table \ref{tab:R1}, we start by predicting \textit{Next-Year Decarbonization Rate} using year and ghg change real. We observe how on average we predict a 22\% decrease in real decarbonization rate, as well as a positive and significant correlation between previous year and next year decarbonization rate. In particular, controlling for year, an increase in decarbonization rate from the previous year corresponds to 0.3 predicted next year increase in decarbonization rate. 
+    \item In model (2) from Table \ref{tab:R1}, we add our first random effect: a random intercept for the firm unique identifier code. Mixed effect models are particularly suited when we have repeated measures on the same individuals, in our case, the same firms. In particular, including an effect for each individual firm allows to take into account the correlation between each firm's timeseries without introducing an excessively high number of parameters. When adding Id as a random effect, the model's AIC decreases from 94134.242 to 94018.79, signaling a significant improvement in the model's fit. Furthermore, the signs of the coefficient yeear and ghg change real remain the same, and the coefficient for year remains significant. 
+    \item \textbf{Key Finding:} Adding a random effect significantly improves the model's fit, and we will therefore iterate to find the optimal combination of random effects to then identify a comprehensive set of fixed effects that best predict decarbonization rates.
 \end{itemize}
 
-Recall that 
-\begin{align*} 
-   E(E(Y|X)) &= E(Y), \\
-    \textrm{Var}(Y) &= E(\textrm{Var}(Y|X)) + \textrm{Var}(E(Y|X)). \\
-\end{align*}
-
-% scale the table to fit the page
 
 
-\begin{longtable}{@{\extracolsep{5pt}}lc}
-\caption{} \\
-\label{} \\
-\hline
-\hline \\[-1.8ex]
-& \multicolumn{1}{c}{\textit{Dependent variable:}} \\
-\cline{2-2}
-\\[-1.8ex] & Ghg.Change.Real.Next \\
-\hline \\[-1.8ex]
-\endfirsthead
+\input{tables/R1.tex}
 
-\multicolumn{2}{c}%
-{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
-\hline
-\hline \\[-1.8ex]
-& \multicolumn{1}{c}{\textit{Dependent variable:}} \\
-\cline{2-2}
-\\[-1.8ex] & Ghg.Change.Real.Next \\
-\hline \\[-1.8ex]
-\endhead
 
-\hline
-\multicolumn{2}{r}{{Continued on next page}} \\
-\hline
-\endfoot
+\subsection{Impact of Industry Sector on Next-Year Decarbonization Rate}
+\begin{itemize}
+\item In model (1) from table \ref{tab:../../thesis_tex/tables/R2.tex}, we add an important categorical predictor: industry. As explained in the EDA, Industry is derived using the Global Industry Classification stantard and it comprehends 20 industry categories. The hypothesis we want to test is whether the industry a firm operates in significantly affects decarbonization rate, and I expect the result to show that it does. We chose as reference category the Software, Services industry, which is the category that corresponds to the lowest (best) mean decarbonization rate. In this way, coefficients of other industries are expected to be positive and will represent the difference in decarbonization rate compared to the reference category.
+\item As we can observe from the Table, when controlling for year and previous year decarbonization rate, and having firm Id as a random effect, almost all industry sectors are significant, and the results are in line with what we found in the Exploratory Data Analysis section. In particular, sectors that displayed a higher (worse) mean decarbonization rates, such as the Energy, Materials, and Transportation sectors, have higher coefficients. Therefore, the model predicts that firms in these sectors will have a lower next-year decarbonization rate compared to the reference category. This makes sense as these sectors are known to be more carbon-intensive, and the model suggests that the carbon-intensive nature holds true even when controlling for time  and previous year decarbonization rate. We can infer that there likely are factor that make a sector inherently difficult to decarbonize. An example to support this finding is the case of decarbonizing cement production, which is a key category in the Material sector and contributes to a significant portion of global emissions. Cement production is inherently carbon-intensive, and the industry has been struggling to find a viable alternative to the traditional production process. This is a clear example of how the industry a firm operates in can significantly affect its decarbonization rate.
+\item The fact that firms Ids are nested into sector, as each firm is assigned to a primary GICS sector, allows to add Industry as a random effect on the model, nested into firm Id. The implementation is shown in model (2) from table \ref{tab:../../thesis_tex/tables/R2.tex}, and although there is an increase in the AIC, the coefficients for \textit{Year} and \textit{Ghg Change Real} remain significant and with the same sign and similar magnitude. 
+\end{itemize}
 
-\hline
-\hline\\[-1.8ex]
-\textit{Note:} & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
-\endlastfoot
+\textbf{Key takeaways}:
+\begin{itemize}
+    \item The industry a firm operates in significantly affects its decarbonization rate, and the effect holds true even when controlling for time and previous year decarbonization rate.
+    \item The fact that firms Ids are nested into sector, as each firm is assigned to a primary GICS sector, allows to add Industry as a random effect on the model, nested into firm Id. From now on, we will include industry as a random effect in all the following models.
+\end{itemize}
 
-Year & $-$0.295$^{***}$ \\
-& (0.019) \\
-& \\
-Constant & $-$2.287$^{***}$ \\
-& (0.374) \\
-& \\
-\hline \\[-1.8ex]
-Observations & 15,326 \\
-Log Likelihood & $-$52,871.310 \\
-Akaike Inf. Crit. & 105,752.600 \\
-Bayesian Inf. Crit. & 105,790.800 \\
-\end{longtable}
+\input{tables/R2.tex}
+
+\subsection{Impact of Country and Continent on Decarbonization}
+\begin{itemize}
+    \item A predictor we will next consider is georgraphical location. Location is important in understanding decarbonization rates, as different countries have different policies and regulations that can affect a firm's ability to decarbonize. 
+    \item In model (1) from Table \ref{tab:R3}, we start by predicting \textit{Next-Year Decarbonization Rate} using year, ghg change real, and continent. Our reference category is Europe, and we expect the coefficients for the other continents to be positive, as we expect firms in other continents to have a lower decarbonization rate compared to firms in Europe. The results are in line with our expectations, and all coefficients are significant.
+    \item In model (2) from Table \ref{tab:R3}, we add country as a random effect, nested into continent. The AIC increases, but the coefficients for year and ghg change real remain significant and with the same sign and identical magnitude. This is a good sign, and it suggest that our panel data can be effectively modeled using a mixed effect model with firm Id, industry, and country nested into continent as random effects.
+    \item \textbf{Key Finding:} The continent a firm is located in is significantly associated with its decarbonization rate, and the effect holds true even when controlling for time and previous year decarbonization rate and having firm Id and industry as random effects. Furthermore, adding country nested into continent as a random effect does not significantly change the model's fit, and we will therefore include it in all the following models.
+\end{itemize}
+ 
+
+
+\input{tables/R3.tex}
+
+
+\subsection{Impact of Financial Predictors on Decarbonization}
+
+\begin{itemize}
+    \item In model (1) from Table \ref{tab:R4}, we start by predicting \textit{Next-Year Decarbonization Rate} using year, ghg change real, market cap, employees, and revenue, employees 1 year growth, assets 1 year growth, total assets, net income over assets, and return on equity. We find that only market cap is significant, with revenue being significant at the 10\% level. The coefficient for market cap is negative, and the coefficient for revenue is positive. This is in line with our expectations, as we expect larger firms to have a more negative (higher) decarbonization rate, and we expect firms with higher revenue to have a less negative (lower) decarbonization rate. Since the revenue coefficient is not significant at the 5\% level, and there are many omitted variables that could be affecting the results, we will not draw any conclusions from this model. We will focus on retaining both market cap and revenue in the next model, and we will focus on understanding how assets and empllyees growth affect next year decarbonization rate in the following model.
+    \item In model (2) from Table \ref{tab:R4}, we add assets growth. We find that assets growth is not significant, and the coefficients for market cap and revenue remain significant and with the same sign and similar magnitude. Although not significant, the coefficient for assets growth is positive, which seems to suggest that firms with higher assets growth have a lower decarbonization rate.
+    \item In model (3) from Table \ref{tab:R4}, we add employees growth. We find that employees growth is not significant, and the coefficients for market cap and revenue remain significant and with the same sign and similar magnitude. Employees growth is positive, which seems to suggest that firms with higher employees growth have a lower decarbonization rate. 
+\end{itemize}
+
+
+
+\input{tables/R4.tex}

@@ -1,34 +1,32 @@
 ```{r}
+library(tidyverse)
 library(lme4)
 library(lmerTest)
 library(stargazer)
 library(performance)
+library(broom)
+library(broom.mixed)
 ```
 
-
 ```{r}
-data = read.csv("/Users/fabrizioserafini/Desktop/senior_year/SeniorThesis/thesis_project/data/processed/cdp_summary_processed_v2.csv")
+data = read.csv("/Users/fabrizioserafini/Desktop/senior_year/SeniorThesis/thesis_project/data/processed/cdp_total_processed_v2.csv")
 
 data <- na.omit(data)
-
 data
+```
+```{r}
+# Industry is important
+data$Industry = as.factor(data$Industry)
+data$Industry = relevel(data$Industry, ref = "Software, Services")
 
-numeric_data <- data[, sapply(data, is.numeric)]
-cor(numeric_data)
+data$Continent = as.factor(data$Continent)
+data$Continent = relevel(data$Continent, ref = "Europe")
+
 ```
 
-
-
-
-First question: does real decarbonization affect next year?
-
-Second question: does year affect real decarbonization?
-
-
-
-Evaluating the effect of year and real_decarbonization on real_decarbonization_next, with mixed effects on continent and id
-
+First model: predicting using year and ghg change real. We observe how on average we predict a 22% decrease in real decarbonization rate, as well as a positive and significant correlation between previous year and next year decarbonization rate. In particular, controlling for year, an increase in decarbonization rate from the previous year corresponds to 0.3 predicted next year increase in decarbonization rate. 
 ```{r}
+
 model1 = lm(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real, data = data)
 
 summary(model1)
@@ -36,14 +34,66 @@ model_performance(model1)
 model_performance(model1)$AIC
 ```
 
+
+In the second model, we add our first random effect: a random intercept for the firm unique identifier code. Mixed effect models are particularly suited when we have repeated measures on the same individuals, in our case, the same firms. In particular, including an effect for each individual firm allows to take into account the correlation between each firm's timeseries without introducing an excessively high number of parameters. When adding Id as a random effect, the model's AIC decreases from 94134.242 to 94018.79, signaling a significant improvement in the model's fit. Furthermore, the signs of the coefficient yeear and ghg change real remain the same, and the coefficient for year remains significant. Adding a random effect significantly improves the model's fit, and we will therefore iterate to find the optimal combination of random effects to then identify a comprehensive set of fixed effects that best predict decarbonization rates.
+
 ```{r}
 model2 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + (1|Id), data = data)
-
 summary(model2)
 model_performance(model2)
 model_performance(model2)$AIC
 
 ```
+
+Outputting the first two tables:
+```{r}
+class(model1) <- "lm"
+class(model2) <- "lmerMod"
+tidyM1 <- broom::tidy(model1)
+tidyM2 <- broom::tidy(model2) %>% filter(effect == "fixed")
+ # Number of unique regions for that one random effect
+num_Id <- as.numeric(sapply(ranef(model2),nrow)[1])
+# SD for region in M2
+sd_IdM2 <- round(as.numeric(attributes(VarCorr(model2)$"Id")$stddev), 3)
+
+tribble(~stat, ~M1, ~M2,
+        "\\textbf{Random Effects:}", NA, NA,
+        "Number of Firms", NA, num_Id,
+        "sd(Firms)", NA, sd_IdM2,
+        "Akaike Inf. Crit.", round(AIC(model1), 3), round(AIC(model2), 3),
+        "Bayesian Inf. Crit.", round(BIC(model1), 3), round(BIC(model2), 3)
+        
+        ) -> mod_stats
+
+table <- capture.output({
+stargazer(model1, model2, type="latex", 
+          # ^  Notice M2 is called twice. I'm going somewhere with this.
+          # Below: manually supply tidied coefficients and standard errors
+          coef = list(tidyM1$estimate, tidyM2$estimate),
+          se = list(tidyM1$std.error, tidyM2$std.error),
+          omit.table.layout = "s",
+          # ...but supply your own that you created (with random effects)
+          add.lines = lapply(1:nrow(mod_stats), function(i) unlist(mod_stats[i, ])),
+          notes="Second model has firm Id as a random intercept",
+          dep.var.labels="Next Year Decarbonization Rate",
+          model.names = TRUE, 
+          font.size = "small",
+          table.placement = "H",
+          title = "Model Comparison: Fixed Effects Only vs. Random Intercept for Firm Id",
+          label = "tab:R1"
+          )})
+
+
+table <- gsub("\\begin{tabular}","\\resizebox{1\\textwidth}{!}{\\begin{tabular}", table,fixed=T)
+table <- gsub("\\end{tabular}","\\end{tabular}}", table,fixed=T)
+table <- table[-(1:3)]
+
+cat(table, file = "../../thesis_tex/tables/R1.tex")
+
+```
+
+
+In the third model, we add an important categorical predictor: industry. As explained in the EDA, Industry is derived using the Global Industry Classification stantard and it comprehends 20 industry categories. The hypothesis we want to test is whether the industry a firm operates in significantly affects decarbonization rate, and I expect the result to show that it does. We chose as reference category the Software, Services industry, which is the category that corresponds to the lowest (best) mean decarbonization rate. In this way, coefficients of other industries are expected to be positive and will represent the difference in decarbonization rate compared to the reference category.
 
 ```{r}
 # model3: adding industry and showing it's significant
@@ -53,69 +103,267 @@ summary(model3)
 model_performance(model3)
 model_performance(model3)$AIC
 ```
-
-
+As we can observe from the Table, when controlling for year and previous year decarbonization rate, and having firm Id as a random effect, almost all industry sectors are significant, and the results are in line with what we found in the Exploratory Data Analysis section. In particular, sectors that displayed a higher (worse) mean decarbonization rates, such as the Energy, Materials, and Transportation sectors, have higher coefficients. Therefore, the model predicts that firms in these sectors will have a lower next-year decarbonization rate compared to the reference category. This makes sense as these sectors are known to be more carbon-intensive, and the model suggests that the carbon-intensive nature holds true even when controlling for time  and previous year decarbonization rate. We can infer that there likely are factor that make a sector inherently difficult to decarbonize. An example to support this finding is the case of decarbonizing cement production, which is a key category in the Material sector and contributes to a significant portion of global emissions. Cement production is inherently carbon-intensive, and the industry has been struggling to find a viable alternative to the traditional production process. This is a clear example of how the industry a firm operates in can significantly affect its decarbonization rate. Key takeaway: a conversation on decarbonization must take into account sectors.
 
 ```{r}
 # model 4: adding industry as a random effect
-model4 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + (1|Industry) + (1|Id), data = data)
+model4 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + (1|Industry/Id), data = data)
 
 summary(model4)
 model_performance(model4)
 model_performance(model4)$AIC
 ```
+The fact that firms Ids are nested into sector, as each firm is assigned to a primary GICS sector, allows to add Industry as a random effect on the model, nested into firm Id. From now on, not only we will control for the correlation between each firm's timeseries, but we will also control for the correlation between each firm's timeseries within each industry, as shown in the second model.
 
+
+Outputting the second table:
+```{r}
+to_tex_2 = function (a, b, title, file_name) {
+class(a) <- "lmerMod"
+class(b) <- "lmerMod"
+tidyM1 <- broom::tidy(a)
+tidyM2 <- broom::tidy(b) %>% filter(effect == "fixed")
+ # Number of unique regions for that one random effect
+num_Id <- as.numeric(sapply(ranef(model2),nrow)[1])
+num_Industry <- as.numeric(sapply(ranef(b),nrow)[2])
+# SD for region in M2
+sd_IdM1 <- round(as.numeric(attributes(VarCorr(a)$"Id")$stddev), 3)
+sd_IdM2 <- round(as.numeric(attributes(VarCorr(b)$"Id")$stddev), 3)
+sd_IndustryM2 <- round(as.numeric(attributes(VarCorr(b)$"Industry")$stddev), 3)
+
+
+tribble(~stat, ~M1, ~M2,
+        "\\textbf{Random Effects:}", NA, NA,
+        "Number of Firms", num_Id, num_Id,
+        "Number of Industries", NA, num_Industry,
+        "sd(Firms)", sd_IdM1, sd_IdM2,
+        "sd(Industry)", NA, sd_IndustryM2,
+        "Akaike Inf. Crit.", round(AIC(a), 3), round(AIC(b), 3),
+        "Bayesian Inf. Crit.", round(BIC(a), 3), round(BIC(b), 3)
+        
+        ) -> mod_stats
+
+table <- capture.output({
+stargazer(a, b, type="latex", 
+          # ^  Notice M2 is called twice. I'm going somewhere with this.
+          # Below: manually supply tidied coefficients and standard errors
+          coef = list(tidyM1$estimate, tidyM2$estimate),
+          se = list(tidyM1$std.error, tidyM2$std.error),
+          omit.table.layout = "s",
+          # ...but supply your own that you created (with random effects)
+          add.lines = lapply(1:nrow(mod_stats), function(i) unlist(mod_stats[i, ])),
+          notes="Second model has firm Id and Industry as random intercepts.",
+          dep.var.labels="Next Year Decarbonization Rate",
+          model.names = TRUE, 
+          title = title,
+          single.row = TRUE,
+          table.placement = "H",
+          label = paste0("tab:", file_name)
+          )})
+
+
+table <- gsub("\\begin{tabular}","\\resizebox{\\textwidth}{!}{\\begin{tabular}", table,fixed=T)
+table <- gsub("\\end{tabular}","\\end{tabular}}", table,fixed=T)
+table <- table[-(1:3)]
+
+cat(table, file = file_name)
+
+}
+
+to_tex_2(model3, model4, "Model Comparison: Fixed Effects Only vs. Random Intercept for Firm Id and Industry", "../../thesis_tex/tables/R2.tex")
+```
+
+A predictor we will next consider is georgraphical location. Location is important in understanding decarbonization rates, as different countries have different policies and regulations that can affect a firm's ability to decarbonize. Initially, we will consider the continent a firm is located in. We will add continent as a fixed effect, and then as a random effect. Finally, I will add country as a random effect and compare the model fit. For the first model, we will use Europe as the reference category, as it is the continent with the lowest (best) mean decarbonization rate. We expect the coefficients of the other continents to be positive, and to represent the difference in decarbonization rate compared to the reference category. 
 ```{r}
 # model 6: adding continent as a predictor
-model6 = lmer(Ghg.Change.Real.Next ~ Year + Continent + Ghg.Change.Real + (1|Industry/Id), data = data)
+model6 = lmer(Ghg.Change.Real.Next ~ Year +  Ghg.Change.Real + Continent + (1|Industry/Id), data = data)
 
 summary(model6)
 model_performance(model6)
 model_performance(model6)$AIC
 ```
 
+As we can observe from the table results, when controlling for year and current decarbonization rate, and having firm Id nested into industry as a random effect, the coefficients for the continents are all positive and significant. This means that firms located in these continents have a lower next-year decarbonization rate compared to the reference category, Europe. This is in line with what we found in the EDA, and it is consistent with the fact that Europe has been a leader in climate policy and has been implementing more stringent regulations compared to other continents. The model suggests that firms located in Europe have a higher next-year decarbonization rate compared to firms located in other continents. The key takeaway is that, like industry, it is important to consider the geographical location of a firm when discussing decarbonization. I will therefore add geograhpilcal location as a random effect, and since country has the lowest AIC score between the two random effect parameters - continent and country -I will add Conutry as a random effect. 
+
 ```{r}
 # model 7: adding country as a random effect: marginal improvement (might as well leave it out)
-model7 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Continent + (1|Industry/Id) + (1 |Country), data = data)
+model7 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + (1|Industry/Id) + (1 |Continent/Country), data = data)
 
 summary(model7)
 model_performance(model7)
 model_performance(model7)$AIC
 ```
 
-```{r}
-# model 8: adding financial predictors Employees
 
-model8 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Continent + Employees + Market.Cap + Tot.Assets + Revenue + Net.Income.Over.Assets + Roe + Assets.1Y.Gr + Employees.1Y.Gr + (1|Industry/Id) + (1 |Country), data = data)
+
+
+```{r}
+class(model6) <- "lmerMod"
+class(model7) <- "lmerMod"
+tidyM1 <- broom::tidy(model6) %>% filter(effect == "fixed")
+tidyM2 <- broom::tidy(model7) %>% filter(effect == "fixed")
+ # Number of unique regions for that one random effect
+num_Id <- as.numeric(sapply(ranef(model7),nrow)[1])
+num_Country <- as.numeric(sapply(ranef(model7),nrow)[2])
+num_Industry <- as.numeric(sapply(ranef(model7),nrow)[3])
+num_Continent <- as.numeric(sapply(ranef(model7),nrow)[4])
+
+sd_IdM1 <- round(as.numeric(attributes(VarCorr(model6)$"Id")$stddev), 3)
+sd_IndustryM1 <- round(as.numeric(attributes(VarCorr(model6)$"Industry")$stddev), 3)
+sd_ContinentM1 <- round(as.numeric(attributes(VarCorr(model6)$"Continent")$stddev), 3)
+
+sd_IdM2 <- round(as.numeric(attributes(VarCorr(model7)$"Id")$stddev), 3)
+sd_IndustryM2 <- round(as.numeric(attributes(VarCorr(model7)$"Industry")$stddev), 3)
+sd_ContinentM2 <- round(as.numeric(attributes(VarCorr(model7)$"Continent")$stddev), 3)
+sd_CountryM2 <- round(as.numeric(attributes(VarCorr(model7)$"Country")$stddev), 3)
+
+
+tribble(~stat, ~M1, ~M2,
+        "\\textbf{Random Effects:}", NA, NA,
+        "Number of Firms", num_Id, num_Id,
+        "Number of Industries", num_Industry, num_Industry,
+        "Number of Continents", num_Continent, num_Continent,
+         "Number of Countries", NA, num_Country,
+        "sd(Firms:Industry)", sd_IdM1, sd_IdM2,
+        "sd(Industry)", sd_IndustryM1, sd_IndustryM2,
+        "sd(Continent)", NA, sd_ContinentM2,
+        "sd(Country:Continent)", NA, sd_CountryM2,
+        "Akaike Inf. Crit.", round(AIC(model6), 3), round(AIC(model7), 3),
+        "Bayesian Inf. Crit.", round(BIC(model6), 3), round(BIC(model7), 3)
+        
+        ) -> mod_stats
+
+table <- capture.output({
+stargazer(model6, model7, type="latex", 
+          # ^  Notice M2 is called twice. I'm going somewhere with this.
+          # Below: manually supply tidied coefficients and standard errors
+          coef = list(tidyM1$estimate, tidyM2$estimate),
+          se = list(tidyM1$std.error, tidyM2$std.error),
+          omit.table.layout = "s",
+          # ...but supply your own that you created (with random effects)
+          add.lines = lapply(1:nrow(mod_stats), function(i) unlist(mod_stats[i, ])),
+          notes="Second model adds Country nested in Continent as random intercepts.",
+          dep.var.labels="Next Year Decarbonization Rate",
+          model.names = FALSE, 
+          title = "Impact of Country and Continent on Decarbonization",
+          single.row = FALSE,
+          table.placement = "H",
+          label = paste0("tab:", "R3"))})
+
+table <- gsub("\\begin{tabular}","\\resizebox{0.8 \\textwidth}{!}{\\begin{tabular}", table,fixed=T)
+table <- gsub("\\end{tabular}","\\end{tabular}}", table,fixed=T)
+table <- table[-(1:3)]
+
+cat(table, file = "../../thesis_tex/tables/R3.tex")
+
+```
+
+
+Next, we will consider the financial predictors, which not only allow to differenciate between firms based on their financial performance, size, and growth, but also to understand the impact of financial performance itself on decarbonization. We will consider the following predictors: market capitalization, total assets, revenue, net income over assets, return on equity, and growth in assets and employees. We will start by adding all of them to the model, and then we will iteratively remove the ones that are not significant. 
+```{r}
+# model 8: adding financial predictors - ALL
+
+model8 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real +Market.Cap + Employees + Revenue + Employees.1Y.Gr + Assets.1Y.Gr + Tot.Assets + Net.Income.Over.Assets + Roe +  (1|Industry/Id) + (1 |Continent/Country), data = data)
 
 summary(model8)
 model_performance(model8)
 model_performance(model8)$AIC
 
-
-
 ```
 
-
 ```{r}
-# keep only market cap and total assets
-model9 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Continent + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Country), data = data)
+# keep only market cap and total assets - testing employees
+model9 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real +  Market.Cap + Revenue + Employees.1Y.Gr + (1|Industry/Id) + (1 |Continent/Country), data = data)
 
 summary(model9)
 model_performance(model9)
 model_performance(model9)$AIC
 ```
+
 ```{r}
-# keep only market cap and total assets - no need to add the growht
-model10 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Continent + Market.Cap + Net.Income.Over.Assets + Assets.1Y.Gr + (1|Industry/Id) + (1 |Country), data = data)
+# testing assets and employees
+model10 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Market.Cap + Revenue +  Assets.1Y.Gr + (1|Industry/Id) + (1 |Continent/Country), data = data)
 
 summary(model10)
 model_performance(model10)
 model_performance(model10)$AIC
 ```
 ```{r}
+# putting 8-9-10 into stargazer
+class(model8) <- "lmerMod"
+class(model9) <- "lmerMod"
+class(model10) <- "lmerMod"
+tidyM1 <- broom::tidy(model8) %>% filter(effect == "fixed")
+tidyM2 <- broom::tidy(model9) %>% filter(effect == "fixed")
+tidyM3 <- broom::tidy(model10) %>% filter(effect == "fixed")
+ # Number of unique regions for that one random effect
+num_Id <- as.numeric(sapply(ranef(model8),nrow)[1])
+num_Country <- as.numeric(sapply(ranef(model8),nrow)[2])
+num_Industry <- as.numeric(sapply(ranef(model8),nrow)[3])
+num_Continent <- as.numeric(sapply(ranef(model8),nrow)[4])
+
+sd_IdM1 <- round(as.numeric(attributes(VarCorr(model8)$"Id")$stddev), 3)
+sd_IndustryM1 <- round(as.numeric(attributes(VarCorr(model8)$"Industry")$stddev), 3)
+sd_ContinentM1 <- round(as.numeric(attributes(VarCorr(model8)$"Continent")$stddev), 3)
+sd_CountryM1 <- round(as.numeric(attributes(VarCorr(model8)$"Country")$stddev), 3)
+
+sd_IdM2 <- round(as.numeric(attributes(VarCorr(model9)$"Id")$stddev), 3)
+sd_IndustryM2 <- round(as.numeric(attributes(VarCorr(model9)$"Industry")$stddev), 3)
+sd_ContinentM2 <- round(as.numeric(attributes(VarCorr(model9)$"Continent")$stddev), 3)
+sd_CountryM2 <- round(as.numeric(attributes(VarCorr(model9)$"Country")$stddev), 3)
+
+sd_IdM3 <- round(as.numeric(attributes(VarCorr(model10)$"Id")$stddev), 3)
+sd_IndustryM3 <- round(as.numeric(attributes(VarCorr(model10)$"Industry")$stddev), 3)
+sd_ContinentM3 <- round(as.numeric(attributes(VarCorr(model10)$"Continent")$stddev), 3)
+sd_CountryM3 <- round(as.numeric(attributes(VarCorr(model10)$"Country")$stddev), 3)
+
+
+
+tribble(~stat, ~M1, ~M2, ~M3,
+        "\\textbf{Random Effects:}", NA, NA, NA,
+        "Number of Firms", num_Id, num_Id, num_Id,
+        "Number of Industries", num_Industry, num_Industry, num_Industry,
+        "Number of Continents", num_Continent, num_Continent, num_Continent,
+         "Number of Countries", num_Country, num_Country, num_Country,
+        "sd(Firms:Industry)", sd_IdM1, sd_IdM2, sd_IdM3,
+        "sd(Industry)", sd_IndustryM1, sd_IndustryM2, sd_IndustryM3,
+        "sd(Continent)", sd_ContinentM1, sd_ContinentM2, sd_ContinentM3,
+        "sd(Country:Continent)", sd_CountryM1, sd_CountryM2, sd_CountryM3,
+        "Akaike Inf. Crit.", round(AIC(model6), 3), round(AIC(model7), 3), round(AIC(model8), 3),
+        "Bayesian Inf. Crit.", round(BIC(model6), 3), round(BIC(model7), 3) , round(BIC(model8), 3)
+        
+        ) -> mod_stats
+
+table <- capture.output({
+stargazer(model8, model9, model10, type="latex", 
+          # ^  Notice M2 is called twice. I'm going somewhere with this.
+          # Below: manually supply tidied coefficients and standard errors
+          coef = list(tidyM1$estimate, tidyM2$estimate),
+          se = list(tidyM1$std.error, tidyM2$std.error),
+          omit.table.layout = "s",
+          # ...but supply your own that you created (with random effects)
+          add.lines = lapply(1:nrow(mod_stats), function(i) unlist(mod_stats[i, ])),
+          notes="Third Model focuses on employees and assets growth",
+          dep.var.labels="Next Year Decarbonization Rate",
+          model.names = FALSE, 
+          title = "Impact of Financial Predictors on Decarbonization",
+          single.row = TRUE,
+          table.placement = "H",
+          label = paste0("tab:", "R4"))})
+
+table <- gsub("\\begin{tabular}","\\resizebox{0.9\\textwidth}{!}{\\begin{tabular}", table,fixed=T)
+table <- gsub("\\end{tabular}","\\end{tabular}}", table,fixed=T)
+table <- table[-(1:3)]
+
+cat(table, file = "../../thesis_tex/tables/R4.tex")
+
+
+```
+
+Ignore model 11:
+```{r}
 # try to include continent as random effect - still better to leave all the continents I think 
-model11 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + Assets.1Y.Gr + (1|Industry/Id) + (1 |Continent/Country), data = data)
+model11 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real  + Market.Cap + Revenue + Assets.1Y.Gr + (1|Industry/Id) + (1 |Continent/Country), data = data)
 
 summary(model11)
 model_performance(model11)
@@ -123,48 +371,433 @@ model_performance(model11)$AIC
 
 ```
 
+Ignore this model as well:
 ```{r}
-# now let's add ghg change nonzero count
+# now let's add ghg change nonzero count - do not add this!!!
+# try to include continent as random effect - still better to leave all the continents I think 
+model12 = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + Assets.1Y.Gr + log(Ghg.Change.Nonzero.Count + 1) + (1|Industry/Id) + (1 |Continent/Country), data = data)
 
+summary(model12)
+model_performance(model12)
+model_performance(model12)$AIC
 
-
-hist(data$Ghg.Change.Nonzero.Count)
 ```
 
 
+Emission scopes: No is the same as No Data so I will only include the yes for each category.
 ```{r}
-model = lmer(Ghg.Change.Real.Next ~ Year + (1|Id) + (1/Industry), data = data)
-
-model_performance(model)
+# make proportion verified scope1 = 1 if it's 100 else 0
+data$Proportion.Verified.Scope1 = ifelse(data$Proportion.Verified.Scope1 == 100, 1, 0)
+data$Proportion.Verified.Scope2 = ifelse(data$Proportion.Verified.Scope2 == 100, 1, 0)
 ```
 
 ```{r}
-model = lmer(Ghg.Change.Real.Next ~ Year + (1|Industry/Id) + (1|Continent/Country), data = data)
+# correlation between the three emission scopes
+cor(data$Ghg.Verification.Scope1.Yes, data$Ghg.Verification.Scope2.Yes)
+cor(data$Ghg.Verification.Scope1.Yes, data$Ghg.Verification.Scope3.Yes)
+cor(data$Ghg.Verification.Scope2.Yes, data$Ghg.Verification.Scope3.Yes)
 
-model_performance(model)$AIC
+model13 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope1.Yes + Ghg.Verification.Scope2.Yes + Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope1 + Proportion.Verified.Scope2 +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + log(Ghg.Change.Nonzero.Count + 1) + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model13)
+model_performance(model13)
+model_performance(model13)$AIC
+
+```
+
+The only significant predictors are  whether the company verifies scope 3 emissions, and whether 100% of scope 2 emissions are verified. 
+```{r}
+# model 14
+model14 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2 +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + log(Ghg.Change.Nonzero.Count + 1) + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model14)
+model_performance(model14)
+model_performance(model14)$AIC
+```
+
+AIC goes slightly up, makes sense to remove the other two predictors.
+```{r}
+# try to add to the model Type.Scope.1.Limited, Type.Scope1.Moderate, Type.Scope1.N.A, Type.Scope1.Reasonable, Type.Scope1.Third.Party.Underway
+
+# first convert them to a single factor column
+data$Type.Scope1 = ifelse(data$Type.Scope1.Limited == 1, "Limited", ifelse(data$Type.Scope1.Moderate == 1, "Moderate", ifelse(data$Type.Scope1.N.A == 1, "N.A", ifelse(data$Type.Scope1.Reasonable == 1, "Reasonable", "Third.Party.Underway"))))
+data$Type.Scope1 = as.factor(data$Type.Scope1)
+data$Type.Scope1 = relevel(data$Type.Scope1, ref = "Reasonable")
+
+model15 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2 + Type.Scope1 + Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + log(Ghg.Change.Nonzero.Count + 1) + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model15)
+model_performance(model15)
+model_performance(model15)$AIC
+
+
+```
+
+Now moving on to incentives: board oversight and incentive binary:
+```{r}
+# correlation between the two
+cor(data$Cdp.Boardoversight.I, data$Cdp.Incentivebinary.I)
+
+# add them to the model 
+data$oversigh
+model16 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2 + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + log(Ghg.Change.Nonzero.Count + 1) + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model16)
+model_performance(model16)
+
+```
+
+Only incentive binary is significant. Moving on to carbon credits
+```{r}
+columns = c("Cdp.Num.Credits.Clean.Sum", "Cdp.Num.Credits.Clean.Count", "Cdp.Num.Credits.Riskadj.Clean.Sum", "Cdp.Num.Credits.Clean.Missing.Sum",
+            "Cdp.Num.Credits.Riskadj.Clean.Missing.Sum", "Cdp.Orig.Or.Purchase.Clean.Credit.Origination")
+
+purpose = c("Cdp.Purpose.Clean.Compliance", "Cdp.Purpose.Clean.Other", "Cdp.Purpose.Clean.Voluntary.Offsetting")
+
+# convert purpose to a single factor column
+data$Purpose = ifelse(data$Cdp.Purpose.Clean.Compliance == 1, "Compliance", ifelse(data$Cdp.Purpose.Clean.Other == 1, "Other", "Voluntary Offsetting"))
+data$Purpose = as.factor(data$Purpose)
+data$Purpose = relevel(data$Purpose, ref = "Other")
 ```
 
 ```{r}
-model_slope = lmer(Ghg.Change.Real.Next ~ Ghg.Change.Real + Year + Year * Industry (1 | Industry/Id) + (1 | Continent/Country), data = data)
+# add them to the model
+model17 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2 + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Purpose + Cdp.Num.Credits.Clean.Sum + Cdp.Num.Credits.Clean.Count + Cdp.Num.Credits.Riskadj.Clean.Sum + Cdp.Num.Credits.Clean.Missing.Sum + Cdp.Num.Credits.Riskadj.Clean.Missing.Sum + Cdp.Orig.Or.Purchase.Clean.Credit.Origination +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + log(Ghg.Change.Nonzero.Count + 1) + (1|Industry/Id) + (1 |Continent/Country), data = data)
 
-model_performance(model_slope)
-summary(model_slope)
+summary(model17)
+model_performance(model17)
 ```
+
+Most of the carbon credit predictors are not significant. Let's try to understand whether the purpose of the credits is significant. 
+```{r}
+mean(data$Absent.Cdp.Carbon.Credits.Full.Processed.Csv)
+
+# add them to the model
+model18 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + log(Ghg.Change.Nonzero.Count + 1) + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model18)
+model_performance(model18)
+model_performance(model18)$AIC
+```
+
+Let's now move on to emission scopes:
+```{r}
+# Ghg1, Ghg2Location, Ghg2Market, Ghg3.Total, Ghg3.Count, Ghg1.Na, Ghg2Location.Na, Ghg2Market.Na, Ghg3.Total.Na,
+# Absent.Cdp.Ghg.All.Scopes.Processed.Csv
+
+
+# add them to the model
+model19 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg2Market + Ghg3.Total + Ghg3.Count + Ghg1.Na + Ghg2Location.Na + Ghg2Market.Na + Ghg3.Total.Na +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + log(Ghg.Change.Nonzero.Count + 1) + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model19)
+model_performance(model19)
+model_performance(model19)$AIC
+```
+
+We can see how the significant predictors are Ghg1.NA and Ghg1 which combined help us understand the impact that 
+higher ghg1 have on decarbonization, the more ghg1 the harder to decarbonize in percentage, that makes sense. As well as Ghg2 Location is the only significant, becasue more companies report location compared to market, but market is a great indicator of decarbonization, thus the fact that is missing is a significant predictor. Hence, I will leave GHG2 location. Also I am dropping ghg.change.nonzero count at this point because I have good information on ghg.
+```{r}
+# add them to the model
+model20 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model20)
+model_performance(model20)
+model_performance(model20)$AIC
+
+```
+
+Let's now look at intensity figures. I will look mostly at change i think
+```{r}
+# add them to the model
+model21 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na + Ghg.Int.Figure + Ghg.Int.Change + Ghg.Int.Figure.Na +
+                 Ghg.Int.Change.Na + Absent.Cdp.Ghg.Int.Processed.Csv +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model21)
+model_performance(model21)
+model_performance(model21)$AIC
+
+
+```
+
+Leaving only Ghg.Int.Figure.NA and merging it with Absent.Cdp.Ghg.Int.Processed.Csv -> inclined to leave out of the model, will leave it on for now
+```{r}
+# make a column that is an or of the two
+data$Ghg.Int.Figure.Na.merged = ifelse(data$Ghg.Int.Figure.Na == 1 | data$Absent.Cdp.Ghg.Int.Processed.Csv == 1, 1, 0)
+
+# add them to the model
+model22 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model22)
+model_performance(model22)
+model_performance(model22)$AIC
+```
+
+Now, moving on to investments
+```{r}
+# add them to the model
+model23 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Co2.Counter + Msaving.Counter + Investment.Counter + Co2.Total.Log1P + Msaving.Total.Log1P + Investment.Total.Log1P + Co2.Total.Log1P.Missing + Msaving.Total.Log1P.Missing + Investment.Total.Log1P.Missing + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + 
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model23)
+model_performance(model23)
+model_performance(model23)$AIC
+
+```
+
+The only relevant ones are investment counter, and whether there are no initiatives. 
+```{r}
+# remove the ones that are not significant
+model24 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + 
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model24)
+model_performance(model24)
+model_performance(model24)$AIC
+```
+
+Ok now moving on to mothods:
+```{r}
+# convert them to a single factor column
+data$Method.Ind = ifelse(data$Method.Ind.Macc == 1, "Macc", ifelse(data$Method.Ind.Budget.Efficiency == 1, "Budget Efficiency", ifelse(data$Method.Ind.Budget.Low.Carbon == 1, "Budget Low Carbon", ifelse(data$Method.Ind.Compliance == 1, "Compliance", ifelse(data$Method.Ind.Employee.Engagement == 1, "Employee Engagement", ifelse(data$Method.Ind.Financial.Opt == 1, "Financial Opt", ifelse(data$Method.Ind.Gov.Partnership == 1, "Gov Partnership", ifelse(data$Method.Ind.Internal.Finance == 1, "Internal Finance", ifelse(data$Method.Ind.Internal.Incentives == 1, "Internal Incentives", ifelse(data$Method.Ind.Internal.Price == 1, "Internal Price", ifelse(data$Method.Ind.Lower.Roi == 1, "Lower Roi", "Other")))))))))))
+
+data$Method.Ind = as.factor(data$Method.Ind)
+data$Method.Ind = relevel(data$Method.Ind, ref = "Budget Efficiency")
+
+# print the number of ones for each method
+table(data$Method.Ind)
+```
+
+```{r}
+# add them to the model
+model25 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model25)
+model_performance(model25)
+model_performance(model25)$AIC
+```
+
+In this case the only significant one is incentives, which is aleady explained by the other binary predictor, checking the correlation between the two. Therefore, I will create a predictor that specifies whether they have a method or not. 
+```{r}
+# create a new column that is 0 if either method is absent or other, else 1
+data$Method.Ind.merged = ifelse(data$Method.Ind == "Other" | data$Method.Ind == "Absent", 0, 1)
+
+# add them to the model
+model26 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na + Ghg.Int.Figure.Na + Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind.merged +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model26)
+model_performance(model26)
+model_performance(model26)$AIC
+```
+
+Ok now looking at the initiatives for each scope (counters)
+```{r}
+# add them to the model
+model27 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind.merged + Initiative.Scope1 +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model27)
+model_performance(model27)
+model_performance(model27)$AIC
+```
+
+I will not include any of the scope 1,2,3 counters. Let's now look at lowcarbon
 ```{r}
 
-# Industry is important
-data$Industry = as.factor(data$Industry)
-data$Industry = relevel(data$Industry, ref = "Software, Services")
+# add them to the model
+model28 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind.merged + Cdp.Lowcarbon.Rev.Total + Cdp.Lowcarbon.Rev.Total.Missing +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
 
-data$Continent = as.factor(data$Continent)
-data$Continent = relevel(data$Continent, ref = "Europe")
+summary(model28)
+model_performance(model28)
+model_performance(model28)$AIC
 
 
-model_industry = lmer(Ghg.Change.Real.Next ~ Ghg.Change.Real +  Year + Continent + Industry + Market.Cap + Employees + Tot.Assets + Revenue + (1 | Id), data = data)
-
-model_performance(model_industry)
-summary(model_industry)
 ```
+
+will not add lowcarbon - both not significant and worse AIC. Let's try methane - methane is great! Def keepign it.
+```{r}
+# add them to the model
+model29 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind.merged + Methane.Emissions +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model29)
+model_performance(model29)
+model_performance(model29)$AIC
+
+```
+
+Let's now look at risk and opportunities:
 ```{r}
 
+# add them to the model
+model30 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind.merged + Methane.Emissions + Cdp.Risk.Transition + Cdp.Risk.Physical +  Cdp.Aggregated.Opp +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model30)
+model_performance(model30)
+model_performance(model30)$AIC
+```
+
+```{r}
+# add those to the model 
+# note the underscore is a dot and the strings are titles in the data so like cdp_targetduration_mean = Cdp.Targetduration.Mean
+model31 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Proportion.Verified.Scope2  + Type.Scope1 + Cdp.Boardoversight.I + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na +  Ghg.Int.Figure.Na +
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind.merged + Methane.Emissions + Cdp.Risk.Transition + Cdp.Risk.Physical + Absent.Cdp.Riskopp.Processed.Csv + Cdp.Aggregated.Opp +
+                 Year + Ghg.Change.Real  + Market.Cap + Net.Income.Over.Assets + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model31)
+model_performance(model31)
+model_performance(model31)$AIC
+```
+
+```{r}
+# remove board oversight, proportion verified scope 2, net income over assets
+model32 = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Type.Scope1 + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na + 
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind.merged + Methane.Emissions + Cdp.Risk.Transition + Cdp.Risk.Physical + Cdp.Aggregated.Opp +
+                 Year + Ghg.Change.Real  + Market.Cap + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(model32)
+model_performance(model32)
+```
+
+```{r}
+# backwards selecton on model32 using step
+new_model = step(model32, direction = "backward", trace = 2)
+model33 = get_model(new_model)
+```
+
+```{r}
+# get formula
+summary(model33)
+model_performance(model33)
+model_performance(model33)$AIC
+```
+
+```{r}
+# ok now for every model store the AIC in a vector and plot it
+aic = c(model_performance(model1)$AIC, model_performance(model2)$AIC,model_performance(model3)$AIC,model_performance(model4)$AIC,model_performance(model6)$AIC,model_performance(model7)$AIC,model_performance(model8)$AIC,model_performance(model9)$AIC, model_performance(model10)$AIC,model_performance(model11)$AIC,model_performance(model12)$AIC,model_performance(model13)$AIC,model_performance(model14)$AIC,model_performance(model15)$AIC,model_performance(model16)$AIC,model_performance(model17)$AIC,model_performance(model18)$AIC,model_performance(model19)$AIC,model_performance(model20)$AIC,model_performance(model21)$AIC,model_performance(model22)$AIC,model_performance(model23)$AIC,model_performance(model24)$AIC,model_performance(model25)$AIC,model_performance(model26)$AIC,model_performance(model27)$AIC,model_performance(model28)$AIC,model_performance(model29)$AIC,model_performance(model30)$AIC,model_performance(model31)$AIC, model_performance(model32)$AIC, model_performance(model33)$AIC)
+```
+
+```{r}
+plot(aic)
+```
+
+```{r}
+# add interaction terms to the new model
+new_model_interactions = lmer(Ghg.Change.Real.Next ~ Ghg.Verification.Scope3.Yes + Type.Scope1 + Cdp.Incentivebinary.I + Absent.Cdp.Carbon.Credits.Full.Processed.Csv + Ghg1 + Ghg2Location + Ghg3.Count + Ghg1.Na + Ghg2Market.Na + 
+                 Investment.Counter + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Method.Ind.merged + Methane.Emissions + Cdp.Risk.Transition + Cdp.Risk.Physical + Cdp.Aggregated.Opp +
+                 Year + Ghg.Change.Real  + Market.Cap + Cdp.Risk.Physical:Cdp.Aggregated.Opp + (1|Industry/Id) + (1 |Continent/Country), data = data)
+
+summary(new_model_interactions)
+model_performance(new_model_interactions)
+model_performance(new_model_interactions)$AIC
+```
+
+```{r}
+# get a vector of column names from data
+preds = colnames(data)
+
+```
+
+```{r}
+# exclude Id, Ghg.Change.Year.Next, Gind, Continent, Country from preds
+preds = preds[!preds %in% c("Id","Industry", "Ghg.Change.Real.Next", "Gind", "Continent", "Country", "Companyname", "Isin", "Ghg.Change.Real.Cat", "Ghg.Change.Real.Cat.Next")]
+```
+
+```{r}
+# build a formula with all the predictors in preds as fixed effects and Id as random effect
+formula = as.formula(paste("Ghg.Change.Real.Next ~", paste(preds, collapse = " + "), " + (1|Industry/Id) + (1 |Continent/Country)"))
+
+```
+
+```{r}
+# standardize all predictors in data
+data.preds = data[,preds]
+# select only numeric columns
+data.preds = data.preds[sapply(data.preds, is.numeric)]
+data.preds = scale(data.preds)
+data.preds = as.data.frame(data.preds)
+# add back the non-numeric columns
+data.preds = cbind(data.preds, data[,!colnames(data) %in% colnames(data.preds)])
+# add the response variable
+data.preds$Ghg.Change.Real.Next = data$Ghg.Change.Real.Next
+data.preds$Id = data$Id
+data.preds$Industry = data$Industry
+data.preds$Continent = data$Continent
+data.preds$Country = data$Country
+```
+
+```{r}
+# fill na with 0
+data.preds[is.na(data.preds)] = 0
+```
+
+```{r}
+model = lmer(formula, data = data.preds)
+```
+
+```{r}
+model.step.all = step(model, direction = "backward")
+
+summary(get_model(model.step.all))
+model_performance(get_model(model.step.all))
+model_performance(get_model(model.step.all))$AIC
+```
+
+```{r}
+model.step.all
+```
+
+```{r}
+selected.model = lmer(formula(get_model(model.step.all)), data = data)
+```
+
+```{r}
+# step again 
+model.step.all = step(selected.model, direction = "backward")
+
+
+summary(get_model(model.step.all))
+model_performance(get_model(model.step.all))
+model_performance(get_model(model.step.all))$AIC
+```
+
+This is overfitting: i don't like this variable selection method.
+```{r}
+refined.model = lmer(Ghg.Change.Real.Next ~ Year + Market.Cap + Revenue + Ghg.Change.Real + 
+    Ghg.Verification.Scope1.No.Data + Type.Scope1.Limited + Type.Scope1.Moderate + 
+    Type.Scope1.N.A + Type.Scope1.Reasonable + Methane.Emissions + 
+    Cdp.Targetscope.Percent.Mean + Cdp.Targetamount.Mean + 
+    Cdp.Targettype.Absolute +  Absent.Cdp.Target.Processed.Csv + 
+    Absent.Cdp.Initative.Method.Processed.Csv + Absent.Cdp.Incentives.Processed.Csv + 
+    Absent.Cdp.Ghg.Change.Processed.Csv + Ghg.Int.Figure.Na + 
+    Ghg.Int.Change.Na +  Ghg1 + 
+    Ghg1.Na + Ghg2Market.Na + Cdp.Num.Credits.Clean.Count + Cdp.Orig.Or.Purchase.Clean.Credit.Origination + 
+    Investment.Counter + Co2.Total.Log1P.Missing + Msaving.Total.Log1P.Missing + 
+    Investment.Total.Log1P.Missing + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + 
+    Cdp.Risk.Physical + Cdp.Aggregated.Opp + Absent.Cdp.Riskopp.Processed.Csv + 
+    Type.Scope1 + Ghg.Int.Figure.Na.merged + Method.Ind.merged + 
+    (1 | Id:Industry) + (1 | Industry) + (1 | Continent), data = data)
+
+summary(refined.model)
+model_performance(refined.model)
+model_performance(refined.model)$AIC
 ```
