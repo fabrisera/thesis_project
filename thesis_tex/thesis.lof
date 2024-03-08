@@ -1,15 +1,31 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1.1}{\ignorespaces Caption of Scopes 1, 2, and 3 Emissions. Adapted from \cite {Bernoville2022Scopes}.\relax }}{5}{figure.caption.5}%
-\contentsline {figure}{\numberline {1.2.1}{\ignorespaces Carbon Disclosure Project Logo. Adapted from \cite {CDPMain2024}.\relax }}{7}{figure.caption.6}%
-\contentsline {figure}{\numberline {1.2.2}{\ignorespaces Caption of CDP Scoring Grades. Adapted from \cite {CDP2022ScoringPDF}.\relax }}{10}{figure.caption.7}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.4.1}{\ignorespaces Global Industry Classification Standard (GICS) Structure \cite {GICS_MSCI}.\relax }}{22}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.4.2}{\ignorespaces Real Decarbonization Rate\relax }}{26}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.4.3}{\ignorespaces Mean \textit {real decarbonization rate} by continent from 2011 to 2022\relax }}{27}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.4.4}{\ignorespaces Mean Real Decarbonization Rate by Sector\relax }}{28}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.4.5}{\ignorespaces Mean Decarbonization Rate by Country\relax }}{30}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.4.6}{\ignorespaces Mean and Median Real Decarbonization Rate by Year\relax }}{31}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.4.7}{\ignorespaces Financial Predictors\relax }}{34}{figure.caption.15}%
+\contentsline {figure}{\numberline {1.2.1}{\ignorespaces Caption of Scopes 1, 2, and 3 Emissions. Adapted from \cite {Bernoville2022Scopes}.\relax }}{4}{figure.caption.5}%
+\contentsline {figure}{\numberline {1.3.1}{\ignorespaces Carbon Disclosure Project Logo. Adapted from \cite {CDPMain2024}.\relax }}{5}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.3.2}{\ignorespaces Caption of CDP Scoring Grades. Adapted from \cite {CDP2022ScoringPDF}.\relax }}{7}{figure.caption.7}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.0.1}{\ignorespaces Global Industry Classification Standard (GICS) Structure \cite {GICS_MSCI}.\relax }}{23}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.0.2}{\ignorespaces Real Decarbonization Rate\relax }}{27}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.0.3}{\ignorespaces Mean \textit {real decarbonization rate} by continent from 2011 to 2022\relax }}{28}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.0.4}{\ignorespaces Mean Real Decarbonization Rate by Sector\relax }}{29}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.0.5}{\ignorespaces Mean Decarbonization Rate by Country\relax }}{31}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.0.6}{\ignorespaces Mean and Median Real Decarbonization Rate by Year\relax }}{32}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.0.7}{\ignorespaces Financial Predictors\relax }}{35}{figure.caption.15}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.2.1}{\ignorespaces Current vs. Next Year Decarbonization Rate\relax }}{40}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.2.2}{\ignorespaces Next Year Decarbonization Rate Over Time\relax }}{40}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.3.1}{\ignorespaces Next Year Decarbonization Rate by Industry\relax }}{44}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.5.1}{\ignorespaces Market Capitalization vs. Next Year Decarbonization Rate\relax }}{50}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.5.2}{\ignorespaces Revenue vs. Next Year Decarbonization Rate\relax }}{50}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.11.1}{\ignorespaces AIC of all tested models by model iteration\relax }}{68}{figure.caption.31}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.2.1}{\ignorespaces Financial Predictors: Total Assets\relax }}{71}{figure.caption.32}%
+\contentsline {figure}{\numberline {A.2.2}{\ignorespaces Financial Predictors: Market Capitalization\relax }}{72}{figure.caption.33}%
+\contentsline {figure}{\numberline {A.2.3}{\ignorespaces Financial Predictors: Return on Equity\relax }}{72}{figure.caption.34}%
+\contentsline {figure}{\numberline {A.2.4}{\ignorespaces Financial Predictors: Revenue\relax }}{73}{figure.caption.35}%
+\contentsline {figure}{\numberline {A.2.5}{\ignorespaces Financial Predictors: Net Income\relax }}{73}{figure.caption.36}%
+\contentsline {figure}{\numberline {A.2.6}{\ignorespaces Financial Predictors: Employees\relax }}{74}{figure.caption.37}%
+\contentsline {figure}{\numberline {A.2.7}{\ignorespaces Financial Predictors: Total Assets 1yr Growth\relax }}{74}{figure.caption.38}%
+\contentsline {figure}{\numberline {A.2.8}{\ignorespaces Financial Predictors: Employees 1yr Growth\relax }}{75}{figure.caption.39}%
+\contentsline {figure}{\numberline {A.2.9}{\ignorespaces Financial Predictors: Net Income Over Assets\relax }}{75}{figure.caption.40}%

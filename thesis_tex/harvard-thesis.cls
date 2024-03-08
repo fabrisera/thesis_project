@@ -111,6 +111,7 @@
 \RequirePackage[english]{babel}
 \RequirePackage{color}
 \RequirePackage{array}
+\RequirePackage{siunitx}
 \RequirePackage{supertabular}
 \RequirePackage{longtable}
 \RequirePackage{hhline}

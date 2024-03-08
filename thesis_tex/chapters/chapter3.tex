@@ -1,56 +1,268 @@
-\chapter{Chapter 3}
+\chapter{Data Sources}
 
-\section{Introduction to Modeling}
-Key Results
+\subsection{Data: Climate Change Response Questionnaire}
+The main data source comes from the CDP Climate Survey, it contains the response surveys from all companies from 2011 to 2022. The data was partially cleaned and processed by the Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} before being shared with me. This comprehensive dataset was provided a repository that includes both raw and processed data in the form of Stata files. Organized by firm-years, each observation in the dataset corresponds to a specific firm in a given year, and is structured in a panel format, having a unique id year pair to uniquely identify each entry. The original dataset contained $34,588$ firm-years across $11$ years. Since the analysis controls for financial and industry-specific predictors, I decided to focus on public companies, which represent $71\%$ of the firm-years in the dataset. Therefore, $9,785$ firm-years were dropped from the analysis because they did not have an ISIN code, which is a unique identifier for public companies. 
 
-\section{Impact of Year and Current Decarbonization Rate on Next-Year Decarbonization Rate}
+\subsubsection{Important Considerations on the CDP Data}
 \begin{itemize}
-    \item In model (1) from Table \ref{tab:R1}, we start by predicting \textit{Next-Year Decarbonization Rate} using year and ghg change real. We observe how on average we predict a 22\% decrease in real decarbonization rate, as well as a positive and significant correlation between previous year and next year decarbonization rate. In particular, controlling for year, an increase in decarbonization rate from the previous year corresponds to 0.3 predicted next year increase in decarbonization rate. 
-    \item In model (2) from Table \ref{tab:R1}, we add our first random effect: a random intercept for the firm unique identifier code. Mixed effect models are particularly suited when we have repeated measures on the same individuals, in our case, the same firms. In particular, including an effect for each individual firm allows to take into account the correlation between each firm's timeseries without introducing an excessively high number of parameters. When adding Id as a random effect, the model's AIC decreases from 94134.242 to 94018.79, signaling a significant improvement in the model's fit. Furthermore, the signs of the coefficient yeear and ghg change real remain the same, and the coefficient for year remains significant. 
-    \item \textbf{Key Finding:} Adding a random effect significantly improves the model's fit, and we will therefore iterate to find the optimal combination of random effects to then identify a comprehensive set of fixed effects that best predict decarbonization rates.
+    \item \textbf{Reporting year lag:} The data from a given year corresponds to the financial and operational data from the previous year.This was an important consideration when merging the CDP data with other data sources, such as the Worldscope financial data.
+    \item \textbf{Data processing:} The original data processing entailed the extraction of multiple sections from the survey, which were then systematically aligned across different years, ensuring consistency across times and adjusting the format when the questions on the CDP surveyed changed or were slightly modified. It is important to note that the fact that some questions were not asked in some years, and that the questions were not always the same across years, is a significant challenge for the analysis which is specifically focused on forecasting emissions.
+
 \end{itemize}
 
 
+\subsection{Data: Worldscope Fundamental Core Items}
+In addition to the CDP Climate Survey data, financial predictors were obtained using the Worldscope database \cite{Worldscope_2} accessed through Wharton Research Data Services (WRDS) \cite{WRDS}. Worldscope offers detailed standardized financials, allowing for comparisons of financial information across companies from various industries worldwide. This database boasts a long history, with over 35 years of data for key developed markets dating back to 1980 and more than 25 years for emerging markets. With its extensive coverage of over 100,000 companies in more than 120 countries, including full standardized coverage of over 30 developed and emerging markets and accounting for 99\% of global market capitalization, Worldscope is a comprehensive source for firm-level data. Specifically, I queried the fundamental annuals through Worldscope via WRDS, which provided key global information such as \textit{revenue}, \textit{total assets}, \textit{number of employees}, and \textit{net income}, which I then used as predictors for my analysis \cite{Worldscope_2}. Data was retrieved based on the ISIN code, and resulted in $96\%$ of the firm-years having matching financial data. Of those, $17\%$ had missing values for \textit{at least one} of the selected financial variables, thus the corresponding firm-years were dropped from the data-set. This choice has been made as firms with missing financial data are likely to have total assets less than $1$ million, thus I removed them following a similar criteria enstablished by Serafeim et Al. \cite{Serafeim2019}.
 
-\input{tables/R1.tex}
-
-
-\subsection{Impact of Industry Sector on Next-Year Decarbonization Rate}
-\begin{itemize}
-\item In model (1) from table \ref{tab:../../thesis_tex/tables/R2.tex}, we add an important categorical predictor: industry. As explained in the EDA, Industry is derived using the Global Industry Classification stantard and it comprehends 20 industry categories. The hypothesis we want to test is whether the industry a firm operates in significantly affects decarbonization rate, and I expect the result to show that it does. We chose as reference category the Software, Services industry, which is the category that corresponds to the lowest (best) mean decarbonization rate. In this way, coefficients of other industries are expected to be positive and will represent the difference in decarbonization rate compared to the reference category.
-\item As we can observe from the Table, when controlling for year and previous year decarbonization rate, and having firm Id as a random effect, almost all industry sectors are significant, and the results are in line with what we found in the Exploratory Data Analysis section. In particular, sectors that displayed a higher (worse) mean decarbonization rates, such as the Energy, Materials, and Transportation sectors, have higher coefficients. Therefore, the model predicts that firms in these sectors will have a lower next-year decarbonization rate compared to the reference category. This makes sense as these sectors are known to be more carbon-intensive, and the model suggests that the carbon-intensive nature holds true even when controlling for time  and previous year decarbonization rate. We can infer that there likely are factor that make a sector inherently difficult to decarbonize. An example to support this finding is the case of decarbonizing cement production, which is a key category in the Material sector and contributes to a significant portion of global emissions. Cement production is inherently carbon-intensive, and the industry has been struggling to find a viable alternative to the traditional production process. This is a clear example of how the industry a firm operates in can significantly affect its decarbonization rate.
-\item The fact that firms Ids are nested into sector, as each firm is assigned to a primary GICS sector, allows to add Industry as a random effect on the model, nested into firm Id. The implementation is shown in model (2) from table \ref{tab:../../thesis_tex/tables/R2.tex}, and although there is an increase in the AIC, the coefficients for \textit{Year} and \textit{Ghg Change Real} remain significant and with the same sign and similar magnitude. 
-\end{itemize}
-
-\textbf{Key takeaways}:
-\begin{itemize}
-    \item The industry a firm operates in significantly affects its decarbonization rate, and the effect holds true even when controlling for time and previous year decarbonization rate.
-    \item The fact that firms Ids are nested into sector, as each firm is assigned to a primary GICS sector, allows to add Industry as a random effect on the model, nested into firm Id. From now on, we will include industry as a random effect in all the following models.
-\end{itemize}
-
-\input{tables/R2.tex}
-
-\subsection{Impact of Country and Continent on Decarbonization}
-\begin{itemize}
-    \item A predictor we will next consider is georgraphical location. Location is important in understanding decarbonization rates, as different countries have different policies and regulations that can affect a firm's ability to decarbonize. 
-    \item In model (1) from Table \ref{tab:R3}, we start by predicting \textit{Next-Year Decarbonization Rate} using year, ghg change real, and continent. Our reference category is Europe, and we expect the coefficients for the other continents to be positive, as we expect firms in other continents to have a lower decarbonization rate compared to firms in Europe. The results are in line with our expectations, and all coefficients are significant.
-    \item In model (2) from Table \ref{tab:R3}, we add country as a random effect, nested into continent. The AIC increases, but the coefficients for year and ghg change real remain significant and with the same sign and identical magnitude. This is a good sign, and it suggest that our panel data can be effectively modeled using a mixed effect model with firm Id, industry, and country nested into continent as random effects.
-    \item \textbf{Key Finding:} The continent a firm is located in is significantly associated with its decarbonization rate, and the effect holds true even when controlling for time and previous year decarbonization rate and having firm Id and industry as random effects. Furthermore, adding country nested into continent as a random effect does not significantly change the model's fit, and we will therefore include it in all the following models.
-\end{itemize}
+ \subsection{GICS Data}
+ Accessed through WRDS using Capital IQ, the Global Industry Classification Standard (GICS) provides the framework for this study's industry analysis. GICS, a collaborative creation by MSCI and S\&P Dow Jones Indices, offers a hierarchical, four-tiered classification system, encompassing Sectors, Industry Groups, Industries, and Sub-Industries. This standard ensures a consistent approach to defining company activities worldwide, crucial for comparative financial analysis. The classification of a company within GICS hinges on its principal business activity, with revenue being a primary determinant. The system also considers earnings and market perception, elements that contribute to the annual refinement of the classifications to mirror evolving market conditions. This research utilizes the 25 industry groups defined within GICS, facilitating a detailed examination of firm-level data against a backdrop of global industry standards \cite{GICS_MSCI, GICS_Wikipedia}. I queried the GICS data only for the firm-years that had matching financial data, resulting in $19,200$ firm-years with complete financial and GICS data. GICS data was avaialble for $99\%$ of the firm-years that had matching financial data.
  
+ % insert a figure here
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=5in]{figures/gics.png}
+\caption{Global Industry Classification Standard (GICS) Structure \cite{GICS_MSCI}.}
+\label{fig:label1}
+\end{center}
+\end{figure}
 
 
-\input{tables/R3.tex}
+\newpage 
+ \subsection{Data Cleaning Process Flowchart:}
+\noindent This is a visual representation of the data cleaning process described in the data sources with a specification of the number of firm-years dropped at each step: 
+
+\bigskip
+
+\begin{figure}[H]
+\centering
+\begin{forest}
+    for tree={
+        draw,
+        rounded corners,
+        align=left,
+        edge={->},
+        parent anchor=south,
+        child anchor=north,
+        l sep+=0.5cm, % Increase the level distance
+        scale=0.8,
+    },
+    [CDP Climate Response Survey Data\\\textbf{34,588 firm-years \& 11,289 firms}, fill=blue!20
+        [Firm has an ISIN code?, edge, fill=yellow!20
+            [\textbf{24,803 firm-years \& 4,330 firms}, edge label={node[midway, above left] {YES}}, fill=green!20
+                [Is Worldscope + GICS data available?, edge, fill=yellow!20
+                    [\textbf{19,200 firm-years \& 3,616 firms}, edge label={node[midway, above left] {YES}}, fill=green!20
+                        [Is CDP control data available?, edge, fill=yellow!20
+                            [\underline{\textbf{13,741 firm-years \& 3,574 firms}}, edge label={node[midway, above left] {YES}}, fill=green!20]
+                            [\text{709} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
+                        ]
+                    ]
+                    [\text{5,603} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
+                ]
+            ]
+            [\text{9,785} firm-years dropped, edge label={node[midway, above right] {NO}}, fill=red!20]
+        ]
+    ]
+\end{forest}
+\captionof{table}{Data Cleaning Process Flowchart}
+\label{fig:cdp-climate-response-survey-data}
+\end{figure}
+
+\noindent The final dataset contains \textbf{$\bf{18,476}$ firm-years across $\bf{3,574}$ firms, with complete CDP, Worldscope, and GICS data}. 
+\newpage
 
 
-\subsection{Impact of Financial Predictors on Decarbonization}
 
+
+\subsection{Variable Dictionary}
+
+\noindent Table~\ref{tab:variable-dictionary} provides an overivew of the predictors used in the analysis, including their type, description, and source. Predictors are divided into three primary categories: \begin{itemize}
+    \item \textbf{Firm Information:} Variables that describe the firm's characteristics, such as its unique identifier, reporting year, headquarters country, headquarters continent, and industry sector.
+    \item \textbf{Financial Predictors:} Variables that capture the firm's financial performance, including total revenue, total assets, total employees, net income, and market capitalization.
+    \item \textbf{CDP Predictors:} Variables derived from the CDP Climate Survey, such as the firm's emissions, energy consumption, and climate-related targets and initiatives.
+\end{itemize}
+\begin{longtable}{lp{2cm}p{6cm}p{2cm}} \\
+    \toprule
+    \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
+    \midrule
+    \endfirsthead % Everything above goes at the top of the first page of the table
+    \multicolumn{4}{c}%
+    {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+    \toprule
+    \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
+    \midrule
+    \endhead % Header to be repeated on every page
+    \bottomrule
+    \multicolumn{4}{r}{\textit{Continued on next page}} \\
+    \endfoot % Footer to be repeated on every page except the last
+    \endlastfoot % Footer for the last page of the table
+    
+    % Core Information Section
+    \multicolumn{4}{l}{\textbf{Firm Information}} \\
+    \midrule
+    ID & categorical & unique firm identifier & CDP \\
+    Year & numerical & reporting year & CDP \\
+    Country & categorical & headquarters country  & CDP \\
+    Continent & categorical & headquarters continent derived from country & CDP \\
+    Industry & categorical & Global Industry Classification Standard 25 industry sectors & GICS \\
+    
+    \midrule
+    % Financial Predictors Section
+    \multicolumn{4}{l}{\textbf{Financial Predictors}} \\
+    \midrule
+    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
+    log(Assets) & numerical & natural logarithm of total assets & Worldscope \\
+    log(Assets 1yr gr.) & numerical & natural logarithm of total assets growth & Worldscope \\
+    log(Employees) & numerical & natural logarithm of total employees & Worldscope \\
+    log(Empl. 1y gr.) & numerical & natural logarithm of total employees growth & Worldscope \\
+    log(Net Income) & numerical & natural logarithm of net income & Worldscope \\
+    log(Market Cap) & numerical & market capitalization & Worldscope \\
+    log(Roe) & numerical & natural logarithm of return on equity & Worldscope \\
+    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
+    % Add more variables as needed
+    \midrule
+    % CDP Predictors Section
+    \multicolumn{4}{l}{\textbf{CDP Predictors}} \\
+    \midrule
+    Variable5 & Type5 & Description5 & Source5 \\
+    Variable6 & Type6 & Description6 & Source6 \\
+    % Add more variables as needed
+    
+    \bottomrule
+\caption{Variable Dictionary}
+\label{tab:variable-dictionary}
+\end{longtable}
+
+\subsection{The Response Variable: Real Decarbonization Rate}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/ghg_change_real_dist.png}
+    \caption{Real Decarbonization Rate}
+    \label{fig:real-decarbonization-rate}
+    \end{center}
+\end{figure}
+
+\subsection{Real Decarbonization Rate Breakdown by Continent}
+Figure \ref{fig:emission-breakdown-by-continent} and the relative table show the mean real decarbonization rate by continent across all CDP reporting years from 2011 to 2022. As expected, there is significant class imbalance between continents, with Europe having the most number of firms, followed by North America and Asia. There is a significant difference in the mean decarbonization rate across continents, with Europe having the best mean decarbonoization rate with an average yearly decrease of $-4.94 \%$ and Africa having the worst mean decarbonization rate with an average yearly decrease of $-2.81 \%$. Overall, the data suggests that operating in an environment with more incentives to report and reduce emissions, such as Europe, is associated with a higher mean decarbonization rate. This is consistent with the findings of Downar et al.  \cite{Downar2020The} which shows in a UK-based study that firms with a carbon disclosure mandate reduced emissions by $8\%$ without negatively impacting their financial operating performance. The hypothesis will be further tested in the following sections.
+\noindent 
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_by_continent.png}
+    \caption{Mean \textit{real decarbonization rate} by continent from 2011 to 2022}
+    \label{fig:emission-breakdown-by-continent}
+    \end{center}
+\end{figure}
+  
+
+\input{tables/emission_breakdown.tex}
+
+
+\subsection{Real Decarbonization Rate Breakdown by Sector}
+
+\noindent Figure \ref{fig:mean-decarbonization-rate-by-sector} and the relative table show the mean real decarbonization rate by sector across all CDP reporting years from 2011 to 2022. The data shows that the mean decarbonization rate varies significantly across sectors, with the best mean decarbonization rate in the Software and Services sector, with an average yearly decrease of $-6.67 \%$, and the worst mean decarbonization rate in the Materials sector, with an average yearly decrease of $-2.46\%$. Additionally, there are significant differences in the number of firms across sectors, with the Capital Goods sector having the most number of firms, $475$ and the Household and Personal Products sector having the least number of firms, $43$. Differences in sectors are important to consider, as they can be indicative of the difficulty of decarbonizing a given industry. For example, our data suggests that Transportation and Materials are the sectors with the worst mean decarbonization rates, which is consistent with the findings of Davis et al. \cite{Davis2018Net-zero} which suggest that difficult-to-decarbonize energy services include aviation, long-distance transport, steel and cement production.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_by_sector.png}
+    \caption{Mean Real Decarbonization Rate by Sector}
+    \label{fig:mean-decarbonization-rate-by-sector}
+    \end{center}
+\end{figure}
+
+
+\input{tables/emission_breakdown_sector.tex} 
+
+\subsection{Real Decarbonization Rate Breakdown by Country}
+
+Figure \ref{fig:mean-decarbonization-rate-by-country} shows the mean real decarbonization rate by country across all CDP reporting years from 2011 to 2022. There are significant differences both in the number of firms and in the mean decarbonization rate across countries. Table~\ref{tab:emission_breakdown_country} shows summary statistics for the worst $10$ performing countries with nonzero mean real decarbonization rates. For a complete list of countries, see appendix table.
+
+
+% include graph of mean decarbonization rates by country
+\begin{figure}[htbp]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_country.png}
+    \caption{Mean Decarbonization Rate by Country}
+    \label{fig:mean-decarbonization-rate-by-country}
+    \end{center}
+\end{figure}
+
+
+\input{tables/emission_breakdown_country.tex}
+
+\subsection{Real Decarbonization Rate Breakdown by Year}
+
+Figure \ref{fig:mean-decarbonization-rate-by-year} shows the mean and median real decarbonization rate by year across all CDP reporting years from 2011 to 2022. The data shows that the mean and median decarbonization rates have been (assuringly) decreasing over time.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=5in]{figures/mean_decarbonization_rate_year.png}
+    \caption{Mean and Median Real Decarbonization Rate by Year}
+    \label{fig:mean-decarbonization-rate-by-year}
+    \end{center}
+\end{figure}
+
+\input{tables/emission_breakdown_year.tex}
+
+
+\subsection{Feature Engineering: Financial Predictors}
+Figure \ref{fig:grid} shows the distribution of the financial predictors used in the analysis. This is a list of each predictor along with a brief description of how it was derived:
 \begin{itemize}
-    \item In model (1) from Table \ref{tab:R4}, we start by predicting \textit{Next-Year Decarbonization Rate} using year, ghg change real, market cap, employees, and revenue, employees 1 year growth, assets 1 year growth, total assets, net income over assets, and return on equity. We find that only market cap is significant, with revenue being significant at the 10\% level. The coefficient for market cap is negative, and the coefficient for revenue is positive. This is in line with our expectations, as we expect larger firms to have a more negative (higher) decarbonization rate, and we expect firms with higher revenue to have a less negative (lower) decarbonization rate. Since the revenue coefficient is not significant at the 5\% level, and there are many omitted variables that could be affecting the results, we will not draw any conclusions from this model. We will focus on retaining both market cap and revenue in the next model, and we will focus on understanding how assets and empllyees growth affect next year decarbonization rate in the following model.
-    \item In model (2) from Table \ref{tab:R4}, we add assets growth. We find that assets growth is not significant, and the coefficients for market cap and revenue remain significant and with the same sign and similar magnitude. Although not significant, the coefficient for assets growth is positive, which seems to suggest that firms with higher assets growth have a lower decarbonization rate.
-    \item In model (3) from Table \ref{tab:R4}, we add employees growth. We find that employees growth is not significant, and the coefficients for market cap and revenue remain significant and with the same sign and similar magnitude. Employees growth is positive, which seems to suggest that firms with higher employees growth have a lower decarbonization rate. 
+    \item \textbf{Total Assets \ref{fig:total-assets}}: The total assets of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Total Assets})$.
+    \item \textbf{Market Capitalization \ref{fig:market-capitalization}}: The market capitalization of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Market Cap})$.
+    \item \textbf{Return on Equity \ref{fig:roe}}: The return on equity of the firm, which is a measure of the firm's profitability. Since the return on equity is a percentage which can be negative, the following transformation was used: $log(1 + \frac{\text{ROE}}{100})$.
+    \item \textbf{Revenue \ref{fig:revenue}}: The total revenue of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Revenue})$.
+    \item \textbf{Net Income \ref{fig:net-income}}: The net income of the firm, which is a measure of the firm's profitability. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Net Income})$.
+    \item \textbf{Employees \ref{fig:employees}}: The total number of employees of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Employees})$.
+    \item \textbf{Total Assets 1yr Growth \ref{fig:total-assets-1yr-growth}}: The one year growth of the total assets of the firm, which is a measure of the firm's growth. Directly obtained from the Worldscope database and since the growth can be negative, the following transformation was used: $log(1 + \frac{\text{Total Assets 1yr Growth}}{100})$.
+    \item \textbf{Employees 1yr Growth \ref{fig:employees-1yr-growth}}: The one year growth of the total number of employees of the firm, which is a measure of the firm's growth. Directly obtained from the Worldscope database and since the growth can be negative, the following transformation was used: $log(1 + \frac{\text{Employees 1yr Growth}}{100})$.
+    \item \textbf{Net Income over Assets \ref{fig:net-income}}: The net income of the firm over its total assets, which is a measure of the firm's profitability. The feature was calculated with the following formula $log(1 + \frac{\text{Net Income}}{\text{Total Assets}})$.
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+
+% Row 1
+\subcaptionbox{Total Assets\label{fig:total-assets}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/tot_assets_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Market Capitalization\label{fig:market-capitalization}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/mkt_cap_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Return on Equity\label{fig:roe}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/roe_dist.png}}%
+
+% Row 2
+\subcaptionbox{Revenue\label{fig:revenue}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/revenue_dist.png}}%
+\hfill
+\subcaptionbox{Net Income\label{fig:net-income}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/net_income_dist.png}}%
+\hfill
+\subcaptionbox{Employees\label{fig:employees}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/employees_dist.png}}%
+
+% Row 3
+\subcaptionbox{Tot. Assets 1yr Growth\label{fig:total-assets-1yr-growth}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/assets_1yr_growth_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Employees 1yr Growth\label{fig:employees-1yr-growth}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/employees_1yr_growth_dist.png}}%
+\hfill % spacing between images
+\subcaptionbox{Net Income Over Assets\label{fig:net-income-over-assets}}{%
+  \includegraphics[width=0.3\linewidth]{figures/financial_preds/net_income_over_assets_dist.png}}%
 
 
-\input{tables/R4.tex}
+
+\caption{Financial Predictors}
+\label{fig:grid}
+\end{figure}
+
+\noindent \textit{Note: for full-size images, see appendix \ref{sec:FinancialPreds}.}
+\newpage 
+
+\begin{itemize}
+    \item Number of firms and unique isins
+    \item Number of variables
+    \item Number of firms per sector
+\end{itemize}

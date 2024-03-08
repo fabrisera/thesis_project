@@ -1,0 +1,103 @@
+```{r}
+library(tidyverse)
+library(lme4)
+library(lmerTest)
+library(stargazer)
+library(performance)
+library(broom)
+library(broom.mixed)
+```
+
+```{r}
+data = read.csv("/Users/fabrizioserafini/Desktop/senior_year/SeniorThesis/thesis_project/data/processed/cdp_total_processed_v2.csv")
+
+data <- na.omit(data)
+data
+```
+
+```{r}
+# Industry is important
+data$Industry = as.factor(data$Industry)
+data$Industry = relevel(data$Industry, ref = "Software, Services")
+
+data$Continent = as.factor(data$Continent)
+data$Continent = relevel(data$Continent, ref = "Europe")
+
+```
+
+```{r}
+# convert methods to a single factor column
+data$Method.Ind = ifelse(data$Method.Ind.Macc == 1, "Macc", ifelse(data$Method.Ind.Budget.Efficiency == 1, "Budget Efficiency", ifelse(data$Method.Ind.Budget.Low.Carbon == 1, "Budget Low Carbon", ifelse(data$Method.Ind.Compliance == 1, "Compliance", ifelse(data$Method.Ind.Employee.Engagement == 1, "Employee Engagement", ifelse(data$Method.Ind.Financial.Opt == 1, "Financial Opt", ifelse(data$Method.Ind.Gov.Partnership == 1, "Gov Partnership", ifelse(data$Method.Ind.Internal.Finance == 1, "Internal Finance", ifelse(data$Method.Ind.Internal.Incentives == 1, "Internal Incentives", ifelse(data$Method.Ind.Internal.Price == 1, "Internal Price", ifelse(data$Method.Ind.Lower.Roi == 1, "Lower Roi", "Other")))))))))))
+
+# merge all the other methods to Other but internal incentives adn MACC
+data$Method.Ind = ifelse(data$Method.Ind == "Other", "Other", ifelse(data$Method.Ind == "Internal Incentives" | data$Method.Ind == "Macc", data$Method.Ind, "Other"))
+
+data$Method.Ind = as.factor(data$Method.Ind)
+data$Method.Ind = relevel(data$Method.Ind, ref = "Other")
+# important methods are Internal Incentives, Ind MACC
+# print the number of ones for each method
+table(data$Method.Ind)
+```
+
+```{r}
+# make proportion verified scope1 = 1 if it's 100 else 0
+data$Proportion.Verified.Scope1 = ifelse(data$Proportion.Verified.Scope1 == 100, 1, 0)
+data$Proportion.Verified.Scope2 = ifelse(data$Proportion.Verified.Scope2 == 100, 1, 0)
+
+# first convert them to a single factor column
+data$Type.Scope1 = ifelse(data$Type.Scope1.Limited == 1, "Limited", ifelse(data$Type.Scope1.Moderate == 1, "Moderate", ifelse(data$Type.Scope1.N.A == 1, "N.A", ifelse(data$Type.Scope1.Reasonable == 1, "Reasonable", "Third.Party.Underway"))))
+
+# merge limited and moderate in limited/moderate
+data$Type.Scope1 = ifelse(data$Type.Scope1 == "Limited" | data$Type.Scope1 == "Moderate", "Limited/Moderate", data$Type.Scope1)
+data$Type.Scope1 = as.factor(data$Type.Scope1)
+data$Type.Scope1 = relevel(data$Type.Scope1, ref = "Reasonable")
+
+# cdp aggregated risk 
+data$Cdp.Aggregated.Risk = data$Cdp.Risk.Transition + data$Cdp.Risk.Physical
+```
+
+
+```{r}
+data_train = data %>% filter(Year < 10)
+data_test = data %>% filter(Year == 10)
+```
+
+```{r}
+final_model = lmer(Ghg.Change.Real.Next ~ Year + Ghg.Change.Real + Market.Cap + Revenue +  Type.Scope1 + Ghg.Verification.Scope3.Yes + Ghg1 + Ghg2Location + Ghg1.Na + Ghg2Market.Na + Methane.Emissions + Method.Ind + Cdp.Targetamount.Mean + Cdp.Targettype.Absolute + Cdp.Aggregated.Risk +  Cdp.Aggregated.Opp + Absent.Cdp.Initiative.Firm.Year.Processed.Csv + Investment.Counter + (1|Industry/Id) + (1 |Continent/Country), data = data_train)
+
+
+summary(final_model)
+model_performance(final_model)
+```
+
+```{r}
+# predict on the test set
+data_test$Ghg.Change.Real.Next.Pred = predict(final_model, newdata = data_test)
+```
+
+```{r}
+# calculate the RMSE
+rmse = sqrt(mean((data_test$Ghg.Change.Real.Next - data_test$Ghg.Change.Real.Next.Pred)^2))
+rmse
+```
+
+```{r}
+# calculate the MAE
+mae = mean(abs(data_test$Ghg.Change.Real.Next - data_test$Ghg.Change.Real.Next.Pred))
+mae
+```
+
+```{r}
+# plot the residuals
+residuals = data_test$Ghg.Change.Real.Next - data_test$Ghg.Change.Real.Next.Pred
+plot(data_test$Ghg.Change.Real.Next, residuals)
+```
+
+```{r}
+# select Ghg.Change.Real.Next and Ghg.Change.Real.Next.Pred
+display = data_test %>% select(Ghg.Change.Real.Next, Ghg.Change.Real.Next.Pred)
+
+display
+```
+
+
