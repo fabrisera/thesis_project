@@ -136,6 +136,15 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \input{tables/R3.tex}
 
+\subsection{Relevant Figures:}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_continent.png}
+\caption{Continent vs. Next Year Decarbonization Rate}
+\label{fig:continent_vs_ghg_change_real_next}
+\end{figure}
+
 \subsection{Discussion}
 \begin{itemize}
     \item Model (1) introduces the effect of geographical location at the continental level as a fixed effect while controlling for year and GHG change, and using firm ID and Industry as random intercepts. The significant coefficients for continents compared to Europe (the reference category) suggests that geographical location is correlated with a significant change firm's decarbonization rate, in particular we observe how Oceania is the continent associated with the least decarbonization. That is, compared to Europe, according to the model a firm in Oceana is predicted to decarbonize by an average of $1.585 \%$ less compared to Europe. This finding aligns with expectations, reflecting variations in regulatory environments, access to clean technologies, and economic conditions across continents.
@@ -220,8 +229,60 @@ For each presented model, I will first present the key questions and hypothesis,
     \item Fourth model: Picks out and uses only the most important factors from the first three models, those predictors will be passed on in the next models.
 \end{enumerate}
 
-
 \input{tables/R5.tex}
+
+\subsection{Relevant Figures:}
+% first figure emission scope types
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_type_scope1.png}
+\caption{GHG Emission Scope 1 Verification Type vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_ghg_type}
+\end{figure}
+
+% plot ghg1_vs_ghg_change_real_next
+\begin{figure}[H]
+\centering
+    \includegraphics[width=\textwidth]{figures/ghg1_vs_ghg_change_real_next.png}
+\caption{GHG Emission Scope 1 vs. Next Year Decarbonization Rate}
+\label{fig:ghg1_vs_ghg_change_real_next}
+\end{figure}
+
+    
+
+% second figure boxplot of Ghg1 Missing
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_ghg1_na.png}
+\caption{GHG Emission Scope 1 Missing vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_ghg1_na}
+\end{figure}
+
+% third figure scatter methane_emissions_vs_ghg_change_real_next
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/methane_emissions_vs_ghg_change_real_next.png}
+\caption{Methane Emissions vs. Next Year Decarbonization Rate}
+\label{fig:methane_emissions_vs_ghg_change_real_next}
+\end{figure}
+
+% fourth figure is a boxplot of ghg_change_real_next_by_ghg2market_na
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_ghg2market_na.png}
+\caption{GHG Emission Scope 2 Market Missing vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_ghg2market_na}
+\end{figure}
+
+% plot ghg_change_real_next_by_ghg_verification_scope3_yes
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_ghg_verification_scope3_yes.png}
+\caption{GHG Emission Scope 3 Verification vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_ghg_verification_scope3_yes}
+\end{figure}
+
+
 \subsection{Discussion}
 
 \begin{itemize}
@@ -254,6 +315,23 @@ For each presented model, I will first present the key questions and hypothesis,
 
 
 \input{tables/R6.tex}
+
+\subsection{Relevant Figures:}
+\begin{figure}[H]
+    % ghg_change_real_next_by_cdp_incentivebinary_i
+\centering
+    \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_cdp_incentivebinary_i.png}
+\caption{Incentive Binary vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_cdp_incentivebinary_i}
+\end{figure}
+
+\begin{figure}[H]
+    % ghg_change_real_next_by_method_ind
+\centering
+    \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_method_ind.png}
+\caption{Incentive Method vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_method_ind}
+\end{figure}
 
 \subsection{Discussion on Incentives}
 

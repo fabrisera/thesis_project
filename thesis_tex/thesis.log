@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  8 MAR 2024 01:33
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  13 MAR 2024 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1356,14 +1356,14 @@ Package xcolor Warning: Incompatible color definition on input line 5.
 
 Package xcolor Warning: Incompatible color definition on input line 8.
 
+[7
 
-Overfull \hbox (2.44797pt too wide) detected at line 21
+]
+Overfull \hbox (2.44797pt too wide) detected at line 30
 [][]\TU/lmr/m/n/12 4.11.1 
  []
 
-[7
-
-])
+)
 \tf@lof=\write8
 \openout8 = `thesis.lof'.
 
@@ -1693,23 +1693,48 @@ File: figures/year_vs_ghg_change_real_next.png Graphic file (type bmp)
  [40] [41] (./tables/R2.tex) [42]
 File: figures/ghg_change_real_next_over_time_by_industry.png Graphic file (type bmp)
 <figures/ghg_change_real_next_over_time_by_industry.png>
- [43] [44] [45] (./tables/R3.tex) [46] [47] (./tables/R4.tex) [48]
+ [43] [44] [45] (./tables/R3.tex)
+File: figures/ghg_change_real_next_by_continent.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_continent.png>
+ [46] [47] [48] (./tables/R4.tex)
 File: figures/market_cap_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/market_cap_vs_ghg_change_real_next.png>
  [49]
 File: figures/revenue_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/revenue_vs_ghg_change_real_next.png>
- [50] [51] (./tables/R5.tex) [52] [53] [54] [55] (./tables/R6.tex) [56] [57] [58] (./tables/R7.tex) [59] [60] [61] (./tables/R8.tex) [62] [63] (./tables/R9.tex) [64] [65] (./tables/R10.tex) [66]
+ [50] [51] (./tables/R5.tex) [52]
+File: figures/ghg_change_real_next_by_type_scope1.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_type_scope1.png>
+ [53]
+File: figures/ghg1_vs_ghg_change_real_next.png Graphic file (type bmp)
+<figures/ghg1_vs_ghg_change_real_next.png>
+File: figures/ghg_change_real_next_by_ghg1_na.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_ghg1_na.png>
+ [54]
+File: figures/methane_emissions_vs_ghg_change_real_next.png Graphic file (type bmp)
+<figures/methane_emissions_vs_ghg_change_real_next.png>
+File: figures/ghg_change_real_next_by_ghg2market_na.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_ghg2market_na.png>
+ [55]
+File: figures/ghg_change_real_next_by_ghg_verification_scope3_yes.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_ghg_verification_scope3_yes.png>
+ [56] [57] [58] (./tables/R6.tex) [59]
+File: figures/ghg_change_real_next_by_cdp_incentivebinary_i.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_cdp_incentivebinary_i.png>
+ [60]
+File: figures/ghg_change_real_next_by_method_ind.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_method_ind.png>
+ [61] [62] (./tables/R7.tex) [63] [64] [65] (./tables/R8.tex) [66] [67] (./tables/R9.tex) [68] [69] (./tables/R10.tex) [70]
 File: ../notebooks/R/aic.png Graphic file (type bmp)
 <../notebooks/R/aic.png>
- [67] [68]) [69]
+ [71] [72]) [73]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
 Appendix A.
 File: figures/financial_preds/tot_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/tot_assets_dist.png>
-[70
+[74
 
 
 
@@ -1717,25 +1742,25 @@ File: figures/financial_preds/tot_assets_dist.png Graphic file (type bmp)
 ]
 File: figures/financial_preds/mkt_cap_dist.png Graphic file (type bmp)
 <figures/financial_preds/mkt_cap_dist.png>
- [71]
+ [75]
 File: figures/financial_preds/roe_dist.png Graphic file (type bmp)
 <figures/financial_preds/roe_dist.png>
 File: figures/financial_preds/revenue_dist.png Graphic file (type bmp)
 <figures/financial_preds/revenue_dist.png>
- [72]
+ [76]
 File: figures/financial_preds/net_income_dist.png Graphic file (type bmp)
 <figures/financial_preds/net_income_dist.png>
 File: figures/financial_preds/employees_dist.png Graphic file (type bmp)
 <figures/financial_preds/employees_dist.png>
- [73]
+ [77]
 File: figures/financial_preds/assets_1yr_growth_dist.png Graphic file (type bmp)
 <figures/financial_preds/assets_1yr_growth_dist.png>
 File: figures/financial_preds/employees_1yr_growth_dist.png Graphic file (type bmp)
 <figures/financial_preds/employees_1yr_growth_dist.png>
- [74]
+ [78]
 File: figures/financial_preds/net_income_over_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/net_income_over_assets_dist.png>
-) [75] (./thesis.bbl
+) [79] (./thesis.bbl
 
 Package xcolor Warning: Incompatible color definition on input line 6.
 
@@ -1751,7 +1776,7 @@ Package xcolor Warning: Incompatible color definition on input line 31.
 
 Package xcolor Warning: Incompatible color definition on input line 45.
 
-[76
+[80
 
 
 
@@ -1766,15 +1791,15 @@ Package xcolor Warning: Incompatible color definition on input line 59.
 
 Package xcolor Warning: Incompatible color definition on input line 87.
 
-[77]
+[81]
 
 Package xcolor Warning: Incompatible color definition on input line 147.
 
-[78])
+[82])
 
 Package natbib Warning: There were undefined citations.
 
-[79] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux) (./chapters/appendixA.aux))
+[83] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux) (./chapters/appendixA.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1782,7 +1807,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 07C427EAC11A357CB7816882D9A092C9;6206.
+(rerunfilecheck)             Checksum: C232E4F2A6747113D405CFFD0A461CB4;6206.
  )
 (\end occurred inside a group at level 2)
 
@@ -1790,12 +1815,12 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 ### semi simple group (level 1) entered at line 10 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 47036 strings out of 476179
- 1065293 string characters out of 5809544
- 1425383 words of memory out of 5000000
- 66939 multiletter control sequences out of 15000+600000
+ 47117 strings out of 476179
+ 1069466 string characters out of 5809544
+ 1426244 words of memory out of 5000000
+ 67011 multiletter control sequences out of 15000+600000
  477346 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  170i,35n,161p,4635b,2234s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (91 pages, 1183132 bytes).
+Output written on thesis.xdv (95 pages, 1206172 bytes).

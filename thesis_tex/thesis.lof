@@ -16,16 +16,25 @@
 \contentsline {figure}{\numberline {4.2.1}{\ignorespaces Current vs. Next Year Decarbonization Rate\relax }}{40}{figure.caption.17}%
 \contentsline {figure}{\numberline {4.2.2}{\ignorespaces Next Year Decarbonization Rate Over Time\relax }}{40}{figure.caption.18}%
 \contentsline {figure}{\numberline {4.3.1}{\ignorespaces Next Year Decarbonization Rate by Industry\relax }}{44}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.5.1}{\ignorespaces Market Capitalization vs. Next Year Decarbonization Rate\relax }}{50}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.5.2}{\ignorespaces Revenue vs. Next Year Decarbonization Rate\relax }}{50}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.11.1}{\ignorespaces AIC of all tested models by model iteration\relax }}{68}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.4.1}{\ignorespaces Continent vs. Next Year Decarbonization Rate\relax }}{47}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.5.1}{\ignorespaces Market Capitalization vs. Next Year Decarbonization Rate\relax }}{50}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.5.2}{\ignorespaces Revenue vs. Next Year Decarbonization Rate\relax }}{50}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.6.1}{\ignorespaces GHG Emission Scope 1 Verification Type vs. Next Year Decarbonization Rate\relax }}{54}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.6.2}{\ignorespaces GHG Emission Scope 1 vs. Next Year Decarbonization Rate\relax }}{54}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.6.3}{\ignorespaces GHG Emission Scope 1 Missing vs. Next Year Decarbonization Rate\relax }}{55}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.6.4}{\ignorespaces Methane Emissions vs. Next Year Decarbonization Rate\relax }}{55}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.6.5}{\ignorespaces GHG Emission Scope 2 Market Missing vs. Next Year Decarbonization Rate\relax }}{56}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.6.6}{\ignorespaces GHG Emission Scope 3 Verification vs. Next Year Decarbonization Rate\relax }}{56}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.7.1}{\ignorespaces Incentive Binary vs. Next Year Decarbonization Rate\relax }}{61}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.7.2}{\ignorespaces Incentive Method vs. Next Year Decarbonization Rate\relax }}{61}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.11.1}{\ignorespaces AIC of all tested models by model iteration\relax }}{72}{figure.caption.40}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.2.1}{\ignorespaces Financial Predictors: Total Assets\relax }}{71}{figure.caption.32}%
-\contentsline {figure}{\numberline {A.2.2}{\ignorespaces Financial Predictors: Market Capitalization\relax }}{72}{figure.caption.33}%
-\contentsline {figure}{\numberline {A.2.3}{\ignorespaces Financial Predictors: Return on Equity\relax }}{72}{figure.caption.34}%
-\contentsline {figure}{\numberline {A.2.4}{\ignorespaces Financial Predictors: Revenue\relax }}{73}{figure.caption.35}%
-\contentsline {figure}{\numberline {A.2.5}{\ignorespaces Financial Predictors: Net Income\relax }}{73}{figure.caption.36}%
-\contentsline {figure}{\numberline {A.2.6}{\ignorespaces Financial Predictors: Employees\relax }}{74}{figure.caption.37}%
-\contentsline {figure}{\numberline {A.2.7}{\ignorespaces Financial Predictors: Total Assets 1yr Growth\relax }}{74}{figure.caption.38}%
-\contentsline {figure}{\numberline {A.2.8}{\ignorespaces Financial Predictors: Employees 1yr Growth\relax }}{75}{figure.caption.39}%
-\contentsline {figure}{\numberline {A.2.9}{\ignorespaces Financial Predictors: Net Income Over Assets\relax }}{75}{figure.caption.40}%
+\contentsline {figure}{\numberline {A.2.1}{\ignorespaces Financial Predictors: Total Assets\relax }}{75}{figure.caption.41}%
+\contentsline {figure}{\numberline {A.2.2}{\ignorespaces Financial Predictors: Market Capitalization\relax }}{76}{figure.caption.42}%
+\contentsline {figure}{\numberline {A.2.3}{\ignorespaces Financial Predictors: Return on Equity\relax }}{76}{figure.caption.43}%
+\contentsline {figure}{\numberline {A.2.4}{\ignorespaces Financial Predictors: Revenue\relax }}{77}{figure.caption.44}%
+\contentsline {figure}{\numberline {A.2.5}{\ignorespaces Financial Predictors: Net Income\relax }}{77}{figure.caption.45}%
+\contentsline {figure}{\numberline {A.2.6}{\ignorespaces Financial Predictors: Employees\relax }}{78}{figure.caption.46}%
+\contentsline {figure}{\numberline {A.2.7}{\ignorespaces Financial Predictors: Total Assets 1yr Growth\relax }}{78}{figure.caption.47}%
+\contentsline {figure}{\numberline {A.2.8}{\ignorespaces Financial Predictors: Employees 1yr Growth\relax }}{79}{figure.caption.48}%
+\contentsline {figure}{\numberline {A.2.9}{\ignorespaces Financial Predictors: Net Income Over Assets\relax }}{79}{figure.caption.49}%
