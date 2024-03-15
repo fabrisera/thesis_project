@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  13 MAR 2024 18:57
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  15 MAR 2024 21:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1102,7 +1102,7 @@ Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
 
 LaTeX Warning: Label `fig:my_label' multiply defined.
 
-) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux) (./chapters/appendixA.aux
+) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/appendixA.aux
 
 LaTeX Warning: Label `fig:total-assets' multiply defined.
 
@@ -1359,8 +1359,8 @@ Package xcolor Warning: Incompatible color definition on input line 8.
 [7
 
 ]
-Overfull \hbox (2.44797pt too wide) detected at line 30
-[][]\TU/lmr/m/n/12 4.11.1 
+Overfull \hbox (2.44797pt too wide) detected at line 38
+[][]\TU/lmr/m/n/12 5.11.1 
  []
 
 )
@@ -1368,13 +1368,13 @@ Overfull \hbox (2.44797pt too wide) detected at line 30
 \openout8 = `thesis.lof'.
 
  [8] (./thesis.lot
-Overfull \hbox (2.44797pt too wide) detected at line 17
-[][]\TU/lmr/m/n/12 4.10.1 
+Overfull \hbox (2.44797pt too wide) detected at line 21
+[][]\TU/lmr/m/n/12 5.10.1 
  []
 
 
-Overfull \hbox (2.44797pt too wide) detected at line 18
-[][]\TU/lmr/m/n/12 4.11.1 
+Overfull \hbox (2.44797pt too wide) detected at line 22
+[][]\TU/lmr/m/n/12 5.11.1 
  []
 
 )
@@ -1383,7 +1383,7 @@ Overfull \hbox (2.44797pt too wide) detected at line 18
 
  [9
 
-] (./frontmatter/dedication.tex) [10] (./frontmatter/thanks.tex) [11
+] [10] (./frontmatter/dedication.tex) [11] (./frontmatter/thanks.tex) [12
 
 ]
 \openout2 = `chapters/chapter1.aux'.
@@ -1513,7 +1513,7 @@ Package xcolor Warning: Incompatible color definition on input line 34.
  (./chapters/chapter3.tex
 Chapter 3.
 
-Package xcolor Warning: Incompatible color definition on input line 4.
+Package xcolor Warning: Incompatible color definition on input line 6.
 
 [20
 
@@ -1522,55 +1522,40 @@ Package xcolor Warning: Incompatible color definition on input line 4.
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 15.
+Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Package xcolor Warning: Incompatible color definition on input line 15.
+Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Package xcolor Warning: Incompatible color definition on input line 15.
+Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Package natbib Warning: Citation `Serafeim2019' on page 21 undefined on input line 15.
+Package natbib Warning: Citation `Serafeim2019' on page 21 undefined on input line 17.
 
 [21]
 
-Package xcolor Warning: Incompatible color definition on input line 18.
+Package xcolor Warning: Incompatible color definition on input line 20.
 
 
-Package xcolor Warning: Incompatible color definition on input line 18.
+Package xcolor Warning: Incompatible color definition on input line 20.
 
 File: figures/gics.png Graphic file (type bmp)
 <figures/gics.png>
 
-Package xcolor Warning: Incompatible color definition on input line 24.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 
-Package xcolor Warning: Incompatible color definition on input line 24.
+Package xcolor Warning: Incompatible color definition on input line 26.
 
 [22] [23] [24]
-Underfull \hbox (badness 2653) in paragraph at lines 105--105
+Underfull \hbox (badness 2653) in paragraph at lines 108--108
 []|\TU/lmr/m/n/12 headquarters continent derived
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
 []|\TU/lmr/m/n/12 Global Industry Classification
- []
-
-
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 112--113
-[]|\TU/lmr/m/n/12 Worldscope| 
- []
-
-
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 113--114
-[]|\TU/lmr/m/n/12 Worldscope| 
- []
-
-
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 114--115
-[]|\TU/lmr/m/n/12 Worldscope| 
  []
 
 
@@ -1599,60 +1584,78 @@ Overfull \hbox (2.2305pt too wide) in paragraph at lines 119--120
  []
 
 
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 120--122
+Overfull \hbox (2.2305pt too wide) in paragraph at lines 120--121
+[]|\TU/lmr/m/n/12 Worldscope| 
+ []
+
+
+Overfull \hbox (2.2305pt too wide) in paragraph at lines 121--122
+[]|\TU/lmr/m/n/12 Worldscope| 
+ []
+
+
+Overfull \hbox (2.2305pt too wide) in paragraph at lines 122--123
+[]|\TU/lmr/m/n/12 Worldscope| 
+ []
+
+
+Overfull \hbox (2.2305pt too wide) in paragraph at lines 123--125
 []|\TU/lmr/m/n/12 Worldscope| 
  []
 
 [25]
 File: figures/ghg_change_real_dist.png Graphic file (type bmp)
 <figures/ghg_change_real_dist.png>
- [26]
+ [26] [27]
+File: figures/unique_companies.png Graphic file (type bmp)
+<figures/unique_companies.png>
 
-Package xcolor Warning: Incompatible color definition on input line 146.
 
+Package xcolor Warning: Incompatible color definition on input line 166.
+
+[28]
 File: figures/mean_decarbonization_rate_by_continent.png Graphic file (type bmp)
 <figures/mean_decarbonization_rate_by_continent.png>
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 152.
-[27] (./tables/emission_breakdown.tex)
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 173.
+ (./tables/emission_breakdown.tex [29])
 
-Package xcolor Warning: Incompatible color definition on input line 163.
+Package xcolor Warning: Incompatible color definition on input line 184.
 
-[28]
 File: figures/mean_decarbonization_rate_by_sector.png Graphic file (type bmp)
 <figures/mean_decarbonization_rate_by_sector.png>
- (./tables/emission_breakdown_sector.tex
-Overfull \hbox (24.65141pt too wide) in alignment at lines 1--6
+[30] (./tables/emission_breakdown_sector.tex
+Overfull \hbox (13.87543pt too wide) in alignment at lines 1--6
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (24.65141pt too wide) in alignment at lines 6--11
+Overfull \hbox (13.87543pt too wide) in alignment at lines 6--11
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (24.65141pt too wide) in alignment at lines 11--15
+Overfull \hbox (13.87543pt too wide) in alignment at lines 11--15
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (24.65141pt too wide) in alignment at lines 15--17
+Overfull \hbox (13.87543pt too wide) in alignment at lines 15--17
  [] [] [] [] [] 
  []
 
 
-Overfull \hbox (24.65141pt too wide) in alignment at lines 17--43
+Overfull \hbox (13.87543pt too wide) in alignment at lines 17--45
  [] [] [] [] [] 
  []
 
-[29]) [30]
+[31]) [32]
 File: figures/mean_decarbonization_rate_country.png Graphic file (type bmp)
 <figures/mean_decarbonization_rate_country.png>
- (./tables/emission_breakdown_country.tex [31])
+ (./tables/emission_breakdown_country.tex [33])
 File: figures/mean_decarbonization_rate_year.png Graphic file (type bmp)
 <figures/mean_decarbonization_rate_year.png>
- (./tables/emission_breakdown_year.tex [32]) [33]
+ (./tables/emission_breakdown_year.tex [34]) [35]
 File: figures/financial_preds/tot_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/tot_assets_dist.png>
 File: figures/financial_preds/mkt_cap_dist.png Graphic file (type bmp)
@@ -1671,70 +1674,107 @@ File: figures/financial_preds/employees_1yr_growth_dist.png Graphic file (type b
 <figures/financial_preds/employees_1yr_growth_dist.png>
 File: figures/financial_preds/net_income_over_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/net_income_over_assets_dist.png>
- [34] [35]) [36]
+ [36]) [37]
+\openout2 = `chapters/chapter31.aux'.
+
+ (./chapters/chapter31.tex
+Chapter 4.
+) [38
+
+
+
+
+]
 \openout2 = `chapters/chapter4.aux'.
 
  (./chapters/chapter4.tex
-Chapter 4.
+Chapter 5.
 
 Package xcolor Warning: Incompatible color definition on input line 7.
 
-[37
+[39
 
 
 
 
-] (./tables/R1.tex) [38]
+] [40] (./tables/R1.tex)
 File: figures/ghg_change_real_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/ghg_change_real_vs_ghg_change_real_next.png>
- [39]
+ [41]
 File: figures/year_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/year_vs_ghg_change_real_next.png>
- [40] [41] (./tables/R2.tex) [42]
+ [42] [43] (./tables/R2.tex) [44]
 File: figures/ghg_change_real_next_over_time_by_industry.png Graphic file (type bmp)
 <figures/ghg_change_real_next_over_time_by_industry.png>
- [43] [44] [45] (./tables/R3.tex)
+ [45] [46] [47] (./tables/R3.tex)
 File: figures/ghg_change_real_next_by_continent.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_continent.png>
- [46] [47] [48] (./tables/R4.tex)
+ [48] [49] [50] (./tables/R4.tex) [51]
 File: figures/market_cap_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/market_cap_vs_ghg_change_real_next.png>
- [49]
+ [52]
 File: figures/revenue_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/revenue_vs_ghg_change_real_next.png>
- [50] [51] (./tables/R5.tex) [52]
+ [53] [54] (./tables/R5.tex) [55]
 File: figures/ghg_change_real_next_by_type_scope1.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_type_scope1.png>
- [53]
+ [56]
 File: figures/ghg1_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/ghg1_vs_ghg_change_real_next.png>
 File: figures/ghg_change_real_next_by_ghg1_na.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_ghg1_na.png>
- [54]
+ [57]
 File: figures/methane_emissions_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/methane_emissions_vs_ghg_change_real_next.png>
 File: figures/ghg_change_real_next_by_ghg2market_na.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_ghg2market_na.png>
- [55]
+ [58]
 File: figures/ghg_change_real_next_by_ghg_verification_scope3_yes.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_ghg_verification_scope3_yes.png>
- [56] [57] [58] (./tables/R6.tex) [59]
+ [59] [60] [61] [62] (./tables/R6.tex)
 File: figures/ghg_change_real_next_by_cdp_incentivebinary_i.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_cdp_incentivebinary_i.png>
- [60]
+ [63]
 File: figures/ghg_change_real_next_by_method_ind.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_method_ind.png>
- [61] [62] (./tables/R7.tex) [63] [64] [65] (./tables/R8.tex) [66] [67] (./tables/R9.tex) [68] [69] (./tables/R10.tex) [70]
+ [64] [65] (./tables/R7.tex) [66]
+File: figures/cdp_target_amount_vs_ghg_change_real_next.png Graphic file (type bmp)
+<figures/cdp_target_amount_vs_ghg_change_real_next.png>
+ [67]
+File: figures/cdp_target_type_absolute_vs_ghg_change_real_next.png Graphic file (type bmp)
+<figures/cdp_target_type_absolute_vs_ghg_change_real_next.png>
+File: figures/ghg_change_real_next_by_cdp_aggregated_risk.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_cdp_aggregated_risk.png>
+ [68]
+File: figures/ghg_change_real_next_by_cdp_aggregated_opportunity.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_cdp_aggregated_opportunity.png>
+ [69] [70] (./tables/R8.tex) [71]
+File: figures/ghg_change_real_next_by_absent_cdp_initiative.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_absent_cdp_initiative.png>
+ [72]
+File: figures/ghg_change_real_next_by_investment_counter.png Graphic file (type bmp)
+<figures/ghg_change_real_next_by_investment_counter.png>
+ [73] [74] (./tables/R9.tex) [75] [76] (./tables/R10.tex) [77]
 File: ../notebooks/R/aic.png Graphic file (type bmp)
 <../notebooks/R/aic.png>
- [71] [72]) [73]
+ [78] [79]) [80]
+\openout2 = `chapters/chapter6.aux'.
+
+ (./chapters/chapter6.tex
+Chapter 6.
+) [81
+
+
+
+
+] [82]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
 Appendix A.
 File: figures/financial_preds/tot_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/tot_assets_dist.png>
-[74
+[83
 
 
 
@@ -1742,25 +1782,25 @@ File: figures/financial_preds/tot_assets_dist.png Graphic file (type bmp)
 ]
 File: figures/financial_preds/mkt_cap_dist.png Graphic file (type bmp)
 <figures/financial_preds/mkt_cap_dist.png>
- [75]
+ [84]
 File: figures/financial_preds/roe_dist.png Graphic file (type bmp)
 <figures/financial_preds/roe_dist.png>
 File: figures/financial_preds/revenue_dist.png Graphic file (type bmp)
 <figures/financial_preds/revenue_dist.png>
- [76]
+ [85]
 File: figures/financial_preds/net_income_dist.png Graphic file (type bmp)
 <figures/financial_preds/net_income_dist.png>
 File: figures/financial_preds/employees_dist.png Graphic file (type bmp)
 <figures/financial_preds/employees_dist.png>
- [77]
+ [86]
 File: figures/financial_preds/assets_1yr_growth_dist.png Graphic file (type bmp)
 <figures/financial_preds/assets_1yr_growth_dist.png>
 File: figures/financial_preds/employees_1yr_growth_dist.png Graphic file (type bmp)
 <figures/financial_preds/employees_1yr_growth_dist.png>
- [78]
+ [87]
 File: figures/financial_preds/net_income_over_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/net_income_over_assets_dist.png>
-) [79] (./thesis.bbl
+) [88] (./thesis.bbl
 
 Package xcolor Warning: Incompatible color definition on input line 6.
 
@@ -1776,7 +1816,7 @@ Package xcolor Warning: Incompatible color definition on input line 31.
 
 Package xcolor Warning: Incompatible color definition on input line 45.
 
-[80
+[89
 
 
 
@@ -1791,15 +1831,15 @@ Package xcolor Warning: Incompatible color definition on input line 59.
 
 Package xcolor Warning: Incompatible color definition on input line 87.
 
-[81]
+[90]
 
 Package xcolor Warning: Incompatible color definition on input line 147.
 
-[82])
+[91])
 
 Package natbib Warning: There were undefined citations.
 
-[83] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter4.aux) (./chapters/appendixA.aux))
+[92] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/appendixA.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1807,7 +1847,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: C232E4F2A6747113D405CFFD0A461CB4;6206.
+(rerunfilecheck)             Checksum: C5B3C3D83ECBAA42587D2EF269A533FA;8231.
  )
 (\end occurred inside a group at level 2)
 
@@ -1815,12 +1855,12 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 ### semi simple group (level 1) entered at line 10 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 47117 strings out of 476179
- 1069466 string characters out of 5809544
- 1426244 words of memory out of 5000000
- 67011 multiletter control sequences out of 15000+600000
+ 47241 strings out of 476179
+ 1075084 string characters out of 5809544
+ 1426199 words of memory out of 5000000
+ 67114 multiletter control sequences out of 15000+600000
  477346 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 170i,35n,161p,4635b,2234s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 170i,35n,161p,4635b,2242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (95 pages, 1206172 bytes).
+Output written on thesis.xdv (105 pages, 1306888 bytes).

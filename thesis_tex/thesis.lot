@@ -2,18 +2,23 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.0.1}{\ignorespaces Data Cleaning Process Flowchart\relax }}{24}{figure.caption.9}%
-\contentsline {table}{\numberline {3.0.2}{\ignorespaces Variable Dictionary\relax }}{26}{table.3.0.2}%
-\contentsline {table}{\numberline {3.0.5}{\ignorespaces Emission Breakdown by Country\relax }}{32}{table.3.0.5}%
+\contentsline {table}{\numberline {3.2.1}{\ignorespaces Data Cleaning Process Flowchart\relax }}{24}{figure.caption.9}%
+\contentsline {table}{\numberline {3.2.2}{\ignorespaces Variable Dictionary\relax }}{26}{table.3.2.2}%
+\contentsline {table}{\numberline {3.3.1}{\ignorespaces Emissions Breakdown By Continent\relax }}{30}{table.3.3.1}%
+\contentsline {table}{\numberline {3.3.2}{\ignorespaces Real decarbonization rate breakdown by industry\relax }}{32}{table.3.3.2}%
+\contentsline {table}{\numberline {3.3.3}{\ignorespaces Emission Breakdown by Country\relax }}{34}{table.3.3.3}%
+\contentsline {table}{\numberline {3.3.4}{\ignorespaces Real decarbonization rate by year\relax }}{35}{table.3.3.4}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.2.1}{\ignorespaces Model Comparison: Fixed Effects Only vs. Random Intercept for Firm Id\relax }}{39}{table.caption.16}%
-\contentsline {table}{\numberline {4.3.1}{\ignorespaces Model Comparison: Fixed Effects Only vs. Random Intercept for Firm Id and Industry\relax }}{43}{table.caption.19}%
-\contentsline {table}{\numberline {4.4.1}{\ignorespaces Impact of Country and Continent on Decarbonization\relax }}{46}{table.caption.21}%
-\contentsline {table}{\numberline {4.5.1}{\ignorespaces Impact of Financial Predictors on Decarbonization\relax }}{49}{table.caption.23}%
-\contentsline {table}{\numberline {4.6.1}{\ignorespaces Impact of GHG and Verification on Decarbonization\relax }}{53}{table.caption.26}%
-\contentsline {table}{\numberline {4.7.1}{\ignorespaces GHG, Verification, Incentives, Targets, Risks and Opportunities\relax }}{60}{table.caption.33}%
-\contentsline {table}{\numberline {4.8.1}{\ignorespaces Impact of GHG, Verification, Incentives, Targets, Risks and Opportunities on Decarbonization\relax }}{64}{table.caption.36}%
-\contentsline {table}{\numberline {4.9.1}{\ignorespaces Impact of GHG, Verification, Incentives, Targets, Risks and Opportunities, Initiatives, Investments on Decarbonization\relax }}{67}{table.caption.37}%
-\contentsline {table}{\numberline {4.10.1}{\ignorespaces Impact of GHG, Verification, Incentives, Targets, Risks and Opportunities, Initiatives, Investments, and Carbon Credits on Decarbonization\relax }}{69}{table.caption.38}%
-\contentsline {table}{\numberline {4.11.1}{\ignorespaces Impact of GHG, Verification, Incentives, Targets, Risks and Opportunities, Initiatives, Investments, and Carbon Credits on Decarbonization\relax }}{71}{table.caption.39}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.2.1}{\ignorespaces Model Comparison: Fixed Effects Only vs. Random Intercept for Firm Id\relax }}{41}{table.caption.17}%
+\contentsline {table}{\numberline {5.3.1}{\ignorespaces Model Comparison: Fixed Effects Only vs. Random Intercept for Firm Id and Industry\relax }}{45}{table.caption.20}%
+\contentsline {table}{\numberline {5.4.1}{\ignorespaces Impact of Country and Continent on Decarbonization\relax }}{48}{table.caption.22}%
+\contentsline {table}{\numberline {5.5.1}{\ignorespaces Impact of Financial Predictors on Decarbonization\relax }}{52}{table.caption.24}%
+\contentsline {table}{\numberline {5.6.1}{\ignorespaces Impact of GHG and Verification on Decarbonization\relax }}{56}{table.caption.27}%
+\contentsline {table}{\numberline {5.7.1}{\ignorespaces GHG, Verification, Incentives, Targets, Risks and Opportunities\relax }}{63}{table.caption.34}%
+\contentsline {table}{\numberline {5.8.1}{\ignorespaces Impact of GHG, Verification, Incentives, Targets, Risks and Opportunities on Decarbonization\relax }}{67}{table.caption.37}%
+\contentsline {table}{\numberline {5.9.1}{\ignorespaces Impact of GHG, Verification, Incentives, Targets, Risks and Opportunities, Initiatives, Investments on Decarbonization\relax }}{72}{table.caption.42}%
+\contentsline {table}{\numberline {5.10.1}{\ignorespaces Impact of GHG, Verification, Incentives, Targets, Risks and Opportunities, Initiatives, Investments, and Carbon Credits on Decarbonization\relax }}{76}{table.caption.45}%
+\contentsline {table}{\numberline {5.11.1}{\ignorespaces Impact of GHG, Verification, Incentives, Targets, Risks and Opportunities, Initiatives, Investments, and Carbon Credits on Decarbonization\relax }}{78}{table.caption.46}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }

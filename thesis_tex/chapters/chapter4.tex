@@ -1,14 +1,17 @@
 \chapter{Parametric Modeling Results}
 
 \section{Introduciton}
-In this chapter I will present the results of parametric modeling in forecasting next year decarbonization rates. The chapter presents a series of models that build on top of each other that allow us to achieve two objectives:
+In this chapter I will present the results of parametric modeling in forecasting next year decarbonization rates. The chapter presents a sequence of models in increasing order of complexity that allow us to:
 \begin{enumerate}
-    \item Test key hypothesis on the relationship between the predictors and next year decarbonization rates. In particular, I followed the CDP structure in testing multiple sets of predictors belonging to the same area, such as carbon credits, initiaties and incentives, risks and opportunites to understand what role that area plays in next year decarbonization rate. 
-    \item Build a state-of-the-art model that strikes an optimal balance between number of features and predictive power. To achieve this task, models were scored based on the Akaike information criterion (AIC), which is a method for selecting models that balance goodness of fit and model complexity, aiming to identify how new data might behave \cite{AIC}
+    \item Test key hypothesis on the relationship between the predictors and next year decarbonization rates. In particular, I followed the CDP structure in testing multiple sets of predictors groped based on focus areas, such as carbon credits, initiaties and incentives, risks and opportunites, to understand what role each area plays in next year decarbonization rate and which predictors are useful from each set. 
+    \item Build a state-of-the-art model that strikes an optimal balance between number of features and prediction accuracy. To achieve this task, models were scored based on the Akaike information criterion (AIC), which is a method for selecting models that balance goodness of fit and model complexity, aiming to identify how new data might behave \cite{AIC}
 \end{enumerate}
 For each presented model, I will first present the key questions and hypothesis, then a brief model descriptions, the results, and a discussion. At each step, I will select the most relevant predictors and carry them to the next model. 
 
-\section{Model I: Impact of Year and Current Rate on Next Year Real Decarbonization Rate}
+\subsection{Response Variable:}
+\noindent Unless otherwise specified, most models are forecasting \textit{Next Year Decarbonization Rate} (distribution and further information are provided in the previous chapter corresponding to Figure \ref{fig:next-year-real-decarbonization-rate}), which is the year on year change in Real emissions for a given company espressed as a percentage. 
+
+\section{Model I: Year and Current Decarbonization Rate}
 
 \subsection{Key Hypothesis}
 \begin{itemize}
@@ -53,7 +56,7 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \subsection{Discussion}
 \begin{itemize}
-    \item In model (1) from Table \ref{tab:R1}, we start by predicting \textit{Next-Year Decarbonization Rate} using year and ghg change real. We observe how on average we predict a 22\% decrease in real decarbonization rate, as well as a positive and significant correlation between previous year and next year decarbonization rate. In particular, controlling for year, an increase in decarbonization rate from the previous year corresponds to 0.3 predicted next year increase in decarbonization rate. 
+    \item In model (1) from Table \ref{tab:R1}, we start by predicting \textit{Next-Year Decarbonization Rate} using year and Same-Year Decarbonization Rate. We observe how on average we predict a 22\% decrease in real decarbonization rate, as well as a positive and significant correlation between previous year and next year decarbonization rate. In particular, controlling for year, an increase in decarbonization rate from the previous year corresponds to 0.3 predicted next year increase in decarbonization rate. The marginal relationship between Same-Year Decarbonization Rate and Next-Year decarboninzation rate can be observed in Figure \ref{fig:ghg_change_real_vs_ghg_change_real_next}, where we observe a positive correlation. Analogously, the relationship between year and the response variable is presented in Figure \ref{fig:ghg_change_real_vs_year} where we observe that over time the variance of decarboninzation rates increases, while the mean slightly decreases.
     \item In model (2) from Table \ref{tab:R1}, we add our first random effect: a random intercept for the firm unique identifier code. Mixed effect models are particularly suited when we have repeated measures on the same individuals, in our case, the same firms. In particular, including an effect for each individual firm allows to take into account the correlation between each firm's timeseries without introducing an excessively high number of parameters. When adding Id as a random effect, the model's AIC decreases from 94134.242 to 94018.79, signaling a significant improvement in the model's fit. Furthermore, the signs of the coefficient yeear and ghg change real remain the same, and the coefficient for year remains significant. 
     \item \textbf{Key Finding:} Adding a random effect significantly improves the model's fit, and we will therefore iterate to find the optimal combination of random effects to then identify a comprehensive set of fixed effects that best predict decarbonization rates. 
 \end{itemize}
@@ -65,7 +68,7 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \section{Model II: Impact of Industry Sector on Next-Year Decarbonization Rate}
 
-\subsection{Key Hypothesis}
+\subsection{Key Hypothesis:}
 \begin{itemize}
     \item Does the industry sector significantly influence the next year's decarbonization rate?
     \item Are there inherent differences in the decarbonization rates across different sectors due to their varying carbon-intensive natures?
@@ -108,6 +111,7 @@ For each presented model, I will first present the key questions and hypothesis,
 \begin{itemize}
     \item In model (1), the inclusion of industry sector as a categorical predictor provides a clear indication that the decarbonization rate is significantly influenced by the sector in which a firm operates. The coefficients from the model suggest that, compared to the Software, Services industry (reference category), firms in sectors like Energy, Materials, and Transportation have significantly higher decarbonization rates, aligning with the expectation due to their carbon-intensive nature.
     \item Model (2) incorporates industry sector as a random effect nested within firm IDs, accounting for the non-independence of observations within the same sector and firm. This model variation reflects the hierarchical structure of data. Despite an increase in AIC, indicating a more complex model, the significant predictors remain consistent, suggesting that industry can be effectively used as a random effect.
+    \item The mean decarboninzation trends by industry are presented in Figure \ref{fig:industry_vs_ghg_change_real_next}. We can observe that over time mean decarboninzation rates are improving (decreasing) and that some industries tend to decarbonize more than others as expected.
     \item \textbf{Key Finding:} The significant effect of the industry sector on decarbonization rates underscores the importance of considering sector-specific factors when evaluating environmental performance. The persistence of significant coefficients for industry sectors across both models indicates that certain industries face inherent challenges in reducing carbon emissions. This could be due to technological barriers, regulatory differences, economic constraints, or the fundamental carbon intensity of their operations. Overall, the addition of industry as a random effect nested within firm IDs in Model (2) helps to better capture the intra-sector variability and the unique characteristics of firms. While this increases model complexity, as evidenced by the higher AIC, it provides a more accurate representation of the real-world scenario where firms within the same industry may follow different decarbonization trajectories due to various factors such as size, location, and management practices.
     
 \end{itemize}
@@ -147,7 +151,7 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \subsection{Discussion}
 \begin{itemize}
-    \item Model (1) introduces the effect of geographical location at the continental level as a fixed effect while controlling for year and GHG change, and using firm ID and Industry as random intercepts. The significant coefficients for continents compared to Europe (the reference category) suggests that geographical location is correlated with a significant change firm's decarbonization rate, in particular we observe how Oceania is the continent associated with the least decarbonization. That is, compared to Europe, according to the model a firm in Oceana is predicted to decarbonize by an average of $1.585 \%$ less compared to Europe. This finding aligns with expectations, reflecting variations in regulatory environments, access to clean technologies, and economic conditions across continents.
+    \item Model (1) introduces the effect of geographical location at the continental level as a fixed effect while controlling for year and GHG change, and using firm ID and Industry as random intercepts. The significant coefficients for continents compared to Europe (the reference category) suggests that geographical location is correlated with a significant change firm's decarbonization rate, in particular we observe how Oceania is the continent associated with the least decarbonization. That is, compared to Europe, according to the model a firm in Oceana is predicted to decarbonize by an average of $1.585 \%$ less compared to Europe. This finding aligns with expectations, reflecting variations in regulatory environments, access to clean technologies, and economic conditions across continents. A comparison between continents is also provided in Figure \ref{fig:continent_vs_ghg_change_real_next}, where we observe how Europe's distribution is centered around a lower mean compared to other continents. 
     \item Model (2) incorporates country as a random effect nested within continents. This allows to take into account the effect of geographical location in future models without increasing the degrees of freedom. Although the AIC slightly increases, indicating a more complex model, the consistency of significant coefficients for Year and GHG Change Real across both models suggests that these are robust predictors of decarbonization rates.
     \item \textbf{Key Finding:} The analysis demonstrates that the continent and country where a firm is located significantly impact its decarbonization rate, highlighting the importance of geographical factors in environmental strategies. Moving forward, the inclusion of country and continent as significant variables will be included in all subsequent models. Form now on, the random effects will always be the same: that is random intercepts for firm Id nested wihtin Industry, and random intercepts for Country nested wihtin Continent. 
 \end{itemize}
@@ -189,9 +193,9 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \subsection{Discussion}
 \begin{itemize}
-    \item In Model (1), significant predictors include Year, GHG Change Real, and Market Cap, with Revenue showing significance at the 10\% level. The negative coefficient for Market Cap suggests that larger firms have a lower, which in this context means better, decarbonization rate.
+    \item In Model (1), significant predictors include Year, GHG Change Real, and Market Cap, with Revenue showing significance at the 10\% level. The negative coefficient for Market Cap suggests that larger firms have a lower, which in this context means better, decarbonization rate. The marginal relationship is presented in Figure \ref{fig:market_cap_vs_ghg_change_real_next} where we can clearly observe a negative correlation between market cap and decarbonization rate. A similar, though less pronounced marginal relationship also applies to revenuue, as can be observed in Figure \ref{fig:revenue_vs_ghg_change_real_next}.
     
-    \item Model (2) focuses on Assets Growth as a variable, controlling for Market Cap and Revenue and removing other non-significant predictors. The positive but non-significant coefficient for Assets Growth suggests an expected correlation relationship where firms expanding their assets might experience a worse rate of decarbonization, potentially due to increased operations or capital investment not directly tied to reducing emissions.
+    \item Model (2) focuses on Assets Growth as a variable, controlling for Market Cap and Revenue and removing other non-significant predictors. The positive but non-significant coefficient for Assets Growth suggests an expected correlation relationship where firms expanding their assets might experience a worse rate of decarbonization, potentially due to increased operations or capital investment not directly tied to reducing emissions. 
     
     \item Model (3) includes Employees Growth, which also shows a non-significant result. Similar to Assets Growth, the positive direction of the Employees Growth coefficient hints at a conceivable relationship where firms increasing their workforce may not proportionally enhance their decarbonization efforts. Yet, this remains speculative without statistical significance. 
     
@@ -217,7 +221,7 @@ For each presented model, I will first present the key questions and hypothesis,
 \subsection{Key Hypothesis}
 \begin{itemize}
     \item How do different scopes of greenhouse gas emissions and their verification statuses influence a firm's decarbonization rate?
-    \item Are there specific emission scopes that are more significant predictors of decarbonization rates than others?
+    \item Are there metrics on a specific emission scope that are more significant predictors of decarbonization rates than analogous metrics on other scopes?
     \item Does the verification of GHG emissions have a significant impact on the firm's decarbonization efforts?
 \end{itemize}
 
@@ -286,25 +290,28 @@ For each presented model, I will first present the key questions and hypothesis,
 \subsection{Discussion}
 
 \begin{itemize}
-    \item The analysis shows that Scope 1 emissions (Ghg1) significantly influence a firm's decarbonization efforts. A positive coefficient for Ghg1 (0.107, significant at the 1\% level) indicates that higher Scope 1 emissions are linked with a poorer decarbonization rate for the next year. Furthermore, when data for Scope 1 emissions is missing (Ghg1.Na), there's a notable jump in the decarbonization rate, with a coefficient increase to 1.732. This highlights the critical role of transparency in GHG reporting. Specifically, firms that do not report their Scope 1 emissions are predicted to have a 0.577\% worse decarbonization rate compared to those that do report. This gap emphasizes the importance of accurate reporting; not reporting is linked to poorer environmental performance.
+    \item The analysis shows that Scope 1 emissions (Ghg1) significantly influence a firm's decarbonization efforts. A positive coefficient for Ghg1 (0.107, significant at the 1\% level) indicates that higher Scope 1 emissions are correlated with a poorer decarbonization rate for the next year. Furthermore, when data for Scope 1 emissions is missing (Ghg1.Na), there's a notable jump in the decarbonization rate, with a coefficient increase to 1.732. Specifically, firms that do not report their Scope 1 emissions are predicted to have a 0.577\% worse decarbonization rate compared to those that do report. This gap emphasizes the importance of accurate reporting; not reporting is linked to poorer environmental performance. The marginal relationship between Scope 1 emssions and Next-Year Decarbonization Rate is presented in Figure \ref{fig:ghg1_vs_ghg_change_real_next} where we observe that higer emissions are correlated with worse decarbonization rates. The relationship between reporting Scope 1 emissions is presented in the boxplot Figure \ref{fig:ghg_change_real_next_by_ghg1_na}.
 
-    \item Regarding market emissions, the positive coefficient for not reporting market-based emissions (Ghg2Market.Na) is correlated with a predicted worse next-year decarbonizaiton rate by an average of $0.850 \%$. This makes sense since market-based reporting is more complex and firms that invest the effort likely prioritize decarbonization more strongly. 
+    \item Regarding market emissions, the positive coefficient for not reporting market-based emissions (Ghg2Market.Na) is correlated with a predicted worse next-year decarbonizaiton rate by an average of $0.850 \%$. This makes sense since market-based reporting is more complex and firms that invest the effort likely prioritize decarbonization more strongly. The marginal relationship between reporting market-based emissions and the response is presented in Figure \ref{fig:ghg_change_real_next_by_ghg2market_na} where the firms that don't report have wrose decarboninzation rates on average.
     
-    \item Methane emissions also play a significant role in the analysis. The presence of Methane Emissions with a positive coefficient ($0.078$, significant at the 1\% level) suggests that firms with higher reported methane emissions are expected to have a worse next-year decarbonization rate. This underlines the importance of focusing on specific pollutants like methane, which have a high impact on global warming and can significantly affect a firm's overall decarbonization performance.
-    \item The role of emissions verification is also central in our findings, particularly the positive impact of verifying Scope 3 emissions. Firms that verify their Scope 3 emissions (Ghg.Verification.Scope3.Yes) are associated with a better decarbonization rate, with a negative coefficient of -0.610 (significant at the 1\% level in the second model and -0.458, significant at the 5\% level in the final model). This suggests that firms taking steps to validate their broadest category of emissions are likely more committed to comprehensive decarbonization efforts, as Scope 3 encompasses indirect emissions not produced by the firm directly but related to their value chain. Hence, verifying these emissions can be seen as an indication of a firm's comprhensive approach to understanding and mitigating its environmental impact.
+    \item Methane emissions also play a significant role in the analysis. The presence of Methane Emissions with a positive coefficient ($0.078$, significant at the 1\% level) suggests that firms with higher reported methane emissions are expected to have a worse next-year decarbonization rate. This underlines the importance of focusing on specific pollutants like methane, which have a high impact on global warming and can significantly affect a firm's overall decarbonization performance. The marginal relationship between methane emissions and next-year decarboninzation rate is presented in Figure \ref{fig:methane_emissions_vs_ghg_change_real_next} where we observe a clear trend between firms with higher methane emissions having worse next-year decarboninzation rates.
+    
 
-    \item On the other hand, the type of Scope 1 verification process is a significant preand the type of verificaiton has an important impact on decarbonization. The model indicates that having a third-party verification of Scope 1 emissions underway (Type.Scope1Third.Party.Underway) is associated with a worse decarbonization rate compared to other methods, evidenced by a positive coefficient (0.858, significant at the 1\% level). The refernce category in this case is comprehensive Sccope1 verification. This could suggest that firms only beginning to engage with third-party verification may have previously neglected deeper decarbonization efforts, or it may reflect relatively lower decarbonization rate due to more accurate reporting or transitional operational changes.
+    \item The role of emissions verification is also central in our findings, particularly the positive impact of verifying Scope 3 emissions. Firms that verify their Scope 3 emissions (Ghg.Verification.Scope3.Yes) are associated with a better decarbonization rate, with a negative coefficient of -0.610 (significant at the 1\% level in the second model and -0.458, significant at the 5\% level in the final model). The marginal relationship is presented in Figure \ref{fig:ghg_change_real_next_by_ghg_verification_scope3_yes}. This suggests that firms taking steps to validate their broadest category of emissions are likely more committed to comprehensive decarbonization efforts, as Scope 3 encompasses indirect emissions not produced by the firm directly but related to their value chain. Hence, verifying these emissions can be seen as an indication of a firm's comprhensive approach to understanding and mitigating its environmental impact.
+
+    \item The type of Scope 1 verification process is a significant predictor. The model indicates that having a third-party verification of Scope 1 emissions underway (Type.Scope1Third.Party.Underway) is associated with a worse decarbonization rate compared to other methods, evidenced by a positive coefficient (0.858, significant at the 1\% level). The refernce category in this case is reasonable Sccope1 verification. Marginal relationships are presented in Figure \ref{fig:ghg_change_real_next_by_ghg_type}. This could suggest that firms only beginning to engage with third-party verification may have previously neglected deeper decarbonization efforts, or it may reflect relatively lower decarbonization rate due to more accurate reporting or transitional operational changes.
     
     \item Additionally, the negative impact of not having any Scope 1 verification (Type.Scope1N.A) with a significant worse predicted decarbonization rate (0.958, significant at the 1\% level in the final model) suggests the importance of not just reporting emissions but also verifying them.
     
-    \item Overall, our findings suggest that while the verification of emissions, especially for Scope 3, is a positive step towards better decarbonization, the initial stages of Scope 1 verification might reflect a period of adjustment where firms are just starting to confront and accurately report their emissions. This phase may not immediately reflect in improved decarbonization rates but is essential for transparent and effective environmental management in the long run. 
-    \item \textbf{Key Findings:} When looking at a firm decarboninzation strategies, the most important factors to consider are methane emissions, GHG1 and relative verification, whether the frims reports market Scope 2 emissions, whether the firm has scope 3 verification, and if the type of scope 1 emissions is either limited, moderate, or underway. This combination of features offers a comprehensive set when it comes to forecasting next-year decarbonization rate.
+    \item Overall, our findings suggest that while the verification of emissions, especially for Scope 3, is a positive step towards better decarbonization (see Figure \ref{fig:ghg_change_real_next_by_ghg_verification_scope3_yes}), the initial stages of Scope 1 verification might reflect a period of adjustment where firms are just starting to confront and accurately report their emissions. This phase may not immediately reflect in improved decarbonization rates but is essential for transparent and effective environmental management in the long run. 
+    
+    \item \textbf{Key Findings:} When looking at a firm decarboninzation strategies, the most important factors to consider are methane emissions, GHG1 and relative verification, whether the frims reports market Scope 2 emissions, whether the firm has scope 3 verification, and if the type of scope 1 emissions is either limited, moderate, or underway. This combination of features offers a comprehensive set when it comes to forecasting next-year decarbonization rate and shows that the effect of those firm actions are correlated not only with a same-year effect, but also with a next-year effect.
     
     
 \end{itemize}
 
 
-\section{Analyzing Incentives}
+\section{Model VI: Analyzing Incentives}
 
 \begin{enumerate}
     \item First model: This one checks if having any incentives (binary yes/no) and board oversight affects how a company reduces its emissions, along with other usual details like year, GHG changes, and company size.
@@ -336,9 +343,9 @@ For each presented model, I will first present the key questions and hypothesis,
 \subsection{Discussion on Incentives}
 
 \begin{itemize}
-    \item The analysis from the first model indicates that simply having incentives in place (Cdp.Incentivebinary.I) is significantly associated with a decarbonization rate, with a negative coefficient (-0.561, significant at the 1\% level). This suggests that firms with any form of incentives aimed at reducing emissions are correlated with relatively better decarbonization efforts compared to those without as expected.
+    \item The analysis from the first model indicates that simply having incentives in place (Cdp.Incentivebinary.I) is significantly associated with a decarbonization rate, with a negative coefficient (-0.561, significant at the 1\% level). The marginal relationship can be observed in Figure \ref{fig:ghg_change_real_next_by_cdp_incentivebinary_i}. This suggests that firms with any form of incentives aimed at reducing emissions are correlated with relatively better decarbonization efforts compared to those without as expected.
 
-    \item When analyzing the types of incentives in the second model, we observe how specific incentive methods have better outcomes than general incentives. In particular, the Method.IndInternal Incentives (internal incentives for decarbonization) show a very strong negative relationship with the decarbonization rate (-1.776, significant at the 1\% level), indicating that internal corporate incentives are particularly effective compare to the "other" baseline. Similarly, Method.IndMacc (Marginal Abatement Cost Curve) also show a negative coefficient (-0.807, significant at the 5\% level), suggesting that firms who use a marginal abatement cost curve to reward decarbonization efforts are correlated with a better decarboninzation performance. For more details on the Marginal Abatement Cost Curve, see Appendix \ref{sec:MACC}.
+    \item When analyzing the types of incentives in the second model, we observe how specific incentive methods have better outcomes than general incentives. In particular, the Method.IndInternal Incentives (internal incentives for decarbonization) show a very strong negative relationship with the decarbonization rate (-1.776, significant at the 1\% level), indicating that internal corporate incentives are particularly effective compare to the "other" baseline. Similarly, Method.IndMacc (Marginal Abatement Cost Curve) also show a negative coefficient (-0.807, significant at the 5\% level), suggesting that firms who use a marginal abatement cost curve to reward decarbonization efforts are correlated with a better decarboninzation performance. For more details on the Marginal Abatement Cost Curve, see Appendix \ref{sec:MACC}. Additionally, the marginal relationship between inective methods and next-year decarbonization rates is presented in Figure \ref{fig:ghg_change_real_next_by_method_ind} wehre we observe how internal incetives and using the Marginal Abatement Cost Curve are both correlated with better average decarbonization rates compared to other forms of incentives.
 
 
     \item The consistent negative coefficients for incentives across models demonstrate that well-structured incentive programs, especially those embedded within the company's internal operations, can be useufl  for achieving meaningful decarbonization not only on a same year basis, but also when considering next-year decarbonizaiton rate. This could imply that incentives not only drive immediate actions but also foster a culture of sustainability and long-term commitment to reducing emissions.
@@ -349,7 +356,7 @@ For each presented model, I will first present the key questions and hypothesis,
 \end{itemize}
 
 
-\section{Analyzing Targets, Risks, and Opportunities}
+\section{Model VII: Analyzing Targets, Risks, and Opportunities}
 
 \begin{enumerate}
     \item First model: we analyze the role that targets play in forecasting next-year decarbonization. In particular, we look at both absolute figures (such as target amount) and target types
@@ -362,18 +369,53 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \input{tables/R7.tex}
 
+\subsection{Relevant Figures:}
+
+% first figure cdp_target_amount_vs_ghg_change_real_next
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/cdp_target_amount_vs_ghg_change_real_next.png}
+\caption{Cdp Target Amount vs. Next Year Decarbonization Rate}
+\label{fig:cdp_target_amount_vs_ghg_change_real_next}
+\end{figure}
+
+% second figure cdp_target_type_absolute_vs_ghg_change_real_next
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/cdp_target_type_absolute_vs_ghg_change_real_next.png}
+\caption{Cdp Target Type Absolute vs. Next Year Decarbonization Rate}
+\label{fig:cdp_target_type_absolute_vs_ghg_change_real_next}
+\end{figure}
+
+% third figure ghg_change_real_next_by_cdp_aggregated_risk
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_cdp_aggregated_risk.png}
+\caption{Cdp Aggregated Risk vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_cdp_aggregated_risk}
+\end{figure}
+
+% fourth figure ghg_change_real_next_by_cdp_aggregated_opportunity
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_cdp_aggregated_opportunity.png}
+\caption{Cdp Aggregated Opportunity vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_cdp_aggregated_opportunity}
+\end{figure}
+
+
 \subsection{Discussion}
 \begin{itemize}
-\item The results suggest that setting specific emission reduction targets (Cdp.Targetamount.Mean) has a significant negative impact on the next year's decarbonization rate, with coefficients like $-0.433$ (significant at the 1\% level). This indicates that firms with more ambitious targets are correlated with a better decarboninzation rate.
-\item The type of target set by firms also matters. Companies with absolute reduction targets (Cdp.Targettype.Absolute) show a notable improvement in decarbonization efforts, as indicated by a negative coefficient of -0.194 (significant at the 1\% level). This contrasts with intensity-based targets (Cdp.Targettype.Intensity), which did not show significant effects, suggesting that absolute targets might be more impactful.
+\item The results suggest that setting specific emission reduction targets (Cdp.Targetamount.Mean) has a significant negative impact on the next year's decarbonization rate, with coefficients like $-0.433$ (significant at the 1\% level). This indicates that firms with more ambitious targets are correlated with a better decarboninzation rate. This can also be seen in the Figure \ref{fig:cdp_target_amount_vs_ghg_change_real_next}, where we observe a negative relationship between the target amount and the decarbonization rate. This suggests that firms with higher target amounts are expected to have a better next-year decarbonization rate. 
+\item The type of target set by firms also matters. Companies with absolute reduction targets (Cdp.Targettype.Absolute) show a notable improvement in decarbonization efforts, as indicated by a negative coefficient of -0.194 (significant at the 1\% level) this relationship is also showin in Figure \ref{fig:cdp_target_type_absolute_vs_ghg_change_real_next} where we observe a slight negative trend between absolute targets and decarbonization rate. This contrasts with intensity-based targets (Cdp.Targettype.Intensity), which did not show significant effects, suggesting that absolute targets might be more impactful.
 
-\item Assessing risks (Cdp.Aggregated.Risk) and identifying opportunities (Cdp.Aggregated.Opp) associated with climate change also appear to influence decarbonization rates significantly. Firms recognizing risks show a negative impact on decarbonization rate with a coefficient of 0.615 (significant at the 1\% level), indicating that firms that identify risks are correlated with lower decarboninzation. Conversely, recognizing opportunities related to climate change is linked with better decarbonization outcomes, as shown by a negative coefficient of -1.283 (significant at the 1\% level), suggesting that firms identifying decarboninzation opportunities tend to reduce their emissions over the next year.
+\item Assessing risks (Cdp.Aggregated.Risk) and identifying opportunities (Cdp.Aggregated.Opp) associated with climate change also appear to influence decarbonization rates significantly. Firms recognizing risks show a negative impact on decarbonization rate with a coefficient of 0.615 (significant at the 1\% level), indicating that firms that identify risks are correlated with lower decarboninzation, this relationship can also be observed in the boxplot in Figure \ref{fig:ghg_change_real_next_by_cdp_aggregated_risk} where we observe a positive relationship between the aggregated risk and the decarbonization rate. Conversely, recognizing opportunities related to climate change is linked with better decarbonization outcomes, as shown by a negative coefficient of -1.283 (significant at the 1\% level), suggesting that firms identifying decarboninzation opportunities tend to reduce their emissions over the next year. The relationship between opportunities and next year real decarbonization rate is also shown in Figure \ref{fig:ghg_change_real_next_by_cdp_aggregated_opportunity} where we observe that the distribution of firms who identify an opportunity corresponds to a relatively lower next-year decarbonization rate.
 
 \item \textbf{Key findings:} Targets play an important role in enhancing decarbonization rates over the next year, and an understanding of risks and opportunities, is equally important. Additionally, to gain a comprehensive understanding, it is most valuable to observe the mean amount target set by a firm, and whether that firm has identified risks and opportunites.
 
 \end{itemize}
 
-\section{Model IX: Analyzing Investments and Initiatives}
+\section{Model VIII: Analyzing Investments and Initiatives}
 
 \begin{enumerate}
     \item First model: We analyze the predictors related to initiatives, in particual whether the company has initiatives to reduce carbon emissions and which scopes have a related initiative. 
@@ -385,15 +427,36 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \input{tables/R8.tex}
 
+\subsection{Relevant Figures:}
+
+% first figure ghg_change_real_next_by_absent_cdp_initiative
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_absent_cdp_initiative.png}
+\caption{Absent Cdp Initiative vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_absent_cdp_initiative}
+\end{figure}
+
+% second figure ghg_change_real_next_by_investment_counter
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\textwidth]{figures/ghg_change_real_next_by_investment_counter.png}
+\caption{Investment Counter vs. Next Year Decarbonization Rate}
+\label{fig:ghg_change_real_next_by_investment_counter}
+\end{figure}
+
+
+
+
 \subsection{Discussion}
 
 \begin{itemize}
-    \item The only significant initiative metrics are whether the company does not have any initiatives, associated with a worse decarboninzation of $0.855$, and whether the company has initiatives on scope $1$, which is associated with worse decarbonization rate of $0.258\%$. The second result makes sense given the context of the model as it likely acts as an indicator of whether a firm that has incentives has them in Scope1 emissions or in either Scope 2 or Scope 3. With having incentives in Scope 2/3 being associated with better decarboninzation rates.
-    \item The absolute number of investments is significant and associated with a better decarboninzation rate of $2.78\%$ per investment in model (4). Other invesmtent metrics are not significant at the $5\%$ level and were not included in the final model.
+    \item The only significant initiative metrics are whether the company does not have any initiatives, associated with a worse decarboninzation of $0.855$, and whether the company has initiatives on scope $1$, which is associated with worse decarbonization rate of $0.258\%$. The relationship between the absence of initiatives and next year decarbonization rate is also shown in Figure \ref{fig:ghg_change_real_next_by_absent_cdp_initiative}, where we observe that firms who don't report initiatives also have a decarbonization rate of zero, that is either they don't decarbonize, or they don't accurately report their decarbonization efforts. The Scope 1 coefficient makes sense given the context of the model as it likely acts as an indicator of whether a firm that has incentives has them in Scope 1 emissions or in either Scope 2 or Scope 3. With having incentives in Scope 2/3 being associated with better decarboninzation rates. 
+    \item The absolute number of investments is significant and associated with a better decarboninzation rate of $2.78\%$ per investment in model (4). Other invesmtent metrics are not significant at the $5\%$ level and were not included in the final model. The relationship between the number of investments and the next year decarbonization rate is also shown in Figure \ref{fig:ghg_change_real_next_by_investment_counter}.
     \item \textbf{Key Insights:} Investments and Initiatives are important components of carbon emission reduction. Based on this analysis, which is correlational, they have an effect on decarboninzation that goes past the same year and affects the following year as well. This makes intutitive sense as we expect the investment that a firm makes along with economic incentives to have an effect over time as in both cases positive outcomes result in systemic change has a positive impact over time.
 \end{itemize}
 
-\section{Model X: Analyzing Carbon Credits and Intensity Figures}
+\section{Model IX: Analyzing Carbon Credits and Intensity Figures}
 
 \begin{enumerate}
     \item First model: We analyze the predictors related to intensity figures and intensity change controlling for all other variables carried forward from previous models.
@@ -411,7 +474,7 @@ For each presented model, I will first present the key questions and hypothesis,
     \item \textbf{Key Insights: } Neither Intensity figures nor Carbon Credits are useufl predictors when assessing next year real decarbonization rate. Therefore, I will exculde them from the final model.
 \end{itemize}
 
-\section{Final Model}
+\section{Model X: Final Models}
 
 
 \begin{enumerate}
@@ -422,7 +485,7 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \input{tables/R10.tex}
 
-\subsection{Figures}
+\subsection{Figures:}
 
 \begin{figure}[H]
     \centering
@@ -435,6 +498,6 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \begin{itemize}
     \item We observe how methane emissions is significant at the $1\%$ level when forecasting next year decarboninzation rate, while it is not significan when the response variable is same year decarbonization rate. This is an interesting result and seems to suggest that methane emissions are correlated more with future struggle to decarbonize compared to present decarbonizaion. 
-    \item Overall, in model (2) nearly all the predictos are significant, with most being significant at the $1\%$ level. Additionally graph \ref{AIC} shows how in all model iterations performed in this chapter, we manage to reduce the AIC significantly with the addiiton of significant predictors and the inclusion of relevant random effects. In the final stages, the AIC plateaus, signaling that successive models will only be marginally better than our current final one which strikes a good balance between number of features, interpretability, and forecasting accuracy.
-    \item In the following chapter, we will test the prediction accuracy of the final model and use it as a benchmark to develop nonparamatric and more advanced modeling techiques, prioritizing prediction accuracy over interpretability.
+    \item Overall, in model (2) nearly all the predictos are significant, with most being significant at the $1\%$ level. Additionally Figure \ref{AIC} shows how in all model iterations performed in this chapter, we manage to reduce the AIC significantly with the addiiton of significant predictors and the inclusion of relevant random effects. In the final stages, the AIC plateaus, signaling that successive models will only be marginally better than our current final one which strikes a good balance between number of features, interpretability, and forecasting accuracy.
+    \item \textbf{Next Steps:} In the following chapter, we will test the prediction accuracy of the final model and use it as a benchmark to develop nonparamatric and more advanced modeling techiques, prioritizing prediction accuracy over interpretability.
 \end{itemize}

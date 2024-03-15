@@ -4,7 +4,9 @@ The top-level auxiliary file: thesis.aux
 A level-1 auxiliary file: chapters/chapter1.aux
 A level-1 auxiliary file: chapters/chapter2.aux
 A level-1 auxiliary file: chapters/chapter3.aux
+A level-1 auxiliary file: chapters/chapter31.aux
 A level-1 auxiliary file: chapters/chapter4.aux
+A level-1 auxiliary file: chapters/chapter6.aux
 A level-1 auxiliary file: chapters/appendixA.aux
 The style file: plain.bst
 Database file #1: references.bib
@@ -14,7 +16,7 @@ Warning--to sort, need author or key in Worldscope_2
 Warning--to sort, need author or key in GICS_Wikipedia
 You've used 24 entries,
             2118 wiz_defined-function locations,
-            658 strings with 9235 characters,
+            660 strings with 9278 characters,
 and the built_in function-call counts, 7981 in all, are:
 = -- 728
 > -- 522

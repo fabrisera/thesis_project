@@ -5,36 +5,45 @@
 \contentsline {figure}{\numberline {1.3.2}{\ignorespaces Caption of CDP Scoring Grades. Adapted from \cite {CDP2022ScoringPDF}.\relax }}{7}{figure.caption.7}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.0.1}{\ignorespaces Global Industry Classification Standard (GICS) Structure \cite {GICS_MSCI}.\relax }}{23}{figure.caption.8}%
-\contentsline {figure}{\numberline {3.0.2}{\ignorespaces Real Decarbonization Rate\relax }}{27}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.0.3}{\ignorespaces Mean \textit {real decarbonization rate} by continent from 2011 to 2022\relax }}{28}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.0.4}{\ignorespaces Mean Real Decarbonization Rate by Sector\relax }}{29}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.0.5}{\ignorespaces Mean Decarbonization Rate by Country\relax }}{31}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.0.6}{\ignorespaces Mean and Median Real Decarbonization Rate by Year\relax }}{32}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.0.7}{\ignorespaces Financial Predictors\relax }}{35}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.1.1}{\ignorespaces Global Industry Classification Standard (GICS) Structure \cite {GICS_MSCI}.\relax }}{23}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.3.1}{\ignorespaces Real Decarbonization Rate\relax }}{27}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.3.2}{\ignorespaces Number of unique reporting firms by year in the training set\relax }}{28}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3.3}{\ignorespaces Mean \textit {real decarbonization rate} by continent from 2011 to 2022\relax }}{29}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.3.4}{\ignorespaces Mean Real Decarbonization Rate by Sector\relax }}{31}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.3.5}{\ignorespaces Mean Decarbonization Rate by Country\relax }}{33}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.3.6}{\ignorespaces Mean and Median Real Decarbonization Rate by Year\relax }}{34}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.4.1}{\ignorespaces Financial Predictors\relax }}{37}{figure.caption.16}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.2.1}{\ignorespaces Current vs. Next Year Decarbonization Rate\relax }}{40}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.2.2}{\ignorespaces Next Year Decarbonization Rate Over Time\relax }}{40}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.3.1}{\ignorespaces Next Year Decarbonization Rate by Industry\relax }}{44}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.4.1}{\ignorespaces Continent vs. Next Year Decarbonization Rate\relax }}{47}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.5.1}{\ignorespaces Market Capitalization vs. Next Year Decarbonization Rate\relax }}{50}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.5.2}{\ignorespaces Revenue vs. Next Year Decarbonization Rate\relax }}{50}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.6.1}{\ignorespaces GHG Emission Scope 1 Verification Type vs. Next Year Decarbonization Rate\relax }}{54}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.6.2}{\ignorespaces GHG Emission Scope 1 vs. Next Year Decarbonization Rate\relax }}{54}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.6.3}{\ignorespaces GHG Emission Scope 1 Missing vs. Next Year Decarbonization Rate\relax }}{55}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.6.4}{\ignorespaces Methane Emissions vs. Next Year Decarbonization Rate\relax }}{55}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.6.5}{\ignorespaces GHG Emission Scope 2 Market Missing vs. Next Year Decarbonization Rate\relax }}{56}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.6.6}{\ignorespaces GHG Emission Scope 3 Verification vs. Next Year Decarbonization Rate\relax }}{56}{figure.caption.32}%
-\contentsline {figure}{\numberline {4.7.1}{\ignorespaces Incentive Binary vs. Next Year Decarbonization Rate\relax }}{61}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.7.2}{\ignorespaces Incentive Method vs. Next Year Decarbonization Rate\relax }}{61}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.11.1}{\ignorespaces AIC of all tested models by model iteration\relax }}{72}{figure.caption.40}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.2.1}{\ignorespaces Financial Predictors: Total Assets\relax }}{75}{figure.caption.41}%
-\contentsline {figure}{\numberline {A.2.2}{\ignorespaces Financial Predictors: Market Capitalization\relax }}{76}{figure.caption.42}%
-\contentsline {figure}{\numberline {A.2.3}{\ignorespaces Financial Predictors: Return on Equity\relax }}{76}{figure.caption.43}%
-\contentsline {figure}{\numberline {A.2.4}{\ignorespaces Financial Predictors: Revenue\relax }}{77}{figure.caption.44}%
-\contentsline {figure}{\numberline {A.2.5}{\ignorespaces Financial Predictors: Net Income\relax }}{77}{figure.caption.45}%
-\contentsline {figure}{\numberline {A.2.6}{\ignorespaces Financial Predictors: Employees\relax }}{78}{figure.caption.46}%
-\contentsline {figure}{\numberline {A.2.7}{\ignorespaces Financial Predictors: Total Assets 1yr Growth\relax }}{78}{figure.caption.47}%
-\contentsline {figure}{\numberline {A.2.8}{\ignorespaces Financial Predictors: Employees 1yr Growth\relax }}{79}{figure.caption.48}%
-\contentsline {figure}{\numberline {A.2.9}{\ignorespaces Financial Predictors: Net Income Over Assets\relax }}{79}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.2.1}{\ignorespaces Current vs. Next Year Decarbonization Rate\relax }}{42}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.2.2}{\ignorespaces Next Year Decarbonization Rate Over Time\relax }}{42}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.3.1}{\ignorespaces Next Year Decarbonization Rate by Industry\relax }}{46}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.4.1}{\ignorespaces Continent vs. Next Year Decarbonization Rate\relax }}{49}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.5.1}{\ignorespaces Market Capitalization vs. Next Year Decarbonization Rate\relax }}{53}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.5.2}{\ignorespaces Revenue vs. Next Year Decarbonization Rate\relax }}{53}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.6.1}{\ignorespaces GHG Emission Scope 1 Verification Type vs. Next Year Decarbonization Rate\relax }}{57}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.6.2}{\ignorespaces GHG Emission Scope 1 vs. Next Year Decarbonization Rate\relax }}{57}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.6.3}{\ignorespaces GHG Emission Scope 1 Missing vs. Next Year Decarbonization Rate\relax }}{58}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.6.4}{\ignorespaces Methane Emissions vs. Next Year Decarbonization Rate\relax }}{58}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.6.5}{\ignorespaces GHG Emission Scope 2 Market Missing vs. Next Year Decarbonization Rate\relax }}{59}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.6.6}{\ignorespaces GHG Emission Scope 3 Verification vs. Next Year Decarbonization Rate\relax }}{59}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.7.1}{\ignorespaces Incentive Binary vs. Next Year Decarbonization Rate\relax }}{64}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.7.2}{\ignorespaces Incentive Method vs. Next Year Decarbonization Rate\relax }}{64}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.8.1}{\ignorespaces Cdp Target Amount vs. Next Year Decarbonization Rate\relax }}{68}{figure.caption.38}%
+\contentsline {figure}{\numberline {5.8.2}{\ignorespaces Cdp Target Type Absolute vs. Next Year Decarbonization Rate\relax }}{68}{figure.caption.39}%
+\contentsline {figure}{\numberline {5.8.3}{\ignorespaces Cdp Aggregated Risk vs. Next Year Decarbonization Rate\relax }}{69}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.8.4}{\ignorespaces Cdp Aggregated Opportunity vs. Next Year Decarbonization Rate\relax }}{69}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.9.1}{\ignorespaces Absent Cdp Initiative vs. Next Year Decarbonization Rate\relax }}{73}{figure.caption.43}%
+\contentsline {figure}{\numberline {5.9.2}{\ignorespaces Investment Counter vs. Next Year Decarbonization Rate\relax }}{73}{figure.caption.44}%
+\contentsline {figure}{\numberline {5.11.1}{\ignorespaces AIC of all tested models by model iteration\relax }}{79}{figure.caption.47}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.2.1}{\ignorespaces Financial Predictors: Total Assets\relax }}{84}{figure.caption.48}%
+\contentsline {figure}{\numberline {A.2.2}{\ignorespaces Financial Predictors: Market Capitalization\relax }}{85}{figure.caption.49}%
+\contentsline {figure}{\numberline {A.2.3}{\ignorespaces Financial Predictors: Return on Equity\relax }}{85}{figure.caption.50}%
+\contentsline {figure}{\numberline {A.2.4}{\ignorespaces Financial Predictors: Revenue\relax }}{86}{figure.caption.51}%
+\contentsline {figure}{\numberline {A.2.5}{\ignorespaces Financial Predictors: Net Income\relax }}{86}{figure.caption.52}%
+\contentsline {figure}{\numberline {A.2.6}{\ignorespaces Financial Predictors: Employees\relax }}{87}{figure.caption.53}%
+\contentsline {figure}{\numberline {A.2.7}{\ignorespaces Financial Predictors: Total Assets 1yr Growth\relax }}{87}{figure.caption.54}%
+\contentsline {figure}{\numberline {A.2.8}{\ignorespaces Financial Predictors: Employees 1yr Growth\relax }}{88}{figure.caption.55}%
+\contentsline {figure}{\numberline {A.2.9}{\ignorespaces Financial Predictors: Net Income Over Assets\relax }}{88}{figure.caption.56}%
