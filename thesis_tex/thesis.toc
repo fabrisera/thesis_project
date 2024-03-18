@@ -35,6 +35,10 @@
 \contentsline {subsection}{\numberline {3.3.6}Real Decarbonization Rate Breakdown by Year}{34}{subsection.3.3.6}%
 \contentsline {section}{\numberline {3.4}Feature Engineering: Financial Predictors}{35}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Methods}{38}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Ordinary Least Squared}{38}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Mixed Effects Models}{38}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Elastic Net}{38}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Neural Networks}{38}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Parametric Modeling Results}{39}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Introduciton}{39}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Response Variable:}{40}{subsection.5.1.1}%
@@ -79,11 +83,16 @@
 \contentsline {subsection}{\numberline {5.11.2}Discussion}{79}{subsection.5.11.2}%
 \contentsline {chapter}{\numberline {6}Non-Parametric Modeling Results}{81}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Introduction and Objectives}{81}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Baseline Metrics}{81}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Final Model From Chapter 5}{82}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Finding the best Model}{82}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Neural Networks}{82}{section.6.5}%
-\contentsline {chapter}{\numberline {A}Some extra stuff}{83}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Marginal Abatement Cost Curve}{84}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Financial Predictors Full-Size Graphs}{84}{section.A.2}%
-\contentsline {chapter}{References}{92}{appendix*.57}%
+\contentsline {subsection}{\numberline {6.1.1}Train and Test Set Summary Statistics}{82}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Baseline Metrics}{83}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Final Model From Chapter 5}{84}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Table of Model Performance Metrics}{84}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Residuals Plot}{84}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Finding the best Model}{85}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Bayesian Ridge Model}{86}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Catboost Regressor Model}{88}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Neural Networks}{89}{section.6.7}%
+\contentsline {chapter}{\numberline {A}Some extra stuff}{90}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Marginal Abatement Cost Curve}{91}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Financial Predictors Full-Size Graphs}{91}{section.A.2}%
+\contentsline {chapter}{References}{99}{appendix*.65}%

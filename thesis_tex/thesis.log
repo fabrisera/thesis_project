@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  15 MAR 2024 21:51
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  17 MAR 2024 21:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1377,13 +1377,13 @@ Overfull \hbox (2.44797pt too wide) detected at line 22
 [][]\TU/lmr/m/n/12 5.11.1 
  []
 
-)
+[9
+
+])
 \tf@lot=\write9
 \openout9 = `thesis.lot'.
 
- [9
-
-] [10] (./frontmatter/dedication.tex) [11] (./frontmatter/thanks.tex) [12
+ [10] (./frontmatter/dedication.tex) [11] (./frontmatter/thanks.tex) [12
 
 ]
 \openout2 = `chapters/chapter1.aux'.
@@ -1762,19 +1762,28 @@ File: ../notebooks/R/aic.png Graphic file (type bmp)
 
  (./chapters/chapter6.tex
 Chapter 6.
-) [81
+[81
 
 
 
 
-] [82]
+] (./tables/summary_train_test.tex) [82] (./tables/baseline_metrics.tex) [83]
+File: figures/final_model_residuals.png Graphic file (type bmp)
+<figures/final_model_residuals.png>
+ [84] (./tables/compare_models.tex [85])
+File: figures/Bayes_Importance.png Graphic file (type bmp)
+<figures/Bayes_Importance.png>
+ [86]
+File: figures/Bayes_Residuals.png Graphic file (type bmp)
+<figures/Bayes_Residuals.png>
+ [87] [88]) [89]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
 Appendix A.
 File: figures/financial_preds/tot_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/tot_assets_dist.png>
-[83
+[90
 
 
 
@@ -1782,25 +1791,25 @@ File: figures/financial_preds/tot_assets_dist.png Graphic file (type bmp)
 ]
 File: figures/financial_preds/mkt_cap_dist.png Graphic file (type bmp)
 <figures/financial_preds/mkt_cap_dist.png>
- [84]
+ [91]
 File: figures/financial_preds/roe_dist.png Graphic file (type bmp)
 <figures/financial_preds/roe_dist.png>
 File: figures/financial_preds/revenue_dist.png Graphic file (type bmp)
 <figures/financial_preds/revenue_dist.png>
- [85]
+ [92]
 File: figures/financial_preds/net_income_dist.png Graphic file (type bmp)
 <figures/financial_preds/net_income_dist.png>
 File: figures/financial_preds/employees_dist.png Graphic file (type bmp)
 <figures/financial_preds/employees_dist.png>
- [86]
+ [93]
 File: figures/financial_preds/assets_1yr_growth_dist.png Graphic file (type bmp)
 <figures/financial_preds/assets_1yr_growth_dist.png>
 File: figures/financial_preds/employees_1yr_growth_dist.png Graphic file (type bmp)
 <figures/financial_preds/employees_1yr_growth_dist.png>
- [87]
+ [94]
 File: figures/financial_preds/net_income_over_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/net_income_over_assets_dist.png>
-) [88] (./thesis.bbl
+) [95] (./thesis.bbl
 
 Package xcolor Warning: Incompatible color definition on input line 6.
 
@@ -1816,7 +1825,7 @@ Package xcolor Warning: Incompatible color definition on input line 31.
 
 Package xcolor Warning: Incompatible color definition on input line 45.
 
-[89
+[96
 
 
 
@@ -1831,15 +1840,15 @@ Package xcolor Warning: Incompatible color definition on input line 59.
 
 Package xcolor Warning: Incompatible color definition on input line 87.
 
-[90]
+[97]
 
 Package xcolor Warning: Incompatible color definition on input line 147.
 
-[91])
+[98])
 
 Package natbib Warning: There were undefined citations.
 
-[92] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/appendixA.aux))
+[99] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/appendixA.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1847,7 +1856,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: C5B3C3D83ECBAA42587D2EF269A533FA;8231.
+(rerunfilecheck)             Checksum: 331820C925C107DFB3F89DE9DCE42B33;9151.
  )
 (\end occurred inside a group at level 2)
 
@@ -1855,12 +1864,12 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 ### semi simple group (level 1) entered at line 10 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 47241 strings out of 476179
- 1075084 string characters out of 5809544
- 1426199 words of memory out of 5000000
- 67114 multiletter control sequences out of 15000+600000
+ 47295 strings out of 476179
+ 1076622 string characters out of 5809544
+ 1427275 words of memory out of 5000000
+ 67156 multiletter control sequences out of 15000+600000
  477346 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  170i,35n,161p,4635b,2242s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (105 pages, 1306888 bytes).
+Output written on thesis.xdv (112 pages, 1407340 bytes).

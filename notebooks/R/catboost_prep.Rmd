@@ -1,0 +1,203 @@
+```{r}
+df = read.csv("/Users/fabrizioserafini/Desktop/senior_year/SeniorThesis/thesis_project/notebooks/R/final_model_selected.csv")
+```
+
+```{r}
+
+```
+
+
+```{r}
+# Define the specific one-hot encoded columns
+one_hot_columns <- c('Method.Ind.Macc', 'Method.Ind.Budget.Efficiency', 'Method.Ind.Budget.Low.Carbon', 'Method.Ind.Compliance', 'Method.Ind.Employee.Engagement', 'Method.Ind.Financial.Opt', 'Method.Ind.Gov.Partnership', 'Method.Ind.Internal.Finance', 'Method.Ind.Internal.Incentives', 'Method.Ind.Internal.Price', 'Method.Ind.Lower.Roi', 'Method.Ind.Other')
+
+# Function to find the original category from one-hot encoded columns
+get_original_category <- function(row) {
+  # Extract only the names of columns where the row value equals 1
+  matching_columns <- names(row)[row == 1]
+  if (length(matching_columns) == 0) {
+    return(NA)  # Return NA if no matching category
+  } else {
+    return(matching_columns[1])  # Return the first matching category
+  }
+}
+
+# Apply this function to each row of the specified columns
+df$Method.Ind <- apply(df[, one_hot_columns], 1, get_original_category)
+
+# Convert the new column to a factor
+df$Method.Ind <- as.factor(df$Method.Ind)
+
+# Optionally, remove the original one-hot encoded columns if they are no longer needed
+df <- df[, !(names(df) %in% one_hot_columns)]
+
+
+```
+
+```{r}
+df$Method.Ind[is.na(df$Method.Ind)] <- 'Method.Ind.Other'
+df$Method.Ind <- as.factor(df$Method.Ind)
+```
+
+```{r}
+# Define the specific one-hot encoded columns for Type.Scope1
+type_scope1_columns <- c('Type.Scope1.Limited', 'Type.Scope1.Moderate', 'Type.Scope1.N.A', 'Type.Scope1.Reasonable', 'Type.Scope1.Third.Party.Underway')
+
+# Function to find the original category from one-hot encoded columns for Type.Scope1
+get_original_type_scope1 <- function(row) {
+  matching_columns <- names(row)[row == 1]
+  if (length(matching_columns) == 0) {
+    return(NA)  # Return NA if no matching category
+  } else {
+    return(matching_columns[1])  # Return the first matching category
+  }
+}
+
+# Apply this function to each row of the specified columns for Type.Scope1
+df$Type_Scope1_Category <- apply(df[, type_scope1_columns], 1, get_original_type_scope1)
+
+# Convert the new column to a factor for Type.Scope1
+df$Type_Scope1_Category <- factor(df$Type_Scope1_Category)
+
+# Fill NA values in 'Type_Scope1_Category' with 'Type.Scope1.N.A'
+df$Type_Scope1_Category[is.na(df$Type_Scope1_Category)] <- 'Type.Scope1.N.A'
+
+# Ensure that 'Type_Scope1_Category' remains a factor and includes 'Type.Scope1.N.A' as a level
+df$Type_Scope1_Category <- factor(df$Type_Scope1_Category, levels = unique(c(levels(df$Type_Scope1_Category), 'Type.Scope1.N.A')))
+
+# Optionally, remove the original one-hot encoded columns if they are no longer needed
+df <- df[, !(names(df) %in% type_scope1_columns)]
+
+```
+
+
+```{r}
+df
+```
+
+
+```{r}
+# Define the specific one-hot encoded columns for Reporting.Boundary
+reporting_boundary_columns <- c('Reporting.Boundary.Equity.Share', 'Reporting.Boundary.Financial.Control', 'Reporting.Boundary.Not.Reported', 'Reporting.Boundary.Operational.Control', 'Reporting.Boundary.Other')
+
+# Function to find the original category from one-hot encoded columns for Reporting.Boundary
+get_original_reporting_boundary <- function(row) {
+  matching_columns <- names(row)[row == 1]
+  if (length(matching_columns) == 0) {
+    return(NA)  # Return NA if no matching category
+  } else {
+    return(matching_columns[1])  # Return the first matching category
+  }
+}
+
+# Apply this function to each row of the specified columns for Reporting.Boundary
+df$Reporting_Boundary_Category <- apply(df[, reporting_boundary_columns], 1, get_original_reporting_boundary)
+
+# Convert the new column to a factor for Reporting.Boundary
+df$Reporting_Boundary_Category <- factor(df$Reporting_Boundary_Category)
+
+# Fill NA values in 'Reporting_Boundary_Category' with 'Reporting.Boundary.Other'
+df$Reporting_Boundary_Category[is.na(df$Reporting_Boundary_Category)] <- 'Reporting.Boundary.Other'
+
+# Ensure that 'Reporting_Boundary_Category' remains a factor and includes 'Reporting.Boundary.Other' as a level
+df$Reporting_Boundary_Category <- factor(df$Reporting_Boundary_Category, levels = unique(c(levels(df$Reporting_Boundary_Category), 'Reporting.Boundary.Other')))
+
+# Optionally, remove the original one-hot encoded columns if they are no longer needed
+df <- df[, !(names(df) %in% reporting_boundary_columns)]
+
+```
+
+```{r}
+# Define the specific one-hot encoded columns for Cdp.Orig.Or.Purchase.Clean.Credit
+cdp_columns <- c('Cdp.Orig.Or.Purchase.Clean.Credit.Origination', 'Cdp.Orig.Or.Purchase.Clean.Credit.Purchase')
+
+# Function to find the original category from one-hot encoded columns for Cdp.Orig.Or.Purchase.Clean.Credit
+get_original_cdp <- function(row) {
+  matching_columns <- names(row)[row == 1]
+  if (length(matching_columns) == 0) {
+    return(NA)  # Return NA if no matching category
+  } else {
+    return(matching_columns[1])  # Return the first matching category
+  }
+}
+
+# Apply this function to each row of the specified columns for Cdp.Orig.Or.Purchase.Clean.Credit
+df$Cdp_Clean_Credit_Category <- apply(df[, cdp_columns], 1, get_original_cdp)
+
+# Convert the new column to a factor for Cdp.Orig.Or.Purchase.Clean.Credit
+
+# Assuming you want to fill NA values with a category indicating neither was chosen, adjust as needed
+df$Cdp_Clean_Credit_Category[is.na(df$Cdp_Clean_Credit_Category)] <- 'Not Specified'
+
+# Optionally, remove the original one-hot encoded columns if they are no longer needed
+df <- df[, !(names(df) %in% cdp_columns)]
+
+df
+
+```
+
+```{r}
+# Define the specific one-hot encoded columns for Cdp.Credits.Cancelled.Clean
+cdp_credits_columns <- c('Cdp.Credits.Cancelled.Clean.No', 'Cdp.Credits.Cancelled.Clean.Yes', 'Cdp.Credits.Cancelled.Clean.Missing')
+
+# Function to find the original category from one-hot encoded columns for Cdp.Credits.Cancelled.Clean
+get_original_cdp_credits <- function(row) {
+  matching_columns <- names(row)[row == 1]
+  if (length(matching_columns) == 0) {
+    return('Cdp.Credits.Cancelled.Clean.Missing')  # Return 'Missing' if no matching category
+  } else {
+    return(matching_columns[1])  # Return the first matching category
+  }
+}
+
+# Apply this function to each row of the specified columns for Cdp.Credits.Cancelled.Clean
+df$Cdp_Credits_Cancelled_Clean_Category <- apply(df[, cdp_credits_columns], 1, get_original_cdp_credits)
+
+# Convert the new column to a factor for Cdp.Credits.Cancelled.Clean
+df$Cdp_Credits_Cancelled_Clean_Category <- factor(df$Cdp_Credits_Cancelled_Clean_Category)
+
+# Ensure that 'Cdp_Credits_Cancelled_Clean_Category' remains a factor and includes all original categories
+df$Cdp_Credits_Cancelled_Clean_Category <- factor(df$Cdp_Credits_Cancelled_Clean_Category, levels = unique(c(levels(df$Cdp_Credits_Cancelled_Clean_Category), 'Cdp.Credits.Cancelled.Clean.Missing')))
+
+# Optionally, remove the original one-hot encoded columns if they are no longer needed
+df <- df[, !(names(df) %in% cdp_credits_columns)]
+
+```
+
+```{r}
+# Define the specific one-hot encoded columns for Cdp.Purpose.Clean
+cdp_purpose_columns <- c('Cdp.Purpose.Clean.Compliance', 'Cdp.Purpose.Clean.Other', 'Cdp.Purpose.Clean.Voluntary.Offsetting', 'Cdp.Purpose.Clean.Missing')
+
+# Function to find the original category from one-hot encoded columns for Cdp.Purpose.Clean
+get_original_cdp_purpose <- function(row) {
+  matching_columns <- names(row)[row == 1]
+  if (length(matching_columns) == 0) {
+    return('Cdp.Purpose.Clean.Missing')  # Return 'Missing' if no matching category
+  } else {
+    return(matching_columns[1])  # Return the first matching category
+  }
+}
+
+# Apply this function to each row of the specified columns for Cdp.Purpose.Clean
+df$Cdp_Purpose_Clean_Category <- apply(df[, cdp_purpose_columns], 1, get_original_cdp_purpose)
+
+# Convert the new column to a factor for Cdp.Purpose.Clean
+df$Cdp_Purpose_Clean_Category <- factor(df$Cdp_Purpose_Clean_Category)
+
+# Ensure that 'Cdp_Purpose_Clean_Category' remains a factor and includes all original categories
+df$Cdp_Purpose_Clean_Category <- factor(df$Cdp_Purpose_Clean_Category, levels = unique(c(levels(df$Cdp_Purpose_Clean_Category), 'Cdp.Purpose.Clean.Missing')))
+
+# Optionally, remove the original one-hot encoded columns if they are no longer needed
+df <- df[, !(names(df) %in% cdp_purpose_columns)]
+
+```
+
+```{r}
+df
+```
+
+
+```{r}
+write.csv(df, 'catboost.csv')
+
+```

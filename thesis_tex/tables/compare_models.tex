@@ -1,0 +1,39 @@
+\begin{longtable}{lrrrr}
+\caption{Cross Validation Results for All Tested Models}
+\label{tab:cross-validated-results}\\
+\toprule
+                          Model &   MAE &     MSE &  RMSE &     R2 \\
+\midrule
+\endfirsthead
+\caption[]{Cross Validation Results for All Tested Models} \\
+\toprule
+                          Model &   MAE &     MSE &  RMSE &     R2 \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{{Continued on next page}} \\
+\midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+                 Bayesian Ridge &  4.15 &   48.40 &  6.91 &   0.09 \\
+             CatBoost Regressor &  4.34 &   48.77 &  6.94 &   0.09 \\
+               Ridge Regression &  4.22 &   48.74 &  6.94 &   0.08 \\
+    Orthogonal Matching Pursuit &  4.29 &   49.09 &  6.96 &   0.08 \\
+                    Elastic Net &  4.25 &   49.35 &  6.97 &   0.08 \\
+               Lasso Regression &  4.23 &   49.54 &  6.99 &   0.07 \\
+   Lasso Least Angle Regression &  4.23 &   49.54 &  6.99 &   0.07 \\
+    Gradient Boosting Regressor &  4.34 &   49.57 &  7.00 &   0.07 \\
+Light Gradient Boosting Machine &  4.35 &   49.71 &  7.01 &   0.07 \\
+        Random Forest Regressor &  4.56 &   50.25 &  7.04 &   0.06 \\
+          Extra Trees Regressor &  4.51 &   50.90 &  7.08 &   0.05 \\
+                Dummy Regressor &  4.45 &   54.09 &  7.30 &  -0.01 \\
+      Extreme Gradient Boosting &  4.85 &   57.20 &  7.51 &  -0.07 \\
+          K Neighbors Regressor &  4.80 &   60.37 &  7.71 &  -0.13 \\
+                Huber Regressor &  4.38 &   67.05 &  8.13 &  -0.25 \\
+        Decision Tree Regressor &  5.89 &   96.97 &  9.80 &  -0.84 \\
+             AdaBoost Regressor &  9.13 &  115.14 & 10.60 &  -1.12 \\
+   Passive Aggressive Regressor &  6.84 &  187.64 & 12.92 &  -2.66 \\
+              Linear Regression & 31.33 & 3024.39 & 35.90 & -42.10 \\
+\end{longtable}

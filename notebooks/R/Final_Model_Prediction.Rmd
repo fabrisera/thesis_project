@@ -88,10 +88,55 @@ mae
 ```
 
 ```{r}
-# plot the residuals
-residuals = data_test$Ghg.Change.Real.Next - data_test$Ghg.Change.Real.Next.Pred
-plot(data_test$Ghg.Change.Real.Next, residuals)
+# calculate the R2
+r2 = 1 - sum((data_test$Ghg.Change.Real.Next - data_test$Ghg.Change.Real.Next.Pred)^2) / sum((data_test$Ghg.Change.Real.Next - mean(data_test$Ghg.Change.Real.Next))^2)
+r2
 ```
+
+```{r}
+# calculate the R2 that you get if using previous year as a predictor
+r2_previous = 1 - sum((data_test$Ghg.Change.Real.Next - data_test$Ghg.Change.Real)^2) / sum((data_test$Ghg.Change.Real.Next - mean(data_test$Ghg.Change.Real.Next))^2)
+
+r2_previous
+```
+
+```{r}
+# calculate the R2 that you get if using the mean as a predictor
+r2_mean = 1 - sum((data_test$Ghg.Change.Real.Next - mean(data_test$Ghg.Change.Real.Next))^2) / sum((data_test$Ghg.Change.Real.Next - mean(data_test$Ghg.Change.Real.Next))^2)
+
+r2_mean
+```
+```{r}
+library(ggplot2) # Load the ggplot2 package
+
+```
+
+```{r}
+# plot the residuals
+# include the title 
+residuals = data_test$Ghg.Change.Real.Next - data_test$Ghg.Change.Real.Next.Pred
+plot(data_test$Ghg.Change.Real.Next.Pred, residuals, main = "Residual Plot", xlab = "Predicted Values", ylab = "Residuals")
+```
+
+```{r}
+# Calculate residuals
+data_test$residuals <- data_test$Ghg.Change.Real.Next - data_test$Ghg.Change.Real.Next.Pred
+
+# Now create the plot with the corrected gradient space
+ggplot(data_test, aes(x = Ghg.Change.Real.Next.Pred, y = residuals)) +
+  geom_point(aes(color = residuals), alpha = 1) + # Adjust point transparency for better visibility
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") + # Add a horizontal line at 0 for reference
+  scale_color_gradient2(low = "blue", mid = "white", high = "red", 
+                        midpoint = 0, limit = c(min(data_test$residuals, na.rm = TRUE), max(data_test$residuals, na.rm = TRUE)), 
+                        space = "Lab") + # Use 'Lab' color space for the gradient
+  labs(title = "Residual Plot", x = "Predicted Values", y = "Residuals") +
+  theme_minimal() + # Clean theme
+  theme(legend.position = "right") # Adjust legend position if needed
+```
+
+
+
+
 
 ```{r}
 # select Ghg.Change.Real.Next and Ghg.Change.Real.Next.Pred
@@ -100,4 +145,16 @@ display = data_test %>% select(Ghg.Change.Real.Next, Ghg.Change.Real.Next.Pred)
 display
 ```
 
+```{r}
+# remove Gind, Isin, Type.Scope1 from data
+selected <- data[, !(names(data) %in% c('Gind', 'Isin', 'Type.Scope1', 'Companyname', 'Ghg.Change.Real.Cat', 'Ghg.Change.Real.Cat.Next'))]
+selected
+
+write.csv(selected, "final_model_selected.csv")
+```
+
+```{r}
+# save the data to a csv
+write.csv(data, "final_model_predictions.csv")
+```
 
