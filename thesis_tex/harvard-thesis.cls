@@ -52,6 +52,8 @@
 \usepackage[closeFloats, noSeparatorLine]{fltpage} %use the custom modified fltpage package
 \RequirePackage{afterpage} 
 
+\RequirePackage{tcolorbox}
+
 
 
 
@@ -259,3 +261,19 @@
 \makeatletter
 \newcommand\arraybslash{\let\\\@arraycr}
 \makeatother
+
+\definecolor{customCrimson}{HTML}{990000}
+
+
+\newtcolorbox{keytakeaway}{
+    colback=yellow!10!white, % Background color of the box - light yellow
+    colframe=yellow!10!white, % Color of the frame
+    coltitle=white, % Color of the title text
+    colbacktitle=customCrimson, % Background color of the title
+    title=Key Chapter Takeaway, % Title of the box
+    fonttitle=\bfseries, % Bold title font % Box with sharp corners
+    top=2mm, % Top space within the box
+    bottom=2mm % Bottom space within the box
+}
+
+

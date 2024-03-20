@@ -14,45 +14,47 @@ Warning--I didn't find a database entry for "Serafeim2019"
 Warning--to sort, need author or key in GICS_MSCI
 Warning--to sort, need author or key in Worldscope_2
 Warning--to sort, need author or key in GICS_Wikipedia
-You've used 24 entries,
+Warning--empty journal in bates
+Warning--can't use both author and editor fields in MacKay1996
+You've used 39 entries,
             2118 wiz_defined-function locations,
-            660 strings with 9278 characters,
-and the built_in function-call counts, 7981 in all, are:
-= -- 728
-> -- 522
-< -- 0
-+ -- 212
-- -- 186
-* -- 576
-:= -- 1395
-add.period$ -- 78
-call.type$ -- 24
-change.case$ -- 165
+            754 strings with 12024 characters,
+and the built_in function-call counts, 13141 in all, are:
+= -- 1216
+> -- 813
+< -- 2
++ -- 327
+- -- 285
+* -- 947
+:= -- 2268
+add.period$ -- 126
+call.type$ -- 39
+change.case$ -- 254
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 219
-empty$ -- 553
-format.name$ -- 186
-if$ -- 1605
+cite$ -- 44
+duplicate$ -- 396
+empty$ -- 933
+format.name$ -- 285
+if$ -- 2666
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 14
-newline$ -- 129
-num.names$ -- 42
-pop$ -- 191
+int.to.str$ -- 39
+missing$ -- 26
+newline$ -- 205
+num.names$ -- 74
+pop$ -- 291
 preamble$ -- 1
-purify$ -- 141
+purify$ -- 217
 quote$ -- 0
-skip$ -- 162
+skip$ -- 296
 stack$ -- 0
-substring$ -- 338
-swap$ -- 24
-text.length$ -- 0
+substring$ -- 606
+swap$ -- 61
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
-warning$ -- 3
-while$ -- 51
-width$ -- 26
-write$ -- 263
-(There were 4 warnings)
+type$ -- 154
+warning$ -- 5
+while$ -- 96
+width$ -- 41
+write$ -- 426
+(There were 6 warnings)

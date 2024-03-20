@@ -1,4 +1,10 @@
 \chapter{Data Sources}
+\label{ch:data-sources}
+
+\section{Introduciton}
+
+\noindent The reports can be requested from the CDP website \cite{CDPMain2024}, they available both in PDF and a structured CSV format. The CSV files encompass the responses submitted to the CDP questionnaire, which form the foundation of the predictor and response variables for this thesis. My work is a continuation of the initial data processing that was executed by Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} and kindly shared with me in the form of various stata files and a repository containg both the raw and processed data, where the multiple sections had been extracted from the survey and aligned across different years. I then imported all the data and further processed it to create the training and tests sets for the following models. 
+
 
 \section{Overview of Data Sources:}
 
@@ -71,69 +77,6 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
 \end{figure}
 
 \noindent The final dataset contains \textbf{$\bf{18,476}$ firm-years across $\bf{3,574}$ firms, with complete CDP, Worldscope, and GICS data}. 
-\newpage
-
-
-
-
-\subsection{Variable Dictionary}
-
-\noindent Table~\ref{tab:variable-dictionary} provides an overivew of the predictors used in the analysis, including their type, description, and source. Predictors are divided into three primary categories: \begin{itemize}
-    \item \textbf{Firm Information:} Variables that describe the firm's characteristics, such as its unique identifier, reporting year, headquarters country, headquarters continent, and industry sector.
-    \item \textbf{Financial Predictors:} Variables that capture the firm's financial performance, including total revenue, total assets, total employees, net income, and market capitalization.
-    \item \textbf{CDP Predictors:} Variables derived from the CDP Climate Survey, such as the firm's emissions, energy consumption, and climate-related targets and initiatives.
-\end{itemize}
-\begin{longtable}{lp{2cm}p{6cm}p{2cm}} \\
-    \toprule
-    \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
-    \midrule
-    \endfirsthead % Everything above goes at the top of the first page of the table
-    \multicolumn{4}{c}%
-    {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
-    \toprule
-    \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
-    \midrule
-    \endhead % Header to be repeated on every page
-    \bottomrule
-    \multicolumn{4}{r}{\textit{Continued on next page}} \\
-    \endfoot % Footer to be repeated on every page except the last
-    \endlastfoot % Footer for the last page of the table
-    
-    % Core Information Section
-    \multicolumn{4}{l}{\textbf{Firm Information}} \\
-    \midrule
-    ID & categorical & unique firm identifier & CDP \\
-    Year & numerical & reporting year & CDP \\
-    Country & categorical & headquarters country  & CDP \\
-    Continent & categorical & headquarters continent derived from country & CDP \\
-    Industry & categorical & Global Industry Classification Standard 25 industry sectors & GICS \\
-    
-    \midrule
-    % Financial Predictors Section
-    \multicolumn{4}{l}{\textbf{Financial Predictors}} \\
-    \midrule
-    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
-    log(Assets) & numerical & natural logarithm of total assets & Worldscope \\
-    log(Assets 1yr gr.) & numerical & natural logarithm of total assets growth & Worldscope \\
-    log(Employees) & numerical & natural logarithm of total employees & Worldscope \\
-    log(Empl. 1y gr.) & numerical & natural logarithm of total employees growth & Worldscope \\
-    log(Net Income) & numerical & natural logarithm of net income & Worldscope \\
-    log(Market Cap) & numerical & market capitalization & Worldscope \\
-    log(Roe) & numerical & natural logarithm of return on equity & Worldscope \\
-    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
-    % Add more variables as needed
-    \midrule
-    % CDP Predictors Section
-    \multicolumn{4}{l}{\textbf{CDP Predictors}} \\
-    \midrule
-    Variable5 & Type5 & Description5 & Source5 \\
-    Variable6 & Type6 & Description6 & Source6 \\
-    % Add more variables as needed
-    
-    \bottomrule
-\caption{Variable Dictionary}
-\label{tab:variable-dictionary}
-\end{longtable}
 
 \section{Exploratory Data Analysis}
 
@@ -278,5 +221,3 @@ Figure \ref{fig:grid} shows the distribution of the financial predictors used in
 \caption{Financial Predictors}
 \label{fig:grid}
 \end{figure}
-
-\noindent \textit{Note: for full-size images, see appendix \ref{sec:FinancialPreds}.}

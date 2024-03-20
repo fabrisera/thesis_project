@@ -19,11 +19,34 @@ Worldscope fundamentals.
   2024.
 \newblock Accessed: February 9, 2024.
 
+\bibitem{pycaret}
+Moez Ali.
+\newblock {\em PyCaret: An open source, low-code machine learning library in
+  Python}, April 2020.
+\newblock PyCaret version 1.0.
+
 \bibitem{Andrew2011Accounting}
 J.~Andrew and C.~Cortese.
 \newblock Accounting for climate change and the self-regulation of carbon
   disclosures.
 \newblock {\em Accounting Forum}, 35:130 -- 138, 2011.
+
+\bibitem{BAAYEN2008390}
+R.H. Baayen, D.J. Davidson, and D.M. Bates.
+\newblock Mixed-effects modeling with crossed random effects for subjects and
+  items.
+\newblock {\em Journal of Memory and Language}, 59(4):390--412, 2008.
+\newblock Special Issue: Emerging Data Analysis.
+
+\bibitem{bates}
+Douglas Bates.
+\newblock Computational methods for mixed models.
+\newblock 07 2010.
+
+\bibitem{lmer}
+Douglas Bates, Martin M{\"a}chler, Ben Bolker, and Steve Walker.
+\newblock Fitting linear mixed-effects models using {lme4}.
+\newblock {\em Journal of Statistical Software}, 67(1):1--48, 2015.
 
 \bibitem{Bernoville2022Scopes}
 Tara Bernoville.
@@ -59,6 +82,12 @@ Harsh Bhatt, Manan Davawala, Tanmay Joshi, Manan Shah, and Ashish Unnarkat.
 \newblock \url{https://www.cdp.net/en/guidance/guidance-for-companies}, 2024.
 \newblock [Online; accessed 30-January-2024].
 
+\bibitem{Chen_2016}
+Tianqi Chen and Carlos Guestrin.
+\newblock Xgboost: A scalable tree boosting system.
+\newblock In {\em Proceedings of the 22nd ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, KDD ’16. ACM, August 2016.
+
 \bibitem{GeneralMotorsWikipedia}
 Wikipedia contributors.
 \newblock General motors --- wikipedia{,} the free encyclopedia, 2024.
@@ -88,12 +117,20 @@ S.~Davis, N.~Lewis, Matthew Shaner, Sonia Aggarwal, D.~Arent, I.~Azevedo,
   2024.
 \newblock [Online; accessed 30-January-2024].
 
+\bibitem{dorogush2018catboost}
+Anna~Veronika Dorogush, Vasily Ershov, and Andrey Gulin.
+\newblock Catboost: gradient boosting with categorical features support, 2018.
+
 \bibitem{Downar2020The}
 Benedikt Downar, J.~Ernstberger, S.~Reichelstein, Sebastian Schwenen, and
   A.~Zaklan.
 \newblock The impact of carbon disclosure mandates on emissions and financial
   operating performance.
 \newblock {\em Review of Accounting Studies}, 26:1137 -- 1175, 2020.
+
+\bibitem{he2019gradient}
+Zhiyuan He, Danchen Lin, Thomas Lau, and Mike Wu.
+\newblock Gradient boosting machine: A survey, 2019.
 
 \bibitem{Hsu2022Planning}
 David Hsu, C.~Andrews, Albert~T. Han, Carolyn~G. Loh, Anna~C. Osland, and
@@ -119,6 +156,26 @@ P.~Larrañaga and C.~Bielza.
 \newblock Akaike information criterion.
 \newblock {\em Dictionary of Bioinformatics and Computational Biology}, 2014.
 
+\bibitem{NIPS2017_7062}
+Scott~M Lundberg and Su-In Lee.
+\newblock A unified approach to interpreting model predictions.
+\newblock In I.~Guyon, U.~V. Luxburg, S.~Bengio, H.~Wallach, R.~Fergus,
+  S.~Vishwanathan, and R.~Garnett, editors, {\em Advances in Neural Information
+  Processing Systems 30}, pages 4765--4774. Curran Associates, Inc., 2017.
+
+\bibitem{mackay_bayesian_1992}
+David J.~C. MacKay.
+\newblock Bayesian {Interpolation}.
+\newblock {\em Neural Computation}, 4(3):415--447, May 1992.
+\newblock \_eprint:
+  https://direct.mit.edu/neco/article-pdf/4/3/415/812340/neco.1992.4.3.415.pdf.
+
+\bibitem{MacKay1996}
+David J.~C. MacKay.
+\newblock {\em Bayesian Non-Linear Modeling for the Prediction Competition},
+  pages 221--234.
+\newblock Springer Netherlands, Dordrecht, 1996.
+
 \bibitem{OTT201714}
 Christian Ott, Frank Schiemann, and Thomas G{\"u}nther.
 \newblock Disentangling the determinants of the response and the publication
@@ -130,10 +187,35 @@ Elisa Papadis and G.~Tsatsaronis.
 \newblock Challenges in the decarbonization of the energy sector.
 \newblock {\em Energy}, 205:118025, 2020.
 
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{prokhorenkova2018catboost}
+Liudmila Prokhorenkova, Gleb Gusev, Aleksandr Vorobev, Anna~Veronika Dorogush,
+  and Andrey Gulin.
+\newblock Catboost: unbiased boosting with categorical features.
+\newblock {\em Advances in neural information processing systems}, 31, 2018.
+
 \bibitem{Sanderson2016What}
 B.~Sanderson, B.~O’Neill, and C.~Tebaldi.
 \newblock What would it take to achieve the paris temperature targets?
 \newblock {\em Geophysical Research Letters}, 43:7133 -- 7142, 2016.
+
+\bibitem{tipping}
+Michael~E. Tipping.
+\newblock Sparse bayesian learning and the relevance vector machine.
+\newblock {\em J. Mach. Learn. Res.}, 1:211–244, sep 2001.
+
+\bibitem{duke_sta216_lecture}
+Unknown.
+\newblock Lecture 5: Linear mixed models.
+\newblock \url{https://www2.stat.duke.edu/courses/Fall03/sta216/lecture5.pdf},
+  September 2003.
+\newblock Course materials for STA216.
 
 \bibitem{Upadhyay2022Improving}
 Dr.~Aditya Upadhyay.
@@ -146,6 +228,12 @@ Dr.~Aditya Upadhyay.
 \newblock Wharton research data services.
 \newblock \url{https://wrds-www.wharton.upenn.edu/.}
 \newblock Accessed: 2024-2-10.
+
+\bibitem{Yenigun2022}
+Okan Yenigun.
+\newblock Smart aspects of catboost algorithm: Introduction and implementation
+  of yandex’s catboost ml model.
+\newblock {\em Python in Plain English}, Sep 2022.
 
 \bibitem{Zhou2020Decarbonization}
 Wenji Zhou, D.~McCollum, Oliver Fricko, S.~Fujimori, M.~Gidden, Fei Guo,
