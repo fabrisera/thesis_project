@@ -1,9 +1,37 @@
-\chapter{Some extra stuff}
+\chapter{Appendix}
 \label{AppendixA}
+
+\section{Emission Scopes}
+\label{sec:emission_scopes}
+The thesis will assume familiarity with the concept of Scopes 1, 2, and 3 emissions which I am going to introduce in this section. In carbon-accounting and emissions reporting, it is very important to distinguish between three types of emissions: Scope 1, Scope 2, and Scope 3 emissions. Each category represents a different level of emissions associated with an organization's activities as shown in Figure \ref{fig:emission_scopes}.
+
+\begin{itemize}
+    \item \textbf{Scope 1} emissions are direct emissions from owned or controlled sources. This includes emissions from company vehicles, and emissions from chemical processes or combustion in owned or controlled boilers, furnaces, etc.
+    \item \textbf{Scope 2} emissions are indirect emissions from the generation of purchased electricity, steam, heating, and cooling consumed by the reporting company. These emissions occur at the facility where the energy is generated, not at the point of consumption.
+    \item \textbf{Scope 3} emissions are all indirect emissions (not included in Scope 2) that occur in the value chain of the reporting company. This includes both upstream and downstream emissions, encompassing a wide range of activities such as the extraction and production of purchased materials, transportation of purchased fuels, and use of sold products and services.
+\end{itemize}
+
+\noindent Understanding these scopes is critical for organizations aiming to fully assess and manage their carbon footprint.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/emission_scopes.png}
+    \caption{Emissions Scopes 1, 2, and 3 . Adapted from \cite{Bernoville2022Scopes}.}
+    \label{fig:emission_scopes}
+\end{figure}
 
 \section{Marginal Abatement Cost Curve}
 \label{sec:MACC}
 
+A Marginal Abatement Cost Curve (MACC) is a graphical representation of the cost of reducing GhG emissions. It is a tool used to identify the most cost-effective measures to reduce emissions. The MACC is a plot of the cost of abating one additional unit of emissions against the quantity of emissions abated. The curve is typically upward-sloping, indicating that the cost of abating additional emissions increases as more emissions are reduced. The MACC is a useful tool for policymakers and businesses to identify the most cost-effective measures to reduce emissions \cite{McKinsey2017}. It can also be used to compare the cost-effectiveness of different emission reduction measures and to identify the most cost-effective measures to achieve a set emissions reduction target. Figure~\ref{fig:macc} shows an example of a MACC.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/marginal_abatement_cost_curve.png}
+\caption{Marginal Abatement Cost Curve. Adopted From \cite{McKinsey2017}}
+\label{fig:macc}
+\end{figure}
+\noindent As we can observe from the graph, the MACC is upward-sloping, on the x-axis we have the quantity of emissions abated, and on the y-axis, we have the cost of abating one additional unit of emissions. Different industries and sectors will have different MACCs, and the shape of the MACC will depend on the cost of abatement measures and the quantity of emissions abated.
 
 % \section{Financial Predictors Full-Size Graphs}
 % \label{sec:FinancialPreds}
@@ -102,6 +130,42 @@
 % \end{center}
 % \normalsize
 
+\section{Neural Network Model}
+
+\subsection{Model Architecture}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/nn_architecture.png}
+    \caption{Neural Networks Model Architecture}
+    \label{fig:neural_networks_architecture}
+\end{figure}
+
+\subsection{Training and Validation Loss Plot}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/nn_training_loss.png}
+    \caption{Neural Networks Model Training and Validation Loss Plot}
+    \label{fig:neural_networks_loss_plot}
+\end{figure}
+
+
+\subsection{Model Performance Metrics}
+
+\begin{table}[H]
+    \centering
+    \caption{Neural Networks Model Performance Metrics}
+    \label{tab:neural_networks_performance}
+    \begin{tabular}{lcccc}
+    \hline
+    Set & $R^2$ & RMSE & MSE & MAE \\ 
+    \hline
+    Training & 0.21 & 6.23 & 38.79 & 3.77 \\
+    Test & 0.09 & 9.65 & 93.26 & 6.32 \\
+    \hline
+    \end{tabular}
+
+\end{table}
 
 \section{Variable Dictionary}
 \label{sec:variable-dictionary}
@@ -113,7 +177,7 @@
 \end{itemize}
 
 
-\begin{longtable}{lp{2cm}p{5cm}p{2cm}} \\
+\begin{longtable}{lp{1cm}p{6cm}p{1.1cm}} \\
     \toprule
     \textbf{Variable} & \textbf{Type} & \textbf{Description} & \textbf{Source} \\
     \midrule
@@ -132,70 +196,138 @@
     % Core Information Section
     \multicolumn{4}{l}{\textbf{Firm Information}} \\
     \midrule
-    ID & categorical & unique firm identifier & CDP \\
-    Year & numerical & reporting year & CDP \\
-    Country & categorical & headquarters country  & CDP \\
-    Continent & categorical & headquarters continent derived from country & CDP \\
-    Industry & categorical & Global Industry Classification Standard 25 industry sectors & GICS \\
+    ID & cat & unique firm identifier & CDP \\
+    Year & num & reporting year & CDP \\
+    Country & cat & headquarters country  & CDP \\
+    Continent & cat & headquarters continent derived from country & CDP \\
+    Industry & cat & Global Industry Classification Standard 25 industry sectors & GICS \\
     
     \midrule
     % Financial Predictors Section
     \multicolumn{4}{l}{\textbf{Financial Predictors}} \\
     \midrule
-    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
-    log(Assets) & numerical & natural logarithm of total assets & Worldscope \\
-    log(Assets 1yr gr.) & numerical & natural logarithm of total assets growth & Worldscope \\
-    log(Employees) & numerical & natural logarithm of total employees & Worldscope \\
-    log(Empl. 1y gr.) & numerical & natural logarithm of total employees growth & Worldscope \\
-    log(Net Income) & numerical & natural logarithm of net income & Worldscope \\
-    log(Market Cap) & numerical & market capitalization & Worldscope \\
-    log(Roe) & numerical & natural logarithm of return on equity & Worldscope \\
-    log(Revenue) & numerical & natural logarithm of total revenue & Worldscope \\
+    log(Revenue) & num & natural logarithm of total revenue & WS \\
+    log(Assets) & num & natural logarithm of total assets & WS \\
+    log(Assets 1yr gr.) & num & natural logarithm of total assets growth & WS \\
+    log(Employees) & num & natural logarithm of total employees & WS \\
+    log(Empl. 1y gr.) & num & natural logarithm of total employees growth & WS \\
+    log(Net Income) & num & natural logarithm of net income & WS \\
+    log(Market Cap) & num & market capitalization & WS \\
+    log(Roe) & num & natural logarithm of return on equity & WS \\
+    log(Revenue) & num & natural logarithm of total revenue & WS \\
     % Add more variables as needed
     \midrule
     % CDP Predictors Section
     \multicolumn{4}{l}{\textbf{CDP Predictors}} \\
     \midrule
-    Ghg.Change.Real.Next & numerical & Change in real GHG emissions from previous year & CDP  \\
-    Proportion.Verified.Scope1 & numerical & Proportion of Scope 1 GHG emissions that are verified & CDP  \\
-    Ghg1 & numerical & Total direct (Scope 1) GHG emissions & CDP  \\
-    Ghg2Location & numerical & Location-based Scope 2 GHG emissions & CDP  \\
-    Ghg2Market & numerical & Market-based Scope 2 GHG emissions & CDP  \\
-    Ghg3.Total & numerical & Total Scope 3 GHG emissions & CDP  \\
-    Ghg3.Count & numerical & Count of Scope 3 GHG emissions sources identified & CDP  \\
-    Ghg1.Na & categorical & Indicator if Scope 1 GHG data is not available & CDP  \\
-    Ghg2Location.Na & categorical & Indicator if location-based Scope 2 data is not available & CDP  \\
-    Ghg2Market.Na & categorical & Indicator if market-based Scope 2 data is not available & CDP  \\
-    Ghg3.Total.Na & categorical & Indicator if Scope 3 data is not available & CDP  \\
-    Methane.Emissions & numerical & Total methane GHG emissions & CDP  \\
-    Type.Scope1 & categorical & Type of Scope 1 emissions verification & CDP \\
-    Ghg.Verification.Scope1.Yes & categorical & Indicator if Scope 1 emissions are verified & CDP \\
-    Ghg.Verification.Scope2.Yes & categorical & Indicator if Scope 2 emissions are verified & CDP \\
-    Ghg.Verification.Scope3.Yes & categorical & Indicator if Scope 3 emissions are verified & CDP \\
-    Method.Ind & categorical & Indicator of the incentive method used & CDP \\
-    Cdp.Boardoversight.I & numerical & Board oversight on climate-related issues & CDP \\
-    Cdp.Incentivebinary.I & categorical & Presence of incentives for climate-related performance & CDP \\
-    Cdp.Baseyearemission.Mean & numerical & Average of baseline year emissions data & CDP \\
-    Cdp.Targetscope.Percent.Mean & numerical & Average percentage of emissions scopes covered by targets & CDP \\
-    Cdp.Targetamount.Mean & numerical & Mean target emission reduction amount & CDP \\
-    Cdp.Targettype.Absolute & categorical & Presence of absolute emission reduction targets & CDP \\
-    Cdp.Targettype.Intensity & categorical & Presence of intensity-based emission reduction targets & CDP \\
-    Cdp.Aggregated.Risk & numerical & Aggregated measure of climate-related risks & CDP \\
-    Cdp.Aggregated.Opp & numerical & Aggregated measure of climate-related opportunities & CDP \\
-    Initiative.Scope1 & categorical & Initiative related to Scope 1 emissions & CDP \\
-    Initiative.Scope2 & categorical & Initiative related to Scope 2 emissions & CDP \\
-    Initiative.Scope3 & categorical & Initiative related to Scope 3 emissions & CDP \\
-    Absent.Cdp.Initiative & categorical & Indicator if firm-year data is absent in CDP initiative processed CSV & CDP \\
-    Co2.Counter & numerical & Count of CO2 reduction initiatives & CDP \\
-    Msaving.Counter & numerical & Count of money-saving initiatives due to emission reductions & CDP \\
-    Investment.Counter & numerical & Number of investments in emission reduction initiatives & CDP \\
-    Investment.Total.Log1P & numerical & Log-transformed total investment in emission reduction (log1p) & CDP \\
-    Cdp.Num.Credits.Clean.Count & numerical & Count of clean energy credits & CDP \\
-    Clean.Credit.Origination & categorical & Origin of clean energy credits (original or purchased) & CDP \\
-    Cdp.PurposeVoluntary.Offsetting & categorical & Purpose of clean energy credits for voluntary offsetting & CDP \\
-    Absent.Cdp.Carbon.Credits & categorical & Indicator if carbon credits data is absent in processed CSV & CDP \\
+    Ghg.Change.Real.Next & num & Change in real GHG emissions from previous year & CDP  \\
+    Proportion.Verified.Scope1 & num & Proportion of Scope 1 GHG emissions that are verified & CDP  \\
+    Ghg1 & num & Total direct (Scope 1) GHG emissions & CDP  \\
+    Ghg2Location & num & Location-based Scope 2 GHG emissions & CDP  \\
+    Ghg2Market & num & Market-based Scope 2 GHG emissions & CDP  \\
+    Ghg3.Total & num & Total Scope 3 GHG emissions & CDP  \\
+    Ghg3.Count & num & Count of Scope 3 GHG emissions sources reported & CDP  \\
+    Ghg1.Na & cat & Indicator if Scope 1 GHG data is not available & CDP  \\
+    Ghg2Location.Na & cat & Indicator if location-based Scope 2 data is not available & CDP  \\
+    Ghg2Market.Na & cat & Indicator if market-based Scope 2 data is not available & CDP  \\
+    Ghg3.Total.Na & cat & Indicator if Scope 3 data is not available & CDP  \\
+    Methane.Emissions & num & Total methane GHG emissions & CDP  \\
+    Type.Scope1 & cat & Type of Scope 1 emissions verification & CDP \\
+    Ghg.Verification.Scope1.Yes & cat & Indicator if Scope 1 emissions are verified & CDP \\
+    Ghg.Verification.Scope2.Yes & cat & Indicator if Scope 2 emissions are verified & CDP \\
+    Ghg.Verification.Scope3.Yes & cat & Indicator if Scope 3 emissions are verified & CDP \\
+    Method.Ind & cat & Indicator of the incentive method used & CDP \\
+    Cdp.Boardoversight.I & num & Board oversight on climate-related issues & CDP \\
+    Cdp.Incentivebinary.I & cat & Presence of incentives for climate-related performance & CDP \\
+    Cdp.Baseyearemission.Mean & num & Average of baseline year emissions data & CDP \\
+    Cdp.Targetscope.Mean & num & Average percentage of emissions scopes covered by targets & CDP \\
+    Cdp.Targetamount.Mean & num & Mean target emission reduction amount & CDP \\
+    Cdp.Targettype.Absolute & cat & Presence of absolute emission reduction targets & CDP \\
+    Cdp.Targettype.Intensity & cat & Presence of intensity-based emission reduction targets & CDP \\
+    Cdp.Aggregated.Risk & num & Aggregated measure of climate-related risks & CDP \\
+    Cdp.Aggregated.Opp & num & Aggregated measure of climate-related opportunities & CDP \\
+    Initiative.Scope1 & cat & Initiative related to Scope 1 emissions & CDP \\
+    Initiative.Scope2 & cat & Initiative related to Scope 2 emissions & CDP \\
+    Initiative.Scope3 & cat & Initiative related to Scope 3 emissions & CDP \\
+    Absent.Cdp.Initiative & cat & Indicator if firm-year data is absent in CDP initiative processed CSV & CDP \\
+    Co2.Counter & num & Count of CO2 reduction initiatives & CDP \\
+    Msaving.Counter & num & Count of money-saving initiatives due to emission reductions & CDP \\
+    Investment.Counter & num & Number of investments in emission reduction initiatives & CDP \\
+    Investment.Total.Log1P & num & Log-transformed total investment in emission reduction (log1p) & CDP \\
+    Cdp.Num.Credits.Clean.Count & num & Count of clean energy credits & CDP \\
+    Clean.Credit.Origination & cat & Origin of clean energy credits (original or purchased) & CDP \\
+    Cdp.PurposeVoluntary.Offsetting & cat & Purpose of clean energy credits for voluntary offsetting & CDP \\
+    Absent.Cdp.Carbon.Credits & cat & Indicator if carbon credits data is absent in processed CSV & CDP \\
     % Add more variables as needed
     \bottomrule
 \caption{Variable Dictionary}
 \label{tab:variable-dictionary}
 \end{longtable}
+
+\section{A Case Study on Two CDP Reports}
+
+\noindent To begin the discussion on exploratory data analysis, I must first address the complexities of emission accounting and reporting within the framework of CDP data, highlighting its distinct nature compared to the more standardized field of financial reporting. That is, despite ongoing improvements, emission reporting still falls short of the robust standards established in financial accounting. I will highlight this by analyzing the 2022 CDP reports from two markedly different companies: General Motors (GM) in the automotive sector and Jet Blue in the airline industry. These reports underscore the highly company-specific nature of emission data, with significant variances stemming from diverse operational practices, especially across different industries. This results in a substantial reliance on text-based and free-form answers within the CDP reports, presenting unique challenges for data analysis. To navigate this complexity, a critical starting point is to analyze the inherent differences in these reports, which will inform and refine our modeling approach. By understanding and accommodating these industry-specific nuances, we aim to develop a more accurate and representative model of emission reporting and reduction strategies as well as identifying potential areas of improvement. 
+
+\subsection{General Motors 2022 CDP Report}
+General Motors Company (GM), a global leader in the automotive industry, is headquartered in Detroit, Michigan, USA. Renowned for its ownership and production of the Chevrolet, GMC, Cadillac, and Buick brands, GM was the largest automaker in the United States by sales in 2022. GM's commitment to sustainability is evident in its strategic approach to reducing Scope 1, Scope 2, and Scope 3 greenhouse gas (GHG) emissions, with comprehensive governance and ambitious environmental targets.
+
+\subsection*{Scope 1 and Scope 2 Emissions}
+GM has set forth aggressive targets to reduce its Scope 1 and Scope 2 emissions by 71.4\% by 2035, relative to its 2018 baseline. In 2018, GM reported Scope 1 emissions of 1,763,555 metric tons CO2e and Scope 2 emissions of 3,924,338 metric tons CO2e. By the reporting year 2022, GM achieved a reduction to 1,252,906 metric tons CO2e for Scope 1 and 2,150,694 metric tons CO2e for Scope 2, marking significant progress towards its goal. This reduction aligns with the 1.5 degrees Celsius strategy set by the Paris Agreement, underscoring GM's commitment to global climate initiatives \cite{GeneralMotorsWikipedia, Zhou2020Decarbonization}.
+
+GM's strategy includes enhancing energy efficiency across its manufacturing operations and increasing the use of renewable energy. In 2021, GM implemented over 300 energy efficiency improvements, such as upgrading to more efficient equipment and increasing renewable electricity use from 23\% to 25\%, contributing to GHG reductions in Scope 2 emissions.
+
+\subsection*{Scope 3 Emissions}
+Addressing Scope 3 emissions, GM has set a target to achieve a 50.4\% reduction in its vehicle use emissions, from a baseline of 0.0002466 metric tons of CO2 per kilometer to 0.0001223136. GM's strategy to meet this target includes transitioning to an all-electric vehicle (EV) future, with plans to introduce 30 new EV models by 2025 and aspirations to be fully electric by 2035. Partnerships to increase renewable energy generation and deploy EV chargers, in collaboration with EvGo, further exemplify GM's holistic approach to reducing its carbon footprint across the value chain.
+
+\subsection*{Key Takeaways}
+\begin{itemize}
+    \item \textbf{Strategic Emissions Reduction:} GM's targeted reductions in Scope 1 and Scope 2 emissions demonstrate a strong commitment to environmental stewardship, leveraging technological advancements and renewable energy.
+    \item \textbf{Leadership in Electric Vehicles:} GM's aggressive transition to an all-EV lineup by 2035 highlights its leadership role in transforming the automotive industry towards sustainability.
+    \item \textbf{Comprehensive Approach to Sustainability:} Through its Scope 3 emissions reduction target, GM addresses the broader environmental impact of its products, emphasizing the importance of a comprehensive strategy that extends beyond direct emissions.
+\end{itemize}
+
+GM's sustainability efforts showcase a deep commitment to reducing its environmental impact and leaading the automotive industry towards a more sustainable future. By strategically targeting Scope 1, Scope 2, and Scope 3 emissions, GM is not only adhering to global climate agreements but also setting a precedent for corporate responsibility in addressing climate change.
+
+
+% \subsection{General Motors' Report Analysis}
+
+% \noindent General Motors Company (GM), an American multinational automotive manufacturing giant, is headquartered in Detroit, Michigan, USA. Esteemed for its ownership and production of four prominent automobile brands—Chevrolet, GMC, Cadillac, and Buick—it stood as the largest automaker in the United States by sales in 2022 \cite{GeneralMotorsWikipedia}. At the core of GM's corporate strategy lies a robust sustainability framework, spearheaded at the enterprise level. This framework encompasses oversight by the Board, the Chief Executive Officer, and the Chief Sustainability Officer, alongside a dedicated Board-level committee tasked with addressing climate-related challenges. Furthermore, the company has instituted a monetary incentive for its corporate executive team, primarily tethered to the deployment and success of its electric vehicle (EV) fleet.
+
+% \noindent In pursuit of environmental sustainability, GM has set ambitious targets to reduce its Scope 1 and Scope 2 emissions by 71.4\% by 2035, relative to its 2018 baseline, where emissions were recorded at 1,763,555 and 3,924,338 metric tons CO2e for Scope 1 and Scope 2, respectively. As of 2022, the company has realized 56.24\% of this target, with reported emissions of 1,252,906 for Scope 1 and 2,150,694 for Scope 2, aligning with the 1.5 degrees Celsius strategy of the Paris Agreement \cite{Zhou2020Decarbonization}. GM's progress is attributed to enhanced energy efficiency in its manufacturing processes and a strategic shift towards renewable energy procurement.
+
+% \noindent The company's sustainability report highlights the implementation of over 300 energy efficiency improvements in 2021 across its buildings and processes. These include the adoption of more efficient equipment, such as variable speed drives on motors, process controls, LED lighting, among other conservation measures. Additionally, GM increased its renewable electricity usage from 23\% to 25\%, further contributing to reductions in Scope 2 market-based emissions. This approach exemplifies how the automotive industry can effectively reduce emissions through renewable energy adoption and manufacturing efficiencies, a stark contrast to sectors like cement production, which accounts for 7\% of global anthropogenic greenhouse gas emissions and faces significant decarbonization challenges due to the inherent CO2 generation during limestone calcination \cite{Ostovari2021}.
+
+% \noindent However, the most daunting challenge for GM lies within Scope 3 emissions, predominantly stemming from vehicle use and fossil fuel combustion. While the company has not provided an estimate for its Scope 3 emissions, it aims to reduce these emissions by 50.4\% from a baseline of 0.0002466 metric tons of CO2 per kilometer to 0.0001223136. Achieving this reduction is contingent upon GM's strategic pivot to an all-EV future, underscored by its commitment to launch 30 new EV models by 2025, transition entirely to EVs by 2035, and bolster renewable energy generation and EV charger deployment in collaboration with EvGo, a leading charging network, with an aim to power these chargers entirely by renewable energy. This strategy underscores the critical insights for the automotive industry:
+% \begin{itemize}
+%     \item Scope 3 emissions, primarily from vehicle use, constitute the most significant share of emissions, presenting the greatest reduction challenge.
+%     \item GM is actively enhancing its production processes and renewable energy initiatives, demonstrating tangible success in emission reduction efforts.
+%     \item The reduction of Scope 3 emissions hinges on a more complex strategy, currently in its nascent stages, with GM having achieved only 0.225\% progress toward its target, underscoring the enormity of the challenge ahead.
+% \end{itemize}
+
+\subsection{JetBlue Airways Corporation 2022 CDP Report}
+JetBlue Airways Corporation has been steadfast in its commitment to environmental stewardship, focusing on reducing Scope 1, Scope 2, and Scope 3 greenhouse gas (GHG) emissions across its operations. The airline's governance structure emphasizes sustainability, with strategic initiatives overseen by its board and executive team, underscoring a comprehensive approach to addressing climate change.
+
+\subsection*{Scope 1 and Scope 2 Emissions}
+In the reporting year 2022, JetBlue's Scope 1 emissions totaled 6,853,927 metric tons CO2e, predominantly from jet fuel combustion, a primary challenge within the airline industry. Scope 2 emissions amounted to 25,945 metric tons CO2e, reflecting the emissions from electricity consumption. These figures demonstrate JetBlue's significant environmental footprint, necessitating aggressive measures for reduction.
+
+\noindent JetBlue's strategies to mitigate these emissions include modernizing its fleet with more fuel-efficient aircraft, such as the Airbus A220 and A321neo, and investing in sustainable aviation fuel (SAF) to reduce lifecycle GHG emissions associated with jet fuel. Additionally, the airline is transitioning its ground service equipment to electric power, aligning with its commitment to lower Scope 1 and Scope 2 emissions.
+
+\subsection*{Scope 3 Emissions}
+JetBlue's Scope 3 emissions are a crucial component of its sustainability strategy, addressing emissions from purchased goods and services, capital goods, and fuel-and-energy-related activities not included in Scope 1 or 2. In 2022, the emissions reported were as follows:
+
+\begin{itemize}
+    \item Purchased Goods and Services: 44,922 metric tons CO2e, estimated for catered food and onboard product.
+    \item Capital Goods: 485,629 metric tons CO2e, associated with aircraft ground equipment and spare parts.
+    \item Fuel-and-Energy-Related Activities: 1,391,126 metric tons CO2e, highlighting the broader impact of JetBlue's operational energy use.
+\end{itemize}
+
+\noindent These figures were calculated using the Quantis Scope 3 tool, demonstrating JetBlue's reliance on standardized methodologies to quantify and manage its indirect emissions. The airline's commitment to understanding and reducing its Scope 3 emissions is evident through its detailed reporting and targeted reduction strategies, including investments in SAF and efficiency improvements across its value chain.
+
+\subsection*{Key Takeaways}
+\begin{itemize}
+    \item \textbf{Comprehensive Climate Strategy:} JetBlue's efforts to reduce Scope 1, Scope 2, and Scope 3 emissions underscore a holistic approach to sustainability, addressing both direct and indirect sources of GHG emissions.
+    \item \textbf{Innovation and Efficiency:} Through fleet modernization, SAF investments, and operational efficiencies, JetBlue is actively working towards reducing its environmental impact, despite the inherent challenges of the airline industry.
+    \item \textbf{Scope 3 Emissions Challenge:} JetBlue's detailed reporting on Scope 3 emissions highlights the complexity of addressing indirect emissions. The airline's engagement with its supply chain and investment in sustainable practices exemplify a forward-thinking approach to environmental responsibility.
+\end{itemize}
+
+\noindent JetBlue's sustainability efforts reflect a deep commitment to reducing its carbon footprint and contributing to the global fight against climate change. By addressing Scope 1, Scope 2, and Scope 3 emissions with targeted strategies and investments, JetBlue is paving the way for a more sustainable future in aviation.

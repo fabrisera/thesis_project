@@ -1,14 +1,14 @@
 \chapter{Parametric Modeling Results}
 
 \section{Introduciton}
-In this chapter I will present the results of parametric modeling in forecasting next year decarbonization rates. The chapter presents a sequence of models in increasing order of complexity that allow us to:
+In this chapter I will present the results of parametric modeling in forecasting next-year decarbonization rates. The chapter presents a sequence of models in increasing order of complexity that allow us to:
 \begin{enumerate}
     \item Test key hypothesis on the relationship between the predictors and next year decarbonization rates. In particular, I followed the CDP structure in testing multiple sets of predictors groped based on focus areas, such as carbon credits, initiaties and incentives, risks and opportunites, to understand what role each area plays in next year decarbonization rate and which predictors are useful from each set. 
     \item Build a state-of-the-art model that strikes an optimal balance between number of features and prediction accuracy. To achieve this task, models were scored based on the Akaike information criterion (AIC), which is a method for selecting models that balance goodness of fit and model complexity, aiming to identify how new data might behave \cite{AIC}
 \end{enumerate}
 For each presented model, I will first present the key questions and hypothesis, then a brief model descriptions, the results, and a discussion. At each step, I will select the most relevant predictors and carry them to the next model. 
 
-\subsection{Response Variable:}
+\subsection{Response Variable}
 \noindent Unless otherwise specified, most models are forecasting \textit{Next Year Decarbonization Rate} (distribution and further information are provided in the previous chapter corresponding to Figure \ref{fig:next-year-real-decarbonization-rate}), which is the year on year change in Real emissions for a given company espressed as a percentage. 
 
 \section{Model I: Year and Current Decarbonization Rate}
@@ -20,11 +20,6 @@ For each presented model, I will first present the key questions and hypothesis,
     \item Do the unique characteristics of each firm matter in forecasting decarbonization? Will a mixed effect model using the unique firm identifier as a random effect be better than a simple OLS?
 \end{itemize}
 
-\subsection{Models} 
-\begin{enumerate}
-    \item Simple Ordinary Least Squares regression with intercept using Year and Same-Year Decarbonization Rate as predictors
-    \item Linear Mixed Effect Model with the same predictors as model (1) but with an added random intercept for the unique firm identifier
-\end{enumerate}
 % Forecasting decarbonization rates is no easy task, especially because we are dealing with multiple time series, one for each firm, which have a realtively low number of data-points. The maximum length of a timeseries is $12$ years, which applies to only $370$ for firms which reported all years from $2011$ to $2022$. The average number of reporting years is $6$. A forecasting exercise can be very helpful for multiple reasons:
 % \begin{itemize}
 %     \item Understanidng the current capabilities when it comes to forecasting next year decarbonization rates. Setting up a benchmark in the field to understand to what extent CDP data can be used to determine future rates.
@@ -35,7 +30,7 @@ For each presented model, I will first present the key questions and hypothesis,
 \input{tables/R1.tex}
 
 
-\subsection{Relevant Figures:}
+\subsection{Figures}
 
 \begin{figure}[H]
 \centering
@@ -68,7 +63,7 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \section{Model II: Impact of Industry Sector on Next-Year Decarbonization Rate}
 
-\subsection{Key Hypothesis:}
+\subsection{Key Hypothesis}
 \begin{itemize}
     \item Does the industry sector significantly influence the next year's decarbonization rate?
     \item Are there inherent differences in the decarbonization rates across different sectors due to their varying carbon-intensive natures?
@@ -76,10 +71,6 @@ For each presented model, I will first present the key questions and hypothesis,
 \end{itemize}
 
 \subsection{Models} 
-\begin{enumerate}
-    \item Linear Mixed Effect Model incorporating firm Id as a random intercept and including Industry as a fixed effect.
-    \item Linear Mixed Effect Model incorporating Industry as a random effect nested within firm ID, along with the same fixed effects as model (1).
-\end{enumerate}
 
 
 
@@ -98,7 +89,7 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \input{tables/R2.tex}
 
-\subsection{Relevant Figures:}
+\subsection{Figures}
 
 \begin{figure}[H]
 \centering
@@ -132,15 +123,9 @@ For each presented model, I will first present the key questions and hypothesis,
     \item Will the addition of geographical variables as random effects nested within each other improve the model's ability to explain variations in decarbonization rates among firms?
 \end{itemize}
 
-\subsection{Models} 
-\begin{enumerate}
-    \item Linear Mixed Effect Model incorporating Year, GHG Change Real, and Continent as fixed effects, and firm ID and industry as random intercepts.
-    \item Linear Mixed Effect Model adding Country as a random effect nested within Continent, in addition to the fixed and random effects included in model (1).
-\end{enumerate}
-
 \input{tables/R3.tex}
 
-\subsection{Relevant Figures:}
+\subsection{Figures}
 
 \begin{figure}[H]
 \centering
@@ -168,15 +153,11 @@ For each presented model, I will first present the key questions and hypothesis,
 \end{itemize}
 
 \subsection{Models} 
-\begin{enumerate}
-    \item Linear Mixed Effect Model evaluating the impact of Year, GHG Change Real, Market Cap, and Revenue on Next-Year Decarbonization Rate, with Firm ID and Industry as random intercepts.
-    \item Extension of Model (1) adding Assets Growth as an additional predictor.
-    \item Further extension of Model (2) adding Employees Growth as an additional predictor.
-\end{enumerate}
+
 
 \input{tables/R4.tex}
 
-\subsection{Relevant Figures:}
+\subsection{Figures}
 \begin{figure}[H]
 \centering
   \includegraphics[width=\textwidth]{figures/market_cap_vs_ghg_change_real_next.png}
@@ -226,16 +207,10 @@ For each presented model, I will first present the key questions and hypothesis,
 \end{itemize}
 
 \subsection{Models}
-\begin{enumerate}
-    \item First model: Includes all predictors in the set and analyzes all hypothesis: how different greenhouse gas (GHG) emissions, whether they're checked (verified), and other basic company details like size and earnings, affect how much a company can reduce its emissions in a year.
-    \item Second model: Just focuses on the types of GHG emissions to see which ones are most important for reducing emissions, still considering basic company details.
-    \item Third model: Only looks at whether companies check (verify) their emissions data and how that influences their ability to cut down emissions, keeping the company details the same.
-    \item Fourth model: Picks out and uses only the most important factors from the first three models, those predictors will be passed on in the next models.
-\end{enumerate}
 
 \input{tables/R5.tex}
 
-\subsection{Relevant Figures:}
+\subsection{Figures}
 % first figure emission scope types
 \begin{figure}[H]
 \centering
@@ -251,8 +226,6 @@ For each presented model, I will first present the key questions and hypothesis,
 \caption{GHG Emission Scope 1 vs. Next Year Decarbonization Rate}
 \label{fig:ghg1_vs_ghg_change_real_next}
 \end{figure}
-
-    
 
 % second figure boxplot of Ghg1 Missing
 \begin{figure}[H]
@@ -313,17 +286,9 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \section{Model VI: Analyzing Incentives}
 
-\begin{enumerate}
-    \item First model: This one checks if having any incentives (binary yes/no) and board oversight affects how a company reduces its emissions, along with other usual details like year, GHG changes, and company size.
-    \item Second model: This one looks only at the specific types of incentives used by the company, comparing them to companies that use "other" types of incentives not categorized, to see which incentives might be better at helping reduce emissions.
-    \item Third model: This combines everything – it looks at whether having incentives, the types of incentives, and board oversight, along with all the other usual factors, influences how much a company can reduce its emissions.
-    \item Fourth model: This focuses only on the most important factors from the third model. It keeps the binary yes/no on having incentives and the specific types of incentives but drops the board oversight, to see what really matters most for reducing emissions.
-\end{enumerate}
-
-
 \input{tables/R6.tex}
 
-\subsection{Relevant Figures:}
+\subsection{Figures}
 \begin{figure}[H]
     % ghg_change_real_next_by_cdp_incentivebinary_i
 \centering
@@ -358,18 +323,9 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \section{Model VII: Analyzing Targets, Risks, and Opportunities}
 
-\begin{enumerate}
-    \item First model: we analyze the role that targets play in forecasting next-year decarbonization. In particular, we look at both absolute figures (such as target amount) and target types
-
-    \item Second model: This model adds in how companies perceive their environmental risks and opportunities. It checks if recognizing more risks or seeing more green opportunities changes how well they can reduce emissions, alongside their financial metrics and targets.
-    \item Third model: third model combines all predictors from targets, risk, and opportunities together.
-    \item Fourth model: The final model narrows down excluding variables that are not significant at the 5\% level
-\end{enumerate}
-
-
 \input{tables/R7.tex}
 
-\subsection{Relevant Figures:}
+\subsection{Figures}
 
 % first figure cdp_target_amount_vs_ghg_change_real_next
 \begin{figure}[H]
@@ -417,17 +373,9 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \section{Model VIII: Analyzing Investments and Initiatives}
 
-\begin{enumerate}
-    \item First model: We analyze the predictors related to initiatives, in particual whether the company has initiatives to reduce carbon emissions and which scopes have a related initiative. 
-    \item Second model: we analyze investments that companies make to reduce carbon emissions by looking at the number of invesmtents, the potential GHG savings, and the estimated capital requirement to execute the investments.
-    \item Third model: we combine all predicors together to then perform feature selection.
-    \item Fourth model: The final model revomes non-significant predcitors to enhance the AIC score and strike an optimal balance between number of features and forecasting ability.
-\end{enumerate}
-
-
 \input{tables/R8.tex}
 
-\subsection{Relevant Figures:}
+\subsection{Relevant Figures}
 
 % first figure ghg_change_real_next_by_absent_cdp_initiative
 \begin{figure}[H]
@@ -458,12 +406,6 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \section{Model IX: Analyzing Carbon Credits and Intensity Figures}
 
-\begin{enumerate}
-    \item First model: We analyze the predictors related to intensity figures and intensity change controlling for all other variables carried forward from previous models.
-    \item Second Model: similar to model (1), but we perform inference on the same-year by using as response Ghg.Change.Real and controlling for Ghg.Change.Real.Prev (lag-1 variable of Ghg.Change.Real)
-    \item Third model: we analyze carbon credits and the impact that they have on next year decarboninzation rate, still controlling for all other variable carried forward from previous models.
-\end{enumerate}
-
 \input{tables/R9.tex}
 
 \subsection{Discussion}
@@ -476,16 +418,9 @@ For each presented model, I will first present the key questions and hypothesis,
 
 \section{Model X: Final Models}
 
-
-\begin{enumerate}
-    \item First model: result of applying backward stepwise regression to eliminate non-significant control variables and random effects to generate a final model with the best AIC
-    \item Second model: adding back some predicors that I believe are important and that were analyse before, the model is very similar to model (1), with the only difference that we don't remove the coefficient for year and the random intercept for country.
-    \item Third model: testing model (2) on same-year decarboninzation rate controlling for Ghg.Change.Real.Lag1 to check which predictors are significant in predicting same-year decarboninzation rates and pefrom a final comparison
-\end{enumerate}
-
 \input{tables/R10.tex}
 
-\subsection{Figures:}
+\subsection{Relevant Figures}
 
 \begin{figure}[H]
     \centering

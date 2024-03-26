@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  20 MAR 2024 00:18
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  25 MAR 2024 23:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1112,11 +1112,7 @@ File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
  (/usr/local/texlive/2022/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
 \c@checkoddpage=\count418
-))) (./thesis.aux (./chapters/chapter1.aux
-
-LaTeX Warning: Label `fig:my_label' multiply defined.
-
-) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/appendixA.aux))
+))) (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/appendixA.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -1299,36 +1295,36 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Package xcolor Warning: Incompatible color definition on input line 3.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4.
-
-
 Package xcolor Warning: Incompatible color definition on input line 5.
 
 
-Package xcolor Warning: Incompatible color definition on input line 8.
-
-
-Package xcolor Warning: Incompatible color definition on input line 17.
+Package xcolor Warning: Incompatible color definition on input line 14.
 
 [6
 
 ]
-Overfull \hbox (2.44797pt too wide) detected at line 39
-[][]\TU/lmr/m/n/12 5.11.1 
+Overfull \hbox (2.44797pt too wide) detected at line 36
+[][]\TU/lmr/m/n/12 4.11.1 
  []
+
+
+Package xcolor Warning: Incompatible color definition on input line 44.
+
+
+Package xcolor Warning: Incompatible color definition on input line 45.
 
 )
 \tf@lof=\write8
 \openout8 = `thesis.lof'.
 
  [7] (./thesis.lot
-Overfull \hbox (2.44797pt too wide) detected at line 20
-[][]\TU/lmr/m/n/12 5.10.1 
+Overfull \hbox (2.44797pt too wide) detected at line 19
+[][]\TU/lmr/m/n/12 4.10.1 
  []
 
 
-Overfull \hbox (2.44797pt too wide) detected at line 21
-[][]\TU/lmr/m/n/12 5.11.1 
+Overfull \hbox (2.44797pt too wide) detected at line 20
+[][]\TU/lmr/m/n/12 4.11.1 
  []
 
 [8
@@ -1345,118 +1341,154 @@ Overfull \hbox (2.44797pt too wide) detected at line 21
  (./chapters/chapter1.tex
 Chapter 1.
 
-Package xcolor Warning: Incompatible color definition on input line 8.
+Package xcolor Warning: Incompatible color definition on input line 13.
 
 
-Package xcolor Warning: Incompatible color definition on input line 8.
-
-
-Package xcolor Warning: Incompatible color definition on input line 8.
-
-
-Package xcolor Warning: Incompatible color definition on input line 8.
+Package xcolor Warning: Incompatible color definition on input line 13.
 
 [1
 
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 11.
+Package xcolor Warning: Incompatible color definition on input line 16.
 
 
-Package xcolor Warning: Incompatible color definition on input line 11.
+Package xcolor Warning: Incompatible color definition on input line 16.
 
 
-Package xcolor Warning: Incompatible color definition on input line 11.
-
-[2] [3]
-File: figures/emission_scopes.png Graphic file (type bmp)
-<figures/emission_scopes.png>
+Package xcolor Warning: Incompatible color definition on input line 18.
 
 
-Package xcolor Warning: Incompatible color definition on input line 28.
+Package xcolor Warning: Incompatible color definition on input line 18.
 
 
-Package xcolor Warning: Incompatible color definition on input line 28.
+Package xcolor Warning: Incompatible color definition on input line 19.
 
-File: figures/cdp_logo.png Graphic file (type bmp)
-<figures/cdp_logo.png>
+[2]
 
-Package xcolor Warning: Incompatible color definition on input line 37.
+Package xcolor Warning: Incompatible color definition on input line 23.
 
 
-Package xcolor Warning: Incompatible color definition on input line 37.
+Package xcolor Warning: Incompatible color definition on input line 25.
+
+
+Package xcolor Warning: Incompatible color definition on input line 25.
+
+
+Package xcolor Warning: Incompatible color definition on input line 25.
+
+
+Package xcolor Warning: Incompatible color definition on input line 25.
+
+[3]
+
+Package xcolor Warning: Incompatible color definition on input line 48.
+
+
+Package xcolor Warning: Incompatible color definition on input line 48.
+
+
+Package xcolor Warning: Incompatible color definition on input line 48.
+
+
+Package xcolor Warning: Incompatible color definition on input line 48.
+
+
+Package xcolor Warning: Incompatible color definition on input line 48.
+
+
+Package xcolor Warning: Incompatible color definition on input line 48.
+
+
+Package xcolor Warning: Incompatible color definition on input line 48.
 
 [4]
 
-Package xcolor Warning: Incompatible color definition on input line 41.
+Package xcolor Warning: Incompatible color definition on input line 51.
 
 
-Package xcolor Warning: Incompatible color definition on input line 41.
-
-
-Package xcolor Warning: Incompatible color definition on input line 41.
-
-
-Package xcolor Warning: Incompatible color definition on input line 41.
-
-
-Package xcolor Warning: Incompatible color definition on input line 41.
-
-
-Package xcolor Warning: Incompatible color definition on input line 41.
-
-
-Package xcolor Warning: Incompatible color definition on input line 41.
+Package xcolor Warning: Incompatible color definition on input line 51.
 
 [5]
 
-Package xcolor Warning: Incompatible color definition on input line 44.
+Package xcolor Warning: Incompatible color definition on input line 54.
 
 
-Package xcolor Warning: Incompatible color definition on input line 44.
+Package xcolor Warning: Incompatible color definition on input line 54.
 
 
-Package xcolor Warning: Incompatible color definition on input line 47.
+Package xcolor Warning: Incompatible color definition on input line 54.
 
 
-Package xcolor Warning: Incompatible color definition on input line 47.
+Package xcolor Warning: Incompatible color definition on input line 54.
 
-
-Package xcolor Warning: Incompatible color definition on input line 47.
-
-[6]
 File: figures/cdp_scoring.png Graphic file (type bmp)
 <figures/cdp_scoring.png>
 
-
-Package xcolor Warning: Incompatible color definition on input line 53.
-
-
-Package xcolor Warning: Incompatible color definition on input line 53.
-
-[7] [8]) [9] [10]
-\openout2 = `chapters/chapter2.aux'.
-
- (./chapters/chapter2.tex
-Chapter 2.
-[11
+Package xcolor Warning: Incompatible color definition on input line 60.
 
 
+Package xcolor Warning: Incompatible color definition on input line 60.
 
 
-] [12] [13] [14]
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package xcolor Warning: Incompatible color definition on input line 30.
+[6] [7]
+
+Package xcolor Warning: Incompatible color definition on input line 80.
 
 
-Package xcolor Warning: Incompatible color definition on input line 30.
+Package xcolor Warning: Incompatible color definition on input line 80.
 
-[15] [16] [17]) [18] [19]
+
+Package xcolor Warning: Incompatible color definition on input line 84.
+
+
+Package xcolor Warning: Incompatible color definition on input line 84.
+
+
+Package xcolor Warning: Incompatible color definition on input line 84.
+
+
+Package xcolor Warning: Incompatible color definition on input line 84.
+
+
+Package xcolor Warning: Incompatible color definition on input line 84.
+
+[8]
+
+Package xcolor Warning: Incompatible color definition on input line 88.
+
+
+Package xcolor Warning: Incompatible color definition on input line 88.
+
+
+Package xcolor Warning: Incompatible color definition on input line 88.
+
+
+Package xcolor Warning: Incompatible color definition on input line 88.
+
+
+Package xcolor Warning: Incompatible color definition on input line 88.
+
+
+Package xcolor Warning: Incompatible color definition on input line 88.
+
+
+Package xcolor Warning: Incompatible color definition on input line 91.
+
+
+Package xcolor Warning: Incompatible color definition on input line 91.
+
+
+Package xcolor Warning: Incompatible color definition on input line 91.
+
+[9] [10] [11]) [12]
 \openout2 = `chapters/chapter3.aux'.
 
  (./chapters/chapter3.tex
-Chapter 3.
+Chapter 2.
 
 Package xcolor Warning: Incompatible color definition on input line 6.
 
@@ -1466,7 +1498,7 @@ Package xcolor Warning: Incompatible color definition on input line 6.
 
 Package xcolor Warning: Incompatible color definition on input line 12.
 
-[20
+[13
 
 
 
@@ -1482,16 +1514,16 @@ Package xcolor Warning: Incompatible color definition on input line 23.
 Package xcolor Warning: Incompatible color definition on input line 23.
 
 
-Package natbib Warning: Citation `Serafeim2019' on page 21 undefined on input line 23.
+Package xcolor Warning: Incompatible color definition on input line 23.
 
-[21]
-
-Package xcolor Warning: Incompatible color definition on input line 26.
-
+[14]
 
 Package xcolor Warning: Incompatible color definition on input line 26.
 
-[22]
+
+Package xcolor Warning: Incompatible color definition on input line 26.
+
+[15]
 File: figures/gics.png Graphic file (type bmp)
 <figures/gics.png>
 
@@ -1501,28 +1533,28 @@ Package xcolor Warning: Incompatible color definition on input line 32.
 
 Package xcolor Warning: Incompatible color definition on input line 32.
 
-[23]
+[16]
 File: figures/ghg_change_real_dist.png Graphic file (type bmp)
 <figures/ghg_change_real_dist.png>
- [24] [25]
+ [17] [18]
 File: figures/unique_companies.png Graphic file (type bmp)
 <figures/unique_companies.png>
 
 
 Package xcolor Warning: Incompatible color definition on input line 109.
 
-[26]
+[19]
 File: figures/mean_decarbonization_rate_by_continent.png Graphic file (type bmp)
 <figures/mean_decarbonization_rate_by_continent.png>
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `TU/lmss/m/sl' tried instead on input line 116.
- (./tables/emission_breakdown.tex [27])
+ (./tables/emission_breakdown.tex [20])
 
 Package xcolor Warning: Incompatible color definition on input line 127.
 
 File: figures/mean_decarbonization_rate_by_sector.png Graphic file (type bmp)
 <figures/mean_decarbonization_rate_by_sector.png>
-[28] (./tables/emission_breakdown_sector.tex
+[21] (./tables/emission_breakdown_sector.tex
 Overfull \hbox (13.87543pt too wide) in alignment at lines 1--6
  [] [] [] [] [] 
  []
@@ -1547,13 +1579,13 @@ Overfull \hbox (13.87543pt too wide) in alignment at lines 17--45
  [] [] [] [] [] 
  []
 
-[29]) [30]
+[22]) [23]
 File: figures/mean_decarbonization_rate_country.png Graphic file (type bmp)
 <figures/mean_decarbonization_rate_country.png>
- (./tables/emission_breakdown_country.tex [31])
+ (./tables/emission_breakdown_country.tex [24])
 File: figures/mean_decarbonization_rate_year.png Graphic file (type bmp)
 <figures/mean_decarbonization_rate_year.png>
- (./tables/emission_breakdown_year.tex [32]) [33]
+ (./tables/emission_breakdown_year.tex [25]) [26]
 File: figures/financial_preds/tot_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/tot_assets_dist.png>
 File: figures/financial_preds/mkt_cap_dist.png Graphic file (type bmp)
@@ -1572,198 +1604,208 @@ File: figures/financial_preds/employees_1yr_growth_dist.png Graphic file (type b
 <figures/financial_preds/employees_1yr_growth_dist.png>
 File: figures/financial_preds/net_income_over_assets_dist.png Graphic file (type bmp)
 <figures/financial_preds/net_income_over_assets_dist.png>
-) [34] [35]
+) [27] [28]
 \openout2 = `chapters/chapter31.aux'.
 
  (./chapters/chapter31.tex
-Chapter 4.
+Chapter 3.
 
-Package xcolor Warning: Incompatible color definition on input line 5.
+Package xcolor Warning: Incompatible color definition on input line 9.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5.
+Package xcolor Warning: Incompatible color definition on input line 9.
 
-[36
+[29
 
 
 
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 8.
+Package xcolor Warning: Incompatible color definition on input line 12.
+
+[30]
+
+Package xcolor Warning: Incompatible color definition on input line 24.
 
 
-Package xcolor Warning: Incompatible color definition on input line 20.
+Package xcolor Warning: Incompatible color definition on input line 24.
+
+[31]
+
+Package xcolor Warning: Incompatible color definition on input line 32.
 
 
-Package xcolor Warning: Incompatible color definition on input line 20.
-
-[37]
-
-Package xcolor Warning: Incompatible color definition on input line 28.
-
-[38]
-
-Package xcolor Warning: Incompatible color definition on input line 35.
+Package xcolor Warning: Incompatible color definition on input line 39.
 
 
-Package xcolor Warning: Incompatible color definition on input line 35.
+Package xcolor Warning: Incompatible color definition on input line 39.
 
 
-Package xcolor Warning: Incompatible color definition on input line 42.
+Package xcolor Warning: Incompatible color definition on input line 46.
 
 
-Package xcolor Warning: Incompatible color definition on input line 42.
+Package xcolor Warning: Incompatible color definition on input line 46.
 
 
-Package xcolor Warning: Incompatible color definition on input line 42.
+Package xcolor Warning: Incompatible color definition on input line 46.
 
 
-Package xcolor Warning: Incompatible color definition on input line 42.
+Package xcolor Warning: Incompatible color definition on input line 46.
 
 
-Package xcolor Warning: Incompatible color definition on input line 42.
+Package xcolor Warning: Incompatible color definition on input line 46.
 
-[39]
-
-Package xcolor Warning: Incompatible color definition on input line 49.
-
+[32]
 
 Package xcolor Warning: Incompatible color definition on input line 53.
 
 
-Package xcolor Warning: Incompatible color definition on input line 60.
+Package xcolor Warning: Incompatible color definition on input line 57.
 
+[33]
 
 Package xcolor Warning: Incompatible color definition on input line 64.
 
-[40]
 
-Package xcolor Warning: Incompatible color definition on input line 73.
-
-
-Package xcolor Warning: Incompatible color definition on input line 73.
+Package xcolor Warning: Incompatible color definition on input line 68.
 
 
-Package xcolor Warning: Incompatible color definition on input line 73.
+Package xcolor Warning: Incompatible color definition on input line 77.
 
 
-Package xcolor Warning: Incompatible color definition on input line 78.
+Package xcolor Warning: Incompatible color definition on input line 77.
+
+
+Package xcolor Warning: Incompatible color definition on input line 77.
+
+[34]
+
+Package xcolor Warning: Incompatible color definition on input line 82.
 
 
 Package xcolor Warning: Incompatible color definition on input line 82.
 
-
-Package xcolor Warning: Incompatible color definition on input line 82.
-
-[41]
 
 Package xcolor Warning: Incompatible color definition on input line 86.
+
+
+Package xcolor Warning: Incompatible color definition on input line 87.
+
+[35]
+
+Package xcolor Warning: Incompatible color definition on input line 91.
 
 File: figures/gradient_boosting_v2.png Graphic file (type bmp)
 <figures/gradient_boosting_v2.png>
 
-Package xcolor Warning: Incompatible color definition on input line 93.
+Package xcolor Warning: Incompatible color definition on input line 98.
 
 
-Package xcolor Warning: Incompatible color definition on input line 93.
+Package xcolor Warning: Incompatible color definition on input line 98.
 
 
-Package xcolor Warning: Incompatible color definition on input line 97.
+Package xcolor Warning: Incompatible color definition on input line 102.
 
 
-Package xcolor Warning: Incompatible color definition on input line 97.
+Package xcolor Warning: Incompatible color definition on input line 102.
 
 
-Package xcolor Warning: Incompatible color definition on input line 97.
+Package xcolor Warning: Incompatible color definition on input line 102.
 
 
-Package xcolor Warning: Incompatible color definition on input line 97.
+Package xcolor Warning: Incompatible color definition on input line 102.
 
 
-Package xcolor Warning: Incompatible color definition on input line 97.
+Package xcolor Warning: Incompatible color definition on input line 102.
 
 
-Package xcolor Warning: Incompatible color definition on input line 97.
+Package xcolor Warning: Incompatible color definition on input line 102.
 
-) [42]
+[36]) [37]
 \openout2 = `chapters/chapter4.aux'.
 
  (./chapters/chapter4.tex
-Chapter 5.
+Chapter 4.
 
 Package xcolor Warning: Incompatible color definition on input line 7.
 
-[43
+[38
 
 
 
 
-] [44] (./tables/R1.tex)
+] (./tables/R1.tex) [39]
 File: figures/ghg_change_real_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/ghg_change_real_vs_ghg_change_real_next.png>
- [45]
+ [40]
 File: figures/year_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/year_vs_ghg_change_real_next.png>
- [46] [47] (./tables/R2.tex) [48]
+ [41] [42] (./tables/R2.tex) [43]
 File: figures/ghg_change_real_next_over_time_by_industry.png Graphic file (type bmp)
 <figures/ghg_change_real_next_over_time_by_industry.png>
- [49] [50] [51] (./tables/R3.tex)
+ [44] [45] [46] (./tables/R3.tex)
 File: figures/ghg_change_real_next_by_continent.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_continent.png>
- [52] [53] [54] (./tables/R4.tex) [55]
+ [47] [48] (./tables/R4.tex) [49]
 File: figures/market_cap_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/market_cap_vs_ghg_change_real_next.png>
- [56]
+ [50]
 File: figures/revenue_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/revenue_vs_ghg_change_real_next.png>
- [57] [58] (./tables/R5.tex) [59]
+ [51] [52] (./tables/R5.tex) [53]
 File: figures/ghg_change_real_next_by_type_scope1.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_type_scope1.png>
- [60]
+ [54]
 File: figures/ghg1_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/ghg1_vs_ghg_change_real_next.png>
 File: figures/ghg_change_real_next_by_ghg1_na.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_ghg1_na.png>
- [61]
+ [55]
 File: figures/methane_emissions_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/methane_emissions_vs_ghg_change_real_next.png>
 File: figures/ghg_change_real_next_by_ghg2market_na.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_ghg2market_na.png>
- [62]
+ [56]
 File: figures/ghg_change_real_next_by_ghg_verification_scope3_yes.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_ghg_verification_scope3_yes.png>
- [63] [64] [65] [66] (./tables/R6.tex)
+ [57] [58] [59] (./tables/R6.tex) [60]
 File: figures/ghg_change_real_next_by_cdp_incentivebinary_i.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_cdp_incentivebinary_i.png>
- [67]
+ [61]
 File: figures/ghg_change_real_next_by_method_ind.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_method_ind.png>
- [68] [69] (./tables/R7.tex) [70]
+ [62] [63] (./tables/R7.tex) [64]
 File: figures/cdp_target_amount_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/cdp_target_amount_vs_ghg_change_real_next.png>
- [71]
+ [65]
 File: figures/cdp_target_type_absolute_vs_ghg_change_real_next.png Graphic file (type bmp)
 <figures/cdp_target_type_absolute_vs_ghg_change_real_next.png>
 File: figures/ghg_change_real_next_by_cdp_aggregated_risk.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_cdp_aggregated_risk.png>
- [72]
+ [66]
 File: figures/ghg_change_real_next_by_cdp_aggregated_opportunity.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_cdp_aggregated_opportunity.png>
- [73] [74] (./tables/R8.tex) [75]
+ [67] [68] (./tables/R8.tex) [69]
 File: figures/ghg_change_real_next_by_absent_cdp_initiative.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_absent_cdp_initiative.png>
- [76]
+ [70]
 File: figures/ghg_change_real_next_by_investment_counter.png Graphic file (type bmp)
 <figures/ghg_change_real_next_by_investment_counter.png>
- [77] [78] (./tables/R9.tex) [79] [80] (./tables/R10.tex) [81]
+ [71] (./tables/R9.tex) [72]
+Overfull \vbox (7.77103pt too high) has occurred while \output is active []
+
+ [73] (./tables/R10.tex) [74]
+Overfull \vbox (3.67093pt too high) has occurred while \output is active []
+
+ [75]
 File: ../notebooks/R/aic.png Graphic file (type bmp)
 <../notebooks/R/aic.png>
- [82] [83]) [84]
+ [76]) [77]
 \openout2 = `chapters/chapter6.aux'.
 
  (./chapters/chapter6.tex
-Chapter 6.
+Chapter 5.
 
 Package xcolor Warning: Incompatible color definition on input line 10.
 
@@ -1773,7 +1815,10 @@ Package xcolor Warning: Incompatible color definition on input line 10.
 
 Package xcolor Warning: Incompatible color definition on input line 10.
 
-[85
+
+Package xcolor Warning: Incompatible color definition on input line 10.
+
+[78
 
 
 
@@ -1782,176 +1827,149 @@ Package xcolor Warning: Incompatible color definition on input line 10.
 
 Package xcolor Warning: Incompatible color definition on input line 14.
 
+[79]
 
 Package xcolor Warning: Incompatible color definition on input line 17.
 
-[86] (./tables/summary_train_test.tex) [87] (./tables/baseline_metrics.tex) [88]
+(./tables/summary_train_test.tex) [80] (./tables/baseline_metrics.tex) [81]
 File: figures/final_model_residuals.png Graphic file (type bmp)
 <figures/final_model_residuals.png>
+ [82]
+
+Package xcolor Warning: Incompatible color definition on input line 63.
 
 
 Package xcolor Warning: Incompatible color definition on input line 63.
 
-[89] (./tables/compare_models.tex [90]) [91]
+[83] (./tables/compare_models.tex [84]) [85]
 File: figures/Bayes_Importance.png Graphic file (type bmp)
 <figures/Bayes_Importance.png>
- [92]
 File: figures/Bayes_Residuals.png Graphic file (type bmp)
 <figures/Bayes_Residuals.png>
- [93] [94]
+ [86] [87]
 File: figures/catboost_feature_importance.png Graphic file (type bmp)
 <figures/catboost_feature_importance.png>
+ [88]
 File: figures/catboost_shap_values_beeswarm.png Graphic file (type bmp)
 <figures/catboost_shap_values_beeswarm.png>
- [95]
+ [89]
 
 Package xcolor Warning: Incompatible color definition on input line 170.
 
-[96]
-File: figures/nn_architecture.png Graphic file (type bmp)
-<figures/nn_architecture.png>
- [97]
-File: figures/nn_training_loss.png Graphic file (type bmp)
-<figures/nn_training_loss.png>
- [98]) [99]
+[90]) [91]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
 Appendix A.
-[100
+[92
 
 
 
 
 ]
-Overfull \hbox (43.43816pt too wide) in alignment at lines 116--120
+File: figures/emission_scopes.png Graphic file (type bmp)
+<figures/emission_scopes.png>
+
+
+Package xcolor Warning: Incompatible color definition on input line 19.
+
+
+Package xcolor Warning: Incompatible color definition on input line 19.
+
+
+Package xcolor Warning: Incompatible color definition on input line 26.
+
+[93]
+File: figures/marginal_abatement_cost_curve.png Graphic file (type bmp)
+<figures/marginal_abatement_cost_curve.png>
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+
+Package xcolor Warning: Incompatible color definition on input line 31.
+
+[94]
+File: figures/nn_architecture.png Graphic file (type bmp)
+<figures/nn_architecture.png>
+File: figures/nn_training_loss.png Graphic file (type bmp)
+<figures/nn_training_loss.png>
+ [95] [96]
+Overfull \hbox (1.71526pt too wide) in paragraph at lines 182--182
+[]|\TU/lmr/bx/n/12 Type| 
+ []
+
+
+Overfull \hbox (8.1338pt too wide) in paragraph at lines 182--183
+[]|\TU/lmr/bx/n/12 Source| 
+ []
+
+
+Overfull \hbox (17.83084pt too wide) in alignment at lines 180--184
  [] [] [] [] 
  []
 
 
-Overfull \hbox (43.43816pt too wide) in alignment at lines 120--126
+Overfull \hbox (1.71526pt too wide) in paragraph at lines 188--188
+[]|\TU/lmr/bx/n/12 Type| 
+ []
+
+
+Overfull \hbox (8.1338pt too wide) in paragraph at lines 188--189
+[]|\TU/lmr/bx/n/12 Source| 
+ []
+
+
+Overfull \hbox (17.83084pt too wide) in alignment at lines 184--190
  [] [] [] [] 
  []
 
 
-Overfull \hbox (43.43816pt too wide) in alignment at lines 126--129
+Overfull \hbox (17.83084pt too wide) in alignment at lines 190--193
  [] [] [] [] 
  []
 
 
-Overfull \hbox (43.43816pt too wide) in alignment at lines 129--130
+Overfull \hbox (17.83084pt too wide) in alignment at lines 193--194
  [] [] [] [] 
  []
 
 
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 145--146
-[]|\TU/lmr/m/n/12 Worldscope| 
+Underfull \hbox (badness 2653) in paragraph at lines 202--202
+[]|\TU/lmr/m/n/12 headquarters continent derived
  []
 
 
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 146--147
-[]|\TU/lmr/m/n/12 Worldscope| 
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]|\TU/lmr/m/n/12 Global Industry Classification
  []
 
 
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 147--148
-[]|\TU/lmr/m/n/12 Worldscope| 
+Underfull \hbox (badness 3158) in paragraph at lines 226--226
+[]|\TU/lmr/m/n/12 Location-based Scope 2 GHG
  []
 
 
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 148--149
-[]|\TU/lmr/m/n/12 Worldscope| 
+Underfull \hbox (badness 10000) in paragraph at lines 240--240
+[]|\TU/lmr/m/n/12 Board oversight on climate-
  []
 
 
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 149--150
-[]|\TU/lmr/m/n/12 Worldscope| 
+Underfull \hbox (badness 1478) in paragraph at lines 258--258
+[]|\TU/lmr/m/n/12 Origin of clean energy credits
  []
 
 
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 150--151
-[]|\TU/lmr/m/n/12 Worldscope| 
- []
-
-
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 151--152
-[]|\TU/lmr/m/n/12 Worldscope| 
- []
-
-
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 152--153
-[]|\TU/lmr/m/n/12 Worldscope| 
- []
-
-
-Overfull \hbox (2.2305pt too wide) in paragraph at lines 153--155
-[]|\TU/lmr/m/n/12 Worldscope| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--162
-[]|\TU/lmr/m/n/12 Location-based Scope 2
- []
-
-
-Underfull \hbox (badness 2426) in paragraph at lines 165--165
-[]|\TU/lmr/m/n/12 Count of Scope 3 GHG
- []
-
-
-Underfull \hbox (badness 3098) in paragraph at lines 168--168
-[]|\TU/lmr/m/n/12 Indicator if market-based
- []
-
-
-Underfull \hbox (badness 1009) in paragraph at lines 175--175
-[]|\TU/lmr/m/n/12 Indicator of the incentive
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--177
-\TU/lmr/m/n/12 climate-related perfor-
- []
-
-
-Underfull \hbox (badness 3291) in paragraph at lines 178--178
-[]|\TU/lmr/m/n/12 Average of baseline year
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--183
-[]|\TU/lmr/m/n/12 Aggregated measure of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--184
-[]|\TU/lmr/m/n/12 Aggregated measure of
- []
-
-
-Underfull \hbox (badness 5533) in paragraph at lines 184--184
-\TU/lmr/m/n/12 climate-related opportuni-
- []
-
-
-Underfull \hbox (badness 3049) in paragraph at lines 191--191
-\TU/lmr/m/n/12 emission reduction initia-
- []
-
-
-Underfull \hbox (badness 2726) in paragraph at lines 192--192
-[]|\TU/lmr/m/n/12 Log-transformed total in-
- []
-
-
-Underfull \hbox (badness 3746) in paragraph at lines 195--195
-[]|\TU/lmr/m/n/12 Purpose of clean energy
- []
-
-
-Overfull \hbox (43.43816pt too wide) in alignment at lines 130--201
+Overfull \hbox (17.83084pt too wide) in alignment at lines 194--265
  [] [] [] [] 
  []
+
+[97] [98] [99] [100]
+
+Package xcolor Warning: Incompatible color definition on input line 275.
+
+
+Package xcolor Warning: Incompatible color definition on input line 275.
 
 [101] [102] [103] [104]) [105] (./thesis.bbl
 
@@ -1970,41 +1988,40 @@ Package xcolor Warning: Incompatible color definition on input line 18.
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 54.
-
-
-Package xcolor Warning: Incompatible color definition on input line 68.
-
-
-Package xcolor Warning: Incompatible color definition on input line 76.
+Package xcolor Warning: Incompatible color definition on input line 74.
 
 
 Package xcolor Warning: Incompatible color definition on input line 82.
 
+
+Package xcolor Warning: Incompatible color definition on input line 90.
+
+
+Package xcolor Warning: Incompatible color definition on input line 98.
+
+
+Package xcolor Warning: Incompatible color definition on input line 104.
+
 [107]
 
-Package xcolor Warning: Incompatible color definition on input line 116.
+Package xcolor Warning: Incompatible color definition on input line 138.
 
-[108] [109]
+[108] [109] [110]
 
-Package xcolor Warning: Incompatible color definition on input line 216.
+Package xcolor Warning: Incompatible color definition on input line 290.
 
 
-Package xcolor Warning: Incompatible color definition on input line 229.
+Package xcolor Warning: Incompatible color definition on input line 308.
 
-)
 
-Package natbib Warning: There were undefined citations.
+Package xcolor Warning: Incompatible color definition on input line 315.
 
-[110] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/appendixA.aux))
+[111]) [112] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/appendixA.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: DDF10DF8C5508154597B8AB0E8AA6133;8929.
+(rerunfilecheck)             Checksum: 86164E7E981045A2DD3B8DBC354A531B;9079.
  )
 (\end occurred inside a group at level 2)
 
@@ -2012,12 +2029,12 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 ### semi simple group (level 1) entered at line 10 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 49070 strings out of 476179
- 1123248 string characters out of 5809544
- 1487787 words of memory out of 5000000
- 68923 multiletter control sequences out of 15000+600000
- 477346 words of font info for 82 fonts, out of 8000000 for 9000
+ 49127 strings out of 476179
+ 1123720 string characters out of 5809544
+ 1489181 words of memory out of 5000000
+ 68983 multiletter control sequences out of 15000+600000
+ 479053 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 170i,35n,161p,4635b,2280s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 170i,35n,161p,5200b,2264s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (122 pages, 1636572 bytes).
+Output written on thesis.xdv (124 pages, 1728224 bytes).

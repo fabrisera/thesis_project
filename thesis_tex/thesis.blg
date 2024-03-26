@@ -2,7 +2,6 @@ This is BibTeX, Version 0.99d (TeX Live 2022)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
 A level-1 auxiliary file: chapters/chapter1.aux
-A level-1 auxiliary file: chapters/chapter2.aux
 A level-1 auxiliary file: chapters/chapter3.aux
 A level-1 auxiliary file: chapters/chapter31.aux
 A level-1 auxiliary file: chapters/chapter4.aux
@@ -10,51 +9,52 @@ A level-1 auxiliary file: chapters/chapter6.aux
 A level-1 auxiliary file: chapters/appendixA.aux
 The style file: plain.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "Serafeim2019"
+Warning--entry type for "McKinsey2017" isn't style-file defined
+--line 402 of file references.bib
 Warning--to sort, need author or key in GICS_MSCI
 Warning--to sort, need author or key in Worldscope_2
 Warning--to sort, need author or key in GICS_Wikipedia
 Warning--empty journal in bates
 Warning--can't use both author and editor fields in MacKay1996
-You've used 39 entries,
+You've used 56 entries,
             2118 wiz_defined-function locations,
-            754 strings with 12024 characters,
-and the built_in function-call counts, 13141 in all, are:
-= -- 1216
-> -- 813
+            843 strings with 14789 characters,
+and the built_in function-call counts, 17670 in all, are:
+= -- 1665
+> -- 1008
 < -- 2
-+ -- 327
-- -- 285
-* -- 947
-:= -- 2268
-add.period$ -- 126
-call.type$ -- 39
-change.case$ -- 254
++ -- 407
+- -- 345
+* -- 1219
+:= -- 3054
+add.period$ -- 179
+call.type$ -- 56
+change.case$ -- 335
 chr.to.int$ -- 0
-cite$ -- 44
-duplicate$ -- 396
-empty$ -- 933
-format.name$ -- 285
-if$ -- 2666
+cite$ -- 61
+duplicate$ -- 554
+empty$ -- 1307
+format.name$ -- 345
+if$ -- 3604
 int.to.chr$ -- 0
-int.to.str$ -- 39
-missing$ -- 26
-newline$ -- 205
-num.names$ -- 74
-pop$ -- 291
+int.to.str$ -- 56
+missing$ -- 37
+newline$ -- 292
+num.names$ -- 108
+pop$ -- 376
 preamble$ -- 1
-purify$ -- 217
+purify$ -- 281
 quote$ -- 0
-skip$ -- 296
+skip$ -- 416
 stack$ -- 0
-substring$ -- 606
-swap$ -- 61
+substring$ -- 850
+swap$ -- 77
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 154
+type$ -- 222
 warning$ -- 5
-while$ -- 96
-width$ -- 41
-write$ -- 426
+while$ -- 140
+width$ -- 58
+write$ -- 608
 (There were 6 warnings)

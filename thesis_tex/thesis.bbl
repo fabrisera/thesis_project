@@ -19,6 +19,19 @@ Worldscope fundamentals.
   2024.
 \newblock Accessed: February 9, 2024.
 
+\bibitem{acheampong}
+A.~Acheampong and E.~B. Boateng.
+\newblock Modelling carbon emission intensity: Application of artificial neural
+  network.
+\newblock {\em Journal of Cleaner Production}, 2019.
+
+\bibitem{teob}
+Maryam Al-Qahtani and Adel Elgharbawy.
+\newblock The effect of board diversity on disclosure and management of
+  greenhouse gas information: evidence from the united kingdom.
+\newblock {\em Journal of enterprise information management}, 33(6):1557--1579,
+  2020.
+
 \bibitem{pycaret}
 Moez Ali.
 \newblock {\em PyCaret: An open source, low-code machine learning library in
@@ -48,18 +61,19 @@ Douglas Bates, Martin M{\"a}chler, Ben Bolker, and Steve Walker.
 \newblock Fitting linear mixed-effects models using {lme4}.
 \newblock {\em Journal of Statistical Software}, 67(1):1--48, 2015.
 
+\bibitem{ben-amar}
+Walid Ben-Amar, Millicent Chang, and Philip McIlkenny.
+\newblock Board {Gender} {Diversity} and {Corporate} {Response} to
+  {Sustainability} {Initiatives}: {Evidence} from the {Carbon} {Disclosure}
+  {Project}.
+\newblock {\em Journal of Business Ethics}, 142(2):369--383, May 2017.
+
 \bibitem{Bernoville2022Scopes}
 Tara Bernoville.
 \newblock What are scopes 1, 2 and 3 of carbon emissions?
 \newblock \url{https://plana.earth/academy/what-are-scope-1-2-3-emissions},
   June 2022.
 \newblock Accessed: 2024-01-30.
-
-\bibitem{BHATT2023100095}
-Harsh Bhatt, Manan Davawala, Tanmay Joshi, Manan Shah, and Ashish Unnarkat.
-\newblock Forecasting and mitigation of global environmental carbon dioxide
-  emission using machine learning techniques.
-\newblock {\em Cleaner Chemical Engineering}, 5:100095, 2023.
 
 \bibitem{CDP2022ScoringPDF}
 {Carbon Disclosure Project}.
@@ -68,6 +82,14 @@ Harsh Bhatt, Manan Davawala, Tanmay Joshi, Manan Shah, and Ashish Unnarkat.
   \url{https://cdn.cdp.net/cdp-production/comfy/cms/files/files/000/006/703/original/Scoring_2022_-_short_explainer.pdf},
   2022.
 \newblock Accessed: 2024-01-30.
+
+\bibitem{Cdp2017}
+{CDP}.
+\newblock {The Carbon Majors Database: CDP Carbon Majors Report 2017}.
+\newblock
+  \url{https://cdn.cdp.net/cdp-production/cms/reports/documents/000/002/327/original/Carbon-Majors-Report-2017.pdf?1501833772},
+  2017.
+\newblock Accessed: [Your access date here].
 
 \bibitem{CDPMain2024}
 {CDP}.
@@ -128,22 +150,43 @@ Benedikt Downar, J.~Ernstberger, S.~Reichelstein, Sebastian Schwenen, and
   operating performance.
 \newblock {\em Review of Accounting Studies}, 26:1137 -- 1175, 2020.
 
+\bibitem{EuropeanCommission2023}
+{European Commission}.
+\newblock Corporate sustainability reporting, 2023.
+\newblock Accessed: March 22, 2024.
+
+\bibitem{Gallego}
+Isabel Gallego‐Álvarez, L.~Segura, and Jennifer Martínez‐Ferrero.
+\newblock Carbon emission reduction: the impact on the financial and
+  operational performance of international companies.
+\newblock {\em Journal of Cleaner Production}, 103:149--159, 2015.
+
+\bibitem{Griffin}
+P.~Griffin, D.~Lont, and Estelle Sun.
+\newblock The relevance to investors of greenhouse gas emission disclosures.
+\newblock {\em Capital Markets: Market Efficiency eJournal}, 2012.
+
+\bibitem{Hassan2013Carbon}
+A.~Hassan, Andrew Wright, and J.~Struthers.
+\newblock Carbon disclosure project (cdp) scores and the level of disclosure on
+  climate change related activities: an empirical investigation of the ftse 100
+  companies.
+\newblock {\em International Journal of Sustainable Economy}, 5:36--52, 2013.
+
 \bibitem{he2019gradient}
 Zhiyuan He, Danchen Lin, Thomas Lau, and Mike Wu.
 \newblock Gradient boosting machine: A survey, 2019.
 
-\bibitem{Hsu2022Planning}
-David Hsu, C.~Andrews, Albert~T. Han, Carolyn~G. Loh, Anna~C. Osland, and
-  Christopher~P. Zegras.
-\newblock Planning the built environment and land use towards deep
-  decarbonization of the united states.
-\newblock {\em Journal of Planning Literature}, 2022.
+\bibitem{gmd}
+T.~O. Hodson.
+\newblock Root-mean-square error (rmse) or mean absolute error (mae): when to
+  use them or not.
+\newblock {\em Geoscientific Model Development}, 15(14):5481--5487, 2022.
 
-\bibitem{Korkmaz2020A}
-P.~Korkmaz, F.~Gardumi, G.~Avgerinopoulos, Markus Blesl, and U.~Fahl.
-\newblock A comparison of three transformation pathways towards a sustainable
-  european society - an integrated analysis from an energy system perspective.
-\newblock {\em Energy Strategy Reviews}, 28:100461, 2020.
+\bibitem{Jonson2022}
+Emma Jonson.
+\newblock The complete guide to national climate-related disclosures, 2022.
+\newblock Accessed: March 22, 2024.
 
 \bibitem{purpose+profit}
 Douglas~J Lamdin.
@@ -155,6 +198,12 @@ Douglas~J Lamdin.
 P.~Larrañaga and C.~Bielza.
 \newblock Akaike information criterion.
 \newblock {\em Dictionary of Bioinformatics and Computational Biology}, 2014.
+
+\bibitem{incentive-diffusion}
+Shirley Lu, Trang Nguyen, and George Serafeim.
+\newblock Incentive diffusion and decarbonization rates.
+\newblock Early draft – please do not share – comments are welcome, August
+  2023.
 
 \bibitem{NIPS2017_7062}
 Scott~M Lundberg and Su-In Lee.
@@ -176,16 +225,34 @@ David J.~C. MacKay.
   pages 221--234.
 \newblock Springer Netherlands, Dordrecht, 1996.
 
+\bibitem{McKinsey2017}
+{McKinsey \& Company}.
+\newblock A revolutionary tool for cutting emissions, ten years on, 2017.
+\newblock Accessed: 20 March 2024.
+
+\bibitem{Muryani2023Strategies}
+Muryani Muryani, K.~Nisa', M.~A. Esquivias, and S.~H. Zulkarnain.
+\newblock Strategies to control industrial emissions: An analytical network
+  process approach in east java, indonesia.
+\newblock {\em Sustainability}, 2023.
+
+\bibitem{nguyen-ml}
+Quyen Nguyen, Ivan Diaz-Rainey, and Duminda Kuruppuarachchi.
+\newblock Predicting corporate carbon footprints for climate finance risk
+  analyses: A machine learning approach.
+\newblock {\em Energy Economics}, 95:105129, 2021.
+
 \bibitem{OTT201714}
 Christian Ott, Frank Schiemann, and Thomas G{\"u}nther.
 \newblock Disentangling the determinants of the response and the publication
   decisions: The case of the carbon disclosure project.
 \newblock {\em Journal of Accounting and Public Policy}, 36(1):14--33, 2017.
 
-\bibitem{Papadis2020Challenges}
-Elisa Papadis and G.~Tsatsaronis.
-\newblock Challenges in the decarbonization of the energy sector.
-\newblock {\em Energy}, 205:118025, 2020.
+\bibitem{Pan2020Data}
+Yue Pan and Limao Zhang.
+\newblock Data-driven estimation of building energy consumption with
+  multi-source heterogeneous data.
+\newblock {\em Applied Energy}, 268:114965, 2020.
 
 \bibitem{scikit-learn}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
@@ -205,6 +272,13 @@ B.~Sanderson, B.~O’Neill, and C.~Tebaldi.
 \newblock What would it take to achieve the paris temperature targets?
 \newblock {\em Geophysical Research Letters}, 43:7133 -- 7142, 2016.
 
+\bibitem{liu}
+Wei Sun and Mohan Liu.
+\newblock Prediction and analysis of the three major industries and residential
+  consumption co2 emissions based on least squares support vector machine in
+  china.
+\newblock {\em Journal of Cleaner Production}, 122:144--153, 2016.
+
 \bibitem{tipping}
 Michael~E. Tipping.
 \newblock Sparse bayesian learning and the relevance vector machine.
@@ -223,17 +297,48 @@ Dr.~Aditya Upadhyay.
 \newblock {\em International Journal for Research in Applied Science and
   Engineering Technology}, 2022.
 
+\bibitem{wangfs}
+Qiang Wang, Shuyu Li, and Zhanna Pisarenko.
+\newblock Modeling carbon emission trajectory of china, us and india.
+\newblock {\em Journal of Cleaner Production}, 2020.
+
 \bibitem{WRDS}
 {Wharton Research Data Services}.
 \newblock Wharton research data services.
 \newblock \url{https://wrds-www.wharton.upenn.edu/.}
 \newblock Accessed: 2024-2-10.
 
+\bibitem{WHO2023}
+{World Health Organization}.
+\newblock Climate change and health.
+\newblock
+  \url{https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health},
+  2023.
+\newblock Accessed: 2024-03-24.
+
+\bibitem{yang}
+Huijuan Yang and John~F. O’connell.
+\newblock Short-term carbon emissions forecast for aviation industry in
+  shanghai.
+\newblock {\em Journal of Cleaner Production}, 275:122734, 2020.
+
 \bibitem{Yenigun2022}
 Okan Yenigun.
 \newblock Smart aspects of catboost algorithm: Introduction and implementation
   of yandex’s catboost ml model.
 \newblock {\em Python in Plain English}, Sep 2022.
+
+\bibitem{tefoso}
+Baojun Yu, Changming Li, Nawazish Mirza, and Muhammad Umar.
+\newblock {Forecasting credit ratings of decarbonized firms: Comparative
+  assessment of machine learning models}.
+\newblock {\em Technological Forecasting and Social Change}, 174(C), 2022.
+
+\bibitem{zhaofs}
+Huiru Zhao, Guo Huang, and Ning Yan.
+\newblock Forecasting energy-related co 2 emissions employing a novel ssa-lssvm
+  model: Considering structural factors in china.
+\newblock {\em Energies}, 11:1--21, 2018.
 
 \bibitem{Zhou2020Decarbonization}
 Wenji Zhou, D.~McCollum, Oliver Fricko, S.~Fujimori, M.~Gidden, Fei Guo,

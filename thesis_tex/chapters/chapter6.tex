@@ -1,38 +1,38 @@
 \chapter{Finding The Best Model}
 
 \begin{keytakeaway}
-    Overall, we find that while the \textbf{Mixed Effects Model} is a strong contender, but \textbf{CatBoost} is the best model for this dataset. Most importantly, we find that \textbf{different models identify similar sets of important features}, advancing our understanding of the key variables that can best forecast next year decarbonization rate.
+    Overall, we find that while the \textbf{Mixed Effects Model} is a strong contender, but \textbf{CatBoost} is the best model for this dataset. Most importantly, we find that \textbf{different models identify similar sets of important features}, confirming the hypothesis that from the CDP survey we can identify a group of key variables that together can best forecast next year decarbonization rate.
 \end{keytakeaway}
 
 
 
-\section{Modeling Objectives}
-In this chaper, we will tune, benchmark, and report the results of various models to forecast next year's real decarbonization rate. The primary objective is to extend the learnings from the previous chapter by evaluating the final mixed-effects model and comparing it against more flexible, data-driven non-parametric approaches such as decision trees and ensemble methods. We will be evaluating all the models based on Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R-squared value. The models that are evaluated in this chapter are the Mixed Effects Model from Chapter 5,  Bayesian Ridge, Catboost Regressor, Ridge Regression, Orthogonal Matching Pursuit, Elastic Net, Lasso Regression, Lasso Least Angle Regression, Gradient Boosting, Random Forest, Light Gradient Boosting Machine, Extra Trees, Dummy Regressor, Extreme Gradient Boosting, K Neighbors Regressor, Huber Regressor, Decision Tree, AdaBoost, Passive Aggressive Regressor, and Ordinary Least Squares. The models are all benchmarked using the Pycaret library \cite{pycaret}. Then, the best models are selected based on the RMSE value and are further tuned using grid search and cross-validation. I have provided an overview of methods for the main models in chapter 4, for a detailed explanation of all the models, please refer to Pycaret's and Sklearn's documentation \cite{pycaret,scikit-learn}.
+\section{Overview and Modeling Objectives}
+In this chaper, we will tune, benchmark, and report the results of various models to forecast next year's real decarbonization rate. The primary objectives are to identify the best model to forecast next year's decarbonization rate with the current dataset to inform industry stakeholders on the current predictive capabilities of the survey. At the same time, we will determine the most important features for predicting the decarbonization rates and we will compare the results with the previous chapter to ensure consistency across models. Finally, we will use our results to inform the CDP on the most important variables to focus on when designing the survey and assigning future grades to firms based on their projected real decarbonization rate. Initially, we will be re-training the final mixed-effects model and comparing it against more flexible, data-driven non-parametric approaches such as decision trees and ensemble methods. Then, we will be evaluating all the models based on Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R-squared value \cite{gmd}. In summary, the models that are evaluated in this chapter are the Mixed Effects Model from Chapter 5, Bayesian Ridge Regressor , Catboost Regressor, Ridge Regression, Orthogonal Matching Pursuit, Elastic Net, Lasso Regression, Lasso Least Angle Regression, Gradient Boosting, Random Forest, Light Gradient Boosting Machine, Extra Trees, Dummy Regressor, Extreme Gradient Boosting, K Neighbors Regressor, Huber Regressor, Decision Tree, AdaBoost, Passive Aggressive Regressor, and Ordinary Least Squares. The models are all benchmarked using the Pycaret library \cite{pycaret}. The body of the chapter is dedicated to  exploring and refining the three models introduced in the Methods chapter, which I believe to be the most promising: the Mixed Effects Model, Bayesian Ridge, and Catboost Regressor. For a detailed methods description of all other models used for benchmarking, please refer to Pycaret's and Sklearn's documentation \cite{pycaret,scikit-learn}.
 
 
-\subsubsection{Data Preprocessing}
+\subsection{Data Preprocessing}
 The predictors in this chapter are the same as the ones analyzed across all the models in chapter 5, but the data has been preprocessed and split into two sets for training and testing purposes. The test set contains the year 2021, which is the most recent year for which we have data. The training set contains all years from 2011 to 2020. Additionally, the selected models are tuned using grid search and cross-validation to find the best hyperparameters. The folds are created using the \textit{TimeSeriesSplit} method from the scikit-learn library \cite{scikit-learn} to ensure that the data is split in a time series fashion and to prevent future leakage, an overfitting condition that occurs when data that would not be available at the time of predction is inadvertedly used to train the model, this happens when cross-validation is not done in a time series fashion and can lead to overly optimistic performance metrics. The models are evaluated based on the RMSE, MAE, and R-squared values. 
 
-\subsection{Train and Test Set Summary Statistics}
+\subsubsection{Train and Test Set Summary Statistics}
 This is a summary of the training and testing sets used in this chapter. The training set contains all years from 2011 to 2020, and the testing set contains 2021. The year 2022 has been excluded from the analysis as we don't have the next year's decarbonization rate to compare the predictions against at the time of writing this thesis. Note that the number of features includes one-hot encoded variables, the actual number of predictors is the same as the previous chapter. All categorical features have been one-hot encoded except for the CatBoost model, which automatically handles categorical variables. Furthermore, the numerical predictors have been scaled using the Standardscaler from the scikit-learn library \cite{scikit-learn}.
 
 \input{tables/summary_train_test.tex}
 
 \section{Baseline Metrics}
-The baseline metrics for the test set are calculated using the following methods:
+The baseline metrics for the test set are calculated according to the following methods:
 \begin{enumerate}
     \item Using previous year decarbonization rate to predict next year's decarbonization rate
-    \item Using the mean decarbonization rate for each firm across all reported years
+    \item Using mean decarbonization rate for each firm across all reported years
     \item Guessing zero for all firms as the next year's decarbonization rate
     \item Using the mean for all firms for each year as the prediction for the next year's decarbonization rate
 \end{enumerate}
 
 \input{tables/baseline_metrics.tex}
 
-\noindent As we can observe from the table, by guessing the previous year's decarbonization rate for each firm, we get a RMSE of 10.45. Similarly, by guessing the mean decarbonization rate for each firm, we get a RMSE of 10.13. We will use these metrics as a baseline to compare the performance of the models in this chapter.
+\noindent As we can observe from the table, by guessing the previous year's decarbonization rate for each firm, we get a RMSE of 10.45. Similarly, by guessing the mean decarbonization rate for each firm, we get a RMSE of 10.13. We will use these metrics as a baseline to evaluate the performance of the models in this chapter.
 
 \section{Final Model From Chapter 5}
-This is the Mixed Effects Model from the previous chapter, in particular the \textit{Final Model} which has been selected based on the AIC values and feature significance and justification. In this case, it has been trained on the whole training set and evaluated on the test set.
+In this seciton we evaluate the Mixed Effects Model from the previous chapter, in particular the \textit{Final Model (2)} presented in Table \ref{tab:R10} which has been selected based on the AIC values and feature significance and justification. In this case, the model represents our final selection of features and random effects structure after a thorough analysis performed chapter 5. The model has been trained on the whole training set and evaluated on the test set.
 
 \subsection{Table of Model Performance Metrics}
 \begin{table}[H]
@@ -60,7 +60,7 @@ This is the Mixed Effects Model from the previous chapter, in particular the \te
 \noindent The residuals plot is centered around zero, which is a good sign, but there are significant outliers, especially for firms with positive change in decarbonization rate and for firms with an absolute change of more than 20\%. This suggests that the model is not performing well for these firms and it makes intuitive sense as firms who have a decarbonization rate change of more than 20\% are likely to be outliers and difficult to predict.
 
 \section{Comparing Models Using Pycaret}
-Using Pycaret, a Machine Learning library, we will be comparing the performance of various models on the dataset. The models will be evaluated based on the RMSE, MAE, and R-squared values. The best model will be selected based on the RMSE value. We used timeseries cross-validation to ensure that the data is split in a time series fashion. As explained in the introductoiun, the folds are created using the TimeSeriesSplit method from the scikit-learn library \cite{scikit-learn}. We are not tuning the hyperparameters for the models in this section, as we will be doing that in the next section only for the best model. This analysis is useful in identifying which candidate models perform best on the dataset, and consequently which models are worth tuning.
+Using Pycaret \cite{pycaret}, a Machine Learning library, we will be comparing the performance of various models on the dataset. The models will be evaluated based on the RMSE, MAE, and R-squared values. The best model will be selected based on the RMSE value. We used timeseries cross-validation to ensure that the data is split in a time series fashion. As explained in the introductoiun, the folds are created using the TimeSeriesSplit method from the scikit-learn library \cite{scikit-learn}. We are not tuning the hyperparameters for the models in this section, as we will be doing that in the next section only for the best model. This analysis is useful in identifying which candidate models perform best on the dataset, and consequently which models are worth tuning.
 
 % include table
 \input{tables/compare_models.tex}
@@ -170,41 +170,6 @@ To tune the Catboost Regressor model, we used grid search and cross-validation t
 For the Catboost Regressor model, we used the Shapley values to explain the predictions of the model. The Shapley values are a measure of feature importance that is based on game theory \cite{NIPS2017_7062}. The Shapley values are calculated for each feature and are used to explain the predictions of the model. The Shapley values are plotted in Figure \ref{fig:catboost_shapley_values}. The beeswarm plot shows the distribution of the Shapley values for each feature. The plot offers an interpretation of the effect that each feature has on the model's prediction, with a high Shapley value off the x-axis indicating a strong effect on the model's prediction in that direction. Therefore, the plot is useful in understanding the relationship between the features and the model's predictions akin to interpreting coefficients in a linear model. In this regard, the effect of current decarbonization rate change is important and positive, that is firms with a positive change in decarbonization rate are likely to have a higher decarbonization rate next year. Similarly, the effect of the target amount mean is important and negative, that is firms with a higher target amount mean are likely to have a better decarbonization rate next year. The effect of Scope 2 Market Emissions is also similiar to what we found in the Mixed Effects Model: firms that report market based emissions are likely to have a better decarbonization rate next year. 
 
 
-\section{Neural Networks}
 
-\subsection{Model Architecture}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{figures/nn_architecture.png}
-    \caption{Neural Networks Model Architecture}
-    \label{fig:neural_networks_architecture}
-\end{figure}
-
-\subsection{Training and Validation Loss Plot}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/nn_training_loss.png}
-    \caption{Neural Networks Model Training and Validation Loss Plot}
-    \label{fig:neural_networks_loss_plot}
-\end{figure}
-
-
-\subsection{Model Performance Metrics}
-
-\begin{table}[H]
-    \centering
-    \caption{Neural Networks Model Performance Metrics}
-    \label{tab:neural_networks_performance}
-    \begin{tabular}{lcccc}
-    \hline
-    Set & $R^2$ & RMSE & MSE & MAE \\ 
-    \hline
-    Training & 0.21 & 6.23 & 38.79 & 3.77 \\
-    Test & 0.09 & 9.65 & 93.26 & 6.32 \\
-    \hline
-    \end{tabular}
-
-\end{table}
 
 
