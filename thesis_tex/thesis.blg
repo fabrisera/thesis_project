@@ -6,6 +6,7 @@ A level-1 auxiliary file: chapters/chapter3.aux
 A level-1 auxiliary file: chapters/chapter31.aux
 A level-1 auxiliary file: chapters/chapter4.aux
 A level-1 auxiliary file: chapters/chapter6.aux
+A level-1 auxiliary file: chapters/conclusion.aux
 A level-1 auxiliary file: chapters/appendixA.aux
 The style file: plain.bst
 Database file #1: references.bib
@@ -16,45 +17,45 @@ Warning--to sort, need author or key in Worldscope_2
 Warning--to sort, need author or key in GICS_Wikipedia
 Warning--empty journal in bates
 Warning--can't use both author and editor fields in MacKay1996
-You've used 56 entries,
+You've used 62 entries,
             2118 wiz_defined-function locations,
-            843 strings with 14789 characters,
-and the built_in function-call counts, 17670 in all, are:
-= -- 1665
-> -- 1008
-< -- 2
-+ -- 407
-- -- 345
-* -- 1219
-:= -- 3054
-add.period$ -- 179
-call.type$ -- 56
-change.case$ -- 335
+            878 strings with 15987 characters,
+and the built_in function-call counts, 19549 in all, are:
+= -- 1848
+> -- 1089
+< -- 3
++ -- 440
+- -- 371
+* -- 1349
+:= -- 3372
+add.period$ -- 197
+call.type$ -- 62
+change.case$ -- 366
 chr.to.int$ -- 0
-cite$ -- 61
-duplicate$ -- 554
-empty$ -- 1307
-format.name$ -- 345
-if$ -- 3604
+cite$ -- 67
+duplicate$ -- 626
+empty$ -- 1460
+format.name$ -- 371
+if$ -- 3997
 int.to.chr$ -- 0
-int.to.str$ -- 56
-missing$ -- 37
-newline$ -- 292
-num.names$ -- 108
-pop$ -- 376
+int.to.str$ -- 62
+missing$ -- 43
+newline$ -- 322
+num.names$ -- 120
+pop$ -- 400
 preamble$ -- 1
-purify$ -- 281
+purify$ -- 306
 quote$ -- 0
-skip$ -- 416
+skip$ -- 469
 stack$ -- 0
-substring$ -- 850
-swap$ -- 77
-text.length$ -- 2
+substring$ -- 969
+swap$ -- 89
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 222
+type$ -- 246
 warning$ -- 5
-while$ -- 140
-width$ -- 58
-write$ -- 608
+while$ -- 158
+width$ -- 64
+write$ -- 674
 (There were 6 warnings)

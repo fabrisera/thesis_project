@@ -45,7 +45,7 @@
 \renewcommand\bibname{References}
 \renewcommand\listfigurename{Listing of figures}
 \renewcommand\listtablename{Listing of tables}
-\raggedright
+% \raggedright
 
 \RequirePackage{pdfsync} %do pdf synchronization [andy]
 
@@ -120,6 +120,10 @@
 \RequirePackage{hyperref}
 \RequirePackage[export]{adjustbox}
 \RequirePackage{graphics}
+\RequirePackage{pifont}
+
+\newcommand{\xmark}{\textcolor{red}{\ding{55}}} % Define \xmark using pifont
+\newcommand{\cmark}{\textcolor{green}{\ding{51}}} % Define \cmark using pifont
 
 
 % use Arno Pro instead of standard LaTeX fonts
@@ -208,7 +212,7 @@
 	\pagenumbering{roman}
 	\setcounter{page}{3}
 	\pagestyle{fancy}
-	\lhead{Thesis advisor: \@advisor} \rhead{\@author}
+	\lhead{Thesis advisors: \@advisor} \rhead{\@author}
 	\renewcommand{\headrulewidth}{0.0pt} 
 	\begin{center}
 	\vspace*{1pt}
@@ -270,7 +274,7 @@
     colframe=yellow!10!white, % Color of the frame
     coltitle=white, % Color of the title text
     colbacktitle=customCrimson, % Background color of the title
-    title=Key Chapter Takeaway, % Title of the box
+    title=Chapter Preview, % Title of the box
     fonttitle=\bfseries, % Bold title font % Box with sharp corners
     top=2mm, % Top space within the box
     bottom=2mm % Bottom space within the box

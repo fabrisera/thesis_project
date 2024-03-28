@@ -2,38 +2,38 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.4.1}{\ignorespaces Caption of CDP Scoring Grades. Adapted from \cite {CDP2022ScoringPDF}.\relax }}{7}{figure.caption.5}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.2.1}{\ignorespaces Global Industry Classification Standard (GICS) Structure \cite {GICS_MSCI}.\relax }}{16}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.4.1}{\ignorespaces Real Decarbonization Rate\relax }}{18}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.4.2}{\ignorespaces Number of unique reporting firms by year in the training set\relax }}{19}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.4.3}{\ignorespaces Mean \textit {real decarbonization rate} by continent from 2011 to 2022\relax }}{20}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.4.4}{\ignorespaces Mean Real Decarbonization Rate by Sector\relax }}{22}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.4.5}{\ignorespaces Mean Decarbonization Rate by Country\relax }}{24}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.4.6}{\ignorespaces Mean and Median Real Decarbonization Rate by Year\relax }}{25}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.5.1}{\ignorespaces Financial Predictors\relax }}{28}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.1.1}{\ignorespaces Global Industry Classification Standard (GICS) Structure \cite {GICS_MSCI}.\relax }}{17}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.3.1}{\ignorespaces Real Decarbonization Rate\relax }}{19}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.3.2}{\ignorespaces Number of unique reporting firms by year in the training set\relax }}{20}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.3.3}{\ignorespaces Mean \textit {real decarbonization rate} by continent from 2011 to 2022\relax }}{21}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.3.4}{\ignorespaces Mean Real Decarbonization Rate by Sector\relax }}{23}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.3.5}{\ignorespaces Mean Decarbonization Rate by Country\relax }}{25}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.3.6}{\ignorespaces Mean and Median Real Decarbonization Rate by Year\relax }}{26}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.4.1}{\ignorespaces Financial Predictors\relax }}{29}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.3.1}{\ignorespaces Gradient boosting. Adapted from: \cite {Yenigun2022}\relax }}{36}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.4.1}{\ignorespaces Gradient boosting. Adapted from: \cite {Yenigun2022}\relax }}{39}{figure.caption.15}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.2.1}{\ignorespaces Current vs. Next Year Decarbonization Rate\relax }}{41}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.2.2}{\ignorespaces Next Year Decarbonization Rate Over Time\relax }}{41}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.3.1}{\ignorespaces Next Year Decarbonization Rate by Industry\relax }}{45}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.4.1}{\ignorespaces Continent vs. Next Year Decarbonization Rate\relax }}{48}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.5.1}{\ignorespaces Market Capitalization vs. Next Year Decarbonization Rate\relax }}{51}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.5.2}{\ignorespaces Revenue vs. Next Year Decarbonization Rate\relax }}{51}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.6.1}{\ignorespaces GHG Emission Scope 1 Verification Type vs. Next Year Decarbonization Rate\relax }}{55}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.6.2}{\ignorespaces GHG Emission Scope 1 vs. Next Year Decarbonization Rate\relax }}{55}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.6.3}{\ignorespaces GHG Emission Scope 1 Missing vs. Next Year Decarbonization Rate\relax }}{56}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.6.4}{\ignorespaces Methane Emissions vs. Next Year Decarbonization Rate\relax }}{56}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.6.5}{\ignorespaces GHG Emission Scope 2 Market Missing vs. Next Year Decarbonization Rate\relax }}{57}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.6.6}{\ignorespaces GHG Emission Scope 3 Verification vs. Next Year Decarbonization Rate\relax }}{57}{figure.caption.32}%
-\contentsline {figure}{\numberline {4.7.1}{\ignorespaces Incentive Binary vs. Next Year Decarbonization Rate\relax }}{62}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.7.2}{\ignorespaces Incentive Method vs. Next Year Decarbonization Rate\relax }}{62}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.8.1}{\ignorespaces Cdp Target Amount vs. Next Year Decarbonization Rate\relax }}{66}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.8.2}{\ignorespaces Cdp Target Type Absolute vs. Next Year Decarbonization Rate\relax }}{66}{figure.caption.38}%
-\contentsline {figure}{\numberline {4.8.3}{\ignorespaces Cdp Aggregated Risk vs. Next Year Decarbonization Rate\relax }}{67}{figure.caption.39}%
-\contentsline {figure}{\numberline {4.8.4}{\ignorespaces Cdp Aggregated Opportunity vs. Next Year Decarbonization Rate\relax }}{67}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.9.1}{\ignorespaces Absent Cdp Initiative vs. Next Year Decarbonization Rate\relax }}{71}{figure.caption.42}%
-\contentsline {figure}{\numberline {4.9.2}{\ignorespaces Investment Counter vs. Next Year Decarbonization Rate\relax }}{71}{figure.caption.43}%
-\contentsline {figure}{\numberline {4.11.1}{\ignorespaces AIC of all tested models by model iteration\relax }}{76}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.2.1}{\ignorespaces Current vs. Next Year Decarbonization Rate\relax }}{43}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.2.2}{\ignorespaces Next Year Decarbonization Rate Over Time\relax }}{43}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.2.3}{\ignorespaces Next Year Decarbonization Rate by Industry\relax }}{46}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.2.4}{\ignorespaces Continent vs. Next Year Decarbonization Rate\relax }}{49}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.2.5}{\ignorespaces Market Capitalization vs. Next Year Decarbonization Rate\relax }}{52}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.2.6}{\ignorespaces Revenue vs. Next Year Decarbonization Rate\relax }}{52}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.3.1}{\ignorespaces GHG Emission Scope 1 Verification Type vs. Next Year Decarbonization Rate\relax }}{55}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3.2}{\ignorespaces GHG Emission Scope 1 vs. Next Year Decarbonization Rate\relax }}{55}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.3.3}{\ignorespaces GHG Emission Scope 1 Missing vs. Next Year Decarbonization Rate\relax }}{56}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.3.4}{\ignorespaces Methane Emissions vs. Next Year Decarbonization Rate\relax }}{56}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.3.5}{\ignorespaces GHG Emission Scope 2 Market Missing vs. Next Year Decarbonization Rate\relax }}{57}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.3.6}{\ignorespaces GHG Emission Scope 3 Verification vs. Next Year Decarbonization Rate\relax }}{57}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.3.7}{\ignorespaces Incentive Binary vs. Next Year Decarbonization Rate\relax }}{62}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.3.8}{\ignorespaces Incentive Method vs. Next Year Decarbonization Rate\relax }}{62}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.3.9}{\ignorespaces Cdp Target Amount vs. Next Year Decarbonization Rate\relax }}{66}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.3.10}{\ignorespaces Cdp Target Type Absolute vs. Next Year Decarbonization Rate\relax }}{66}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.3.11}{\ignorespaces Cdp Aggregated Risk vs. Next Year Decarbonization Rate\relax }}{67}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.3.12}{\ignorespaces Cdp Aggregated Opportunity vs. Next Year Decarbonization Rate\relax }}{67}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.4.1}{\ignorespaces Absent Cdp Initiative vs. Next Year Decarbonization Rate\relax }}{71}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.4.2}{\ignorespaces Investment Counter vs. Next Year Decarbonization Rate\relax }}{71}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.5.1}{\ignorespaces AIC of all tested models by model iteration\relax }}{76}{figure.caption.46}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.3.1}{\ignorespaces Mixed Effects Model Residuals Plot\relax }}{83}{figure.caption.48}%
 \contentsline {figure}{\numberline {5.5.1}{\ignorespaces Bayesian Ridge Model Feature Importance Plot\relax }}{86}{figure.caption.50}%
@@ -41,7 +41,8 @@
 \contentsline {figure}{\numberline {5.6.1}{\ignorespaces Catboost Regressor Feature Importance Plot\relax }}{89}{figure.caption.54}%
 \contentsline {figure}{\numberline {5.6.2}{\ignorespaces Catboost Regressor Shapley Beeswarm Values Plot\relax }}{90}{figure.caption.55}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1.1}{\ignorespaces Emissions Scopes 1, 2, and 3 . Adapted from \cite {Bernoville2022Scopes}.\relax }}{93}{figure.caption.56}%
-\contentsline {figure}{\numberline {A.2.1}{\ignorespaces Marginal Abatement Cost Curve. Adopted From \cite {McKinsey2017}\relax }}{94}{figure.caption.57}%
-\contentsline {figure}{\numberline {A.3.1}{\ignorespaces Neural Networks Model Architecture\relax }}{95}{figure.caption.58}%
-\contentsline {figure}{\numberline {A.3.2}{\ignorespaces Neural Networks Model Training and Validation Loss Plot\relax }}{96}{figure.caption.59}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1.1}{\ignorespaces Emissions Scopes 1, 2, and 3 . Adapted from \cite {Bernoville2022Scopes}.\relax }}{96}{figure.caption.57}%
+\contentsline {figure}{\numberline {A.2.1}{\ignorespaces Marginal Abatement Cost Curve. Adopted From \cite {McKinsey2017}\relax }}{97}{figure.caption.58}%
+\contentsline {figure}{\numberline {A.3.1}{\ignorespaces Neural Networks Model Architecture\relax }}{98}{figure.caption.59}%
+\contentsline {figure}{\numberline {A.3.2}{\ignorespaces Neural Networks Model Training and Validation Loss Plot\relax }}{99}{figure.caption.60}%

@@ -1,15 +1,19 @@
 \chapter{Data Sources}
 \label{ch:data-sources}
 
-\section{Introduciton}
+\begin{keytakeaway}
+  We present the three primary data sources: the \textbf{CDP Climate Change Response Questionnaire}, the \textbf{Worldscope Fundamental Core Items}, and the \textbf{Global Industry Classification Standard (GICS)}. The CDP Climate Survey data contains the response surveys from all companies from 2011 to 2022, the Worldscope database provides detailed standardized financials, and the GICS offers a hierarchical classification system for industries.
+\end{keytakeaway}
 
-\noindent The reports can be requested from the CDP website \cite{CDPMain2024}, they available both in PDF and a structured CSV format. The CSV files encompass the responses submitted to the CDP questionnaire, which form the foundation of the predictor and response variables for this thesis. My work is a continuation of the initial data processing that was executed by Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} and kindly shared with me in the form of various stata files and a repository containg both the raw and processed data, where the multiple sections had been extracted from the survey and aligned across different years. I then imported all the data and further processed it to create the training and tests sets for the following models. 
+% \section{Introduction}
+
+% \noindent The reports can be requested from the CDP website \cite{CDPMain2024}, they available both in PDF and a structured CSV format. The CSV files encompass the responses submitted to the CDP questionnaire, which form the foundation of the predictor and response variables for this thesis. My work is a continuation of the initial data processing that was executed by Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} and kindly shared with me in the form of various stata files and a repository containg both the raw and processed data, where the multiple sections had been extracted from the survey and aligned across different years. I then imported all the data and further processed it to create the training and tests sets for the following models. 
 
 
-\section{Overview of Data Sources:}
+\section{Overview of Data Sources}
 
 \subsection{Climate Change Response Questionnaire}
-The main data source comes from the CDP Climate Survey, it contains the response surveys from all companies from 2011 to 2022. The data was partially cleaned and processed by the Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} before being shared with me. This comprehensive dataset was provided a repository that includes both raw and processed data in the form of Stata files. Organized by firm-years, each observation in the dataset corresponds to a specific firm in a given year, and is structured in a panel format, having a unique id year pair to uniquely identify each entry. The original dataset contained $34,588$ firm-years across $11$ years. Since the analysis controls for financial and industry-specific predictors, I decided to focus on public companies, which represent $71\%$ of the firm-years in the dataset. Therefore, $9,785$ firm-years were dropped from the analysis because they did not have an ISIN code, which is a unique identifier for public companies. 
+The main data source comes from the CDP Climate Survey, it contains the response surveys from all companies from 2011 to 2022. The data was partially cleaned and processed by the Climate and Sustainability Impact Lab \cite{HarvardD3Lab2024} before being shared with me. This comprehensive dataset was provided a repository that includes both raw and processed data in the form of Stata files. Organized by firm-years, each observation in the dataset corresponds to a specific firm in a given year, and is structured in a panel format, having a unique id year pair to uniquely identify each entry. The original dataset contained $34,588$ firm-years across $11$ years. Since the analysis controls for financial and industry-specific predictors, I decided to focus on public companies, which represent $71\%$ of the firm-years in the dataset. Therefore, $9,785$ firm-years were dropped from the analysis because they did not have an ISIN code, which is a unique identifier for public companies. A detailed breakdown of the data cleaning process is provided in the following section \ref{sec:data-cleaning-process-flowchart}.
 
 \subsubsection{Important Considerations on the CDP Data}
 \begin{itemize}
@@ -34,10 +38,9 @@ In addition to the CDP Climate Survey data, financial predictors were obtained u
 \end{center}
 \end{figure}
 
-\section{Data Cleaning and Variable Dictionary:}
+\section{Data Cleaning Process Flowchart}
+\label{sec:data-cleaning-process-flowchart}
 
-\newpage 
- \subsection{Data Cleaning Process Flowchart:}
 \noindent This is a visual representation of the data cleaning process described in the data sources with a specification of the number of firm-years dropped at each step: 
 
 \bigskip
@@ -169,7 +172,7 @@ Figure \ref{fig:mean-decarbonization-rate-by-year} shows the mean and median rea
 \input{tables/emission_breakdown_year.tex}
 
 
-\section{Feature Engineering: Financial Predictors}
+\section{Financial Predictors Feature Engineering}
 Figure \ref{fig:grid} shows the distribution of the financial predictors used in the analysis. This is a list of each predictor along with a brief description of how it was derived:
 \begin{itemize}
     \item \textbf{Total Assets \ref{fig:total-assets}}: The total assets of the firm, which is a measure of the firm's size and the scale of its operations. Directly obtained from the Worldscope database and transformed using the natural logarithm $log(1 + \text{Total Assets})$.

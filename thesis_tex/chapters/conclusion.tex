@@ -1,0 +1,74 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+\section{Selected Individual Firm Actions}
+All the modeling techniques we employed were targeted at identifying key relationships between firm-level actions and decarbonization rates. In the following table, I will report the main predictors that were found to be significant in the final models, and the corresponding coefficients.
+
+\begin{table}[H]
+    \centering
+    \caption{New Table with Mixed Effects Model Coefficients, Bayesian Ridge Ranking, and Category Boosting Ranking}
+    \label{tab:NewTable}
+    \begin{tabular}{|l|c|c|c|}
+    \hline
+    \textbf{Predictor} & \textbf{MixedEffect} & \textbf{BayesianR} & \textbf{CatBoost} \\
+    \hline
+    Year & \textcolor{green}{$-0.048$} & \xmark & \cmark \\
+    \hline
+    \textbf{Ghg.Change.Real} & \textcolor{red}{$0.186^{***}$} & \cmark & \cmark \\
+    \hline
+    Market.Cap & \textcolor{green}{$-0.398^{***}$} & \xmark & \xmark \\
+    \hline
+    Revenue & \textcolor{red}{$0.257^{***}$} & \xmark & \xmark \\
+    \hline
+    \textbf{Type.S1.Limited/Moderate} & \textcolor{red}{$0.358$} & \cmark & \cmark \\
+    \hline
+    \textbf{Type.S1.N.A} & \textcolor{red}{$0.720^{***}$} & \cmark & \cmark \\
+    \hline
+    \textbf{Type.S1.Third.Party.Underway} & \textcolor{red}{$0.713^{**}$} & \cmark & \cmark \\
+    \hline
+    Ghg.Verification.Scope3.Yes & \textcolor{green}{$-0.272$} & \xmark & \xmark \\
+    \hline
+    Ghg1 & \textcolor{red}{$0.125^{***}$} & \xmark & \cmark \\
+    \hline
+    Ghg2Location & \textcolor{green}{$-0.046^{*}$} & \xmark & \xmark \\
+    \hline
+    Ghg1.Na & \textcolor{red}{$1.614^{***}$} & \xmark & \cmark \\
+    \hline
+    Ghg2Market.Na & \textcolor{red}{$0.917^{***}$} & \xmark & \cmark \\
+    \hline
+    Methane.Emissions & \textcolor{red}{$0.082^{***}$} & \xmark & \xmark \\
+    \hline
+    \textbf{Method.IndInternal Incentives} & \textcolor{green}{$-1.722^{***}$} & \cmark & \cmark \\
+    \hline
+    \textbf{Method.IndMacc} & \textcolor{green}{$-0.712^{**}$} & \cmark & \cmark \\
+    \hline
+    \textbf{Cdp.Targetamount.Mean} & \textcolor{green}{$-0.334^{***}$} & \cmark & \cmark \\
+    \hline
+    Cdp.Targettype.Absolute & \textcolor{green}{$-0.158^{***}$} & \cmark & \xmark \\
+    \hline
+    Cdp.Aggregated.Risk & \textcolor{red}{$0.625^{***}$} & \xmark & \xmark \\
+    \hline
+    Cdp.Aggregated.Opp & \textcolor{green}{$-1.085^{***}$} & \cmark & \xmark \\
+    \hline
+    Absent.Cdp.Initiative & \textcolor{red}{$0.685^{**}$} & \xmark & \xmark \\
+    \hline
+    Investment.Counter & \textcolor{green}{$-0.254^{***}$} & \xmark & \xmark \\
+    \hline
+    \end{tabular}
+    \end{table}
+    
+    
+
+\subsection{Robustness to Modeling Choices}
+
+\section{Best Forecasting Model}
+
+\subsection{Data Limitations}
+
+\section{Improving CDP Survey Design and CDP Scores} 
+
+\subsection{CDP Survey Design: emphasis on key quantitative metrics}
+
+\subsection{CDP Scores: more transparency}
+
+\section{Future Work}

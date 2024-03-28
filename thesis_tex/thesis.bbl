@@ -183,6 +183,13 @@ T.~O. Hodson.
   use them or not.
 \newblock {\em Geoscientific Model Development}, 15(14):5481--5487, 2022.
 
+\bibitem{imane}
+Mjimer Imane, Es-Saadia Aoula, and El~Hassan Achouyab.
+\newblock Using bayesian ridge regression to predict the overall equipment
+  effectiveness performance.
+\newblock In {\em 2022 2nd International Conference on Innovative Research in
+  Applied Science, Engineering and Technology (IRASET)}, pages 1--4, 2022.
+
 \bibitem{Jonson2022}
 Emma Jonson.
 \newblock The complete guide to national climate-related disclosures, 2022.
@@ -225,6 +232,12 @@ David J.~C. MacKay.
   pages 221--234.
 \newblock Springer Netherlands, Dordrecht, 1996.
 
+\bibitem{Maruotti2023CO2}
+A.~Maruotti and Pierfrancesco Alaimo~Di Loro.
+\newblock Co2 emissions and growth: A bivariate bidimensional mean‐variance
+  random effects model.
+\newblock {\em Environmetrics}, 34, 2023.
+
 \bibitem{McKinsey2017}
 {McKinsey \& Company}.
 \newblock A revolutionary tool for cutting emissions, ten years on, 2017.
@@ -235,6 +248,12 @@ Muryani Muryani, K.~Nisa', M.~A. Esquivias, and S.~H. Zulkarnain.
 \newblock Strategies to control industrial emissions: An analytical network
   process approach in east java, indonesia.
 \newblock {\em Sustainability}, 2023.
+
+\bibitem{marco}
+Yuvaraj Natarajan, Gitanjali Wadhwa, K.~R. Sri~Preethaa, and Anand Paul.
+\newblock Forecasting carbon dioxide emissions of light-duty vehicles with
+  different machine learning algorithms.
+\newblock {\em Electronics}, 12(10), 2023.
 
 \bibitem{nguyen-ml}
 Quyen Nguyen, Ivan Diaz-Rainey, and Duminda Kuruppuarachchi.
@@ -271,6 +290,18 @@ Liudmila Prokhorenkova, Gleb Gusev, Aleksandr Vorobev, Anna~Veronika Dorogush,
 B.~Sanderson, B.~O’Neill, and C.~Tebaldi.
 \newblock What would it take to achieve the paris temperature targets?
 \newblock {\em Geophysical Research Letters}, 43:7133 -- 7142, 2016.
+
+\bibitem{saqib}
+Mohd Saqib.
+\newblock Forecasting covid-19 outbreak progression using hybrid
+  polynomial-bayesian ridge regression model.
+\newblock {\em Applied Intelligence}, 51(5):2703--2713, 2021.
+
+\bibitem{bai}
+Femilda Josephin~Joseph {Shobana Bai}.
+\newblock A machine learning approach for carbon di oxide and other emissions
+  characteristics prediction in a low carbon biofuel-hydrogen dual fuel engine.
+\newblock {\em Fuel}, 341:127578, 2023.
 
 \bibitem{liu}
 Wei Sun and Mohan Liu.
@@ -333,6 +364,12 @@ Baojun Yu, Changming Li, Nawazish Mirza, and Muhammad Umar.
 \newblock {Forecasting credit ratings of decarbonized firms: Comparative
   assessment of machine learning models}.
 \newblock {\em Technological Forecasting and Social Change}, 174(C), 2022.
+
+\bibitem{zanin}
+Luca Zanin and Giampiero Marra.
+\newblock Assessing the functional relationship between co2 emissions and
+  economic development using an additive mixed model approach.
+\newblock {\em Economic Modelling}, 29(4):1328--1337, 2012.
 
 \bibitem{zhaofs}
 Huiru Zhao, Guo Huang, and Ning Yan.

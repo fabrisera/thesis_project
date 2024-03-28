@@ -1,4 +1,5 @@
 \chapter{Finding The Best Model}
+\label{ch:finding-the-best-model}
 
 \begin{keytakeaway}
     Overall, we find that while the \textbf{Mixed Effects Model} is a strong contender, but \textbf{CatBoost} is the best model for this dataset. Most importantly, we find that \textbf{different models identify similar sets of important features}, confirming the hypothesis that from the CDP survey we can identify a group of key variables that together can best forecast next year decarbonization rate.
@@ -6,7 +7,7 @@
 
 
 
-\section{Overview and Modeling Objectives}
+\section{Modeling Objectives}
 In this chaper, we will tune, benchmark, and report the results of various models to forecast next year's real decarbonization rate. The primary objectives are to identify the best model to forecast next year's decarbonization rate with the current dataset to inform industry stakeholders on the current predictive capabilities of the survey. At the same time, we will determine the most important features for predicting the decarbonization rates and we will compare the results with the previous chapter to ensure consistency across models. Finally, we will use our results to inform the CDP on the most important variables to focus on when designing the survey and assigning future grades to firms based on their projected real decarbonization rate. Initially, we will be re-training the final mixed-effects model and comparing it against more flexible, data-driven non-parametric approaches such as decision trees and ensemble methods. Then, we will be evaluating all the models based on Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R-squared value \cite{gmd}. In summary, the models that are evaluated in this chapter are the Mixed Effects Model from Chapter 5, Bayesian Ridge Regressor , Catboost Regressor, Ridge Regression, Orthogonal Matching Pursuit, Elastic Net, Lasso Regression, Lasso Least Angle Regression, Gradient Boosting, Random Forest, Light Gradient Boosting Machine, Extra Trees, Dummy Regressor, Extreme Gradient Boosting, K Neighbors Regressor, Huber Regressor, Decision Tree, AdaBoost, Passive Aggressive Regressor, and Ordinary Least Squares. The models are all benchmarked using the Pycaret library \cite{pycaret}. The body of the chapter is dedicated to  exploring and refining the three models introduced in the Methods chapter, which I believe to be the most promising: the Mixed Effects Model, Bayesian Ridge, and Catboost Regressor. For a detailed methods description of all other models used for benchmarking, please refer to Pycaret's and Sklearn's documentation \cite{pycaret,scikit-learn}.
 
 
@@ -31,7 +32,7 @@ The baseline metrics for the test set are calculated according to the following 
 
 \noindent As we can observe from the table, by guessing the previous year's decarbonization rate for each firm, we get a RMSE of 10.45. Similarly, by guessing the mean decarbonization rate for each firm, we get a RMSE of 10.13. We will use these metrics as a baseline to evaluate the performance of the models in this chapter.
 
-\section{Final Model From Chapter 5}
+\section{Mixed Effects Regression Model (Chapter 5)}
 In this seciton we evaluate the Mixed Effects Model from the previous chapter, in particular the \textit{Final Model (2)} presented in Table \ref{tab:R10} which has been selected based on the AIC values and feature significance and justification. In this case, the model represents our final selection of features and random effects structure after a thorough analysis performed chapter 5. The model has been trained on the whole training set and evaluated on the test set.
 
 \subsection{Table of Model Performance Metrics}
@@ -59,7 +60,7 @@ In this seciton we evaluate the Mixed Effects Model from the previous chapter, i
 \end{figure}
 \noindent The residuals plot is centered around zero, which is a good sign, but there are significant outliers, especially for firms with positive change in decarbonization rate and for firms with an absolute change of more than 20\%. This suggests that the model is not performing well for these firms and it makes intuitive sense as firms who have a decarbonization rate change of more than 20\% are likely to be outliers and difficult to predict.
 
-\section{Comparing Models Using Pycaret}
+\section{Model Selection and Benchmarking}
 Using Pycaret \cite{pycaret}, a Machine Learning library, we will be comparing the performance of various models on the dataset. The models will be evaluated based on the RMSE, MAE, and R-squared values. The best model will be selected based on the RMSE value. We used timeseries cross-validation to ensure that the data is split in a time series fashion. As explained in the introductoiun, the folds are created using the TimeSeriesSplit method from the scikit-learn library \cite{scikit-learn}. We are not tuning the hyperparameters for the models in this section, as we will be doing that in the next section only for the best model. This analysis is useful in identifying which candidate models perform best on the dataset, and consequently which models are worth tuning.
 
 % include table
