@@ -17,45 +17,45 @@ Warning--to sort, need author or key in Worldscope_2
 Warning--to sort, need author or key in GICS_Wikipedia
 Warning--empty journal in bates
 Warning--can't use both author and editor fields in MacKay1996
-You've used 62 entries,
+You've used 63 entries,
             2118 wiz_defined-function locations,
-            878 strings with 15987 characters,
-and the built_in function-call counts, 19549 in all, are:
-= -- 1848
-> -- 1089
+            884 strings with 16178 characters,
+and the built_in function-call counts, 19768 in all, are:
+= -- 1870
+> -- 1096
 < -- 3
-+ -- 440
-- -- 371
-* -- 1349
-:= -- 3372
-add.period$ -- 197
-call.type$ -- 62
-change.case$ -- 366
++ -- 443
+- -- 373
+* -- 1357
+:= -- 3409
+add.period$ -- 201
+call.type$ -- 63
+change.case$ -- 370
 chr.to.int$ -- 0
-cite$ -- 67
-duplicate$ -- 626
-empty$ -- 1460
-format.name$ -- 371
-if$ -- 3997
+cite$ -- 68
+duplicate$ -- 633
+empty$ -- 1482
+format.name$ -- 373
+if$ -- 4045
 int.to.chr$ -- 0
-int.to.str$ -- 62
+int.to.str$ -- 63
 missing$ -- 43
-newline$ -- 322
-num.names$ -- 120
-pop$ -- 400
+newline$ -- 328
+num.names$ -- 122
+pop$ -- 408
 preamble$ -- 1
-purify$ -- 306
+purify$ -- 309
 quote$ -- 0
-skip$ -- 469
+skip$ -- 475
 stack$ -- 0
-substring$ -- 969
-swap$ -- 89
+substring$ -- 974
+swap$ -- 90
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 246
+type$ -- 250
 warning$ -- 5
-while$ -- 158
-width$ -- 64
-write$ -- 674
+while$ -- 160
+width$ -- 65
+write$ -- 686
 (There were 6 warnings)

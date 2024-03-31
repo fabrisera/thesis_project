@@ -2,12 +2,30 @@
 \label{chap:conclusion}
 
 \section{Selected Individual Firm Actions}
-All the modeling techniques we employed were targeted at identifying key relationships between firm-level actions and decarbonization rates. In the following table, I will report the main predictors that were found to be significant in the final models, and the corresponding coefficients.
+All the modeling techniques we employed were targeted at identifying key relationships between firm-level actions and decarbonization rates. Through our analysis, we had the opportunity to explore various important actions, finding both expected and surprising results. In this section I will highlight the most important relationships, and then I will argue why theese relationships can be useful to develop a better grading system for CDP reports. The results are presented in Table \ref{tab:results} where we show the coefficients of the Mixed Effect final model, as well as whether the variable was selected as important by the Bayesian Ridge and CatBoost models. We will primarily focus on variables that were selected as top 10 in importance by all three models.
+
+
+\subsection{Background Predictors}
+Our analysis identified several core predictors essential for forecasting next-year's decarbonization rates. First among them is the \textbf{current-year decarbonization rates}, indicating a strong positive correlation with next-year's outcomes. This trend underscores a continuity in firms' environmental efforts, where entities engaged in emission reduction are likely to persist in their endeavors. Equally central to our analysis is the \textbf{industry} in which a firm operates. Our findings reveal that firms within sectors considered difficult to abate, such as \textbf{industrials} or \textbf{construction}, typically exhibit poorer decarbonization performance. Conversely, those in the \textbf{technology} and \textbf{consumer goods} sectors are more prone to reducing emissions, highlighting the impact of industry characteristics on decarbonization efforts and the need for tailored strategies across sectors.
+
+Another significant predictor is the \textbf{geographical location}—both the \textbf{country} and \textbf{continent}—of a firm's operations. Our analysis points to a faster decarbonization pace within the \textbf{European Union}, as opposed to slower rates observed in \textbf{Asia}. This geographic variance is important to take into consideration when forecasting firm-level decarbonization rates, alongside an observed disparity in disclosure practices, with a predominance of reporting from firms in the \textbf{United States} and \textbf{Europe}.
+
+Overall, the initial set of important variables for evaluating a company's future decarbonization trajectory include its \textbf{sector}, \textbf{country of operation}, and \textbf{current decarbonization rate}. Understanding these factors is an important starting point for assessing environmental strategies within the broader context of industry and geographic dynamics.
+
+\subsection{Most Important CDP Survey Metrics}
+
+In our analysis of CDP-specific metrics, certain predictors emerged as consistently significant across all models. These include the \textbf{average amount of emission targets} for Scope 1 and 2 emissions, the \textbf{verification method} for Scope 1 emissions, and the adoption of either a marginal abatement cost curve (MACC) or internal incentives to guide \textbf{emission reduction initiatives}.
+
+Particularly important is the role of \textbf{incentive type} in predicting next-year's decarbonization rates, which according to our analysis is more significant than its impact on same-year rates. According to Table \ref{tab:results}, both \textbf{internal incentives} and the \textbf{MACC} approach show a negative correlation with decarbonization rates. This implies that firms employing these strategies tend to achieve greater year-on-year reductions in emissions. Such findings highlight the importance of a proactive approach to incentives, differentiating between short-term impacts and long-term sustainability in decarbonization efforts. Therefore, we find that all key stakeholders should analyze which incentive structures are in place to determine the future effectiveness of a firm's environmental strategy.
+
+\textbf{Scope 1 emission verification} also stands out as a crucial predictor. Firms that undertake comprehensive verification of their Scope 1 emissions are generally more successful in decarbonizing. This contrasts with outcomes associated with limited, moderate, unavailable, or third-party verifications underway. This pattern emphasizes the value of external validation in emission reporting, suggesting that transparency and accountability in reporting, alongside consistent verification processes, are key to superior decarbonization performance. Firms that are open and accountable about their emissions tend to be more committed to environmental goals, reflecting a more structured and reliable strategy that is more likely to lead to decarbonization in the future. Therefore, the extent and rigor of emissions disclosure and verification serve as strong indicators of a firm's decarbonization commitment and effectiveness.
+
+Lastly, the \textbf{average amount of emission targets} set across Scope 1 and 2 emissions is an essential indicator of future decarbonization performance. We find that firms that establish more ambitious targets are likely to demonstrate better decarbonization outcomes. This consistency underscores the notion that ambition in setting environmental targets correlates with a firm's dedication to its environmental objectives and its capability to execute a sustained and effective strategy. Overall, the level of ambition in emission targets is a direct indicator of a firm's potential to achieve significant decarbonization in the future.
 
 \begin{table}[H]
     \centering
-    \caption{New Table with Mixed Effects Model Coefficients, Bayesian Ridge Ranking, and Category Boosting Ranking}
-    \label{tab:NewTable}
+    \caption{Mixed Effects Model Coefficients, with Indicator of Bayesian Ridge and CatBoost Top 10 Feature Importances}
+    \label{tab:results}
     \begin{tabular}{|l|c|c|c|}
     \hline
     \textbf{Predictor} & \textbf{MixedEffect} & \textbf{BayesianR} & \textbf{CatBoost} \\
@@ -55,20 +73,66 @@ All the modeling techniques we employed were targeted at identifying key relatio
     Investment.Counter & \textcolor{green}{$-0.254^{***}$} & \xmark & \xmark \\
     \hline
     \end{tabular}
-    \end{table}
-    
-    
+    % make the notes smaller and justify them]
+    \vspace{+0.3cm}
+    \caption*{
+        \textit{Notes: For the Mixed Effects Model, results are reported from model (30) in Chapter 5 \ref{tab:R10}, where green indicates a positive impact and red indicates a negative impact on decarbonization. Significance levels are denoted as *, **, and *** for p<0.1, p<0.05, and p<0.01, respectively. For the Bayesian Ridge and CatBoost models, the displayed feature importances are from the tuned models. A green check (\cmark) signifies that the feature is among the top 10 based on feature importance, whereas a red cross (\xmark) indicates it is not.}
+    }
+\end{table}
 
-\subsection{Robustness to Modeling Choices}
+\section{Forecasting Results and Data Considerations}
 
-\section{Best Forecasting Model}
+We found that, with our data, \textbf{building a universal model that accurately forecasts decarbonization rates for any specific firm through disclosure and financial data is not achivable}. Due to irregularities in disclosure, such as missing values, non-accurate figures, and inherent variability not captured by disclosure data, there is not enough forecasting power to accurately predict next year decarbonization for a specific firm. To illustrate this point, it is sufficient to observe the various figures presented in Chapter \ref{chap:chapter4} where it is possible to observe a significant level of noise in our data.
 
-\subsection{Data Limitations}
+Though, we were successful in achieving our to major objectives. As explained in the introduction, the focus of predictive modeling is twofold: first, we want to understand which models work best with disclosure data when it comes to forecasting decarbonization rates at the firm-level. Second, through a predictive exercise, our aim is to identify which predictors are significant across various modeling techniques and what is their correlation with future decarbonization. 
 
-\section{Improving CDP Survey Design and CDP Scores} 
+Addressing the first question, we found that more interpretable modeling techniques, such as Mixed Effects and Bayesian Regression, are the best choice. Alternatively, models that are particulary capable at leveraging categorical adata are also valid choices, with tree-based model and CatBoost yielding the best results. \textbf{We found that any model that either requires a relatively large number of data-points per firm to train (Long-Short Term Memory, autoregressive timeseries models) or that does not perform regularization and is not able to handle categorical data with high number of categories (Ordinary Least Squares) should be avoided}. The first group's disatvantage is obvious: we do not gain better predictive results compared to Mixed Effects as on average each firm does not have more than six data-points, and we do not have interpretability. Arguing why we should not use simple linear model which are standard in the field is more nuanced: first, we though our analysis we found that it is important to place each firm in its own category and recognize the profound difference in operations between firms that operate in different industries, countries, and continents. Yet, if we one-hot-encode all this information we risk overfitting to the data. Second, if we instead chose not to use all those categorical information to prevent overfitting, then we bias some of the important relationships we are trying to uncover as we do not control for the fact that each firm has its own unique characteristics, and we build models that are not representative of the structure of our data thus we encounter an important omitted variables problem. 
 
+
+The most important key takeaway of predictive modeling is that \textbf{when it comes to disclosure data, taking a forward-looking predictive apporach allows to uncover firm-level disclosure actions that correlate with future decarbonization}.  Crucially, as explained in the introduction, we need individual firms to decarbonize, thus it is important to suggest to all stakeholders which actions are most likely to lead to decarbonization \textbf{at the firm level}. Therefore, unlike most literature in the field
+\textbf{we should not aggregate the data}, as although we would likely get a better prediction of the aggregated emissions as is typiciallly the case when aggregating, this will not actually be useful in practice for suggesting individual firm actions as aggregating can lead to the data showing a different relationship than the individual data due to Simpson's paradox \cite{pearl2013understanding}.
+
+
+
+% This task would be better achieved  our goal was to determine the decarbonization rate of a specific firm with great precision then we would likely need more predictors with higher frequency than yearly disclosure and financial data, and a firm-specific model (or the work of a specialized analyst) would probably to outperform any general model. 
+
+
+
+% Instead, we focused on understanding which specific firms \textbf{individual firm actions} correlate with future decarbonization.
+
+
+
+
+
+
+
+% This is because disclosure data at the firm level is effectively a multiple timeseries problem, where each firm represent one timeseries and our interest is to understand what the effect of predictors is across firms. Notably, each timeseries only has on average six data points (of the firms in our dataset, each has reported to the CDP for an average of 6 years as of 2022), therefore models such as LSTM (Long-Short Term Memory) Neural Networks, which are typically applied when forecasting timeseries, are not useful as there is not enough data-points to train. Furthermore, due to irregularities in reporting, such as missing values, non-accurate figures, and inherent variability not captured by disclosure data, there is not enough forecasting power to accurately predict next year decarbonization for a specific firm. 
+
+% We found that the key is to leverage the panel aspect of our data, with firms belonging to sevaral industries, countries, contients, and with each firm reporting multiple years. Additionally, we found an incredible opportunity to identify important predictors across firms by using models that can take into consideration the fact that each firm has its own unique characteristics, while at the same time allowing for general trends to emerge. Crucially, the opportunity is in uncovering the underlying mechanisms that drive emissions reductions derived from \textbf{individual firm actions} and that are valid across a range of firms. This is extremely important as there is not enough 
+
+% Thus we found that the best approach is to have models that prioritize explainability, and that also have the ability to model firm-specific behavior on one hand, and on the other hand to borrow strenghts across firms to determine trends.
+
+% Thus, we found that two models are particularly useful: Mixed Effects and CatBoost regression. 
+
+
+%  We found that the structure of disclosure data lends more effectively to uncovering key relationships and dynamics within the decarbonization process, rather than focusing solely on predicting exact future emissions for individual firms—a task made challenging without high-frequency data and better addressed with firm-specific models. We therefore focused on using a predictive framework for identifying the key predictors of next-year decarbonization, 
+ 
+ 
+ 
+ 
+ 
+%  his approach allowed us to uncover the underlying mechanisms that drive emissions reductions derived from \textbf{individual firm actions} and that are valid across a range of firms. Overall, I believe that true value of disclosure data is not in predicting future emissions for any specific firm, but in understanding which actions correlate with future decarbonization which, if acted upon, can lead to significant emissions reductions at the firm level. In this regard, an important consideration to make is that, as explained in the introduction, we need individual firms to decarbonize, thus it is important to suggest to all stakeholders which actions are most likely to lead to decarbonization at the firm level. Therefore, we should not aggregate the data, as although we would likely get a better prediction of the aggregated emissions, this could lead to the aggregated data showing a different relationship than the individual data (Simpson's paradox) \cite{pearl2013understanding}.
+
+% To build a good predictive model at the firm-level, we found to leveraging the panel data format to be the most important aspect. As we want to take into consideration the individual firm characteristics, without overly increasing the dimensionality of the data. Within this context, Mixed Effects models and CatBoost emerged as standout methodologies. Their superior handling of categorical data allowed us to tap into the full potential of repeated measurements over time, enabling an exhaustive exploration of how various strategies impact firm-level emissions.
+
+% Crucially, the use of random intercepts in Mixed Effects models played an important role in our analysis. This approach allowed us to account for intrinsic firm characteristics when assessing the influence of different predictors on emissions by creating a random intercept for every firm. By isolating the effects of these variables, we could ensure that the observed relationships were not reflections of underlying firm attributes but rather genuine indicators of strategic impact across all firms. This new understanding of predictor effects, controlled for individual firm characteristics, highlights the incredible potential of using disclosure data to inform decarbonization strategies and policies for individual firms.
+
+
+\section{Improving the CDP Survey} 
+Discussion on the residuals -> missing data is the problem -> we can use this as a feature to enhance disclosure. Simple surveys with pinpointed questions. 
 \subsection{CDP Survey Design: emphasis on key quantitative metrics}
-
+Todo
 \subsection{CDP Scores: more transparency}
-
+Todo
 \section{Future Work}
+Todo

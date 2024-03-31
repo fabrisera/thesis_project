@@ -273,6 +273,13 @@ Yue Pan and Limao Zhang.
   multi-source heterogeneous data.
 \newblock {\em Applied Energy}, 268:114965, 2020.
 
+\bibitem{pearl2013understanding}
+Judea Pearl.
+\newblock Understanding simpson's paradox.
+\newblock Social Science Research Network, 9 2013.
+\newblock Available at SSRN: https://ssrn.com/abstract=2343788 or
+  http://dx.doi.org/10.2139/ssrn.2343788.
+
 \bibitem{scikit-learn}
 F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
   M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,

@@ -97,23 +97,23 @@
 \contentsline {subsection}{\numberline {5.6.3}Shapley Beeswarm Values Plot}{90}{subsection.5.6.3}%
 \contentsline {chapter}{\numberline {6}Conclusion}{92}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Selected Individual Firm Actions}{92}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Robustness to Modeling Choices}{94}{subsection.6.1.1}%
-\contentsline {section}{\numberline {6.2}Best Forecasting Model}{94}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Data Limitations}{94}{subsection.6.2.1}%
-\contentsline {section}{\numberline {6.3}Improving CDP Survey Design and CDP Scores}{94}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}CDP Survey Design: emphasis on key quantitative metrics}{94}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}CDP Scores: more transparency}{94}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Future Work}{94}{section.6.4}%
-\contentsline {chapter}{\numberline {A}Appendix}{95}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Emission Scopes}{95}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Marginal Abatement Cost Curve}{96}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Neural Network Model}{98}{section.A.3}%
-\contentsline {subsection}{\numberline {A.3.1}Model Architecture}{98}{subsection.A.3.1}%
-\contentsline {subsection}{\numberline {A.3.2}Training and Validation Loss Plot}{99}{subsection.A.3.2}%
-\contentsline {subsection}{\numberline {A.3.3}Model Performance Metrics}{99}{subsection.A.3.3}%
-\contentsline {section}{\numberline {A.4}Variable Dictionary}{99}{section.A.4}%
-\contentsline {section}{\numberline {A.5}A Case Study on Two CDP Reports}{104}{section.A.5}%
-\contentsline {subsection}{\numberline {A.5.1}General Motors 2022 CDP Report}{104}{subsection.A.5.1}%
-\contentsline {subsection}{\numberline {A.5.2}JetBlue Airways Corporation 2022 CDP Report}{106}{subsection.A.5.2}%
-\contentsline {section}{\numberline {A.6}Code Repository}{108}{section.A.6}%
-\contentsline {chapter}{References}{116}{appendix*.62}%
+\contentsline {subsection}{\numberline {6.1.1}Background Predictors}{93}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Most Important CDP Survey Metrics}{93}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}Forecasting Results and Data Considerations}{96}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Improving the CDP Survey}{97}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}CDP Survey Design: emphasis on key quantitative metrics}{97}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}CDP Scores: more transparency}{97}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Future Work}{98}{section.6.4}%
+\contentsline {chapter}{\numberline {A}Appendix}{99}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Emission Scopes}{99}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Marginal Abatement Cost Curve}{100}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Neural Network Model}{102}{section.A.3}%
+\contentsline {subsection}{\numberline {A.3.1}Model Architecture}{102}{subsection.A.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}Training and Validation Loss Plot}{103}{subsection.A.3.2}%
+\contentsline {subsection}{\numberline {A.3.3}Model Performance Metrics}{103}{subsection.A.3.3}%
+\contentsline {section}{\numberline {A.4}Variable Dictionary}{103}{section.A.4}%
+\contentsline {section}{\numberline {A.5}A Case Study on Two CDP Reports}{108}{section.A.5}%
+\contentsline {subsection}{\numberline {A.5.1}General Motors 2022 CDP Report}{108}{subsection.A.5.1}%
+\contentsline {subsection}{\numberline {A.5.2}JetBlue Airways Corporation 2022 CDP Report}{110}{subsection.A.5.2}%
+\contentsline {section}{\numberline {A.6}Code Repository}{112}{section.A.6}%
+\contentsline {chapter}{References}{120}{appendix*.62}%

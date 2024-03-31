@@ -27,7 +27,7 @@
 \contentsline {table}{\numberline {5.6.1}{\ignorespaces Hyperparameters for Catboost Regressor\relax }}{88}{table.caption.52}%
 \contentsline {table}{\numberline {5.6.2}{\ignorespaces Catboost Regressor Tuned Model Performance Metrics\relax }}{88}{table.caption.53}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1.1}{\ignorespaces New Table with Mixed Effects Model Coefficients, Bayesian Ridge Ranking, and Category Boosting Ranking\relax }}{93}{table.caption.56}%
+\contentsline {table}{\numberline {6.1.1}{\ignorespaces Mixed Effects Model Coefficients, with Indicator of Bayesian Ridge and CatBoost Top 10 Feature Importances\relax }}{95}{table.caption.56}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.3.1}{\ignorespaces Neural Networks Model Performance Metrics\relax }}{99}{table.caption.61}%
-\contentsline {table}{\numberline {A.4.1}{\ignorespaces Variable Dictionary\relax }}{103}{table.A.4.1}%
+\contentsline {table}{\numberline {A.3.1}{\ignorespaces Neural Networks Model Performance Metrics\relax }}{103}{table.caption.61}%
+\contentsline {table}{\numberline {A.4.1}{\ignorespaces Variable Dictionary\relax }}{107}{table.A.4.1}%

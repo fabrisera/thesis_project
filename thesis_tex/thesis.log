@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  28 MAR 2024 02:25
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.11)  30 MAR 2024 21:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1920,12 +1920,16 @@ Chapter 6.
 
 
 
-]) [93] [94]
+] [93] [94] [95] [96]
+
+Package xcolor Warning: Incompatible color definition on input line 93.
+
+) [97] [98]
 \openout2 = `chapters/appendixA.aux'.
 
  (./chapters/appendixA.tex
 Appendix A.
-[95
+[99
 
 
 
@@ -1943,7 +1947,7 @@ Package xcolor Warning: Incompatible color definition on input line 19.
 
 Package xcolor Warning: Incompatible color definition on input line 26.
 
-[96]
+[100]
 File: figures/marginal_abatement_cost_curve.png Graphic file (type bmp)
 <figures/marginal_abatement_cost_curve.png>
 
@@ -1953,12 +1957,12 @@ Package xcolor Warning: Incompatible color definition on input line 31.
 
 Package xcolor Warning: Incompatible color definition on input line 31.
 
-[97]
+[101]
 File: figures/nn_architecture.png Graphic file (type bmp)
 <figures/nn_architecture.png>
 File: figures/nn_training_loss.png Graphic file (type bmp)
 <figures/nn_training_loss.png>
- [98] [99]
+ [102] [103]
 Overfull \hbox (1.71526pt too wide) in paragraph at lines 182--182
 []|\TU/lmr/bx/n/12 Type| 
  []
@@ -2028,18 +2032,18 @@ Overfull \hbox (17.83084pt too wide) in alignment at lines 194--265
  [] [] [] [] 
  []
 
-[100] [101] [102] [103]
-
-Package xcolor Warning: Incompatible color definition on input line 275.
-
-
-Package xcolor Warning: Incompatible color definition on input line 275.
-
 [104] [105] [106] [107]
+
+Package xcolor Warning: Incompatible color definition on input line 275.
+
+
+Package xcolor Warning: Incompatible color definition on input line 275.
+
+[108] [109] [110] [111]
 
 Package xcolor Warning: Incompatible color definition on input line 339.
 
-) [108] (./thesis.bbl
+) [112] (./thesis.bbl
 
 Package xcolor Warning: Incompatible color definition on input line 6.
 
@@ -2064,7 +2068,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--21
 [][][][][][][][][][][][][][][] [] [][][][][][][][][][][][][][][] [] [][][][][][][][][][][][][] [] [][][][][][][][][][][][][][][][][][] []
  []
 
-[109
+[113
 
 
 
@@ -2110,7 +2114,7 @@ Underfull \hbox (badness 2073) in paragraph at lines 102--106
 [][][]\TU/lmr/m/n/12 CDP.  Guidance for companies.  [][]$[][][][][][][] [] [] [] [][][] [] [][][] [] [][][] [] [][] [] [][][][][][][][] []
  []
 
-[110]
+[114]
 
 Package xcolor Warning: Incompatible color definition on input line 138.
 
@@ -2129,7 +2133,7 @@ Underfull \hbox (badness 5403) in paragraph at lines 135--141
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[][]\TU/lmr/m/n/12 , 2024.  [Online; accessed
  []
 
-[111] [112]
+[115] [116]
 Underfull \hbox (badness 2088) in paragraph at lines 223--228
 [][][]\TU/lmr/m/n/12 David J. C. MacKay.  Bayesian Interpolation.  \TU/lmr/m/it/12 Neural Computation\TU/lmr/m/n/12 ,
  []
@@ -2139,32 +2143,32 @@ Underfull \hbox (badness 2799) in paragraph at lines 223--228
 \TU/lmr/m/n/12 4(3):415–447, May 1992.  _eprint: https://direct.mit.edu/neco/article-
  []
 
-[113]
-Underfull \hbox (badness 2512) in paragraph at lines 295--299
+[117]
+Underfull \hbox (badness 2512) in paragraph at lines 302--306
 [][][]\TU/lmr/m/n/12 Mohd Saqib.  Forecasting covid-19 outbreak progression using hybrid
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 321.
+Package xcolor Warning: Incompatible color definition on input line 328.
 
-[114]
-
-Package xcolor Warning: Incompatible color definition on input line 339.
-
+[118]
 
 Package xcolor Warning: Incompatible color definition on input line 346.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--349
+Package xcolor Warning: Incompatible color definition on input line 353.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 350--356
 [][][] [] [][][][][][][][][][] [] [][][][][][][][][][][][] [] [][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[][]\TU/lmr/m/n/12 , 2023.
  []
 
-[115]) [116] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/conclusion.aux) (./chapters/appendixA.aux))
+[119]) [120] (./thesis.aux (./chapters/chapter1.aux) (./chapters/chapter3.aux) (./chapters/chapter31.aux) (./chapters/chapter4.aux) (./chapters/chapter6.aux) (./chapters/conclusion.aux) (./chapters/appendixA.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 0137CD992BA4D003B43856F561B448E4;7977.
+(rerunfilecheck)             Checksum: C86925AAF9633F9A46510C72648AABB5;7989.
  )
 (\end occurred inside a group at level 2)
 
@@ -2172,12 +2176,12 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 ### semi simple group (level 1) entered at line 10 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 49245 strings out of 476179
- 1126369 string characters out of 5809544
- 1493700 words of memory out of 5000000
- 69083 multiletter control sequences out of 15000+600000
- 479743 words of font info for 93 fonts, out of 8000000 for 9000
+ 49251 strings out of 476179
+ 1126510 string characters out of 5809544
+ 1493920 words of memory out of 5000000
+ 69089 multiletter control sequences out of 15000+600000
+ 480103 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  170i,35n,161p,5208b,2268s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (128 pages, 1814320 bytes).
+Output written on thesis.xdv (132 pages, 1909700 bytes).
