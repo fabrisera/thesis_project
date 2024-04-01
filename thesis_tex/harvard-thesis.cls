@@ -191,7 +191,7 @@
 	\vspace{12pt}
 	in partial fulfillment of the requirements\\ 
 	for the degree of\\ \@degree\\ 
-	in the subject of\\ \@field\\
+	in the subjects of\\ \@field\\
 	\vspace{12pt}
 	\@university\\ \@universitycity, \@universitystate\\ 
 	\@degreemonth\ \@degreeyear

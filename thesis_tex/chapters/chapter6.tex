@@ -2,7 +2,7 @@
 \label{ch:finding-the-best-model}
 
 \begin{keytakeaway}
-    Overall, we find that while the \textbf{Mixed Effects Model} is a strong contender, but \textbf{CatBoost} is the best model for this dataset. Most importantly, we find that \textbf{different models identify similar sets of important features}, confirming the hypothesis that from the CDP survey we can identify a group of key variables that together can best forecast next year decarbonization rate.
+    Overall, in this chapter we find that while the \textbf{Mixed Effects Model} is a strong contender, \textbf{CatBoost} is the best model for this dataset if we prioritize accuracy. Most importantly, we find that \textbf{different models identify similar sets of important features}, confirming the hypothesis that from the CDP survey we can identify a group of key variables that together can best forecast next year decarbonization rate.
 \end{keytakeaway}
 
 
@@ -74,7 +74,7 @@ The Bayesian Ridge model is a linear regression model that uses a Bayesian appro
 
 \begin{table}[H]
     \centering
-    \caption{Bayesian Ridge Model Performance Metrics for Training and Test Sets}
+    \caption{Bayesian Ridge Model Performance Metrics}
     \label{tab:bayesian_ridge_performance}
     \begin{tabular}{lcccc}
     \hline
@@ -164,7 +164,7 @@ To tune the Catboost Regressor model, we used grid search and cross-validation t
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/catboost_shap_values_beeswarm.png}
-    \caption{Catboost Regressor Shapley Beeswarm Values Plot}
+    \caption{Catboost Regressor Shapley Beeswarm Values}
     \label{fig:catboost_shapley_values}
 \end{figure}
 
