@@ -108,6 +108,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{array}
 \RequirePackage{dcolumn}
+\RequirePackage{wasysym}
 
 
 \RequirePackage[english]{babel}

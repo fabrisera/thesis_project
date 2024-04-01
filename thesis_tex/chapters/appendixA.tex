@@ -3,7 +3,7 @@
 
 \section{Emission Scopes}
 \label{sec:emission_scopes}
-The thesis will assume familiarity with the concept of Scopes 1, 2, and 3 emissions which I am going to introduce in this section. In carbon-accounting and emissions reporting, it is very important to distinguish between three types of emissions: Scope 1, Scope 2, and Scope 3 emissions. Each category represents a different level of emissions associated with an organization's activities as shown in Figure \ref{fig:emission_scopes}.
+The thesis will assume familiarity with the concept of Scopes 1, 2, and 3 emissions which I am going to introduce in this section. In carbon-accounting and emissions reporting, it is very important to distinguish between three types of emissions: Scope 1, Scope 2, and Scope 3 emissions  \cite{Bernoville2022Scopes}. Each category represents a different level of emissions associated with an organization's activities as shown in Figure \ref{fig:emission_scopes}.
 
 \begin{itemize}
     \item \textbf{Scope 1} emissions are direct emissions from owned or controlled sources. This includes emissions from company vehicles, and emissions from chemical processes or combustion in owned or controlled boilers, furnaces, etc.
@@ -138,6 +138,8 @@ A Marginal Abatement Cost Curve (MACC) is a graphical representation of the cost
     \label{fig:neural_networks_architecture}
 \end{figure}
 
+In this section I am reporting the configuration and the training and test results of a Neural Network model that was tested on the dataset. As can be observed from the performance metrics in Table \ref{tab:neural_networks_performance}, the model is in line with Mixed Effects regression and slightly worse than CatBoost. Given that it is less interpretable than other models, and because of the data considerations detailed previously, I believe that the questions tackled in this thesis do not benefit from Deep Learning techniques. Tree-based and parametric approach are preferable.
+
 \subsection{Training and Validation Loss Plot}
 
 \begin{figure}[H]
@@ -264,10 +266,10 @@ A Marginal Abatement Cost Curve (MACC) is a graphical representation of the cost
 
 \section{A Case Study on Two CDP Reports}
 
-\noindent To begin the discussion on exploratory data analysis, I must first address the complexities of emission accounting and reporting within the framework of CDP data, highlighting its distinct nature compared to the more standardized field of financial reporting. That is, despite ongoing improvements, emission reporting still falls short of the robust standards established in financial accounting. I will highlight this by analyzing the 2022 CDP reports from two markedly different companies: General Motors (GM) in the automotive sector and Jet Blue in the airline industry. These reports underscore the highly company-specific nature of emission data, with significant variances stemming from diverse operational practices, especially across different industries. This results in a substantial reliance on text-based and free-form answers within the CDP reports, presenting unique challenges for data analysis. To navigate this complexity, a critical starting point is to analyze the inherent differences in these reports, which will inform and refine our modeling approach. By understanding and accommodating these industry-specific nuances, we aim to develop a more accurate and representative model of emission reporting and reduction strategies as well as identifying potential areas of improvement. 
+In this section, I will analyze the  2022 CDP reports from: General Motors (GM) in the automotive sector and Jet Blue in the airline industry. They are obtained as part of CDP data, and can the full reports in PDF form can be requested through the CDP website \cite{Cdp2017}. These reports are examples of the highly company-specific nature of emission data, with significant variances deriving from the fact that the companies operate in different sectors. Through this exploration, we therefore uncover a primary challenge for data analysis on the CDP Survey: there is a significant amount of text-based and free-form answers within the CDP reports.
 
 \subsection{General Motors 2022 CDP Report}
-General Motors Company (GM), a global leader in the automotive industry, is headquartered in Detroit, Michigan, USA. Renowned for its ownership and production of the Chevrolet, GMC, Cadillac, and Buick brands, GM was the largest automaker in the United States by sales in 2022. GM's commitment to sustainability is evident in its strategic approach to reducing Scope 1, Scope 2, and Scope 3 greenhouse gas (GHG) emissions, with comprehensive governance and ambitious environmental targets.
+General Motors Company (GM), a global leader in the automotive industry, is headquartered in Detroit, Michigan, USA. Renowned for its ownership and production of the Chevrolet, GMC, Cadillac, and Buick brands, GM was the largest automaker in the United States by sales in 2022 \cite{GeneralMotorsWikipedia}. GM's commitment to sustainability is evident in its comprehensive governance and ambitious environmental targets.
 
 \subsection*{Scope 1 and Scope 2 Emissions}
 GM has set forth aggressive targets to reduce its Scope 1 and Scope 2 emissions by 71.4\% by 2035, relative to its 2018 baseline. In 2018, GM reported Scope 1 emissions of 1,763,555 metric tons CO2e and Scope 2 emissions of 3,924,338 metric tons CO2e. By the reporting year 2022, GM achieved a reduction to 1,252,906 metric tons CO2e for Scope 1 and 2,150,694 metric tons CO2e for Scope 2, marking significant progress towards its goal. This reduction aligns with the 1.5 degrees Celsius strategy set by the Paris Agreement, underscoring GM's commitment to global climate initiatives \cite{GeneralMotorsWikipedia, Zhou2020Decarbonization}.
@@ -275,16 +277,16 @@ GM has set forth aggressive targets to reduce its Scope 1 and Scope 2 emissions 
 GM's strategy includes enhancing energy efficiency across its manufacturing operations and increasing the use of renewable energy. In 2021, GM implemented over 300 energy efficiency improvements, such as upgrading to more efficient equipment and increasing renewable electricity use from 23\% to 25\%, contributing to GHG reductions in Scope 2 emissions.
 
 \subsection*{Scope 3 Emissions}
-Addressing Scope 3 emissions, GM has set a target to achieve a 50.4\% reduction in its vehicle use emissions, from a baseline of 0.0002466 metric tons of CO2 per kilometer to 0.0001223136. GM's strategy to meet this target includes transitioning to an all-electric vehicle (EV) future, with plans to introduce 30 new EV models by 2025 and aspirations to be fully electric by 2035. Partnerships to increase renewable energy generation and deploy EV chargers, in collaboration with EvGo, further exemplify GM's holistic approach to reducing its carbon footprint across the value chain.
-
+Addressing Scope 3 emissions, GM has set a target to achieve a 50.4\% reduction in its vehicle use emissions, from a baseline of 0.0002466 metric tons of CO2 per kilometer to 0.0001223136. GM's strategy to meet this target includes transitioning to an all-electric vehicle (EV) future, with plans to introduce 30 new EV models by 2025 and aspirations to be fully electric by 2035. Partnerships to increase renewable energy generation and deploy EV chargers, in collaboration with EvGo, are examples of GM's intent of reducing its carbon footprint across the value chain, thus addressing Scope 3 figures.
+ 
 \subsection*{Key Takeaways}
 \begin{itemize}
-    \item \textbf{Strategic Emissions Reduction:} GM's targeted reductions in Scope 1 and Scope 2 emissions demonstrate a strong commitment to environmental stewardship, leveraging technological advancements and renewable energy.
-    \item \textbf{Leadership in Electric Vehicles:} GM's aggressive transition to an all-EV lineup by 2035 highlights its leadership role in transforming the automotive industry towards sustainability.
-    \item \textbf{Comprehensive Approach to Sustainability:} Through its Scope 3 emissions reduction target, GM addresses the broader environmental impact of its products, emphasizing the importance of a comprehensive strategy that extends beyond direct emissions.
+    \item \textbf{Emissions Reduction Track Record:} GM's targeted reductions in Scope 1 and Scope 2 emissions are examples of a concrete commitment to environmental stewardship, leveraging technological advancements and renewable energy.
+    \item \textbf{Electric Vehicles:} GM's aggressive transition to an all-EV lineup by 2035 highlights its leadership role in transforming the automotive industry and promoting decarbonization
+    \item \textbf{Comprehensive Approach to Sustainability:} Through its Scope 3 emissions reduction target, GM also addresses the broader environmental impact of its products, emphasizing the importance of a decarbonization strategy that goes beyond direct emissions.
 \end{itemize}
 
-GM's sustainability efforts showcase a deep commitment to reducing its environmental impact and leaading the automotive industry towards a more sustainable future. By strategically targeting Scope 1, Scope 2, and Scope 3 emissions, GM is not only adhering to global climate agreements but also setting a precedent for corporate responsibility in addressing climate change.
+Overall, GM's sustainability efforts are examples of a strong commitment to reducing environmental impact and showcasing a concrete path towards decarbonizing. Note how this requires profound changes in technology to GM's fleet which represent major challenges. Thus, although there is a concrete path, there is uncertainty on whether GM will be able to deliver on all its decarbonization commitments. 
 
 
 % \subsection{General Motors' Report Analysis}
@@ -303,15 +305,15 @@ GM's sustainability efforts showcase a deep commitment to reducing its environme
 % \end{itemize}
 
 \subsection{JetBlue Airways Corporation 2022 CDP Report}
-JetBlue Airways Corporation has been steadfast in its commitment to environmental stewardship, focusing on reducing Scope 1, Scope 2, and Scope 3 greenhouse gas (GHG) emissions across its operations. The airline's governance structure emphasizes sustainability, with strategic initiatives overseen by its board and executive team, underscoring a comprehensive approach to addressing climate change.
+JetBlue Airways Corporation is  focusing on reducing Scope 1, Scope 2, and Scope 3 emissions across its operations. The airline's governance structure emphasizes sustainability, with strategic initiatives overseen by its board and executive team.
 
 \subsection*{Scope 1 and Scope 2 Emissions}
-In the reporting year 2022, JetBlue's Scope 1 emissions totaled 6,853,927 metric tons CO2e, predominantly from jet fuel combustion, a primary challenge within the airline industry. Scope 2 emissions amounted to 25,945 metric tons CO2e, reflecting the emissions from electricity consumption. These figures demonstrate JetBlue's significant environmental footprint, necessitating aggressive measures for reduction.
+In the reporting year 2022, JetBlue's Scope 1 emissions totaled 6,853,927 metric tons CO2e, predominantly from jet fuel combustion, the main source of emissions within the airline industry. Scope 2 emissions amounted to 25,945 metric tons CO2e, reflecting the emissions from electricity consumption. These figures demonstrate JetBlue's significant environmental footprint which is typical of a firm in the airline industry. Again here, we can observe how technology is a crucial factor in determining the composition of a firm's emission.
 
-\noindent JetBlue's strategies to mitigate these emissions include modernizing its fleet with more fuel-efficient aircraft, such as the Airbus A220 and A321neo, and investing in sustainable aviation fuel (SAF) to reduce lifecycle GHG emissions associated with jet fuel. Additionally, the airline is transitioning its ground service equipment to electric power, aligning with its commitment to lower Scope 1 and Scope 2 emissions.
+JetBlue's strategies to mitigate these carbon figures include modernizing its fleet with more fuel-efficient aircraft, such as the Airbus A220 and A321Neo, and investing in sustainable aviation fuel (SAF) to reduce lifecycle GHG emissions associated with jet fuel. Additionally, the airline is transitioning its ground service equipment to electric power, this is in line with its commitment to lower Scope 1 and Scope 2 emissions.
 
 \subsection*{Scope 3 Emissions}
-JetBlue's Scope 3 emissions are a crucial component of its sustainability strategy, addressing emissions from purchased goods and services, capital goods, and fuel-and-energy-related activities not included in Scope 1 or 2. In 2022, the emissions reported were as follows:
+JetBlue's Scope 3 emissions are an important component of its sustainability strategy as well, with the airline currently monitoring emissions from purchased goods and services, capital goods, and fuel-and-energy-related activities not included in Scope 1 or 2. In 2022, the emissions reported were as follows:
 
 \begin{itemize}
     \item Purchased Goods and Services: 44,922 metric tons CO2e, estimated for catered food and onboard product.
@@ -319,19 +321,17 @@ JetBlue's Scope 3 emissions are a crucial component of its sustainability strate
     \item Fuel-and-Energy-Related Activities: 1,391,126 metric tons CO2e, highlighting the broader impact of JetBlue's operational energy use.
 \end{itemize}
 
-\noindent These figures were calculated using the Quantis Scope 3 tool, demonstrating JetBlue's reliance on standardized methodologies to quantify and manage its indirect emissions. The airline's commitment to understanding and reducing its Scope 3 emissions is evident through its detailed reporting and targeted reduction strategies, including investments in SAF and efficiency improvements across its value chain.
+These figures were calculated using the Quantis Scope 3 tool. Overall, the airline's commitment to understanding and reducing its Scope 3 emissions is evident through its detailed reporting and targeted reduction strategies, including investments in SAF and efficiency improvements across its value chain.
 
 \subsection*{Key Takeaways}
 \begin{itemize}
-    \item \textbf{Comprehensive Climate Strategy:} JetBlue's efforts to reduce Scope 1, Scope 2, and Scope 3 emissions underscore a holistic approach to sustainability, addressing both direct and indirect sources of GHG emissions.
+    \item \textbf{Comprehensive Emission Reduction:} JetBlue's efforts to reduce Scope 1, Scope 2, and Scope 3 emissions underscore a comprehensive approach to sustainability, addressing both direct and indirect sources.
     \item \textbf{Innovation and Efficiency:} Through fleet modernization, SAF investments, and operational efficiencies, JetBlue is actively working towards reducing its environmental impact, despite the inherent challenges of the airline industry.
-    \item \textbf{Scope 3 Emissions Challenge:} JetBlue's detailed reporting on Scope 3 emissions highlights the complexity of addressing indirect emissions. The airline's engagement with its supply chain and investment in sustainable practices exemplify a forward-thinking approach to environmental responsibility.
+    \item \textbf{Scope 3 Emissions:} JetBlue's detailed reporting on Scope 3 emissions highlights the potential for using standardized tools, such as Quantis, to facilitate the measurement of indirect emissions.
 \end{itemize}
-
-\noindent JetBlue's sustainability efforts reflect a deep commitment to reducing its carbon footprint and contributing to the global fight against climate change. By addressing Scope 1, Scope 2, and Scope 3 emissions with targeted strategies and investments, JetBlue is paving the way for a more sustainable future in aviation.
 
 
 \section{Code Repository}
 \label{sec:code-repo}
 
-The code repository for this thesis project is available on GitHub at the following link: \url{https://github.com/fabrisera/thesis_project}. The repository contains the code for data preprocessing, exploratory data analysis, feature engineering, model development, evaluation and the tex files for the thesis document. The data is not included in the repository due to confidentiality reasons, but the code is structured to work with the standard CSV data provided by the CDP. 
+The code repository for this thesis project is available on GitHub at the following link: \url{https://github.com/fabrisera/thesis_project}. The repository contains the code for data preprocessing, exploratory data analysis, feature engineering, model development, evaluation and the Tex files for the thesis document. I primarily used Python for data cleaning, EDA, and modeling. I also used R specifically for the Mixed Effect Models. The CDP data is not included in the repository due to confidentiality reasons, but the code is structured to work with the standard CSV and Excel files provided by the CDP. Thus, to replicate these results, it will be sufficient to obtain the data, clone the repository, and re-run all the scripts.
